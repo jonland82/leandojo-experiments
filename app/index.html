@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LeanDojo Proof Space — soft-topic explorer</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <aside id="side">
+    <header>
+      <h1>Proof Space</h1>
+      <p class="sub">LeanDojo Benchmark 4 · <span id="npts">–</span> tactic proofs · <span id="kval">–</span> topics</p>
+    </header>
+
+    <section class="ctrl">
+      <label>Color by</label>
+      <div class="seg">
+        <button class="viewbtn segbtn active" data-view="style">Proof style</button>
+        <button class="viewbtn segbtn" data-view="domain">Domain</button>
+      </div>
+    </section>
+
+    <section class="ctrl">
+      <label>Layout</label>
+      <div class="seg">
+        <button class="segbtn active" data-layout="tsne">t-SNE</button>
+        <button class="segbtn" data-layout="pca">PCA</button>
+      </div>
+    </section>
+
+    <section class="ctrl">
+      <label>Size by proof length <input type="checkbox" id="sizeby" checked></label>
+      <label>Depth fog <input type="checkbox" id="fog" checked></label>
+    </section>
+
+    <section class="ctrl">
+      <label for="search">Search theorem / file</label>
+      <input type="text" id="search" placeholder="e.g. List.length or MeasureTheory">
+    </section>
+
+    <section class="ctrl">
+      <div class="legendhead">
+        <label>Dominant topics</label>
+        <button id="alltoggle" class="mini">none</button>
+      </div>
+      <ul id="legend"></ul>
+    </section>
+
+    <section id="detail">
+      <p class="hint">Drag to orbit · scroll to zoom · shift-drag to pan · click a point for its proof.</p>
+    </section>
+  </aside>
+
+  <main id="stage">
+    <canvas id="cv"></canvas>
+    <div id="tip" hidden></div>
+    <div id="hud"></div>
+  </main>
+</div>
+<script src="data.js"></script>
+<script src="viewer.js"></script>
+</body>
+</html>
