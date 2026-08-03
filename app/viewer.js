@@ -1,5 +1,5 @@
 /* Dependency-free 3D point-cloud viewer for LeanDojo proof topics.
-   Perspective projection + painter's algorithm on a 2D canvas — no WebGL,
+   Perspective projection + painter's algorithm on a 2D canvas; no WebGL,
    no external libraries, runs straight off file://. */
 (function () {
   "use strict";
