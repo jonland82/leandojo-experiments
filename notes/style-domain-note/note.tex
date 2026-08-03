@@ -29,12 +29,13 @@ The premises named by those tactics record more of \emph{what} it is about: list
 measure theory, category theory, or polynomial algebra.  Predictive systems often combine
 these signals; separating them instead distinguishes procedure from subject.
 
-Two soft topic models fitted to 1,940 human-written Lean 4 tactic proofs find stable structure
+Two soft topic models fitted to 10,000 human-written Lean 4 tactic proofs find stable structure
 in each view, but little alignment \emph{between} them.  Common proof idioms appear to travel
 across subjects, while one subject admits several modes of formal argument.
 
 \paragraph{Two representations.}
-Index the $n=1{,}940$ proofs by $i$.  Let $L_i$ be the number of tactics in proof $i$,
+From all 52,187 tactic-traced proofs in the benchmark's random split, a seed-0 uniform sample
+selects $n=10{,}000$ proofs, indexed by $i$.  Let $L_i$ be the number of tactics in proof $i$,
 $(h_{i1},\ldots,h_{iL_i})$ its tactic-head sequence, and $P_i$ the
 set of premises explicitly named in its traced tactics.  The \emph{style} document contains
 tactic unigrams $h_{ij}$ and adjacent bigrams $(h_{ij},h_{i,j+1})$; the \emph{domain} document
@@ -66,9 +67,9 @@ where the Frobenius norm $\lVert A\rVert_F^2=\sum_{ij}A_{ij}^2$ sums squared mat
 Here $W^{(v)}_{ik}$ is proof $i$'s loading on topic $k$, while $H^{(v)}_{kw}$ is topic $k$'s
 loading on feature $w$.  With $K_v$ topics in view $v$, row normalization gives
 $\theta^{(v)}_{ik}=W^{(v)}_{ik}/\sum_{\ell=1}^{K_v}W^{(v)}_{i\ell}$; the dominant topic
-$z_i^{(v)}=\arg\max_k\theta^{(v)}_{ik}$ is used only for comparison and coloring.  Ten topics
-per view ($K_s=K_d=10$) form a stable exploratory resolution under subsampling and reconstruction error, not
-an asserted true number of proof kinds.  The normalized entropy
+$z_i^{(v)}=\arg\max_k\theta^{(v)}_{ik}$ is used only for comparison and coloring.  Subsampling
+stability and the reconstruction-curve elbow select $K_s=8$ style topics and $K_d=10$ domain
+topics, an exploratory resolution rather than a true number of proof kinds.  The normalized entropy
 \[
  E_i^{(v)}=-\frac{1}{\log K_v}\sum_{k=1}^{K_v}
  \theta^{(v)}_{ik}\log\theta^{(v)}_{ik}\in[0,1]
@@ -80,15 +81,16 @@ $0\log0$ is interpreted as zero.
 \begin{figure}[t]
   \centering
   \includegraphics[width=\textwidth]{style_domain_comparison.pdf}
-  \caption{One style-derived t-SNE slice colored by style (a) and domain (b), and the
-  row-normalized domain--style table (c).  Gray means no retained topic.  Examples:
-  $S_0$ \texttt{simp}, $S_1$ \texttt{rw}, $S_5$ \texttt{refine'/have}, $S_9$
-  \texttt{apply/intro}; $D_1$ category theory, $D_2$ lists, $D_4$ measure theory, $D_8$ filters.}
+  \caption{A fixed 3,000-proof sample of one style-derived t-SNE slice, colored by style (a)
+  and domain (b), plus the full row-normalized domain--style table (c).  Gray means no retained
+  topic.  Examples: $S_0$ \texttt{rw}, $S_1$ \texttt{simp}, $S_6$ \texttt{have/apply/refine'},
+  $S_7$ \texttt{rfl/cases}; $D_0$ category theory, $D_2$ lists, $D_4$ measure theory,
+  $D_8$ filters.}
   \label{fig:comparison}
 \end{figure}
 
 \paragraph{Measuring alignment.}
-For the $n_c=1{,}628$ proofs assigned in both views, let $N_{ab}=|\{i:z_i^{(d)}=a,
+For the $n_c=8{,}882$ proofs assigned in both views, let $N_{ab}=|\{i:z_i^{(d)}=a,
 z_i^{(s)}=b\}|$ count proofs in domain topic $a$ and style topic $b$.  Write
 $p_{ab}=N_{ab}/n_c$, $p_{a+}=\sum_b p_{ab}$, and $p_{+b}=\sum_a p_{ab}$.  Mutual
 information compares the joint table with the independent table:
@@ -114,24 +116,28 @@ evidence comes from domain colors on the unchanged coordinates and, independentl
 projection, the contingency table.
 
 The style topics separate short normalization and rewriting proofs from longer structured
-arguments: \texttt{simp} and \texttt{rw} proofs average 1.7 and 1.8 steps, while
-\texttt{refine'/have} and \texttt{apply/intro} average 8.3 and 6.7.  Domain topics instead
-recover category composition, lists, measure theory, polynomial algebra, filters, and integers.
+arguments: \texttt{rw} and \texttt{simp} proofs average 1.4 and 1.8 steps, while the
+\texttt{have/apply/refine'} topic averages 8.3.  Domain topics instead recover category theory,
+sets, lists, measure theory, polynomial algebra, filters, and number systems.
 
-Among the 1,628 proofs with nonzero assignments in both views, adjusted mutual information is
-only $0.016$ (normalized mutual information $0.027$).  Let
+Among the 8,882 proofs with nonzero assignments in both views, adjusted mutual information is
+only $0.015$ (normalized mutual information $0.017$).
+\newpage
+Let
 $N_{a+}=\sum_bN_{ab}$ and $N_{+b}=\sum_aN_{ab}$ be the row and column totals.  Pearson's
 chi-squared statistic $\chi^2$, its independence-model expected counts $E_{ab}$, and
-Cram\'er's effect size $V$ are given below; the resulting $V=0.113$ is a small association:
+Cram\'er's effect size $V$ are given below; the resulting $V=0.102$ is a small association:
 \[
  \chi^2=\sum_{a,b}\frac{(N_{ab}-E_{ab})^2}{E_{ab}},\qquad
  E_{ab}=\frac{N_{a+}N_{+b}}{n_c},\qquad
- V=\sqrt{\frac{\chi^2}{n_c\min(K_s-1,K_d-1)}}=0.113,
+ V=\sqrt{\frac{\chi^2}{n_c\min(K_s-1,K_d-1)}}=0.102,
 \]
 None of 20,000 permutations that preserve those totals produced so
 large a statistic (Monte Carlo $p<5\times10^{-5}$), but the effect size says
-\emph{detectable preference, not close alignment}.  No domain sends more than 30.5\% of its
-proofs to one style; most maxima are 20--26\%.
+\emph{detectable preference, not close alignment}.  The largest within-domain style shares
+range from 26.2\% to 36.6\%.  Domain topics align much more with mathlib modules than style
+topics do (AMI $0.241$ versus $0.025$).  An initial 1,940-proof analysis gave nearly identical
+effect sizes (cross-view AMI $0.0157$, $V=0.113$).
 
 \paragraph{Why this is interesting.}
 Branches are usually related through shared objects and theorems.  This comparison points to a
@@ -149,7 +155,8 @@ or mathematical technique suits a proof state from recorded human proofs \cite{t
 show why procedure is a meaningful object of study in its own right.
 
 \paragraph{Limitations and next test.}
-Proofs are short (median two tactics); annotations omit lemmas used internally by automation;
+The 10,000 proofs are a sample rather than the complete corpus and remain short (median two
+tactics); annotations omit lemmas used internally by automation;
 and labels reflect Lean/mathlib conventions.  A stronger test would embed state transitions,
 compare full mixtures, and build branch networks from premises versus procedures.  Their
 disagreement would test for methodological geometry distinct from dependency geometry.

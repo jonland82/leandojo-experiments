@@ -1,0 +1,116 @@
+Amazon Linux 2023 repository                     77 MB/s |  73 MB     00:00
+Amazon Linux 2023 Kernel Livepatch repository   402 kB/s |  61 kB     00:00
+Package unzip-6.0-68.amzn2023.0.1.x86_64 is already installed.
+Package time-1.9-16.amzn2023.0.2.x86_64 is already installed.
+Dependencies resolved.
+================================================================================
+ Package                     Arch   Version                   Repository   Size
+================================================================================
+Installing:
+ python3.11                  x86_64 3.11.15-1.amzn2023.0.4    amazonlinux  28 k
+ python3.11-pip              noarch 22.3.1-2.amzn2023.0.13    amazonlinux 2.8 M
+Installing dependencies:
+ mpdecimal                   x86_64 2.5.1-3.amzn2023.0.3      amazonlinux 101 k
+ python3.11-libs             x86_64 3.11.15-1.amzn2023.0.4    amazonlinux 9.7 M
+ python3.11-pip-wheel        noarch 22.3.1-2.amzn2023.0.13    amazonlinux 1.4 M
+ python3.11-setuptools-wheel noarch 65.5.1-2.amzn2023.0.7     amazonlinux 717 k
+Installing weak dependencies:
+ libxcrypt-compat            x86_64 4.4.33-7.amzn2023         amazonlinux  92 k
+ python3.11-setuptools       noarch 65.5.1-2.amzn2023.0.7     amazonlinux 1.5 M
+
+Transaction Summary
+================================================================================
+Install  8 Packages
+
+Total download size: 16 M
+Installed size: 68 M
+Downloading Packages:
+(1/8): python3.11-3.11.15-1.amzn2023.0.4.x86_64 902 kB/s |  28 kB     00:00
+(2/8): mpdecimal-2.5.1-3.amzn2023.0.3.x86_64.rp 2.7 MB/s | 101 kB     00:00
+(3/8): libxcrypt-compat-4.4.33-7.amzn2023.x86_6 2.2 MB/s |  92 kB     00:00
+(4/8): python3.11-pip-wheel-22.3.1-2.amzn2023.0  47 MB/s | 1.4 MB     00:00
+(5/8): python3.11-pip-22.3.1-2.amzn2023.0.13.no  63 MB/s | 2.8 MB     00:00
+(6/8): python3.11-setuptools-65.5.1-2.amzn2023.  44 MB/s | 1.5 MB     00:00
+(7/8): python3.11-setuptools-wheel-65.5.1-2.amz  23 MB/s | 717 kB     00:00
+(8/8): python3.11-libs-3.11.15-1.amzn2023.0.4.x  78 MB/s | 9.7 MB     00:00
+--------------------------------------------------------------------------------
+Total                                            82 MB/s |  16 MB     00:00
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                        1/1
+  Installing       : libxcrypt-compat-4.4.33-7.amzn2023.x86_64              1/8
+  Installing       : python3.11-pip-wheel-22.3.1-2.amzn2023.0.13.noarch     2/8
+  Installing       : python3.11-setuptools-wheel-65.5.1-2.amzn2023.0.7.no   3/8
+  Installing       : mpdecimal-2.5.1-3.amzn2023.0.3.x86_64                  4/8
+  Installing       : python3.11-3.11.15-1.amzn2023.0.4.x86_64               5/8
+  Installing       : python3.11-libs-3.11.15-1.amzn2023.0.4.x86_64          6/8
+  Installing       : python3.11-setuptools-65.5.1-2.amzn2023.0.7.noarch     7/8
+  Installing       : python3.11-pip-22.3.1-2.amzn2023.0.13.noarch           8/8
+  Running scriptlet: python3.11-pip-22.3.1-2.amzn2023.0.13.noarch           8/8
+  Verifying        : libxcrypt-compat-4.4.33-7.amzn2023.x86_64              1/8
+  Verifying        : mpdecimal-2.5.1-3.amzn2023.0.3.x86_64                  2/8
+  Verifying        : python3.11-3.11.15-1.amzn2023.0.4.x86_64               3/8
+  Verifying        : python3.11-libs-3.11.15-1.amzn2023.0.4.x86_64          4/8
+  Verifying        : python3.11-pip-22.3.1-2.amzn2023.0.13.noarch           5/8
+  Verifying        : python3.11-pip-wheel-22.3.1-2.amzn2023.0.13.noarch     6/8
+  Verifying        : python3.11-setuptools-65.5.1-2.amzn2023.0.7.noarch     7/8
+  Verifying        : python3.11-setuptools-wheel-65.5.1-2.amzn2023.0.7.no   8/8
+
+Installed:
+  libxcrypt-compat-4.4.33-7.amzn2023.x86_64
+  mpdecimal-2.5.1-3.amzn2023.0.3.x86_64
+  python3.11-3.11.15-1.amzn2023.0.4.x86_64
+  python3.11-libs-3.11.15-1.amzn2023.0.4.x86_64
+  python3.11-pip-22.3.1-2.amzn2023.0.13.noarch
+  python3.11-pip-wheel-22.3.1-2.amzn2023.0.13.noarch
+  python3.11-setuptools-65.5.1-2.amzn2023.0.7.noarch
+  python3.11-setuptools-wheel-65.5.1-2.amzn2023.0.7.noarch
+
+Complete!
+profile=aws-10000 loaded 10000 of 52187 tactic proofs: {'train.json': 9637, 'val.json': 185, 'test.json': 178}
+style matrix (10000, 1760), nnz=56788
+domain matrix (10000, 7521), nnz=52111, proofs with signal=8882
+style topic diagnostics
+  topics= 4 reconstruction=0.7863 stability=1.000
+  topics= 6 reconstruction=0.7595 stability=1.000
+  topics= 8 reconstruction=0.7375 stability=0.999
+  topics=10 reconstruction=0.7198 stability=1.000
+  topics=12 reconstruction=0.7032 stability=1.000
+  topics=14 reconstruction=0.6887 stability=0.999
+  topics=16 reconstruction=0.6764 stability=0.974
+domain topic diagnostics
+  topics= 4 reconstruction=0.9689 stability=0.930
+  topics= 6 reconstruction=0.9573 stability=0.999
+  topics= 8 reconstruction=0.9481 stability=0.999
+  topics=10 reconstruction=0.9408 stability=0.998
+  topics=12 reconstruction=0.9351 stability=0.990
+  topics=14 reconstruction=0.9301 stability=0.948
+  topics=16 reconstruction=0.9254 stability=0.959
+selected exploratory resolutions: style=8, domain=10
+wrote proofs.json, stats.json to results
+	Command being timed: ".venv/bin/python pipeline.py --profile aws-10000 --output-dir results"
+	User time (seconds): 241.54
+	System time (seconds): 0.95
+	Percent of CPU this job got: 379%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 1:03.96
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 2618172
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 3
+	Minor (reclaiming a frame) page faults: 446359
+	Voluntary context switches: 3185
+	Involuntary context switches: 2518
+	Swaps: 0
+	File system inputs: 72
+	File system outputs: 12224
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

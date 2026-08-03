@@ -1,0 +1,866 @@
+{
+  "experiment": {
+    "profile": "aws-10000",
+    "description": "A fixed-seed uniform sample from every tactic-traced proof in the random split.",
+    "seed": 0,
+    "n_available": 52187,
+    "n_selected": 10000,
+    "available_source_counts": {
+      "train.json": 50247,
+      "val.json": 979,
+      "test.json": 961
+    },
+    "selected_source_counts": {
+      "train.json": 9637,
+      "val.json": 185,
+      "test.json": 178
+    }
+  },
+  "n_theorems": 10000,
+  "source_counts": {
+    "train.json": 9637,
+    "val.json": 185,
+    "test.json": 178
+  },
+  "style": {
+    "matrix_shape": [
+      10000,
+      1760
+    ],
+    "nnz": 56788,
+    "density": 0.003226590909090909,
+    "diagnostics": [
+      {
+        "k": 4,
+        "relative_reconstruction_error": 0.7862575931317072,
+        "stability": 0.9999680948771199,
+        "stability_sd": 1.1690272373718087e-06
+      },
+      {
+        "k": 6,
+        "relative_reconstruction_error": 0.7594972325165964,
+        "stability": 0.9997149298222461,
+        "stability_sd": 6.330875562127806e-05
+      },
+      {
+        "k": 8,
+        "relative_reconstruction_error": 0.7375158576940135,
+        "stability": 0.9994963770080557,
+        "stability_sd": 0.00035220036557517717
+      },
+      {
+        "k": 10,
+        "relative_reconstruction_error": 0.719823260811042,
+        "stability": 0.9996783529218644,
+        "stability_sd": 6.642927685567502e-05
+      },
+      {
+        "k": 12,
+        "relative_reconstruction_error": 0.7031881216843517,
+        "stability": 0.9996391706027399,
+        "stability_sd": 5.053531972694107e-05
+      },
+      {
+        "k": 14,
+        "relative_reconstruction_error": 0.6887018053903043,
+        "stability": 0.9993813569205547,
+        "stability_sd": 0.00020815138944394327
+      },
+      {
+        "k": 16,
+        "relative_reconstruction_error": 0.6764441575506454,
+        "stability": 0.9735633243167364,
+        "stability_sd": 0.05133657589985605
+      }
+    ],
+    "selected_topics": 8,
+    "topics": [
+      {
+        "id": 0,
+        "size": 1574,
+        "label": "rw",
+        "top_terms": [
+          "rw",
+          "rw \u2192 simp",
+          "rw \u2192 rw",
+          "simp \u2192 rw",
+          "rw \u2192 exact",
+          "ext \u2192 rw",
+          "rw \u2192 rfl",
+          "rw \u2192 apply",
+          "have \u2192 rw",
+          "refine' \u2192 rw"
+        ],
+        "mean_len": 1.4078780177890724,
+        "representatives": [
+          "Function.Injective.list_map",
+          "Filter.disjoint_principal_principal",
+          "nhdsWithin_compl_singleton_sup_pure",
+          "Std.Tactic.Omega.Int.add_le_zero_iff_le_neg",
+          "norm_fderiv_iteratedFDeriv"
+        ],
+        "top_tactics": [
+          "rw",
+          "by_cases",
+          "congr",
+          "dsimp",
+          "classical",
+          "induction'"
+        ],
+        "top_bigrams": [
+          "rw \u2192 simp",
+          "rw \u2192 rw",
+          "simp \u2192 rw",
+          "rw \u2192 exact",
+          "ext \u2192 rw"
+        ]
+      },
+      {
+        "id": 1,
+        "size": 2023,
+        "label": "simp",
+        "top_terms": [
+          "simp",
+          "rw \u2192 simp",
+          "simp \u2192 simp",
+          "simp \u2192 exact",
+          "simp \u2192 rw",
+          "exact \u2192 simp",
+          "simp \u2192 rfl",
+          "induction'",
+          "induction' \u2192 simp",
+          "ext \u2192 simp"
+        ],
+        "mean_len": 1.8457736035590706,
+        "representatives": [
+          "Polynomial.derivative_X",
+          "Applicative.map_seq_map",
+          "PartialEquiv.trans_assoc",
+          "mul_mul_invOf_self_cancel'",
+          "CategoryTheory.Presieve.isSheaf_bot"
+        ],
+        "top_tactics": [
+          "simp",
+          "induction'",
+          "by_cases",
+          "induction",
+          "convert",
+          "dsimp"
+        ],
+        "top_bigrams": [
+          "rw \u2192 simp",
+          "simp \u2192 simp",
+          "simp \u2192 exact",
+          "simp \u2192 rw",
+          "exact \u2192 simp"
+        ]
+      },
+      {
+        "id": 2,
+        "size": 1099,
+        "label": "exact",
+        "top_terms": [
+          "rw \u2192 exact",
+          "exact",
+          "exact \u2192 rw",
+          "simp \u2192 exact",
+          "exact \u2192 exact",
+          "obtain",
+          "rintro \u2192 exact",
+          "refine' \u2192 rw",
+          "simp_rw \u2192 exact",
+          "exact \u2192 simp"
+        ],
+        "mean_len": 3.37852593266606,
+        "representatives": [
+          "ContinuousLinearMap.map_neg",
+          "TopologicalSpace.IsTopologicalBasis.isOpen",
+          "Subalgebra.rank_top",
+          "SatisfiesM_ReaderT_eq",
+          "Rat.uniformContinuous_add"
+        ],
+        "top_tactics": [
+          "exact",
+          "obtain",
+          "rintro",
+          "refine",
+          "rcases",
+          "induction'"
+        ],
+        "top_bigrams": [
+          "rw \u2192 exact",
+          "exact \u2192 rw",
+          "simp \u2192 exact",
+          "exact \u2192 exact",
+          "rintro \u2192 exact"
+        ]
+      },
+      {
+        "id": 3,
+        "size": 632,
+        "label": "simpa",
+        "top_terms": [
+          "simpa",
+          "rw \u2192 simpa",
+          "simpa \u2192 simpa",
+          "exact \u2192 simpa",
+          "have \u2192 simpa",
+          "simpa \u2192 simp",
+          "simp \u2192 simpa",
+          "simpa \u2192 rw",
+          "refine' \u2192 simpa",
+          "have"
+        ],
+        "mean_len": 2.3797468354430378,
+        "representatives": [
+          "Filter.HasBasis.eventually_iff",
+          "Equiv.exists_congr_left",
+          "FormalMultilinearSeries.le_radius_of_eventually_le",
+          "differentiable_const_add_iff",
+          "Ordinal.lt_lsub_iff"
+        ],
+        "top_tactics": [
+          "simpa",
+          "have",
+          "suffices",
+          "refine",
+          "rcases",
+          "haveI"
+        ],
+        "top_bigrams": [
+          "rw \u2192 simpa",
+          "simpa \u2192 simpa",
+          "exact \u2192 simpa",
+          "have \u2192 simpa",
+          "simpa \u2192 simp"
+        ]
+      },
+      {
+        "id": 4,
+        "size": 457,
+        "label": "simp_rw",
+        "top_terms": [
+          "simp_rw",
+          "simp_rw \u2192 exact",
+          "rw \u2192 simp_rw",
+          "simp_rw \u2192 rw",
+          "exact",
+          "ext \u2192 simp_rw",
+          "simp_rw \u2192 rfl",
+          "refine' \u2192 simp_rw",
+          "have \u2192 simp_rw",
+          "simp_rw \u2192 refine'"
+        ],
+        "mean_len": 3.450765864332604,
+        "representatives": [
+          "UV.mem_compression",
+          "Polynomial.mem_iff_eq_smul_annIdealGenerator",
+          "Lagrange.degree_nodal",
+          "Filter.prod_eq_bot",
+          "Polynomial.separable_prod_X_sub_C_iff"
+        ],
+        "top_tactics": [
+          "simp_rw",
+          "exact",
+          "classical",
+          "split_ifs",
+          "ext",
+          "congr"
+        ],
+        "top_bigrams": [
+          "simp_rw \u2192 exact",
+          "rw \u2192 simp_rw",
+          "simp_rw \u2192 rw",
+          "ext \u2192 simp_rw",
+          "simp_rw \u2192 rfl"
+        ]
+      },
+      {
+        "id": 5,
+        "size": 529,
+        "label": "ext",
+        "top_terms": [
+          "ext",
+          "ext \u2192 simp",
+          "ext \u2192 rw",
+          "ext \u2192 rfl",
+          "ext \u2192 exact",
+          "rw \u2192 ext",
+          "ext \u2192 simp_rw",
+          "simp \u2192 ext",
+          "ext \u2192 apply",
+          "simp \u2192 exact"
+        ],
+        "mean_len": 4.194706994328922,
+        "representatives": [
+          "PartialEquiv.prod_trans",
+          "LucasLehmer.X.coe_nat",
+          "Profinite.NobelingProof.eval_eq_\u03c0J",
+          "Zsqrtd.coe_int_val",
+          "Equiv.natSumNatEquivNat_apply"
+        ],
+        "top_tactics": [
+          "ext",
+          "exact",
+          "convert",
+          "constructor",
+          "rintro",
+          "rfl"
+        ],
+        "top_bigrams": [
+          "ext \u2192 simp",
+          "ext \u2192 rw",
+          "ext \u2192 rfl",
+          "ext \u2192 exact",
+          "rw \u2192 ext"
+        ]
+      },
+      {
+        "id": 6,
+        "size": 2930,
+        "label": "have \u00b7 apply \u00b7 refine'",
+        "top_terms": [
+          "have",
+          "apply",
+          "refine'",
+          "intro",
+          "exact",
+          "rwa",
+          "rcases",
+          "rw \u2192 apply",
+          "have \u2192 rw",
+          "obtain"
+        ],
+        "mean_len": 8.258703071672356,
+        "representatives": [
+          "ContinuousLinearMap.opNorm_le_of_ball",
+          "Mathlib.Meta.NormNum.isRat_zpow_neg",
+          "Mathlib.Meta.NormNum.jacobiSymNat.qr\u2083",
+          "IsAddCyclic.card_orderOf_eq_totient",
+          "one_div_lt_neg_one"
+        ],
+        "top_tactics": [
+          "have",
+          "apply",
+          "refine'",
+          "intro",
+          "exact",
+          "rwa"
+        ],
+        "top_bigrams": [
+          "rw \u2192 apply",
+          "have \u2192 rw",
+          "refine' \u2192 rw",
+          "have \u2192 have",
+          "rw \u2192 rw"
+        ]
+      },
+      {
+        "id": 7,
+        "size": 754,
+        "label": "rfl \u00b7 cases",
+        "top_terms": [
+          "rfl",
+          "rw \u2192 rfl",
+          "cases",
+          "simp \u2192 rfl",
+          "ext \u2192 rfl",
+          "cases \u2192 rfl",
+          "rfl \u2192 simp",
+          "dsimp",
+          "rfl \u2192 rw",
+          "simp_rw \u2192 rfl"
+        ],
+        "mean_len": 3.663129973474801,
+        "representatives": [
+          "WittVector.init_pow",
+          "WittVector.mapFun.zero",
+          "WittVector.mapFun.zsmul",
+          "WittVector.init_sub",
+          "WittVector.mapFun.mul"
+        ],
+        "top_tactics": [
+          "rfl",
+          "cases",
+          "dsimp",
+          "ext",
+          "induction'",
+          "subst"
+        ],
+        "top_bigrams": [
+          "rw \u2192 rfl",
+          "simp \u2192 rfl",
+          "ext \u2192 rfl",
+          "cases \u2192 rfl",
+          "rfl \u2192 simp"
+        ]
+      }
+    ],
+    "n_with_topic": 9998,
+    "mean_mixture_entropy": 0.26835986476017926,
+    "module_ami": 0.02498421699087775
+  },
+  "domain": {
+    "matrix_shape": [
+      10000,
+      7521
+    ],
+    "nnz": 52111,
+    "density": 0.0006928732881265789,
+    "n_with_signal": 8882,
+    "diagnostics": [
+      {
+        "k": 4,
+        "relative_reconstruction_error": 0.968869821574609,
+        "stability": 0.9298600617473685,
+        "stability_sd": 0.13645638364361778
+      },
+      {
+        "k": 6,
+        "relative_reconstruction_error": 0.9572906041501713,
+        "stability": 0.9986557977502336,
+        "stability_sd": 0.0006995620948958409
+      },
+      {
+        "k": 8,
+        "relative_reconstruction_error": 0.9480597126399056,
+        "stability": 0.9991733247479391,
+        "stability_sd": 7.422651565364372e-05
+      },
+      {
+        "k": 10,
+        "relative_reconstruction_error": 0.9407509174105289,
+        "stability": 0.9981823639254803,
+        "stability_sd": 0.0014284125602363527
+      },
+      {
+        "k": 12,
+        "relative_reconstruction_error": 0.9350691074076808,
+        "stability": 0.9897341706089228,
+        "stability_sd": 0.01664397248183963
+      },
+      {
+        "k": 14,
+        "relative_reconstruction_error": 0.9301302065996173,
+        "stability": 0.9475544364416562,
+        "stability_sd": 0.03678726682647711
+      },
+      {
+        "k": 16,
+        "relative_reconstruction_error": 0.9253977969663141,
+        "stability": 0.9588776438758886,
+        "stability_sd": 0.03981845368694884
+      }
+    ],
+    "selected_topics": 10,
+    "topics": [
+      {
+        "id": 0,
+        "size": 541,
+        "label": "CategoryTheory.Category.assoc \u00b7 CategoryTheory.Category.comp_id \u00b7 CategoryTheory.Category.id_comp",
+        "top_terms": [
+          "namespace CategoryTheory",
+          "CategoryTheory.Category.assoc",
+          "CategoryTheory.Category.comp_id",
+          "CategoryTheory.Category.id_comp",
+          "CategoryTheory.cancel_mono",
+          "namespace AlgebraicGeometry",
+          "CategoryTheory.cancel_epi",
+          "namespace TopCat",
+          "CategoryTheory.Iso.hom",
+          "namespace Equiv"
+        ],
+        "mean_len": 5.173752310536044,
+        "representatives": [
+          "CategoryTheory.Presieve.isSheaf_bot",
+          "CategoryTheory.Limits.cospanExt_inv_app_right",
+          "CategoryTheory.IsFilteredOrEmpty.of_right_adjoint",
+          "Bimod.RightUnitorBimod.hom_right_act_hom'",
+          "CategoryTheory.Limits.kernelSubobject_arrow"
+        ],
+        "top_premises": [
+          "CategoryTheory.Category.assoc",
+          "CategoryTheory.Category.comp_id",
+          "CategoryTheory.Category.id_comp",
+          "CategoryTheory.cancel_mono",
+          "CategoryTheory.cancel_epi",
+          "CategoryTheory.Iso.hom"
+        ],
+        "top_namespaces": [
+          "namespace CategoryTheory",
+          "namespace AlgebraicGeometry",
+          "namespace TopCat",
+          "namespace Equiv"
+        ]
+      },
+      {
+        "id": 1,
+        "size": 1154,
+        "label": "Set.inter_comm \u00b7 Set.mem_setOf_eq \u00b7 Set.image_univ",
+        "top_terms": [
+          "namespace Set",
+          "Set.inter_comm",
+          "Set.mem_setOf_eq",
+          "Set.image_univ",
+          "Set.mem_univ",
+          "Set.mem_preimage",
+          "rfl",
+          "Set.range",
+          "namespace Function",
+          "Set.mem_iUnion"
+        ],
+        "mean_len": 4.4601386481802425,
+        "representatives": [
+          "NonUnitalStarAlgebra.map_bot",
+          "CovBy.Ico_eq",
+          "Set.sUnion_eq_biUnion",
+          "ApproximatesLinearOn.antilipschitz",
+          "Order.Ioc_pred_right_of_not_isMin"
+        ],
+        "top_premises": [
+          "Set.inter_comm",
+          "Set.mem_setOf_eq",
+          "Set.image_univ",
+          "Set.mem_univ",
+          "Set.mem_preimage",
+          "rfl"
+        ],
+        "top_namespaces": [
+          "namespace Set",
+          "namespace Function",
+          "namespace Subtype",
+          "namespace Metric"
+        ]
+      },
+      {
+        "id": 2,
+        "size": 516,
+        "label": "rfl \u00b7 List.prod_cons \u00b7 List.mem_cons",
+        "top_terms": [
+          "namespace List",
+          "rfl",
+          "List.prod_cons",
+          "List.mem_cons",
+          "namespace Array",
+          "List.length",
+          "List.map",
+          "List.mem_map",
+          "List.cons",
+          "namespace Multiset"
+        ],
+        "mean_len": 4.6686046511627906,
+        "representatives": [
+          "List.get?_set_eq_of_lt",
+          "List.Perm.rec_heq",
+          "List.filterMap_map",
+          "List.Perm.kerase",
+          "List.isSubperm_iff"
+        ],
+        "top_premises": [
+          "rfl",
+          "List.prod_cons",
+          "List.mem_cons",
+          "List.length",
+          "List.map",
+          "List.mem_map"
+        ],
+        "top_namespaces": [
+          "namespace List",
+          "namespace Array",
+          "namespace Multiset",
+          "namespace Eq"
+        ]
+      },
+      {
+        "id": 3,
+        "size": 1032,
+        "label": "rfl \u00b7 Finset.mem_filter \u00b7 Finset.mem_univ",
+        "top_terms": [
+          "namespace Finset",
+          "namespace Multiset",
+          "rfl",
+          "namespace Finsupp",
+          "namespace Matrix",
+          "namespace Function",
+          "Finset.mem_filter",
+          "Finset.mem_univ",
+          "namespace MvPolynomial",
+          "Finset.mem_singleton"
+        ],
+        "mean_len": 4.945736434108527,
+        "representatives": [
+          "Finset.disjoint_right",
+          "HasSum.sum_range_add",
+          "Finset.inf_congr",
+          "Finset.strongInduction_eq",
+          "Finset.prod_filter_of_ne"
+        ],
+        "top_premises": [
+          "rfl",
+          "Finset.mem_filter",
+          "Finset.mem_univ",
+          "Finset.mem_singleton",
+          "Finset.sum_insert",
+          "Finset.range"
+        ],
+        "top_namespaces": [
+          "namespace Finset",
+          "namespace Multiset",
+          "namespace Finsupp",
+          "namespace Matrix"
+        ]
+      },
+      {
+        "id": 4,
+        "size": 777,
+        "label": "MeasureTheory.lintegral_congr_ae \u00b7 MeasureTheory.Measure.map_map \u00b7 MeasureTheory.snorm'",
+        "top_terms": [
+          "namespace MeasureTheory",
+          "namespace ENNReal",
+          "namespace ProbabilityTheory",
+          "namespace Pi",
+          "MeasureTheory.lintegral_congr_ae",
+          "MeasureTheory.Measure.map_map",
+          "MeasureTheory.snorm'",
+          "MeasureTheory.mem\u2112p_one_iff_integrable",
+          "MeasureTheory.integral_congr_ae",
+          "namespace MeasurableSet"
+        ],
+        "mean_len": 5.043758043758044,
+        "representatives": [
+          "MeasureTheory.Measure.InnerRegular.map_iff",
+          "MeasureTheory.snormEssSup_const",
+          "MeasureTheory.hasFiniteIntegral_restrict_of_bounded",
+          "MeasureTheory.AEEqFun.Integrable.add",
+          "intervalIntegrable_const_iff"
+        ],
+        "top_premises": [
+          "MeasureTheory.lintegral_congr_ae",
+          "MeasureTheory.Measure.map_map",
+          "MeasureTheory.snorm'",
+          "MeasureTheory.mem\u2112p_one_iff_integrable",
+          "MeasureTheory.integral_congr_ae",
+          "MeasurableSet"
+        ],
+        "top_namespaces": [
+          "namespace MeasureTheory",
+          "namespace ENNReal",
+          "namespace ProbabilityTheory",
+          "namespace Pi"
+        ]
+      },
+      {
+        "id": 5,
+        "size": 1160,
+        "label": "Nat.mul_comm \u00b7 add_comm \u00b7 Nat.cast_one",
+        "top_terms": [
+          "namespace Nat",
+          "Nat.mul_comm",
+          "add_comm",
+          "namespace Fin",
+          "Nat.cast_one",
+          "mul_comm",
+          "rfl",
+          "Nat.add_comm",
+          "Nat.cast_add",
+          "Nat.gcd_comm"
+        ],
+        "mean_len": 4.459482758620689,
+        "representatives": [
+          "Nat.factorial_mul_pow_sub_le_factorial",
+          "Pell.xy_modEq_of_modEq",
+          "Nat.add_min_add_left",
+          "isAlgebraic_nat",
+          "Nat.gcd_eq_right_iff_dvd"
+        ],
+        "top_premises": [
+          "Nat.mul_comm",
+          "add_comm",
+          "Nat.cast_one",
+          "mul_comm",
+          "rfl",
+          "Nat.add_comm"
+        ],
+        "top_namespaces": [
+          "namespace Nat",
+          "namespace Fin",
+          "namespace Eq",
+          "namespace Std"
+        ]
+      },
+      {
+        "id": 6,
+        "size": 960,
+        "label": "Polynomial.C_mul_X_pow_eq_monomial \u00b7 mul_one \u00b7 Polynomial.X",
+        "top_terms": [
+          "namespace Polynomial",
+          "namespace Multiset",
+          "Polynomial.C_mul_X_pow_eq_monomial",
+          "mul_one",
+          "Polynomial.X",
+          "namespace RingHom",
+          "namespace MulZeroClass",
+          "mul_comm",
+          "Polynomial.C_1",
+          "Polynomial.C"
+        ],
+        "mean_len": 4.264583333333333,
+        "representatives": [
+          "Lagrange.degree_nodal",
+          "Polynomial.splits_of_splits_mul'",
+          "Polynomial.newtonMap_apply_of_not_isUnit",
+          "Polynomial.mul_eq_sum_sum",
+          "RingHom.isIntegralElem.of_comp"
+        ],
+        "top_premises": [
+          "Polynomial.C_mul_X_pow_eq_monomial",
+          "mul_one",
+          "Polynomial.X",
+          "mul_comm",
+          "Polynomial.C_1",
+          "Polynomial.C"
+        ],
+        "top_namespaces": [
+          "namespace Polynomial",
+          "namespace Multiset",
+          "namespace RingHom",
+          "namespace MulZeroClass"
+        ]
+      },
+      {
+        "id": 7,
+        "size": 439,
+        "label": "Int.mul_comm \u00b7 Int.add_comm \u00b7 Int.cast_ofNat",
+        "top_terms": [
+          "namespace Int",
+          "namespace Rat",
+          "Int.mul_comm",
+          "Int.add_comm",
+          "namespace Std",
+          "Int.cast_ofNat",
+          "Int.fract",
+          "Int.cast_neg",
+          "Int.cast_zero",
+          "Int.add_assoc"
+        ],
+        "mean_len": 4.2277904328018225,
+        "representatives": [
+          "Int.even_mul_pred_self",
+          "round_add_int",
+          "tendsto_ceil_right_pure_add_one",
+          "Int.natAbs_inj_of_nonpos_of_nonneg",
+          "Int.sub_left_lt_of_lt_add"
+        ],
+        "top_premises": [
+          "Int.mul_comm",
+          "Int.add_comm",
+          "Int.cast_ofNat",
+          "Int.fract",
+          "Int.cast_neg",
+          "Int.cast_zero"
+        ],
+        "top_namespaces": [
+          "namespace Int",
+          "namespace Rat",
+          "namespace Std",
+          "namespace Matrix"
+        ]
+      },
+      {
+        "id": 8,
+        "size": 766,
+        "label": "Filter.Tendsto \u00b7 Filter.mem_of_superset \u00b7 Filter.Eventually.mono",
+        "top_terms": [
+          "namespace Filter",
+          "Filter.Tendsto",
+          "namespace Function",
+          "Filter.mem_of_superset",
+          "Filter.Eventually.mono",
+          "namespace Metric",
+          "namespace Asymptotics",
+          "Filter.atTop",
+          "mul_comm",
+          "Filter.eventually_of_forall"
+        ],
+        "mean_len": 4.831592689295039,
+        "representatives": [
+          "Filter.tendsto_iff_ptendsto",
+          "Prod.tendsto_iff",
+          "pow_div_pow_eventuallyEq_atTop",
+          "Filter.Tendsto.eventually_forall_ge_atTop",
+          "Filter.isBounded_bot"
+        ],
+        "top_premises": [
+          "Filter.Tendsto",
+          "Filter.mem_of_superset",
+          "Filter.Eventually.mono",
+          "Filter.atTop",
+          "mul_comm",
+          "Filter.eventually_of_forall"
+        ],
+        "top_namespaces": [
+          "namespace Filter",
+          "namespace Function",
+          "namespace Metric",
+          "namespace Asymptotics"
+        ]
+      },
+      {
+        "id": 9,
+        "size": 1537,
+        "label": "sub_eq_add_neg \u00b7 mul_comm \u00b7 Real.Angle.induction_on",
+        "top_terms": [
+          "namespace Real",
+          "namespace Complex",
+          "sub_eq_add_neg",
+          "namespace ENNReal",
+          "mul_comm",
+          "namespace Matrix",
+          "Real.Angle.induction_on",
+          "div_eq_mul_inv",
+          "namespace NNReal",
+          "namespace Orientation"
+        ],
+        "mean_len": 3.8295380611581002,
+        "representatives": [
+          "Real.Angle.two_nsmul_eq_zero_iff",
+          "Real.Angle.sign_coe_pi",
+          "Real.two_mul_arctan_sub_pi",
+          "InnerProductGeometry.angle_neg_self_of_nonzero",
+          "Group.closure_subset"
+        ],
+        "top_premises": [
+          "sub_eq_add_neg",
+          "mul_comm",
+          "Real.Angle.induction_on",
+          "div_eq_mul_inv",
+          "Real.Angle.sign",
+          "mul_assoc"
+        ],
+        "top_namespaces": [
+          "namespace Real",
+          "namespace Complex",
+          "namespace ENNReal",
+          "namespace Matrix"
+        ]
+      }
+    ],
+    "mean_mixture_entropy": 0.3612240979477061,
+    "module_ami": 0.24090721418740962
+  },
+  "layout": {
+    "svd_components": 64,
+    "svd_explained_variance_ratio": 0.6804286346681143,
+    "pca3_evr": [
+      0.1727360639402346,
+      0.10159219527900819,
+      0.06247878383039245
+    ]
+  },
+  "proof_len": {
+    "mean": 4.1925,
+    "median": 2.0,
+    "min": 1,
+    "max": 123
+  }
+}

@@ -11,10 +11,12 @@ gives every proof a mixture of topics instead of forcing a hard partition.  A
 dominant topic is retained for coloring the dependency-free viewer.
 """
 
+import argparse
 import json
 import os
 import re
 import warnings
+from collections import Counter
 
 os.environ.setdefault("OMP_NUM_THREADS", "4")
 warnings.filterwarnings("ignore")
@@ -31,26 +33,51 @@ from sklearn.preprocessing import Normalizer
 
 RNG = 0
 DATA = os.path.join("data", "leandojo_benchmark_4", "leandojo_benchmark_4")
-OUT = "out"
 TOPIC_CANDIDATES = [4, 6, 8, 10, 12, 14, 16]
 STABILITY_REPEATS = 4
 STABILITY_SAMPLE_FRAC = 0.80
 MIN_STABILITY = 0.75
-os.makedirs(OUT, exist_ok=True)
+EXPERIMENTS = {
+    "small-1940": {
+        "splits": ("val.json", "test.json"),
+        "sample_size": None,
+        "description": "All tactic-traced proofs in the random validation and test splits.",
+    },
+    "aws-10000": {
+        "splits": ("train.json", "val.json", "test.json"),
+        "sample_size": 10_000,
+        "description": "A fixed-seed uniform sample from every tactic-traced proof in the random split.",
+    },
+}
 
 
 # --------------------------------------------------------------------- loading
-def load_theorems(paths):
-    """Load every theorem with at least one traced tactic from ``paths``."""
+def load_theorems(paths, sample_size=None, seed=RNG):
+    """Load tactic proofs and optionally take a reproducible uniform sample."""
     kept = []
     source_counts = {}
+    source_labels = []
     for path in paths:
         with open(path, encoding="utf-8") as f:
             data = json.load(f)
         selected = [t for t in data if t.get("traced_tactics")]
         kept.extend(selected)
         source_counts[os.path.basename(path)] = len(selected)
-    return kept, source_counts
+        source_labels.extend([os.path.basename(path)] * len(selected))
+
+    available = len(kept)
+    if sample_size is not None:
+        if sample_size > available:
+            raise ValueError(
+                f"requested {sample_size:,} proofs, but only {available:,} are available"
+            )
+        rng = np.random.RandomState(seed)
+        indices = np.sort(rng.choice(available, size=sample_size, replace=False))
+        kept = [kept[i] for i in indices]
+        sampled_source_counts = dict(Counter(source_labels[i] for i in indices))
+    else:
+        sampled_source_counts = dict(source_counts)
+    return kept, source_counts, sampled_source_counts, available
 
 
 # --------------------------------------------------------------- tokenization
@@ -279,10 +306,40 @@ def layouts(X):
 
 
 # ---------------------------------------------------------------------- driver
+def parse_args():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--profile",
+        choices=sorted(EXPERIMENTS),
+        default="small-1940",
+        help="named experiment design (default: small-1940)",
+    )
+    parser.add_argument(
+        "--output-dir",
+        help="artifact directory (default: experiments/<profile>/artifacts)",
+    )
+    parser.add_argument(
+        "--write-app-data",
+        action="store_true",
+        help="also write a browser-loadable data.js beside the JSON artifacts",
+    )
+    return parser.parse_args()
+
+
 def main():
-    paths = [os.path.join(DATA, "random", name) for name in ("val.json", "test.json")]
-    theorems, source_counts = load_theorems(paths)
-    print(f"loaded {len(theorems)} tactic proofs: {source_counts}")
+    args = parse_args()
+    experiment = EXPERIMENTS[args.profile]
+    output_dir = args.output_dir or os.path.join("experiments", args.profile, "artifacts")
+    paths = [
+        os.path.join(DATA, "random", name) for name in experiment["splits"]
+    ]
+    theorems, available_counts, source_counts, n_available = load_theorems(
+        paths, experiment["sample_size"], RNG
+    )
+    print(
+        f"profile={args.profile} loaded {len(theorems)} of {n_available} tactic proofs: "
+        f"{source_counts}"
+    )
 
     style_docs = [style_document(t) for t in theorems]
     domain_docs = [domain_document(t) for t in theorems]
@@ -373,6 +430,15 @@ def main():
         },
     }
     payload = {
+        "experiment": {
+            "profile": args.profile,
+            "description": experiment["description"],
+            "seed": RNG,
+            "n_available": n_available,
+            "n_selected": len(theorems),
+            "available_source_counts": available_counts,
+            "selected_source_counts": source_counts,
+        },
         "points": points,
         "views": views,
         # Backward-compatible aliases used by older viewer builds.
@@ -382,6 +448,7 @@ def main():
 
     proof_lengths = np.array([len(t["traced_tactics"]) for t in theorems])
     stats = {
+        "experiment": payload["experiment"],
         "n_theorems": len(theorems),
         "source_counts": source_counts,
         "style": {
@@ -415,17 +482,19 @@ def main():
         },
     }
 
-    os.makedirs(OUT, exist_ok=True)
-    with open(os.path.join(OUT, "proofs.json"), "w", encoding="utf-8") as f:
+    os.makedirs(output_dir, exist_ok=True)
+    with open(os.path.join(output_dir, "proofs.json"), "w", encoding="utf-8") as f:
         json.dump(payload, f)
-    with open(os.path.join(OUT, "stats.json"), "w", encoding="utf-8") as f:
+    with open(os.path.join(output_dir, "stats.json"), "w", encoding="utf-8") as f:
         json.dump(stats, f, indent=2)
-    os.makedirs("app", exist_ok=True)
-    with open(os.path.join("app", "data.js"), "w", encoding="utf-8") as f:
-        f.write("window.PROOF_DATA = ")
-        json.dump(payload, f)
-        f.write(";\n")
-    print("wrote out/proofs.json, out/stats.json, and app/data.js")
+    outputs = ["proofs.json", "stats.json"]
+    if args.write_app_data:
+        with open(os.path.join(output_dir, "data.js"), "w", encoding="utf-8") as f:
+            f.write("window.PROOF_DATA = ")
+            json.dump(payload, f)
+            f.write(";\n")
+        outputs.append("data.js")
+    print(f"wrote {', '.join(outputs)} to {output_dir}")
 
 
 if __name__ == "__main__":
