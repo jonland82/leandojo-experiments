@@ -1,0 +1,27 @@
+{
+  "target_records_in_sample": 178,
+  "target_records_eligible": 178,
+  "targets_selected": 100,
+  "training_records_in_sample": 9637,
+  "prompt_eligible_training_records": 9592,
+  "prompts": 400,
+  "prompt_utf8_bytes": {
+    "minimum": 350,
+    "mean": 1541.3375,
+    "maximum": 6965
+  },
+  "files": {
+    "inputs/targets.jsonl": {
+      "bytes": 276363,
+      "sha256": "7bf1f39a023654ec95a04b68beff70a7b664a23056a0a264f170ca3d5c863c83"
+    },
+    "inputs/prompts.jsonl": {
+      "bytes": 702717,
+      "sha256": "ea8c392c233f19d682096e73a6aa6f2efccf03002ff61ffbaf307d5c2f914d24"
+    },
+    "config.json": {
+      "bytes": 2348,
+      "sha256": "c21d649cacc39c5dd7108824e7bc1d3e74c74e3922727a82915d6807d1e9dabb"
+    }
+  }
+}

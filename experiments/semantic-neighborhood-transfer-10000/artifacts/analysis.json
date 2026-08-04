@@ -1,0 +1,327 @@
+{
+  "experiment_id": "semantic-neighborhood-transfer-10000",
+  "question": "Do similar theorem statements have similar recorded proofs along proof-embedding axes?",
+  "config": {
+    "schema_version": 1,
+    "experiment_id": "semantic-neighborhood-transfer-10000",
+    "source_experiment": "experiments/semantic-embeddings-10000",
+    "seed": 0,
+    "neighbors": {
+      "k_values": [
+        5,
+        10,
+        25,
+        50,
+        100
+      ],
+      "maximum_k": 100,
+      "matrix_block_size": 256,
+      "paired_similarity_block_size": 64
+    },
+    "random_pairs": {
+      "sample_size": 500000,
+      "similarity_block_size": 20000
+    },
+    "inference": {
+      "bootstrap_resamples": 1000,
+      "confidence_level": 0.95
+    },
+    "controls": {
+      "coarse_module_path_components": 2,
+      "context_matched_random_neighbors": true,
+      "matched_context_categories": [
+        "same_source_file",
+        "same_coarse_module_but_different_file",
+        "different_coarse_module"
+      ],
+      "regression_covariates": [
+        "same_coarse_module",
+        "same_source_file",
+        "absolute_log1p_tactic_count_difference"
+      ]
+    }
+  },
+  "n_records": 10000,
+  "dimensions": 1024,
+  "inputs": {
+    "statement_embedding_path": "experiments\\semantic-embeddings-10000\\artifacts\\embeddings\\statement.npy",
+    "statement_embedding_sha256": "930e01dc5d22debc9824eaf1043c2107c3b19f2243d3b1b7a459b35829d780d4",
+    "proof_embedding_path": "experiments\\semantic-embeddings-10000\\artifacts\\embeddings\\proof.npy",
+    "proof_embedding_sha256": "c58b01459d4fa178b984be05d10fdf83dc3ce1244303370ffaaebaf0d87037cd",
+    "manifest_path": "experiments\\semantic-embeddings-10000\\inputs\\manifest.jsonl",
+    "manifest_sha256": "7e9567320ad92d5757ee8c957225749b9cea05ccba5a9405b4e47d27e4694b00",
+    "split_counts": {
+      "train.json": 9637,
+      "val.json": 185,
+      "test.json": 178
+    }
+  },
+  "neighborhood_results": [
+    {
+      "k": 5,
+      "mean_statement_neighbor_cosine": 0.7887763381004333,
+      "mean_proof_cosine_statement_neighbors": 0.6883440613746643,
+      "mean_proof_cosine_context_matched_random": 0.6136184334754944,
+      "proof_cosine_delta": 0.07472565770149231,
+      "proof_cosine_delta_ci95": [
+        0.07358003836125135,
+        0.07591845523566007
+      ],
+      "mean_neighborhood_overlap": 0.14661999999999997,
+      "neighborhood_overlap_ci95": [
+        0.14307999999999998,
+        0.15006
+      ],
+      "chance_neighborhood_overlap": 0.0005000500050005,
+      "overlap_enrichment_over_chance": 293.2106759999999,
+      "share_queries_with_any_overlap": 0.4896,
+      "statement_neighbor_same_coarse_module_share": 0.61708,
+      "statement_neighbor_same_source_file_share": 0.31148,
+      "statement_neighbor_identical_statement_text_share": 0.00028,
+      "statement_neighbor_identical_proof_text_share": 0.01288,
+      "context_matched_random_identical_proof_text_share": 0.00444
+    },
+    {
+      "k": 10,
+      "mean_statement_neighbor_cosine": 0.7662121057510376,
+      "mean_proof_cosine_statement_neighbors": 0.6726681590080261,
+      "mean_proof_cosine_context_matched_random": 0.6030387878417969,
+      "proof_cosine_delta": 0.06962938606739044,
+      "proof_cosine_delta_ci95": [
+        0.0687206530943513,
+        0.07050380036234856
+      ],
+      "mean_neighborhood_overlap": 0.13427999999999998,
+      "neighborhood_overlap_ci95": [
+        0.131349,
+        0.13690049999999998
+      ],
+      "chance_neighborhood_overlap": 0.001000100010001,
+      "overlap_enrichment_over_chance": 134.26657199999997,
+      "share_queries_with_any_overlap": 0.656,
+      "statement_neighbor_same_coarse_module_share": 0.54046,
+      "statement_neighbor_same_source_file_share": 0.22058,
+      "statement_neighbor_identical_statement_text_share": 0.00014,
+      "statement_neighbor_identical_proof_text_share": 0.0083,
+      "context_matched_random_identical_proof_text_share": 0.00326
+    },
+    {
+      "k": 25,
+      "mean_statement_neighbor_cosine": 0.7379971742630005,
+      "mean_proof_cosine_statement_neighbors": 0.6557209491729736,
+      "mean_proof_cosine_context_matched_random": 0.5921837091445923,
+      "proof_cosine_delta": 0.06353724747896194,
+      "proof_cosine_delta_ci95": [
+        0.06286047156900168,
+        0.06422458756715059
+      ],
+      "mean_neighborhood_overlap": 0.125388,
+      "neighborhood_overlap_ci95": [
+        0.12322400000000003,
+        0.12757620000000003
+      ],
+      "chance_neighborhood_overlap": 0.0025002500250025004,
+      "overlap_enrichment_over_chance": 50.15018448,
+      "share_queries_with_any_overlap": 0.838,
+      "statement_neighbor_same_coarse_module_share": 0.443744,
+      "statement_neighbor_same_source_file_share": 0.128408,
+      "statement_neighbor_identical_statement_text_share": 5.6e-05,
+      "statement_neighbor_identical_proof_text_share": 0.004904,
+      "context_matched_random_identical_proof_text_share": 0.002064
+    },
+    {
+      "k": 50,
+      "mean_statement_neighbor_cosine": 0.7176785469055176,
+      "mean_proof_cosine_statement_neighbors": 0.6448337435722351,
+      "mean_proof_cosine_context_matched_random": 0.5862360596656799,
+      "proof_cosine_delta": 0.058597687631845474,
+      "proof_cosine_delta_ci95": [
+        0.058025659434497355,
+        0.05914264731109142
+      ],
+      "mean_neighborhood_overlap": 0.126278,
+      "neighborhood_overlap_ci95": [
+        0.12437975000000003,
+        0.12838230000000006
+      ],
+      "chance_neighborhood_overlap": 0.005000500050005001,
+      "overlap_enrichment_over_chance": 25.25307444,
+      "share_queries_with_any_overlap": 0.9373,
+      "statement_neighbor_same_coarse_module_share": 0.375236,
+      "statement_neighbor_same_source_file_share": 0.080542,
+      "statement_neighbor_identical_statement_text_share": 2.8e-05,
+      "statement_neighbor_identical_proof_text_share": 0.003356,
+      "context_matched_random_identical_proof_text_share": 0.001496
+    },
+    {
+      "k": 100,
+      "mean_statement_neighbor_cosine": 0.6979161500930786,
+      "mean_proof_cosine_statement_neighbors": 0.6351403594017029,
+      "mean_proof_cosine_context_matched_random": 0.5821747183799744,
+      "proof_cosine_delta": 0.0529656745493412,
+      "proof_cosine_delta_ci95": [
+        0.05245489841327071,
+        0.0534600168466568
+      ],
+      "mean_neighborhood_overlap": 0.13468000000000005,
+      "neighborhood_overlap_ci95": [
+        0.13285697500000002,
+        0.136599475
+      ],
+      "chance_neighborhood_overlap": 0.010001000100010001,
+      "overlap_enrichment_over_chance": 13.466653200000005,
+      "share_queries_with_any_overlap": 0.9877,
+      "statement_neighbor_same_coarse_module_share": 0.315511,
+      "statement_neighbor_same_source_file_share": 0.048921,
+      "statement_neighbor_identical_statement_text_share": 1.4e-05,
+      "statement_neighbor_identical_proof_text_share": 0.002382,
+      "context_matched_random_identical_proof_text_share": 0.001096
+    }
+  ],
+  "sampled_pair_results": {
+    "n_pairs": 500000,
+    "correlations": {
+      "pearson": 0.34766310453414917,
+      "spearman": 0.3414783444119778
+    },
+    "same_coarse_module_share": 0.090394,
+    "same_source_file_share": 0.001036,
+    "controlled_regression": {
+      "description": "OLS with standardized response and standardized predictors; descriptive because sampled pairs share theorem endpoints",
+      "n_pairs": 500000,
+      "standardized_coefficients": {
+        "intercept": -8.69947334851288e-07,
+        "statement_cosine": 0.30471980502459,
+        "same_coarse_module": 0.03262287609513841,
+        "same_source_file": 0.014978265467779549,
+        "absolute_log1p_tactic_count_difference": -0.277964470879795
+      },
+      "full_r_squared": 0.19817420096374716,
+      "r_squared_without_statement_cosine": 0.1090149650993707,
+      "incremental_r_squared_from_statement_cosine": 0.08915923586437646
+    },
+    "statement_similarity_deciles": [
+      {
+        "decile": 1,
+        "n_pairs": 50000,
+        "minimum_statement_cosine": 0.3071848154067993,
+        "maximum_statement_cosine": 0.4673096835613251,
+        "mean_statement_cosine": 0.44267773628234863,
+        "mean_proof_cosine": 0.5347491502761841
+      },
+      {
+        "decile": 2,
+        "n_pairs": 49999,
+        "minimum_statement_cosine": 0.46731045842170715,
+        "maximum_statement_cosine": 0.4906747043132782,
+        "mean_statement_cosine": 0.47988268733024597,
+        "mean_proof_cosine": 0.5494523644447327
+      },
+      {
+        "decile": 3,
+        "n_pairs": 50001,
+        "minimum_statement_cosine": 0.49067479372024536,
+        "maximum_statement_cosine": 0.5078085660934448,
+        "mean_statement_cosine": 0.4995252192020416,
+        "mean_proof_cosine": 0.5575524568557739
+      },
+      {
+        "decile": 4,
+        "n_pairs": 50000,
+        "minimum_statement_cosine": 0.5078089833259583,
+        "maximum_statement_cosine": 0.5227090120315552,
+        "mean_statement_cosine": 0.515380322933197,
+        "mean_proof_cosine": 0.5634967684745789
+      },
+      {
+        "decile": 5,
+        "n_pairs": 50000,
+        "minimum_statement_cosine": 0.522709846496582,
+        "maximum_statement_cosine": 0.5368279218673706,
+        "mean_statement_cosine": 0.5298093557357788,
+        "mean_proof_cosine": 0.5693132281303406
+      },
+      {
+        "decile": 6,
+        "n_pairs": 50000,
+        "minimum_statement_cosine": 0.5368279814720154,
+        "maximum_statement_cosine": 0.551302969455719,
+        "mean_statement_cosine": 0.544035792350769,
+        "mean_proof_cosine": 0.5755582451820374
+      },
+      {
+        "decile": 7,
+        "n_pairs": 50000,
+        "minimum_statement_cosine": 0.5513031482696533,
+        "maximum_statement_cosine": 0.5669991374015808,
+        "mean_statement_cosine": 0.558976411819458,
+        "mean_proof_cosine": 0.5810562372207642
+      },
+      {
+        "decile": 8,
+        "n_pairs": 50000,
+        "minimum_statement_cosine": 0.5669994354248047,
+        "maximum_statement_cosine": 0.585881769657135,
+        "mean_statement_cosine": 0.5760700702667236,
+        "mean_proof_cosine": 0.5874037146568298
+      },
+      {
+        "decile": 9,
+        "n_pairs": 50000,
+        "minimum_statement_cosine": 0.585882306098938,
+        "maximum_statement_cosine": 0.613745391368866,
+        "mean_statement_cosine": 0.5986149907112122,
+        "mean_proof_cosine": 0.5961866974830627
+      },
+      {
+        "decile": 10,
+        "n_pairs": 50000,
+        "minimum_statement_cosine": 0.6137454509735107,
+        "maximum_statement_cosine": 0.9745386838912964,
+        "mean_statement_cosine": 0.6478459239006042,
+        "mean_proof_cosine": 0.616464376449585
+      }
+    ]
+  },
+  "neighbor_artifacts": {
+    "statement_top100_indices.npy": {
+      "shape": [
+        10000,
+        100
+      ],
+      "bytes": 4000128,
+      "sha256": "630e6f0aada87e2510188e1403b8996369efdb814e28f1a183ea0e7b0e80014d"
+    },
+    "statement_top100_cosine.npy": {
+      "shape": [
+        10000,
+        100
+      ],
+      "bytes": 4000128,
+      "sha256": "9c40f716cf7b55d289584eeb8d38b162d6c3d42d0557f9f80566c90ed67d8ff3"
+    },
+    "proof_top100_indices.npy": {
+      "shape": [
+        10000,
+        100
+      ],
+      "bytes": 4000128,
+      "sha256": "f5c732f55262077a0c948162a38498cc4fe58e7be13e13c1c006a5eaa3196f17"
+    },
+    "proof_top100_cosine.npy": {
+      "shape": [
+        10000,
+        100
+      ],
+      "bytes": 4000128,
+      "sha256": "6ebacb04fec21df36dcf63636f0f2c5e48f2bab134f874c0c97281e054d221c5"
+    }
+  },
+  "elapsed_seconds": 11.534181599970907,
+  "runtime": {
+    "python": "3.13.5 | packaged by Anaconda, Inc. | (main, Jun 12 2025, 16:37:03) [MSC v.1929 64 bit (AMD64)]",
+    "numpy": "2.1.3",
+    "scipy": "1.15.3",
+    "platform": "Windows-11-10.0.22631-SP0"
+  }
+}

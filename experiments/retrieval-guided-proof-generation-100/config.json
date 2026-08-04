@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "experiment_id": "retrieval-guided-proof-generation-100",
+  "source_geometry_experiment": "experiments/semantic-neighborhood-transfer-10000",
+  "source_embedding_experiment": "experiments/semantic-embeddings-10000",
+  "dataset": {
+    "root": "data/leandojo_benchmark_4/leandojo_benchmark_4",
+    "split": "random",
+    "mathlib_commit": "3c307701fa7e9acbdc0680d7f3b9c9fed9081740",
+    "target_source_split": "test.json",
+    "retrieval_source_split": "train.json",
+    "target_count": 100,
+    "target_seed": 0,
+    "maximum_target_statement_characters": 4000
+  },
+  "retrieval": {
+    "conditions": ["no_retrieval", "random", "bm25", "semantic"],
+    "examples_per_prompt": 4,
+    "maximum_example_characters": 3000,
+    "maximum_duplicate_cosine": 0.98,
+    "random_seed": 0,
+    "bm25_k1": 1.5,
+    "bm25_b": 0.75
+  },
+  "generation": {
+    "requested_model_id": "us.anthropic.claude-sonnet-5",
+    "model_id": "global.anthropic.claude-sonnet-4-5-20250929-v1:0",
+    "model_substitution_reason": "Claude Sonnet 5 returned AccessDeniedException for this AWS account; Claude Sonnet 4.5 was authorized and passed the AWS CLI preflight.",
+    "aws_region": "us-east-1",
+    "candidates_per_condition": 3,
+    "maximum_output_tokens": 500,
+    "temperature": 0.4,
+    "maximum_prompt_utf8_bytes": 16000,
+    "concurrency": 4,
+    "maximum_retries": 5,
+    "retry_base_seconds": 2.0
+  },
+  "budget": {
+    "input_usd_per_million_tokens": 3.0,
+    "output_usd_per_million_tokens": 15.0,
+    "application_stop_usd": 23.5,
+    "absolute_experiment_ceiling_usd": 25.0,
+    "preflight_input_tokens": 24,
+    "preflight_output_tokens": 8,
+    "preflight_cost_usd": 0.000192,
+    "unobserved_failed_invocation_reserve_usd": 0.136044,
+    "unobserved_failed_invocation_note": "Six t080-semantic-c0 calls may have completed before AWS CLI failed to encode Unicode output; reserve charges each attempt at its pre-dispatch maximum.",
+    "unknown_prompt_token_upper_bound": "UTF-8 byte length plus 256 tokens"
+  },
+  "verification": {
+    "timeout_seconds": 120,
+    "concurrency": 8,
+    "lean_toolchain": "leanprover/lean4:v4.6.0-rc1",
+    "mathlib_checkout": "experiments/retrieval-guided-proof-generation-100/.runtime/mathlib4-pinned",
+    "elan_home": "experiments/retrieval-guided-proof-generation-100/.runtime/elan-home"
+  }
+}

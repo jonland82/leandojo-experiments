@@ -1,0 +1,360 @@
+{
+  "experiment_id": "retrieval-guided-proof-generation-100",
+  "integrity": {
+    "targets": 100,
+    "prompts": 400,
+    "responses": 1200,
+    "verification_attempts": 1200,
+    "complete_balanced_design": true,
+    "files": {
+      "config.json": {
+        "bytes": 2348,
+        "sha256": "c21d649cacc39c5dd7108824e7bc1d3e74c74e3922727a82915d6807d1e9dabb"
+      },
+      "inputs/targets.jsonl": {
+        "bytes": 276363,
+        "sha256": "7bf1f39a023654ec95a04b68beff70a7b664a23056a0a264f170ca3d5c863c83"
+      },
+      "inputs/prompts.jsonl": {
+        "bytes": 702717,
+        "sha256": "ea8c392c233f19d682096e73a6aa6f2efccf03002ff61ffbaf307d5c2f914d24"
+      },
+      "outputs/responses.jsonl": {
+        "bytes": 1802829,
+        "sha256": "d200b40c60fe2e9ee90cc644a46da653ca0f542fb2096f034d9d3b28c69be7d8"
+      },
+      "verification/attempts.jsonl": {
+        "bytes": 1792511,
+        "sha256": "8ea955a2f3a2b46ba8c594a7e31e519ff73b83cfe25b0f783b79f14dc93211ce"
+      },
+      "artifacts/generation_run.json": {
+        "bytes": 617,
+        "sha256": "c2a390bb5a4d9d8a0e97a92a619db220bac6e6079f528e5d70967d81341ad3cb"
+      }
+    }
+  },
+  "model": {
+    "requested": "us.anthropic.claude-sonnet-5",
+    "used": "global.anthropic.claude-sonnet-4-5-20250929-v1:0",
+    "substitution_reason": "Claude Sonnet 5 returned AccessDeniedException for this AWS account; Claude Sonnet 4.5 was authorized and passed the AWS CLI preflight."
+  },
+  "condition_metrics": {
+    "no_retrieval": {
+      "accepted_attempts": 38,
+      "attempts": 300,
+      "attempt_success_rate": 0.12666666666666668,
+      "pass_at_k": {
+        "1": {
+          "successes": 11,
+          "targets": 100,
+          "rate": 0.11,
+          "wilson_95": [
+            0.06254196357064568,
+            0.18631296503080313
+          ]
+        },
+        "2": {
+          "successes": 14,
+          "targets": 100,
+          "rate": 0.14,
+          "wilson_95": [
+            0.08526343659939134,
+            0.22137188210963837
+          ]
+        },
+        "3": {
+          "successes": 16,
+          "targets": 100,
+          "rate": 0.16,
+          "wilson_95": [
+            0.10095288488804782,
+            0.24420269389270244
+          ]
+        }
+      },
+      "input_tokens": 52221,
+      "output_tokens": 24337,
+      "observed_cost_usd": 0.5217180000000001,
+      "mean_bedrock_latency_ms": 2911.036666666667,
+      "output_cap_truncations": 10,
+      "generation_retries": 1,
+      "mean_verification_seconds": 29.05605018433028
+    },
+    "random": {
+      "accepted_attempts": 33,
+      "attempts": 300,
+      "attempt_success_rate": 0.11,
+      "pass_at_k": {
+        "1": {
+          "successes": 13,
+          "targets": 100,
+          "rate": 0.13,
+          "wilson_95": [
+            0.07757167427240512,
+            0.20980351440076428
+          ]
+        },
+        "2": {
+          "successes": 13,
+          "targets": 100,
+          "rate": 0.13,
+          "wilson_95": [
+            0.07757167427240512,
+            0.20980351440076428
+          ]
+        },
+        "3": {
+          "successes": 14,
+          "targets": 100,
+          "rate": 0.14,
+          "wilson_95": [
+            0.08526343659939134,
+            0.22137188210963837
+          ]
+        }
+      },
+      "input_tokens": 265638,
+      "output_tokens": 44758,
+      "observed_cost_usd": 1.4682840000000001,
+      "mean_bedrock_latency_ms": 4020.41,
+      "output_cap_truncations": 38,
+      "generation_retries": 0,
+      "mean_verification_seconds": 29.073147065995727
+    },
+    "bm25": {
+      "accepted_attempts": 52,
+      "attempts": 300,
+      "attempt_success_rate": 0.17333333333333334,
+      "pass_at_k": {
+        "1": {
+          "successes": 18,
+          "targets": 100,
+          "rate": 0.18,
+          "wilson_95": [
+            0.1170022549894635,
+            0.2666735838630073
+          ]
+        },
+        "2": {
+          "successes": 20,
+          "targets": 100,
+          "rate": 0.2,
+          "wilson_95": [
+            0.1333669333310325,
+            0.2888291655931589
+          ]
+        },
+        "3": {
+          "successes": 21,
+          "targets": 100,
+          "rate": 0.21,
+          "wilson_95": [
+            0.141656540619153,
+            0.29979968834089865
+          ]
+        }
+      },
+      "input_tokens": 276669,
+      "output_tokens": 32545,
+      "observed_cost_usd": 1.3181820000000004,
+      "mean_bedrock_latency_ms": 3122.483333333333,
+      "output_cap_truncations": 18,
+      "generation_retries": 4,
+      "mean_verification_seconds": 29.110043495337013
+    },
+    "semantic": {
+      "accepted_attempts": 61,
+      "attempts": 300,
+      "attempt_success_rate": 0.20333333333333334,
+      "pass_at_k": {
+        "1": {
+          "successes": 19,
+          "targets": 100,
+          "rate": 0.19,
+          "wilson_95": [
+            0.12514751509768735,
+            0.27778845379064376
+          ]
+        },
+        "2": {
+          "successes": 23,
+          "targets": 100,
+          "rate": 0.23,
+          "wilson_95": [
+            0.15843265880303448,
+            0.3215438302287378
+          ]
+        },
+        "3": {
+          "successes": 24,
+          "targets": 100,
+          "rate": 0.24,
+          "wilson_95": [
+            0.16691325556948772,
+            0.33232336349814473
+          ]
+        }
+      },
+      "input_tokens": 222618,
+      "output_tokens": 29823,
+      "observed_cost_usd": 1.1151990000000003,
+      "mean_bedrock_latency_ms": 2882.4333333333334,
+      "output_cap_truncations": 17,
+      "generation_retries": 4,
+      "mean_verification_seconds": 29.042429280998963
+    }
+  },
+  "paired_pass_at_3": {
+    "semantic_minus_no_retrieval": {
+      "difference": 0.07999999999999999,
+      "bootstrap_95": [
+        -0.01,
+        0.17
+      ],
+      "both_success": 9,
+      "semantic_only": 15,
+      "baseline_only": 7,
+      "neither_success": 69,
+      "exact_mcnemar_p_two_sided": 0.13380050659179688
+    },
+    "semantic_minus_random": {
+      "difference": 0.09999999999999998,
+      "bootstrap_95": [
+        0.03,
+        0.18
+      ],
+      "both_success": 11,
+      "semantic_only": 13,
+      "baseline_only": 3,
+      "neither_success": 73,
+      "exact_mcnemar_p_two_sided": 0.021270751953125
+    },
+    "semantic_minus_bm25": {
+      "difference": 0.03,
+      "bootstrap_95": [
+        -0.03,
+        0.09
+      ],
+      "both_success": 18,
+      "semantic_only": 6,
+      "baseline_only": 3,
+      "neither_success": 73,
+      "exact_mcnemar_p_two_sided": 0.5078125
+    }
+  },
+  "timeout_sensitivity": {
+    "excluded_target_ranks": [
+      30
+    ],
+    "retained_targets": 99,
+    "pass_at_3": {
+      "no_retrieval": {
+        "successes": 16,
+        "targets": 99,
+        "rate": 0.16161616161616163
+      },
+      "random": {
+        "successes": 14,
+        "targets": 99,
+        "rate": 0.1414141414141414
+      },
+      "bm25": {
+        "successes": 21,
+        "targets": 99,
+        "rate": 0.21212121212121213
+      },
+      "semantic": {
+        "successes": 24,
+        "targets": 99,
+        "rate": 0.24242424242424243
+      }
+    }
+  },
+  "failure_categories": {
+    "success": 184,
+    "tactic_failure": 144,
+    "unknown_identifier": 268,
+    "unsolved_goals": 252,
+    "output_cap_truncated": 83,
+    "syntax_or_parse_error": 56,
+    "other_lean_rejection": 91,
+    "elaboration_or_type_error": 110,
+    "verifier_timeout": 12
+  },
+  "failure_categories_by_condition": {
+    "no_retrieval": {
+      "tactic_failure": 51,
+      "success": 38,
+      "unsolved_goals": 31,
+      "output_cap_truncated": 10,
+      "unknown_identifier": 91,
+      "syntax_or_parse_error": 18,
+      "elaboration_or_type_error": 35,
+      "other_lean_rejection": 23,
+      "verifier_timeout": 3
+    },
+    "random": {
+      "success": 33,
+      "unsolved_goals": 75,
+      "tactic_failure": 33,
+      "other_lean_rejection": 23,
+      "unknown_identifier": 61,
+      "output_cap_truncated": 38,
+      "elaboration_or_type_error": 22,
+      "syntax_or_parse_error": 12,
+      "verifier_timeout": 3
+    },
+    "bm25": {
+      "success": 52,
+      "unsolved_goals": 78,
+      "tactic_failure": 28,
+      "elaboration_or_type_error": 27,
+      "other_lean_rejection": 29,
+      "unknown_identifier": 53,
+      "output_cap_truncated": 18,
+      "syntax_or_parse_error": 12,
+      "verifier_timeout": 3
+    },
+    "semantic": {
+      "unknown_identifier": 63,
+      "unsolved_goals": 68,
+      "tactic_failure": 32,
+      "syntax_or_parse_error": 14,
+      "elaboration_or_type_error": 26,
+      "output_cap_truncated": 17,
+      "success": 61,
+      "verifier_timeout": 3,
+      "other_lean_rejection": 16
+    }
+  },
+  "retrieval_diagnostics": {
+    "mean_semantic_bm25_example_overlap_out_of_four": 1.27,
+    "targets_with_no_semantic_bm25_example_overlap": 24
+  },
+  "generation": {
+    "responses": 1200,
+    "expected_responses": 1200,
+    "complete": true,
+    "budget_stopped": false,
+    "input_tokens_including_preflight": 817170,
+    "output_tokens_including_preflight": 131471,
+    "inference_cost_usd_including_preflight": 4.559618999999995,
+    "observed_token_cost_usd_including_preflight": 4.423574999999999,
+    "unobserved_failed_invocation_reserve_usd": 0.136044,
+    "application_stop_usd": 23.5,
+    "absolute_experiment_ceiling_usd": 25.0,
+    "elapsed_seconds_this_run": 1364.3546316623688,
+    "model_id": "global.anthropic.claude-sonnet-4-5-20250929-v1:0",
+    "aws_region": "us-east-1"
+  },
+  "verification": {
+    "accepted_attempts": 184,
+    "timeouts": 12,
+    "timeout_target_ranks": [
+      30
+    ],
+    "total_verifier_seconds_sum": 34884.501007998595,
+    "mean_verifier_seconds": 29.070417506665496,
+    "maximum_verifier_seconds": 120.04846630012617
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "responses": 1200,
+  "expected_responses": 1200,
+  "complete": true,
+  "budget_stopped": false,
+  "input_tokens_including_preflight": 817170,
+  "output_tokens_including_preflight": 131471,
+  "inference_cost_usd_including_preflight": 4.559618999999995,
+  "observed_token_cost_usd_including_preflight": 4.423574999999999,
+  "unobserved_failed_invocation_reserve_usd": 0.136044,
+  "application_stop_usd": 23.5,
+  "absolute_experiment_ceiling_usd": 25.0,
+  "elapsed_seconds_this_run": 1364.3546316623688,
+  "model_id": "global.anthropic.claude-sonnet-4-5-20250929-v1:0",
+  "aws_region": "us-east-1"
+}
