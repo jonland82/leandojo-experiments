@@ -58,7 +58,7 @@ For each view $v\in\{\mathrm{style},\mathrm{domain}\}$, the feature matrix is
 TF–IDF weighted and approximated by nonnegative matrix factorization:
 
 $$
-X_v=\operatorname{TFIDF}(\Phi_v)
+X_v=\mathrm{TFIDF}(\Phi_v)
 \approx W_vH_v,
 \qquad W_v,H_v\geq0.
 $$
@@ -71,12 +71,12 @@ $$
 $$
 
 Let $s_i$ and $p_i$ be the normalized statement and proof embeddings for
-theorem $i$. Their exact top-$k$ neighborhoods are
+theorem $i$. Their exact top $k$ neighborhoods are
 
 $$
-S_i(k)=\operatorname{TopK}_{j\neq i}\cos(s_i,s_j),
+S_i(k)=\mathrm{TopK}_{j\neq i}\cos(s_i,s_j),
 \qquad
-P_i(k)=\operatorname{TopK}_{j\neq i}\cos(p_i,p_j).
+P_i(k)=\mathrm{TopK}_{j\neq i}\cos(p_i,p_j).
 $$
 
 The local transfer statistic compares proof similarity along statement
@@ -92,9 +92,9 @@ At $k=10$, the observed value is $\Delta_{10}=0.6727-0.6030=0.0696$.
 For generation condition $c$, kernel-verified success is
 
 $$
-\operatorname{pass@}k(i,c)
+\mathrm{pass}_{k}(i,c)
 =\mathbb{1}\!\left[
-\exists j\leq k:\operatorname{LeanAccept}(p_{ij}^{(c)})
+\exists j\leq k:\mathrm{LeanAccept}(p_{ij}^{(c)})
 \right].
 $$
 
