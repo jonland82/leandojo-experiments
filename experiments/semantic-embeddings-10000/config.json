@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "experiment_id": "semantic-embeddings-10000",
+  "dataset": {
+    "root": "data/leandojo_benchmark_4/leandojo_benchmark_4",
+    "splits": ["train.json", "val.json", "test.json"],
+    "sample_size": 10000,
+    "sample_seed": 0,
+    "require_nonempty_traced_tactics": true
+  },
+  "views": {
+    "statement": "Lean 4 theorem statement:\n{statement}",
+    "proof": "Lean 4 tactic proof:\n{proof}",
+    "joint": "Lean 4 theorem statement:\n{statement}\n\nLean 4 tactic proof:\n{proof}"
+  },
+  "embedding": {
+    "provider": "Amazon Bedrock",
+    "transport": "AWS CLI",
+    "region": "us-east-1",
+    "model_id": "cohere.embed-v4:0",
+    "input_type": "clustering",
+    "embedding_type": "float",
+    "output_dimension": 1024,
+    "batch_size": 96,
+    "max_tokens": 128000,
+    "truncate": "NONE",
+    "max_attempts": 10,
+    "estimated_price_usd_per_million_text_tokens": 0.12,
+    "pricing_reference": "https://aws.amazon.com/bedrock/pricing/",
+    "pricing_checked_date": "2026-08-03"
+  },
+  "clustering": {
+    "algorithm": "MiniBatchKMeans on L2-normalized embeddings",
+    "candidate_k": [4, 6, 8, 10, 12, 14, 16],
+    "seed": 0,
+    "n_init": 10,
+    "max_iter": 300,
+    "batch_size": 1024,
+    "stability_subsamples": 4,
+    "stability_fraction": 0.8,
+    "stability_threshold_ami": 0.8,
+    "silhouette_sample_size": 2000,
+    "selection_rule": "highest cosine silhouette among candidates with mean subsample AMI >= 0.8; otherwise highest mean subsample AMI"
+  }
+}

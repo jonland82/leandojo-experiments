@@ -1,0 +1,2459 @@
+{
+  "experiment_id": "semantic-embeddings-10000",
+  "views": {
+    "statement": {
+      "selected_k": 16,
+      "selection_reason": "fallback: maximum mean subsample AMI because no candidate met threshold",
+      "diagnostics": [
+        {
+          "k": 4,
+          "cosine_silhouette": 0.0429401695728302,
+          "mean_subsample_ami": 0.3266046645903538,
+          "minimum_subsample_ami": 0.2544285831848996,
+          "subsample_ami": [
+            0.2544285831848996,
+            0.3623723621962809,
+            0.27536434625369616,
+            0.4142533667265387
+          ],
+          "inertia": 4380.3486328125,
+          "inertia_per_record": 0.43803486328125,
+          "fit_and_diagnostics_seconds": 4.4678217000328
+        },
+        {
+          "k": 6,
+          "cosine_silhouette": 0.028655599802732468,
+          "mean_subsample_ami": 0.27911503178688274,
+          "minimum_subsample_ami": 0.22113599794093378,
+          "subsample_ami": [
+            0.3323134977400026,
+            0.22113599794093378,
+            0.24450280073272285,
+            0.31850783073387184
+          ],
+          "inertia": 4319.72216796875,
+          "inertia_per_record": 0.431972216796875,
+          "fit_and_diagnostics_seconds": 5.744417099980637
+        },
+        {
+          "k": 8,
+          "cosine_silhouette": 0.028070170432329178,
+          "mean_subsample_ami": 0.3741908740069753,
+          "minimum_subsample_ami": 0.32936432433681057,
+          "subsample_ami": [
+            0.32936432433681057,
+            0.3340478833080621,
+            0.38908327026815054,
+            0.444268018114878
+          ],
+          "inertia": 4262.69921875,
+          "inertia_per_record": 0.426269921875,
+          "fit_and_diagnostics_seconds": 7.374973600031808
+        },
+        {
+          "k": 10,
+          "cosine_silhouette": 0.0321655198931694,
+          "mean_subsample_ami": 0.35054434357942676,
+          "minimum_subsample_ami": 0.3230278022441505,
+          "subsample_ami": [
+            0.3562817689866616,
+            0.3692915130243766,
+            0.3230278022441505,
+            0.35357629006251845
+          ],
+          "inertia": 4200.9365234375,
+          "inertia_per_record": 0.42009365234375,
+          "fit_and_diagnostics_seconds": 8.9493088000454
+        },
+        {
+          "k": 12,
+          "cosine_silhouette": 0.02828443981707096,
+          "mean_subsample_ami": 0.41035730853622887,
+          "minimum_subsample_ami": 0.3816294450102222,
+          "subsample_ami": [
+            0.39527715939473285,
+            0.4005602043021155,
+            0.3816294450102222,
+            0.46396242543784494
+          ],
+          "inertia": 4159.517578125,
+          "inertia_per_record": 0.4159517578125,
+          "fit_and_diagnostics_seconds": 10.435212300159037
+        },
+        {
+          "k": 14,
+          "cosine_silhouette": 0.0273811686784029,
+          "mean_subsample_ami": 0.393961209716187,
+          "minimum_subsample_ami": 0.3726924352080497,
+          "subsample_ami": [
+            0.4434610630956759,
+            0.3726924352080497,
+            0.37785036052845933,
+            0.38184098003256306
+          ],
+          "inertia": 4130.0078125,
+          "inertia_per_record": 0.41300078125,
+          "fit_and_diagnostics_seconds": 11.958262499887496
+        },
+        {
+          "k": 16,
+          "cosine_silhouette": 0.031361985951662064,
+          "mean_subsample_ami": 0.41621229736954074,
+          "minimum_subsample_ami": 0.40279818658497507,
+          "subsample_ami": [
+            0.4247532690435485,
+            0.4242298058229627,
+            0.40279818658497507,
+            0.4130679280266767
+          ],
+          "inertia": 4105.3330078125,
+          "inertia_per_record": 0.41053330078125,
+          "fit_and_diagnostics_seconds": 13.381402000086382
+        }
+      ],
+      "clusters": [
+        {
+          "cluster": 0,
+          "size": 349,
+          "share": 0.0349,
+          "mean_tactics": 5.034383954154728,
+          "median_tactics": 3.0,
+          "top_modules": [
+            {
+              "module": "Mathlib/RingTheory",
+              "count": 76
+            },
+            {
+              "module": "Mathlib/Algebra",
+              "count": 61
+            },
+            {
+              "module": "Mathlib/Data",
+              "count": 45
+            },
+            {
+              "module": "Mathlib/LinearAlgebra",
+              "count": 42
+            },
+            {
+              "module": "Mathlib/NumberTheory",
+              "count": 27
+            }
+          ],
+          "representatives": [
+            {
+              "full_name": "Ring.mul_inverse_cancel_left",
+              "file_path": "Mathlib/Algebra/GroupWithZero/Units/Basic.lean",
+              "cosine_to_center": 0.838220447494846
+            },
+            {
+              "full_name": "Submodule.nontrivial_span_singleton",
+              "file_path": "Mathlib/LinearAlgebra/Span.lean",
+              "cosine_to_center": 0.8341178541014365
+            },
+            {
+              "full_name": "Polynomial.X_ne_zero",
+              "file_path": "Mathlib/Data/Polynomial/Basic.lean",
+              "cosine_to_center": 0.8331669932404879
+            },
+            {
+              "full_name": "Ring.inverse_mul_cancel_left",
+              "file_path": "Mathlib/Algebra/GroupWithZero/Units/Basic.lean",
+              "cosine_to_center": 0.8300403588509242
+            },
+            {
+              "full_name": "CategoryTheory.Limits.IsZero.of_mono_eq_zero",
+              "file_path": "Mathlib/CategoryTheory/Limits/Shapes/ZeroMorphisms.lean",
+              "cosine_to_center": 0.8294203315321602
+            }
+          ]
+        },
+        {
+          "cluster": 1,
+          "size": 650,
+          "share": 0.065,
+          "mean_tactics": 3.9,
+          "median_tactics": 2.0,
+          "top_modules": [
+            {
+              "module": "Mathlib/Data",
+              "count": 297
+            },
+            {
+              "module": "Std/Data",
+              "count": 103
+            },
+            {
+              "module": "Mathlib/Algebra",
+              "count": 58
+            },
+            {
+              "module": "Mathlib/Order",
+              "count": 43
+            },
+            {
+              "module": "Mathlib/Topology",
+              "count": 24
+            }
+          ],
+          "representatives": [
+            {
+              "full_name": "Stream'.Seq.map_append",
+              "file_path": "Mathlib/Data/Seq/Seq.lean",
+              "cosine_to_center": 0.8674299069252341
+            },
+            {
+              "full_name": "List.map_id'",
+              "file_path": "Std/Data/List/Init/Lemmas.lean",
+              "cosine_to_center": 0.8531022382054638
+            },
+            {
+              "full_name": "Computation.map_think",
+              "file_path": "Mathlib/Data/Seq/Computation.lean",
+              "cosine_to_center": 0.843520074504089
+            },
+            {
+              "full_name": "Stream'.Seq1.map_join",
+              "file_path": "Mathlib/Data/Seq/Seq.lean",
+              "cosine_to_center": 0.8416138711153613
+            },
+            {
+              "full_name": "Stream'.map_cons",
+              "file_path": "Mathlib/Data/Stream/Init.lean",
+              "cosine_to_center": 0.839126963726911
+            }
+          ]
+        },
+        {
+          "cluster": 2,
+          "size": 788,
+          "share": 0.0788,
+          "mean_tactics": 3.2106598984771573,
+          "median_tactics": 2.0,
+          "top_modules": [
+            {
+              "module": "Mathlib/Data",
+              "count": 200
+            },
+            {
+              "module": "Mathlib/Algebra",
+              "count": 112
+            },
+            {
+              "module": "Std/Data",
+              "count": 83
+            },
+            {
+              "module": "Mathlib/Analysis",
+              "count": 77
+            },
+            {
+              "module": "Mathlib/SetTheory",
+              "count": 73
+            }
+          ],
+          "representatives": [
+            {
+              "full_name": "Int.neg_ne_of_pos",
+              "file_path": "Mathlib/Init/Data/Int/CompLemmas.lean",
+              "cosine_to_center": 0.873475100301153
+            },
+            {
+              "full_name": "Std.Tactic.Omega.Int.add_le_iff_le_sub",
+              "file_path": "Std/Tactic/Omega/Int.lean",
+              "cosine_to_center": 0.8727297493033908
+            },
+            {
+              "full_name": "Std.Tactic.Omega.Int.add_le_zero_iff_le_neg",
+              "file_path": "Std/Tactic/Omega/Int.lean",
+              "cosine_to_center": 0.8716245855337017
+            },
+            {
+              "full_name": "Std.Tactic.Omega.Int.add_le_zero_iff_le_neg'",
+              "file_path": "Std/Tactic/Omega/Int.lean",
+              "cosine_to_center": 0.8711831773029934
+            },
+            {
+              "full_name": "Int.lt_iff_le_and_ne",
+              "file_path": "Std/Data/Int/Init/Order.lean",
+              "cosine_to_center": 0.8699473940892556
+            }
+          ]
+        },
+        {
+          "cluster": 3,
+          "size": 925,
+          "share": 0.0925,
+          "mean_tactics": 4.258378378378378,
+          "median_tactics": 2.0,
+          "top_modules": [
+            {
+              "module": "Mathlib/CategoryTheory",
+              "count": 124
+            },
+            {
+              "module": "Mathlib/Data",
+              "count": 123
+            },
+            {
+              "module": "Mathlib/Topology",
+              "count": 106
+            },
+            {
+              "module": "Mathlib/LinearAlgebra",
+              "count": 102
+            },
+            {
+              "module": "Mathlib/RingTheory",
+              "count": 99
+            }
+          ],
+          "representatives": [
+            {
+              "full_name": "List.map_surjective_iff",
+              "file_path": "Mathlib/Data/List/Basic.lean",
+              "cosine_to_center": 0.8526409273694147
+            },
+            {
+              "full_name": "UpperSet.symm_map",
+              "file_path": "Mathlib/Order/UpperLower/Basic.lean",
+              "cosine_to_center": 0.8486981293412709
+            },
+            {
+              "full_name": "LowerSet.symm_map",
+              "file_path": "Mathlib/Order/UpperLower/Basic.lean",
+              "cosine_to_center": 0.8486981293412709
+            },
+            {
+              "full_name": "LieIdeal.map_of_image",
+              "file_path": "Mathlib/Algebra/Lie/Submodule.lean",
+              "cosine_to_center": 0.8469931440344906
+            },
+            {
+              "full_name": "map_bihimp",
+              "file_path": "Mathlib/Order/Heyting/Hom.lean",
+              "cosine_to_center": 0.8402308094056838
+            }
+          ]
+        },
+        {
+          "cluster": 4,
+          "size": 725,
+          "share": 0.0725,
+          "mean_tactics": 4.881379310344828,
+          "median_tactics": 3.0,
+          "top_modules": [
+            {
+              "module": "Mathlib/Data",
+              "count": 209
+            },
+            {
+              "module": "Mathlib/RingTheory",
+              "count": 84
+            },
+            {
+              "module": "Mathlib/Algebra",
+              "count": 78
+            },
+            {
+              "module": "Mathlib/Analysis",
+              "count": 75
+            },
+            {
+              "module": "Mathlib/NumberTheory",
+              "count": 74
+            }
+          ],
+          "representatives": [
+            {
+              "full_name": "npow_mul",
+              "file_path": "Mathlib/Algebra/Group/NatPowAssoc.lean",
+              "cosine_to_center": 0.8709650463109048
+            },
+            {
+              "full_name": "npow_mul'",
+              "file_path": "Mathlib/Algebra/Group/NatPowAssoc.lean",
+              "cosine_to_center": 0.870226873216053
+            },
+            {
+              "full_name": "ppow_mul",
+              "file_path": "Mathlib/Algebra/Group/PNatPowAssoc.lean",
+              "cosine_to_center": 0.8614578270655304
+            },
+            {
+              "full_name": "Nat.pow_succ'",
+              "file_path": "Std/Data/Nat/Lemmas.lean",
+              "cosine_to_center": 0.8607621224507261
+            },
+            {
+              "full_name": "npow_mul_comm",
+              "file_path": "Mathlib/Algebra/Group/NatPowAssoc.lean",
+              "cosine_to_center": 0.8591269322744808
+            }
+          ]
+        },
+        {
+          "cluster": 5,
+          "size": 869,
+          "share": 0.0869,
+          "mean_tactics": 2.3072497123130034,
+          "median_tactics": 1.0,
+          "top_modules": [
+            {
+              "module": "Mathlib/Data",
+              "count": 259
+            },
+            {
+              "module": "Mathlib/Analysis",
+              "count": 82
+            },
+            {
+              "module": "Mathlib/Algebra",
+              "count": 78
+            },
+            {
+              "module": "Mathlib/RingTheory",
+              "count": 66
+            },
+            {
+              "module": "Std/Data",
+              "count": 64
+            }
+          ],
+          "representatives": [
+            {
+              "full_name": "unitInterval.symm_one",
+              "file_path": "Mathlib/Topology/UnitInterval.lean",
+              "cosine_to_center": 0.8972736024280231
+            },
+            {
+              "full_name": "unitInterval.symm_zero",
+              "file_path": "Mathlib/Topology/UnitInterval.lean",
+              "cosine_to_center": 0.8963744391086577
+            },
+            {
+              "full_name": "Ordinal.zero_nmul",
+              "file_path": "Mathlib/SetTheory/Ordinal/NaturalOps.lean",
+              "cosine_to_center": 0.8948157221185289
+            },
+            {
+              "full_name": "EuclideanDomain.zero_div",
+              "file_path": "Mathlib/Algebra/EuclideanDomain/Basic.lean",
+              "cosine_to_center": 0.8898885567255793
+            },
+            {
+              "full_name": "Cardinal.aleph'_zero",
+              "file_path": "Mathlib/SetTheory/Cardinal/Ordinal.lean",
+              "cosine_to_center": 0.8871286588548202
+            }
+          ]
+        },
+        {
+          "cluster": 6,
+          "size": 542,
+          "share": 0.0542,
+          "mean_tactics": 3.9428044280442807,
+          "median_tactics": 2.0,
+          "top_modules": [
+            {
+              "module": "Mathlib/Data",
+              "count": 124
+            },
+            {
+              "module": "Mathlib/Analysis",
+              "count": 85
+            },
+            {
+              "module": "Mathlib/Algebra",
+              "count": 74
+            },
+            {
+              "module": "Mathlib/Geometry",
+              "count": 69
+            },
+            {
+              "module": "Std/Data",
+              "count": 44
+            }
+          ],
+          "representatives": [
+            {
+              "full_name": "NNReal.div_le_of_le_mul",
+              "file_path": "Mathlib/Data/Real/NNReal.lean",
+              "cosine_to_center": 0.8667320229123578
+            },
+            {
+              "full_name": "Nat.div_mul_div_le_div",
+              "file_path": "Mathlib/Data/Nat/Order/Basic.lean",
+              "cosine_to_center": 0.8644791937097376
+            },
+            {
+              "full_name": "Nat.mul_div_le",
+              "file_path": "Std/Data/Nat/Lemmas.lean",
+              "cosine_to_center": 0.8623156364150028
+            },
+            {
+              "full_name": "Int.ediv_mul_le",
+              "file_path": "Mathlib/Data/Int/Order/Basic.lean",
+              "cosine_to_center": 0.8594048469667526
+            },
+            {
+              "full_name": "mul_eq_of_eq_div",
+              "file_path": "Mathlib/Algebra/Group/Basic.lean",
+              "cosine_to_center": 0.8590132482005477
+            }
+          ]
+        },
+        {
+          "cluster": 7,
+          "size": 735,
+          "share": 0.0735,
+          "mean_tactics": 3.820408163265306,
+          "median_tactics": 2.0,
+          "top_modules": [
+            {
+              "module": "Mathlib/Data",
+              "count": 224
+            },
+            {
+              "module": "Mathlib/Topology",
+              "count": 180
+            },
+            {
+              "module": "Mathlib/Order",
+              "count": 119
+            },
+            {
+              "module": "Mathlib/Analysis",
+              "count": 45
+            },
+            {
+              "module": "Mathlib/MeasureTheory",
+              "count": 34
+            }
+          ],
+          "representatives": [
+            {
+              "full_name": "Finset.union_inter_cancel_left",
+              "file_path": "Mathlib/Data/Finset/Basic.lean",
+              "cosine_to_center": 0.8578326421777034
+            },
+            {
+              "full_name": "iSup_iUnion",
+              "file_path": "Mathlib/Data/Set/Lattice.lean",
+              "cosine_to_center": 0.8556243777606101
+            },
+            {
+              "full_name": "IsOpen.trans",
+              "file_path": "Mathlib/Topology/Constructions.lean",
+              "cosine_to_center": 0.842977121602564
+            },
+            {
+              "full_name": "Finset.iSup_insert",
+              "file_path": "Mathlib/Data/Finset/Lattice.lean",
+              "cosine_to_center": 0.8423734613335478
+            },
+            {
+              "full_name": "Finset.disjUnion_eq_union",
+              "file_path": "Mathlib/Data/Finset/Basic.lean",
+              "cosine_to_center": 0.8414948621235808
+            }
+          ]
+        },
+        {
+          "cluster": 8,
+          "size": 766,
+          "share": 0.0766,
+          "mean_tactics": 3.784595300261097,
+          "median_tactics": 2.0,
+          "top_modules": [
+            {
+              "module": "Mathlib/Algebra",
+              "count": 173
+            },
+            {
+              "module": "Mathlib/Data",
+              "count": 160
+            },
+            {
+              "module": "Mathlib/LinearAlgebra",
+              "count": 107
+            },
+            {
+              "module": "Mathlib/GroupTheory",
+              "count": 64
+            },
+            {
+              "module": "Mathlib/RingTheory",
+              "count": 63
+            }
+          ],
+          "representatives": [
+            {
+              "full_name": "Mathlib.Tactic.Ring.add_mul",
+              "file_path": "Mathlib/Tactic/Ring/Basic.lean",
+              "cosine_to_center": 0.8810341575100086
+            },
+            {
+              "full_name": "TensorProduct.liftAux.smul",
+              "file_path": "Mathlib/LinearAlgebra/TensorProduct.lean",
+              "cosine_to_center": 0.8727665064514536
+            },
+            {
+              "full_name": "ArithmeticFunction.mul_smul'",
+              "file_path": "Mathlib/NumberTheory/ArithmeticFunction.lean",
+              "cosine_to_center": 0.8659626483797798
+            },
+            {
+              "full_name": "WittVector.mapFun.mul",
+              "file_path": "Mathlib/RingTheory/WittVector/Basic.lean",
+              "cosine_to_center": 0.864566956098343
+            },
+            {
+              "full_name": "Matrix.col_smul",
+              "file_path": "Mathlib/Data/Matrix/RowCol.lean",
+              "cosine_to_center": 0.8640957949037092
+            }
+          ]
+        },
+        {
+          "cluster": 9,
+          "size": 587,
+          "share": 0.0587,
+          "mean_tactics": 5.10732538330494,
+          "median_tactics": 3.0,
+          "top_modules": [
+            {
+              "module": "Mathlib/Data",
+              "count": 117
+            },
+            {
+              "module": "Mathlib/Topology",
+              "count": 112
+            },
+            {
+              "module": "Mathlib/Analysis",
+              "count": 57
+            },
+            {
+              "module": "Mathlib/Order",
+              "count": 56
+            },
+            {
+              "module": "Mathlib/RingTheory",
+              "count": 35
+            }
+          ],
+          "representatives": [
+            {
+              "full_name": "eVariationOn.mono",
+              "file_path": "Mathlib/Analysis/BoundedVariation.lean",
+              "cosine_to_center": 0.84031546469358
+            },
+            {
+              "full_name": "Finset.exists_mem_eq_sup'",
+              "file_path": "Mathlib/Data/Finset/Lattice.lean",
+              "cosine_to_center": 0.8387264584257643
+            },
+            {
+              "full_name": "Set.subset_image_iff",
+              "file_path": "Mathlib/Data/Set/Image.lean",
+              "cosine_to_center": 0.8375898435094442
+            },
+            {
+              "full_name": "MeasureTheory.le_extend",
+              "file_path": "Mathlib/MeasureTheory/Measure/OuterMeasure.lean",
+              "cosine_to_center": 0.8322567930320885
+            },
+            {
+              "full_name": "LinearIndependent.image",
+              "file_path": "Mathlib/LinearAlgebra/LinearIndependent.lean",
+              "cosine_to_center": 0.8311961029129238
+            }
+          ]
+        },
+        {
+          "cluster": 10,
+          "size": 325,
+          "share": 0.0325,
+          "mean_tactics": 5.2676923076923075,
+          "median_tactics": 3.0,
+          "top_modules": [
+            {
+              "module": "Mathlib/Analysis",
+              "count": 207
+            },
+            {
+              "module": "Mathlib/Geometry",
+              "count": 46
+            },
+            {
+              "module": "Mathlib/Topology",
+              "count": 44
+            },
+            {
+              "module": "Mathlib/MeasureTheory",
+              "count": 22
+            },
+            {
+              "module": "Mathlib/Data",
+              "count": 2
+            }
+          ],
+          "representatives": [
+            {
+              "full_name": "hasFDerivWithinAt_inter",
+              "file_path": "Mathlib/Analysis/Calculus/FDeriv/Basic.lean",
+              "cosine_to_center": 0.8507865969752977
+            },
+            {
+              "full_name": "hasDerivAt_of_hasDerivAt_of_ne",
+              "file_path": "Mathlib/Analysis/Calculus/FDeriv/Extend.lean",
+              "cosine_to_center": 0.8481181643567153
+            },
+            {
+              "full_name": "DifferentiableWithinAt.hasFDerivWithinAt",
+              "file_path": "Mathlib/Analysis/Calculus/FDeriv/Basic.lean",
+              "cosine_to_center": 0.845237805479026
+            },
+            {
+              "full_name": "hasLineDerivWithinAt_congr_set",
+              "file_path": "Mathlib/Analysis/Calculus/LineDeriv/Basic.lean",
+              "cosine_to_center": 0.8451501106675148
+            },
+            {
+              "full_name": "hasMFDerivWithinAt_iff_hasFDerivWithinAt",
+              "file_path": "Mathlib/Geometry/Manifold/MFDeriv/FDeriv.lean",
+              "cosine_to_center": 0.8405083321228135
+            }
+          ]
+        },
+        {
+          "cluster": 11,
+          "size": 639,
+          "share": 0.0639,
+          "mean_tactics": 3.395931142410016,
+          "median_tactics": 2.0,
+          "top_modules": [
+            {
+              "module": "Mathlib/CategoryTheory",
+              "count": 247
+            },
+            {
+              "module": "Mathlib/Algebra",
+              "count": 50
+            },
+            {
+              "module": "Mathlib/Topology",
+              "count": 50
+            },
+            {
+              "module": "Mathlib/Data",
+              "count": 47
+            },
+            {
+              "module": "Mathlib/Combinatorics",
+              "count": 33
+            }
+          ],
+          "representatives": [
+            {
+              "full_name": "CategoryTheory.Bicategory.leftUnitor_comp",
+              "file_path": "Mathlib/CategoryTheory/Bicategory/Basic.lean",
+              "cosine_to_center": 0.8596855774425487
+            },
+            {
+              "full_name": "CategoryTheory.Bicategory.leftUnitor_comp_inv",
+              "file_path": "Mathlib/CategoryTheory/Bicategory/Basic.lean",
+              "cosine_to_center": 0.8583105384035666
+            },
+            {
+              "full_name": "CategoryTheory.IsIso.Iso.inv_inv",
+              "file_path": "Mathlib/CategoryTheory/Iso.lean",
+              "cosine_to_center": 0.8564844854584241
+            },
+            {
+              "full_name": "CategoryTheory.Iso.inv_eq_inv",
+              "file_path": "Mathlib/CategoryTheory/Iso.lean",
+              "cosine_to_center": 0.8516863748828436
+            },
+            {
+              "full_name": "SemidirectProduct.map_inr",
+              "file_path": "Mathlib/GroupTheory/SemidirectProduct.lean",
+              "cosine_to_center": 0.8512554162902609
+            }
+          ]
+        },
+        {
+          "cluster": 12,
+          "size": 579,
+          "share": 0.0579,
+          "mean_tactics": 5.927461139896373,
+          "median_tactics": 3.0,
+          "top_modules": [
+            {
+              "module": "Mathlib/MeasureTheory",
+              "count": 439
+            },
+            {
+              "module": "Mathlib/Probability",
+              "count": 99
+            },
+            {
+              "module": "Mathlib/Analysis",
+              "count": 25
+            },
+            {
+              "module": "Mathlib/Dynamics",
+              "count": 10
+            },
+            {
+              "module": "Mathlib/Topology",
+              "count": 4
+            }
+          ],
+          "representatives": [
+            {
+              "full_name": "MeasureTheory.lintegral_singleton'",
+              "file_path": "Mathlib/MeasureTheory/Integral/Lebesgue.lean",
+              "cosine_to_center": 0.8551830132981939
+            },
+            {
+              "full_name": "MeasureTheory.set_lintegral_congr",
+              "file_path": "Mathlib/MeasureTheory/Integral/Lebesgue.lean",
+              "cosine_to_center": 0.847038536532384
+            },
+            {
+              "full_name": "MeasureTheory.lintegral_map'",
+              "file_path": "Mathlib/MeasureTheory/Integral/Lebesgue.lean",
+              "cosine_to_center": 0.8467104224708762
+            },
+            {
+              "full_name": "MeasureTheory.integral_smul_measure",
+              "file_path": "Mathlib/MeasureTheory/Integral/Bochner.lean",
+              "cosine_to_center": 0.8437073220338246
+            },
+            {
+              "full_name": "MeasureTheory.lintegral_iSup_ae",
+              "file_path": "Mathlib/MeasureTheory/Integral/Lebesgue.lean",
+              "cosine_to_center": 0.8416650823195151
+            }
+          ]
+        },
+        {
+          "cluster": 13,
+          "size": 431,
+          "share": 0.0431,
+          "mean_tactics": 6.633410672853828,
+          "median_tactics": 3.0,
+          "top_modules": [
+            {
+              "module": "Mathlib/Analysis",
+              "count": 222
+            },
+            {
+              "module": "Mathlib/Topology",
+              "count": 73
+            },
+            {
+              "module": "Mathlib/MeasureTheory",
+              "count": 65
+            },
+            {
+              "module": "Mathlib/NumberTheory",
+              "count": 25
+            },
+            {
+              "module": "Mathlib/Order",
+              "count": 18
+            }
+          ],
+          "representatives": [
+            {
+              "full_name": "lp.norm_le_of_forall_le'",
+              "file_path": "Mathlib/Analysis/NormedSpace/lpSpace.lean",
+              "cosine_to_center": 0.8310051264449788
+            },
+            {
+              "full_name": "tendsto_norm'",
+              "file_path": "Mathlib/Analysis/Normed/Group/Basic.lean",
+              "cosine_to_center": 0.8302359007316187
+            },
+            {
+              "full_name": "MeasureTheory.lintegral_ofReal_le_lintegral_nnnorm",
+              "file_path": "Mathlib/MeasureTheory/Integral/Lebesgue.lean",
+              "cosine_to_center": 0.8264460486357115
+            },
+            {
+              "full_name": "Subgroup.le_normalizer",
+              "file_path": "Mathlib/GroupTheory/Subgroup/Basic.lean",
+              "cosine_to_center": 0.8214215734079438
+            },
+            {
+              "full_name": "norm_div_le",
+              "file_path": "Mathlib/Analysis/Normed/Group/Basic.lean",
+              "cosine_to_center": 0.8187205042199875
+            }
+          ]
+        },
+        {
+          "cluster": 14,
+          "size": 600,
+          "share": 0.06,
+          "mean_tactics": 4.0616666666666665,
+          "median_tactics": 2.0,
+          "top_modules": [
+            {
+              "module": "Mathlib/Data",
+              "count": 219
+            },
+            {
+              "module": "Std/Data",
+              "count": 59
+            },
+            {
+              "module": "Mathlib/LinearAlgebra",
+              "count": 51
+            },
+            {
+              "module": "Mathlib/Combinatorics",
+              "count": 40
+            },
+            {
+              "module": "Mathlib/GroupTheory",
+              "count": 36
+            }
+          ],
+          "representatives": [
+            {
+              "full_name": "Fin.succ_inj",
+              "file_path": "Std/Data/Fin/Lemmas.lean",
+              "cosine_to_center": 0.8483532160297012
+            },
+            {
+              "full_name": "Finset.mem_fin",
+              "file_path": "Mathlib/Data/Finset/Image.lean",
+              "cosine_to_center": 0.8363387410968488
+            },
+            {
+              "full_name": "Finset.card_insertNone",
+              "file_path": "Mathlib/Data/Finset/Option.lean",
+              "cosine_to_center": 0.8315427317402894
+            },
+            {
+              "full_name": "List.Ico.eq_nil_of_le",
+              "file_path": "Mathlib/Data/List/Intervals.lean",
+              "cosine_to_center": 0.8289229986316835
+            },
+            {
+              "full_name": "finRotate_apply_zero",
+              "file_path": "Mathlib/Logic/Equiv/Fin.lean",
+              "cosine_to_center": 0.8283835061346511
+            }
+          ]
+        },
+        {
+          "cluster": 15,
+          "size": 490,
+          "share": 0.049,
+          "mean_tactics": 4.424489795918367,
+          "median_tactics": 2.0,
+          "top_modules": [
+            {
+              "module": "Mathlib/Analysis",
+              "count": 78
+            },
+            {
+              "module": "Mathlib/Algebra",
+              "count": 73
+            },
+            {
+              "module": "Mathlib/LinearAlgebra",
+              "count": 71
+            },
+            {
+              "module": "Mathlib/RingTheory",
+              "count": 47
+            },
+            {
+              "module": "Mathlib/GroupTheory",
+              "count": 41
+            }
+          ],
+          "representatives": [
+            {
+              "full_name": "QuadraticForm.map_sub",
+              "file_path": "Mathlib/LinearAlgebra/QuadraticForm/Basic.lean",
+              "cosine_to_center": 0.8446962333156558
+            },
+            {
+              "full_name": "midpoint_sub_add",
+              "file_path": "Mathlib/LinearAlgebra/AffineSpace/Midpoint.lean",
+              "cosine_to_center": 0.8344682156379015
+            },
+            {
+              "full_name": "Submodule.ker_inclusion",
+              "file_path": "Mathlib/Algebra/Module/Submodule/Ker.lean",
+              "cosine_to_center": 0.8299337178383439
+            },
+            {
+              "full_name": "Mathlib.Tactic.Ring.sub_congr",
+              "file_path": "Mathlib/Tactic/Ring/Basic.lean",
+              "cosine_to_center": 0.8291668602340523
+            },
+            {
+              "full_name": "inner_sub_right",
+              "file_path": "Mathlib/Analysis/InnerProductSpace/Basic.lean",
+              "cosine_to_center": 0.8264892118157101
+            }
+          ]
+        }
+      ],
+      "module_association": {
+        "n": 10000,
+        "ami": 0.18689375230271915,
+        "nmi": 0.19441505964332703,
+        "cramers_v": 0.32057558984945805
+      },
+      "labels_sha256": "06fd294e18b8ef7b09e7291ff59ede91cb1089294f649ebc0afa0e776a5b8f7f",
+      "centers_sha256": "50396f6191d5f88117187556fc44d1bc312091fcbce09c4ce138c5b1e0ccf04f"
+    },
+    "proof": {
+      "selected_k": 4,
+      "selection_reason": "fallback: maximum mean subsample AMI because no candidate met threshold",
+      "diagnostics": [
+        {
+          "k": 4,
+          "cosine_silhouette": 0.0760510265827179,
+          "mean_subsample_ami": 0.6223591612843645,
+          "minimum_subsample_ami": 0.5002929631828168,
+          "subsample_ami": [
+            0.7222191156062304,
+            0.7190922222386396,
+            0.5002929631828168,
+            0.5478323441097712
+          ],
+          "inertia": 3880.5234375,
+          "inertia_per_record": 0.38805234375,
+          "fit_and_diagnostics_seconds": 4.69004140002653
+        },
+        {
+          "k": 6,
+          "cosine_silhouette": 0.04434656351804733,
+          "mean_subsample_ami": 0.5036158114363504,
+          "minimum_subsample_ami": 0.45618311443599907,
+          "subsample_ami": [
+            0.45618311443599907,
+            0.4822456342235958,
+            0.5665572829789017,
+            0.5094772141069052
+          ],
+          "inertia": 3770.41162109375,
+          "inertia_per_record": 0.377041162109375,
+          "fit_and_diagnostics_seconds": 6.479876800207421
+        },
+        {
+          "k": 8,
+          "cosine_silhouette": 0.0689849853515625,
+          "mean_subsample_ami": 0.4520127853766913,
+          "minimum_subsample_ami": 0.4181927396662928,
+          "subsample_ami": [
+            0.43788979398107014,
+            0.4181927396662928,
+            0.4675294465906342,
+            0.4844391612687683
+          ],
+          "inertia": 3753.814453125,
+          "inertia_per_record": 0.3753814453125,
+          "fit_and_diagnostics_seconds": 7.641922899987549
+        },
+        {
+          "k": 10,
+          "cosine_silhouette": 0.06406978517770767,
+          "mean_subsample_ami": 0.4648896705690657,
+          "minimum_subsample_ami": 0.4361808849324677,
+          "subsample_ami": [
+            0.4726194110548865,
+            0.49428234423780915,
+            0.4361808849324677,
+            0.45647604205109965
+          ],
+          "inertia": 3682.373779296875,
+          "inertia_per_record": 0.3682373779296875,
+          "fit_and_diagnostics_seconds": 8.973702700110152
+        },
+        {
+          "k": 12,
+          "cosine_silhouette": 0.06137353554368019,
+          "mean_subsample_ami": 0.5038421915491925,
+          "minimum_subsample_ami": 0.4977157386341868,
+          "subsample_ami": [
+            0.4977157386341868,
+            0.5084870000161892,
+            0.5024969957247721,
+            0.5066690318216219
+          ],
+          "inertia": 3630.628173828125,
+          "inertia_per_record": 0.3630628173828125,
+          "fit_and_diagnostics_seconds": 10.90392760001123
+        },
+        {
+          "k": 14,
+          "cosine_silhouette": 0.04444238170981407,
+          "mean_subsample_ami": 0.5374524037270152,
+          "minimum_subsample_ami": 0.4631690284539256,
+          "subsample_ami": [
+            0.4631690284539256,
+            0.5523476643818577,
+            0.573024586216378,
+            0.5612683358558995
+          ],
+          "inertia": 3594.18994140625,
+          "inertia_per_record": 0.359418994140625,
+          "fit_and_diagnostics_seconds": 12.47869720007293
+        },
+        {
+          "k": 16,
+          "cosine_silhouette": 0.033154625445604324,
+          "mean_subsample_ami": 0.5599496564518252,
+          "minimum_subsample_ami": 0.5270701231808539,
+          "subsample_ami": [
+            0.592404000841277,
+            0.5678718165007207,
+            0.552452685284449,
+            0.5270701231808539
+          ],
+          "inertia": 3537.97607421875,
+          "inertia_per_record": 0.353797607421875,
+          "fit_and_diagnostics_seconds": 13.92125490005128
+        }
+      ],
+      "clusters": [
+        {
+          "cluster": 0,
+          "size": 2494,
+          "share": 0.2494,
+          "mean_tactics": 1.4346431435445068,
+          "median_tactics": 1.0,
+          "top_modules": [
+            {
+              "module": "Mathlib/Data",
+              "count": 624
+            },
+            {
+              "module": "Mathlib/Algebra",
+              "count": 259
+            },
+            {
+              "module": "Mathlib/Analysis",
+              "count": 217
+            },
+            {
+              "module": "Mathlib/CategoryTheory",
+              "count": 184
+            },
+            {
+              "module": "Mathlib/Topology",
+              "count": 175
+            }
+          ],
+          "representatives": [
+            {
+              "full_name": "Cardinal.mk_list_eq_mk",
+              "file_path": "Mathlib/SetTheory/Cardinal/Ordinal.lean",
+              "cosine_to_center": 0.9291837516862831
+            },
+            {
+              "full_name": "Function.Antiperiodic.mul",
+              "file_path": "Mathlib/Algebra/Periodic.lean",
+              "cosine_to_center": 0.9255286376915048
+            },
+            {
+              "full_name": "Polynomial.map_natDegree_eq_sub",
+              "file_path": "Mathlib/Data/Polynomial/EraseLead.lean",
+              "cosine_to_center": 0.9255286376915048
+            },
+            {
+              "full_name": "Complex.imCLM_norm",
+              "file_path": "Mathlib/Analysis/Complex/OperatorNorm.lean",
+              "cosine_to_center": 0.9246989131363204
+            },
+            {
+              "full_name": "pathComponent_subset_component",
+              "file_path": "Mathlib/Topology/Connected/PathConnected.lean",
+              "cosine_to_center": 0.924468992119878
+            }
+          ]
+        },
+        {
+          "cluster": 1,
+          "size": 2216,
+          "share": 0.2216,
+          "mean_tactics": 5.706227436823105,
+          "median_tactics": 4.0,
+          "top_modules": [
+            {
+              "module": "Mathlib/Data",
+              "count": 424
+            },
+            {
+              "module": "Mathlib/Analysis",
+              "count": 329
+            },
+            {
+              "module": "Mathlib/Algebra",
+              "count": 268
+            },
+            {
+              "module": "Mathlib/RingTheory",
+              "count": 264
+            },
+            {
+              "module": "Mathlib/LinearAlgebra",
+              "count": 165
+            }
+          ],
+          "representatives": [
+            {
+              "full_name": "Commute.mul_self_sub_mul_self_eq'",
+              "file_path": "Mathlib/Algebra/Ring/Commute.lean",
+              "cosine_to_center": 0.8767489577944394
+            },
+            {
+              "full_name": "mul_eq_mul_of_div_eq_div",
+              "file_path": "Mathlib/Algebra/GroupWithZero/Units/Lemmas.lean",
+              "cosine_to_center": 0.8730334763939658
+            },
+            {
+              "full_name": "inv_mul_le_iff_le_mul'",
+              "file_path": "Mathlib/Algebra/Order/Group/Defs.lean",
+              "cosine_to_center": 0.8688394623902836
+            },
+            {
+              "full_name": "IsGroupHom.map_div",
+              "file_path": "Mathlib/Deprecated/Group.lean",
+              "cosine_to_center": 0.8656645316225973
+            },
+            {
+              "full_name": "CharP.char_is_prime_of_two_le",
+              "file_path": "Mathlib/Algebra/CharP/Basic.lean",
+              "cosine_to_center": 0.8652664503102263
+            }
+          ]
+        },
+        {
+          "cluster": 2,
+          "size": 2844,
+          "share": 0.2844,
+          "mean_tactics": 7.45464135021097,
+          "median_tactics": 5.0,
+          "top_modules": [
+            {
+              "module": "Mathlib/Data",
+              "count": 403
+            },
+            {
+              "module": "Mathlib/Topology",
+              "count": 397
+            },
+            {
+              "module": "Mathlib/MeasureTheory",
+              "count": 394
+            },
+            {
+              "module": "Mathlib/Analysis",
+              "count": 363
+            },
+            {
+              "module": "Mathlib/CategoryTheory",
+              "count": 150
+            }
+          ],
+          "representatives": [
+            {
+              "full_name": "MeasureTheory.lintegral_iSup_ae",
+              "file_path": "Mathlib/MeasureTheory/Integral/Lebesgue.lean",
+              "cosine_to_center": 0.8455430834529937
+            },
+            {
+              "full_name": "Set.PairwiseDisjoint.prod_left",
+              "file_path": "Mathlib/Data/Set/Pairwise/Lattice.lean",
+              "cosine_to_center": 0.8444218149358801
+            },
+            {
+              "full_name": "Set.update_preimage_pi",
+              "file_path": "Mathlib/Data/Set/Prod.lean",
+              "cosine_to_center": 0.8387019261929184
+            },
+            {
+              "full_name": "QPF.mem_supp",
+              "file_path": "Mathlib/Data/QPF/Univariate/Basic.lean",
+              "cosine_to_center": 0.8349701727950698
+            },
+            {
+              "full_name": "MvPFunctor.supp_eq",
+              "file_path": "Mathlib/Data/PFunctor/Multivariate/Basic.lean",
+              "cosine_to_center": 0.8343855189064254
+            }
+          ]
+        },
+        {
+          "cluster": 3,
+          "size": 2446,
+          "share": 0.2446,
+          "mean_tactics": 1.8401471790678658,
+          "median_tactics": 2.0,
+          "top_modules": [
+            {
+              "module": "Mathlib/Data",
+              "count": 616
+            },
+            {
+              "module": "Mathlib/Algebra",
+              "count": 270
+            },
+            {
+              "module": "Mathlib/Analysis",
+              "count": 227
+            },
+            {
+              "module": "Mathlib/Topology",
+              "count": 171
+            },
+            {
+              "module": "Mathlib/Order",
+              "count": 147
+            }
+          ],
+          "representatives": [
+            {
+              "full_name": "Int.cast_nonpos",
+              "file_path": "Mathlib/Data/Int/Cast/Lemmas.lean",
+              "cosine_to_center": 0.8827798656658361
+            },
+            {
+              "full_name": "sub_one_mul",
+              "file_path": "Mathlib/Algebra/Ring/Defs.lean",
+              "cosine_to_center": 0.8788322622398625
+            },
+            {
+              "full_name": "one_add_mul",
+              "file_path": "Mathlib/Algebra/Ring/Defs.lean",
+              "cosine_to_center": 0.8771384510583676
+            },
+            {
+              "full_name": "add_one_mul",
+              "file_path": "Mathlib/Algebra/Ring/Defs.lean",
+              "cosine_to_center": 0.8771384510583676
+            },
+            {
+              "full_name": "Valuation.IsEquiv.map",
+              "file_path": "Mathlib/RingTheory/Valuation/Basic.lean",
+              "cosine_to_center": 0.8770377100310313
+            }
+          ]
+        }
+      ],
+      "module_association": {
+        "n": 10000,
+        "ami": 0.045036702812802976,
+        "nmi": 0.04747606244477218,
+        "cramers_v": 0.25597227233427616
+      },
+      "labels_sha256": "077455887d3939f7ce59d35f7d18f194417d0c7ec8510cd3ab113be728e77932",
+      "centers_sha256": "4648221c82cd338624462a92e608f11eae2b234835704e39ccd699ef31375c3b"
+    },
+    "joint": {
+      "selected_k": 16,
+      "selection_reason": "fallback: maximum mean subsample AMI because no candidate met threshold",
+      "diagnostics": [
+        {
+          "k": 4,
+          "cosine_silhouette": 0.030037391930818558,
+          "mean_subsample_ami": 0.3064640116398778,
+          "minimum_subsample_ami": 0.28367996661332173,
+          "subsample_ami": [
+            0.33783327052938894,
+            0.28367996661332173,
+            0.3001378738631411,
+            0.3042049355536593
+          ],
+          "inertia": 4021.823974609375,
+          "inertia_per_record": 0.4021823974609375,
+          "fit_and_diagnostics_seconds": 4.989447900094092
+        },
+        {
+          "k": 6,
+          "cosine_silhouette": 0.03285297751426697,
+          "mean_subsample_ami": 0.4185117983083649,
+          "minimum_subsample_ami": 0.4052887435088269,
+          "subsample_ami": [
+            0.4442769225220017,
+            0.41429417417395403,
+            0.4101873530286769,
+            0.4052887435088269
+          ],
+          "inertia": 3939.315185546875,
+          "inertia_per_record": 0.3939315185546875,
+          "fit_and_diagnostics_seconds": 6.300404999870807
+        },
+        {
+          "k": 8,
+          "cosine_silhouette": 0.031863532960414886,
+          "mean_subsample_ami": 0.406378016119141,
+          "minimum_subsample_ami": 0.38210977311517286,
+          "subsample_ami": [
+            0.41966565258733046,
+            0.425996069303985,
+            0.3977405694700758,
+            0.38210977311517286
+          ],
+          "inertia": 3892.129638671875,
+          "inertia_per_record": 0.3892129638671875,
+          "fit_and_diagnostics_seconds": 7.833859000122175
+        },
+        {
+          "k": 10,
+          "cosine_silhouette": 0.033809300512075424,
+          "mean_subsample_ami": 0.4196770438871873,
+          "minimum_subsample_ami": 0.3907732234363568,
+          "subsample_ami": [
+            0.4029515677950994,
+            0.41208927344789575,
+            0.3907732234363568,
+            0.4728941108693973
+          ],
+          "inertia": 3847.269775390625,
+          "inertia_per_record": 0.3847269775390625,
+          "fit_and_diagnostics_seconds": 9.057336199795827
+        },
+        {
+          "k": 12,
+          "cosine_silhouette": 0.03233732655644417,
+          "mean_subsample_ami": 0.41395081790717203,
+          "minimum_subsample_ami": 0.3725205378581913,
+          "subsample_ami": [
+            0.466875833673271,
+            0.4283487462769218,
+            0.3725205378581913,
+            0.3880581538203042
+          ],
+          "inertia": 3803.028564453125,
+          "inertia_per_record": 0.3803028564453125,
+          "fit_and_diagnostics_seconds": 10.830744599923491
+        },
+        {
+          "k": 14,
+          "cosine_silhouette": 0.03254927694797516,
+          "mean_subsample_ami": 0.4519412587871118,
+          "minimum_subsample_ami": 0.42398082975507567,
+          "subsample_ami": [
+            0.4859600191390086,
+            0.42398082975507567,
+            0.4268216785088895,
+            0.47100250774547303
+          ],
+          "inertia": 3775.2919921875,
+          "inertia_per_record": 0.37752919921875,
+          "fit_and_diagnostics_seconds": 12.102106899954379
+        },
+        {
+          "k": 16,
+          "cosine_silhouette": 0.03055010922253132,
+          "mean_subsample_ami": 0.47670445013934504,
+          "minimum_subsample_ami": 0.4537241987532815,
+          "subsample_ami": [
+            0.48817456369791706,
+            0.49005937536657596,
+            0.47485966273960556,
+            0.4537241987532815
+          ],
+          "inertia": 3736.9453125,
+          "inertia_per_record": 0.37369453125,
+          "fit_and_diagnostics_seconds": 14.337483500130475
+        }
+      ],
+      "clusters": [
+        {
+          "cluster": 0,
+          "size": 484,
+          "share": 0.0484,
+          "mean_tactics": 4.75206611570248,
+          "median_tactics": 3.0,
+          "top_modules": [
+            {
+              "module": "Mathlib/Data",
+              "count": 239
+            },
+            {
+              "module": "Std/Data",
+              "count": 145
+            },
+            {
+              "module": "Mathlib/Combinatorics",
+              "count": 20
+            },
+            {
+              "module": "Mathlib/Computability",
+              "count": 18
+            },
+            {
+              "module": "Mathlib/GroupTheory",
+              "count": 18
+            }
+          ],
+          "representatives": [
+            {
+              "full_name": "List.perm_replicate",
+              "file_path": "Std/Data/List/Perm.lean",
+              "cosine_to_center": 0.8709050823795111
+            },
+            {
+              "full_name": "List.nth_le_tails",
+              "file_path": "Mathlib/Data/List/Infix.lean",
+              "cosine_to_center": 0.8672430992103262
+            },
+            {
+              "full_name": "List.take_left'",
+              "file_path": "Mathlib/Data/List/Basic.lean",
+              "cosine_to_center": 0.8669008126722569
+            },
+            {
+              "full_name": "List.zipWith_append",
+              "file_path": "Std/Data/List/Lemmas.lean",
+              "cosine_to_center": 0.8630474178226144
+            },
+            {
+              "full_name": "List.foldr_self",
+              "file_path": "Std/Data/List/Init/Lemmas.lean",
+              "cosine_to_center": 0.862703551680192
+            }
+          ]
+        },
+        {
+          "cluster": 1,
+          "size": 603,
+          "share": 0.0603,
+          "mean_tactics": 6.519071310116086,
+          "median_tactics": 4.0,
+          "top_modules": [
+            {
+              "module": "Mathlib/RingTheory",
+              "count": 155
+            },
+            {
+              "module": "Mathlib/LinearAlgebra",
+              "count": 146
+            },
+            {
+              "module": "Mathlib/Algebra",
+              "count": 73
+            },
+            {
+              "module": "Mathlib/FieldTheory",
+              "count": 49
+            },
+            {
+              "module": "Mathlib/Analysis",
+              "count": 45
+            }
+          ],
+          "representatives": [
+            {
+              "full_name": "IsAssociatedPrime.map_of_injective",
+              "file_path": "Mathlib/RingTheory/Ideal/AssociatedPrime.lean",
+              "cosine_to_center": 0.8489025420756722
+            },
+            {
+              "full_name": "Submodule.exists_le_ker_of_lt_top",
+              "file_path": "Mathlib/LinearAlgebra/Basis/VectorSpace.lean",
+              "cosine_to_center": 0.8382937551219882
+            },
+            {
+              "full_name": "FractionalIdeal.mem_spanSingleton",
+              "file_path": "Mathlib/RingTheory/FractionalIdeal/Operations.lean",
+              "cosine_to_center": 0.8352293912398798
+            },
+            {
+              "full_name": "LinearMap.ker_id_sub_eq_of_proj",
+              "file_path": "Mathlib/LinearAlgebra/Projection.lean",
+              "cosine_to_center": 0.833076348022329
+            },
+            {
+              "full_name": "IsLocalization.coeSubmodule_top",
+              "file_path": "Mathlib/RingTheory/Localization/Submodule.lean",
+              "cosine_to_center": 0.8326717900527489
+            }
+          ]
+        },
+        {
+          "cluster": 2,
+          "size": 464,
+          "share": 0.0464,
+          "mean_tactics": 2.6163793103448274,
+          "median_tactics": 1.0,
+          "top_modules": [
+            {
+              "module": "Mathlib/Data",
+              "count": 98
+            },
+            {
+              "module": "Mathlib/Algebra",
+              "count": 90
+            },
+            {
+              "module": "Mathlib/Analysis",
+              "count": 78
+            },
+            {
+              "module": "Std/Data",
+              "count": 43
+            },
+            {
+              "module": "Mathlib/Geometry",
+              "count": 25
+            }
+          ],
+          "representatives": [
+            {
+              "full_name": "smul_neg",
+              "file_path": "Mathlib/GroupTheory/GroupAction/Defs.lean",
+              "cosine_to_center": 0.902912167300965
+            },
+            {
+              "full_name": "Int.ModEq.neg",
+              "file_path": "Mathlib/Data/Int/ModEq.lean",
+              "cosine_to_center": 0.8934370842142043
+            },
+            {
+              "full_name": "QuadraticForm.map_sub",
+              "file_path": "Mathlib/LinearAlgebra/QuadraticForm/Basic.lean",
+              "cosine_to_center": 0.8902900937273146
+            },
+            {
+              "full_name": "Int.cast_sub",
+              "file_path": "Mathlib/Data/Int/Cast/Basic.lean",
+              "cosine_to_center": 0.8885035747373098
+            },
+            {
+              "full_name": "Int.neg_add_le_left_of_le_add",
+              "file_path": "Std/Data/Int/Order.lean",
+              "cosine_to_center": 0.8872658245207414
+            }
+          ]
+        },
+        {
+          "cluster": 3,
+          "size": 689,
+          "share": 0.0689,
+          "mean_tactics": 6.04644412191582,
+          "median_tactics": 4.0,
+          "top_modules": [
+            {
+              "module": "Mathlib/Data",
+              "count": 183
+            },
+            {
+              "module": "Mathlib/Analysis",
+              "count": 122
+            },
+            {
+              "module": "Mathlib/RingTheory",
+              "count": 99
+            },
+            {
+              "module": "Mathlib/NumberTheory",
+              "count": 72
+            },
+            {
+              "module": "Mathlib/Algebra",
+              "count": 68
+            }
+          ],
+          "representatives": [
+            {
+              "full_name": "Polynomial.coeff_mul_X_pow",
+              "file_path": "Mathlib/Data/Polynomial/Coeff.lean",
+              "cosine_to_center": 0.8765198209183801
+            },
+            {
+              "full_name": "npow_mul",
+              "file_path": "Mathlib/Algebra/Group/NatPowAssoc.lean",
+              "cosine_to_center": 0.8720150540666336
+            },
+            {
+              "full_name": "Polynomial.coeff_mul_X_pow'",
+              "file_path": "Mathlib/Data/Polynomial/Coeff.lean",
+              "cosine_to_center": 0.8695637929227844
+            },
+            {
+              "full_name": "pow_one",
+              "file_path": "Mathlib/Algebra/GroupPower/Basic.lean",
+              "cosine_to_center": 0.8686013735564424
+            },
+            {
+              "full_name": "Matrix.zpow_add_of_nonneg",
+              "file_path": "Mathlib/LinearAlgebra/Matrix/ZPow.lean",
+              "cosine_to_center": 0.8678651572850169
+            }
+          ]
+        },
+        {
+          "cluster": 4,
+          "size": 635,
+          "share": 0.0635,
+          "mean_tactics": 4.6976377952755906,
+          "median_tactics": 3.0,
+          "top_modules": [
+            {
+              "module": "Mathlib/Data",
+              "count": 166
+            },
+            {
+              "module": "Mathlib/SetTheory",
+              "count": 96
+            },
+            {
+              "module": "Mathlib/Analysis",
+              "count": 73
+            },
+            {
+              "module": "Mathlib/Order",
+              "count": 61
+            },
+            {
+              "module": "Mathlib/Algebra",
+              "count": 58
+            }
+          ],
+          "representatives": [
+            {
+              "full_name": "Bool.le_of_lt",
+              "file_path": "Std/Data/Bool.lean",
+              "cosine_to_center": 0.8780373461744528
+            },
+            {
+              "full_name": "Cardinal.mul_lt_of_lt",
+              "file_path": "Mathlib/SetTheory/Cardinal/Ordinal.lean",
+              "cosine_to_center": 0.8676083974786684
+            },
+            {
+              "full_name": "Bool.lt_of_le_of_lt",
+              "file_path": "Std/Data/Bool.lean",
+              "cosine_to_center": 0.8635686196500238
+            },
+            {
+              "full_name": "Nat.Subtype.succ_le_of_lt",
+              "file_path": "Mathlib/Logic/Denumerable.lean",
+              "cosine_to_center": 0.8610779085493463
+            },
+            {
+              "full_name": "Int.lt_iff_le_and_ne",
+              "file_path": "Std/Data/Int/Init/Order.lean",
+              "cosine_to_center": 0.8608475147995858
+            }
+          ]
+        },
+        {
+          "cluster": 5,
+          "size": 764,
+          "share": 0.0764,
+          "mean_tactics": 3.1282722513089007,
+          "median_tactics": 2.0,
+          "top_modules": [
+            {
+              "module": "Mathlib/Data",
+              "count": 169
+            },
+            {
+              "module": "Mathlib/Order",
+              "count": 91
+            },
+            {
+              "module": "Mathlib/Analysis",
+              "count": 61
+            },
+            {
+              "module": "Mathlib/Algebra",
+              "count": 48
+            },
+            {
+              "module": "Mathlib/Logic",
+              "count": 40
+            }
+          ],
+          "representatives": [
+            {
+              "full_name": "eq_iff_eq_cancel_right",
+              "file_path": "Mathlib/Logic/Basic.lean",
+              "cosine_to_center": 0.877275716516504
+            },
+            {
+              "full_name": "Eq.congr_right",
+              "file_path": "Std/Logic.lean",
+              "cosine_to_center": 0.8665323432784817
+            },
+            {
+              "full_name": "CategoryTheory.Iso.symm_symm_eq",
+              "file_path": "Mathlib/CategoryTheory/Iso.lean",
+              "cosine_to_center": 0.8641941610407594
+            },
+            {
+              "full_name": "iff_and_self",
+              "file_path": "Std/Logic.lean",
+              "cosine_to_center": 0.8624353177128525
+            },
+            {
+              "full_name": "Bool.le_of_eq",
+              "file_path": "Std/Data/Bool.lean",
+              "cosine_to_center": 0.8617770346688473
+            }
+          ]
+        },
+        {
+          "cluster": 6,
+          "size": 331,
+          "share": 0.0331,
+          "mean_tactics": 5.8700906344410875,
+          "median_tactics": 4.0,
+          "top_modules": [
+            {
+              "module": "Mathlib/CategoryTheory",
+              "count": 188
+            },
+            {
+              "module": "Mathlib/Topology",
+              "count": 45
+            },
+            {
+              "module": "Mathlib/AlgebraicGeometry",
+              "count": 35
+            },
+            {
+              "module": "Mathlib/Geometry",
+              "count": 25
+            },
+            {
+              "module": "Mathlib/Algebra",
+              "count": 8
+            }
+          ],
+          "representatives": [
+            {
+              "full_name": "CategoryTheory.IsUniversalColimit.of_iso",
+              "file_path": "Mathlib/CategoryTheory/Limits/VanKampen.lean",
+              "cosine_to_center": 0.8453236871394416
+            },
+            {
+              "full_name": "AlgebraicGeometry.PresheafedSpace.restrictStalkIso_inv_eq_ofRestrict",
+              "file_path": "Mathlib/Geometry/RingedSpace/Stalks.lean",
+              "cosine_to_center": 0.8442552525555476
+            },
+            {
+              "full_name": "TopCat.Presheaf.toPushforwardOfIso_app",
+              "file_path": "Mathlib/Topology/Sheaves/Presheaf.lean",
+              "cosine_to_center": 0.8393052042524307
+            },
+            {
+              "full_name": "AlgebraicGeometry.PresheafedSpace.IsOpenImmersion.isoRestrict_hom_ofRestrict",
+              "file_path": "Mathlib/Geometry/RingedSpace/OpenImmersion.lean",
+              "cosine_to_center": 0.838644071268557
+            },
+            {
+              "full_name": "AlgebraicGeometry.PresheafedSpace.IsOpenImmersion.isoRestrict_inv_ofRestrict",
+              "file_path": "Mathlib/Geometry/RingedSpace/OpenImmersion.lean",
+              "cosine_to_center": 0.837243695007128
+            }
+          ]
+        },
+        {
+          "cluster": 7,
+          "size": 509,
+          "share": 0.0509,
+          "mean_tactics": 5.6463654223968565,
+          "median_tactics": 3.0,
+          "top_modules": [
+            {
+              "module": "Mathlib/Analysis",
+              "count": 279
+            },
+            {
+              "module": "Mathlib/Topology",
+              "count": 138
+            },
+            {
+              "module": "Mathlib/Geometry",
+              "count": 55
+            },
+            {
+              "module": "Mathlib/MeasureTheory",
+              "count": 18
+            },
+            {
+              "module": "Mathlib/Combinatorics",
+              "count": 6
+            }
+          ],
+          "representatives": [
+            {
+              "full_name": "ContinuousLinearMap.dist_le_opNorm",
+              "file_path": "Mathlib/Analysis/NormedSpace/OperatorNorm.lean",
+              "cosine_to_center": 0.8460593805007068
+            },
+            {
+              "full_name": "lipschitzWith_iff_dist_le_mul",
+              "file_path": "Mathlib/Topology/MetricSpace/Lipschitz.lean",
+              "cosine_to_center": 0.8427076446720195
+            },
+            {
+              "full_name": "LipschitzWith.mul_edist_le",
+              "file_path": "Mathlib/Topology/EMetricSpace/Lipschitz.lean",
+              "cosine_to_center": 0.8385356267287314
+            },
+            {
+              "full_name": "MeasureTheory.L1.dist_def",
+              "file_path": "Mathlib/MeasureTheory/Function/L1Space.lean",
+              "cosine_to_center": 0.8340884680266147
+            },
+            {
+              "full_name": "Metric.continuousOn_iff'",
+              "file_path": "Mathlib/Topology/MetricSpace/PseudoMetric.lean",
+              "cosine_to_center": 0.8307010416799854
+            }
+          ]
+        },
+        {
+          "cluster": 8,
+          "size": 792,
+          "share": 0.0792,
+          "mean_tactics": 5.055555555555555,
+          "median_tactics": 3.0,
+          "top_modules": [
+            {
+              "module": "Mathlib/Topology",
+              "count": 265
+            },
+            {
+              "module": "Mathlib/Data",
+              "count": 112
+            },
+            {
+              "module": "Mathlib/MeasureTheory",
+              "count": 96
+            },
+            {
+              "module": "Mathlib/Analysis",
+              "count": 74
+            },
+            {
+              "module": "Mathlib/Order",
+              "count": 62
+            }
+          ],
+          "representatives": [
+            {
+              "full_name": "nhdsWithin_inter_of_mem'",
+              "file_path": "Mathlib/Topology/ContinuousOn.lean",
+              "cosine_to_center": 0.848199512237013
+            },
+            {
+              "full_name": "IsCompact.compl_mem_sets_of_nhdsWithin",
+              "file_path": "Mathlib/Topology/Compactness/Compact.lean",
+              "cosine_to_center": 0.8356740737450886
+            },
+            {
+              "full_name": "Set.subset_image_iff",
+              "file_path": "Mathlib/Data/Set/Image.lean",
+              "cosine_to_center": 0.8354501228029424
+            },
+            {
+              "full_name": "nhdsSet_le_iff",
+              "file_path": "Mathlib/Topology/Separation.lean",
+              "cosine_to_center": 0.8350128157864469
+            },
+            {
+              "full_name": "mem_nhdsWithin_iff_eventuallyEq",
+              "file_path": "Mathlib/Topology/ContinuousOn.lean",
+              "cosine_to_center": 0.8327339523084085
+            }
+          ]
+        },
+        {
+          "cluster": 9,
+          "size": 718,
+          "share": 0.0718,
+          "mean_tactics": 1.416434540389972,
+          "median_tactics": 1.0,
+          "top_modules": [
+            {
+              "module": "Mathlib/Data",
+              "count": 175
+            },
+            {
+              "module": "Mathlib/Analysis",
+              "count": 90
+            },
+            {
+              "module": "Mathlib/Algebra",
+              "count": 84
+            },
+            {
+              "module": "Mathlib/LinearAlgebra",
+              "count": 52
+            },
+            {
+              "module": "Mathlib/Topology",
+              "count": 41
+            }
+          ],
+          "representatives": [
+            {
+              "full_name": "unitInterval.symm_one",
+              "file_path": "Mathlib/Topology/UnitInterval.lean",
+              "cosine_to_center": 0.9098124136106208
+            },
+            {
+              "full_name": "unitInterval.symm_zero",
+              "file_path": "Mathlib/Topology/UnitInterval.lean",
+              "cosine_to_center": 0.9038348763696826
+            },
+            {
+              "full_name": "Mathlib.Tactic.Ring.mul_zero",
+              "file_path": "Mathlib/Tactic/Ring/Basic.lean",
+              "cosine_to_center": 0.9036369098257235
+            },
+            {
+              "full_name": "Int.zero_div",
+              "file_path": "Std/Data/Int/DivMod.lean",
+              "cosine_to_center": 0.8878784050259658
+            },
+            {
+              "full_name": "Int.div_zero",
+              "file_path": "Std/Data/Int/DivMod.lean",
+              "cosine_to_center": 0.8869168474545255
+            }
+          ]
+        },
+        {
+          "cluster": 10,
+          "size": 815,
+          "share": 0.0815,
+          "mean_tactics": 3.543558282208589,
+          "median_tactics": 2.0,
+          "top_modules": [
+            {
+              "module": "Mathlib/Data",
+              "count": 324
+            },
+            {
+              "module": "Mathlib/Order",
+              "count": 99
+            },
+            {
+              "module": "Mathlib/Algebra",
+              "count": 69
+            },
+            {
+              "module": "Mathlib/Topology",
+              "count": 58
+            },
+            {
+              "module": "Mathlib/Combinatorics",
+              "count": 50
+            }
+          ],
+          "representatives": [
+            {
+              "full_name": "BoundedContinuousFunction.sum_apply",
+              "file_path": "Mathlib/Topology/ContinuousFunction/Bounded.lean",
+              "cosine_to_center": 0.8754437379222613
+            },
+            {
+              "full_name": "Finset.union_inter_cancel_left",
+              "file_path": "Mathlib/Data/Finset/Basic.lean",
+              "cosine_to_center": 0.8733807851360065
+            },
+            {
+              "full_name": "Finset.iSup_insert",
+              "file_path": "Mathlib/Data/Finset/Lattice.lean",
+              "cosine_to_center": 0.8723770795454787
+            },
+            {
+              "full_name": "iSup_iUnion",
+              "file_path": "Mathlib/Data/Set/Lattice.lean",
+              "cosine_to_center": 0.8688112309202864
+            },
+            {
+              "full_name": "Finset.iInf_singleton",
+              "file_path": "Mathlib/Data/Finset/Lattice.lean",
+              "cosine_to_center": 0.8627981517200127
+            }
+          ]
+        },
+        {
+          "cluster": 11,
+          "size": 655,
+          "share": 0.0655,
+          "mean_tactics": 2.447328244274809,
+          "median_tactics": 2.0,
+          "top_modules": [
+            {
+              "module": "Mathlib/Data",
+              "count": 234
+            },
+            {
+              "module": "Mathlib/Analysis",
+              "count": 69
+            },
+            {
+              "module": "Mathlib/Algebra",
+              "count": 57
+            },
+            {
+              "module": "Mathlib/NumberTheory",
+              "count": 46
+            },
+            {
+              "module": "Std/Data",
+              "count": 40
+            }
+          ],
+          "representatives": [
+            {
+              "full_name": "DirectSum.ofIntCast",
+              "file_path": "Mathlib/Algebra/DirectSum/Ring.lean",
+              "cosine_to_center": 0.8870933593449795
+            },
+            {
+              "full_name": "Fin.one_eq_zero_iff",
+              "file_path": "Mathlib/Data/Fin/Basic.lean",
+              "cosine_to_center": 0.8816127709609425
+            },
+            {
+              "full_name": "Num.add_zero",
+              "file_path": "Mathlib/Data/Num/Lemmas.lean",
+              "cosine_to_center": 0.8789488026169762
+            },
+            {
+              "full_name": "Mathlib.Tactic.Ring.cast_zero",
+              "file_path": "Mathlib/Tactic/Ring/Basic.lean",
+              "cosine_to_center": 0.8783810764301273
+            },
+            {
+              "full_name": "Nat.bit0_eq_zero",
+              "file_path": "Mathlib/Data/Nat/Bits.lean",
+              "cosine_to_center": 0.8764225521220959
+            }
+          ]
+        },
+        {
+          "cluster": 12,
+          "size": 637,
+          "share": 0.0637,
+          "mean_tactics": 7.428571428571429,
+          "median_tactics": 4.0,
+          "top_modules": [
+            {
+              "module": "Mathlib/MeasureTheory",
+              "count": 416
+            },
+            {
+              "module": "Mathlib/Probability",
+              "count": 84
+            },
+            {
+              "module": "Mathlib/Analysis",
+              "count": 82
+            },
+            {
+              "module": "Mathlib/Topology",
+              "count": 32
+            },
+            {
+              "module": "Mathlib/NumberTheory",
+              "count": 9
+            }
+          ],
+          "representatives": [
+            {
+              "full_name": "MeasureTheory.lintegral_iSup_ae",
+              "file_path": "Mathlib/MeasureTheory/Integral/Lebesgue.lean",
+              "cosine_to_center": 0.875946002235378
+            },
+            {
+              "full_name": "MeasureTheory.lintegral_mono_ae",
+              "file_path": "Mathlib/MeasureTheory/Integral/Lebesgue.lean",
+              "cosine_to_center": 0.8635479903884448
+            },
+            {
+              "full_name": "MeasureTheory.set_lintegral_nnnorm_condexpIndSMul_le",
+              "file_path": "Mathlib/MeasureTheory/Function/ConditionalExpectation/CondexpL2.lean",
+              "cosine_to_center": 0.853210796365778
+            },
+            {
+              "full_name": "MeasureTheory.lintegral_eq_top_of_measure_eq_top_ne_zero",
+              "file_path": "Mathlib/MeasureTheory/Integral/Lebesgue.lean",
+              "cosine_to_center": 0.8507043980037419
+            },
+            {
+              "full_name": "MeasureTheory.set_lintegral_congr",
+              "file_path": "Mathlib/MeasureTheory/Integral/Lebesgue.lean",
+              "cosine_to_center": 0.850446760700402
+            }
+          ]
+        },
+        {
+          "cluster": 13,
+          "size": 551,
+          "share": 0.0551,
+          "mean_tactics": 3.0798548094373865,
+          "median_tactics": 2.0,
+          "top_modules": [
+            {
+              "module": "Mathlib/Data",
+              "count": 98
+            },
+            {
+              "module": "Mathlib/RingTheory",
+              "count": 81
+            },
+            {
+              "module": "Mathlib/LinearAlgebra",
+              "count": 81
+            },
+            {
+              "module": "Mathlib/Algebra",
+              "count": 64
+            },
+            {
+              "module": "Mathlib/Topology",
+              "count": 45
+            }
+          ],
+          "representatives": [
+            {
+              "full_name": "Submodule.map_id",
+              "file_path": "Mathlib/Algebra/Module/Submodule/Map.lean",
+              "cosine_to_center": 0.8769473734375846
+            },
+            {
+              "full_name": "TensorProduct.map_smul_left",
+              "file_path": "Mathlib/LinearAlgebra/TensorProduct.lean",
+              "cosine_to_center": 0.8727078711592019
+            },
+            {
+              "full_name": "LowerSet.mem_map",
+              "file_path": "Mathlib/Order/UpperLower/Basic.lean",
+              "cosine_to_center": 0.8714730495114658
+            },
+            {
+              "full_name": "Combinatorics.Line.map_apply",
+              "file_path": "Mathlib/Combinatorics/HalesJewett.lean",
+              "cosine_to_center": 0.869819870134027
+            },
+            {
+              "full_name": "OmegaCompletePartialOrder.Chain.map_le_map",
+              "file_path": "Mathlib/Order/OmegaCompletePartialOrder.lean",
+              "cosine_to_center": 0.8689437345731367
+            }
+          ]
+        },
+        {
+          "cluster": 14,
+          "size": 828,
+          "share": 0.0828,
+          "mean_tactics": 3.391304347826087,
+          "median_tactics": 2.0,
+          "top_modules": [
+            {
+              "module": "Mathlib/Algebra",
+              "count": 207
+            },
+            {
+              "module": "Mathlib/Data",
+              "count": 174
+            },
+            {
+              "module": "Mathlib/Analysis",
+              "count": 79
+            },
+            {
+              "module": "Mathlib/GroupTheory",
+              "count": 62
+            },
+            {
+              "module": "Mathlib/LinearAlgebra",
+              "count": 59
+            }
+          ],
+          "representatives": [
+            {
+              "full_name": "one_nsmul",
+              "file_path": "Mathlib/Algebra/GroupPower/Basic.lean",
+              "cosine_to_center": 0.8935926006143258
+            },
+            {
+              "full_name": "mul_eq_of_eq_mul_inv",
+              "file_path": "Mathlib/Algebra/Group/Basic.lean",
+              "cosine_to_center": 0.8926128302686271
+            },
+            {
+              "full_name": "Units.inv_mul_cancel_left",
+              "file_path": "Mathlib/Algebra/Group/Units.lean",
+              "cosine_to_center": 0.8885630213815954
+            },
+            {
+              "full_name": "NNReal.div_le_of_le_mul",
+              "file_path": "Mathlib/Data/Real/NNReal.lean",
+              "cosine_to_center": 0.8870277844319824
+            },
+            {
+              "full_name": "mul_eq_of_eq_div",
+              "file_path": "Mathlib/Algebra/Group/Basic.lean",
+              "cosine_to_center": 0.8860787922605229
+            }
+          ]
+        },
+        {
+          "cluster": 15,
+          "size": 525,
+          "share": 0.0525,
+          "mean_tactics": 2.619047619047619,
+          "median_tactics": 2.0,
+          "top_modules": [
+            {
+              "module": "Mathlib/CategoryTheory",
+              "count": 182
+            },
+            {
+              "module": "Mathlib/Data",
+              "count": 60
+            },
+            {
+              "module": "Mathlib/Algebra",
+              "count": 54
+            },
+            {
+              "module": "Mathlib/Topology",
+              "count": 30
+            },
+            {
+              "module": "Mathlib/LinearAlgebra",
+              "count": 29
+            }
+          ],
+          "representatives": [
+            {
+              "full_name": "CategoryTheory.Bicategory.leftUnitor_comp",
+              "file_path": "Mathlib/CategoryTheory/Bicategory/Basic.lean",
+              "cosine_to_center": 0.8804703597495452
+            },
+            {
+              "full_name": "LieHom.comp_id",
+              "file_path": "Mathlib/Algebra/Lie/Basic.lean",
+              "cosine_to_center": 0.8745724675054123
+            },
+            {
+              "full_name": "FreeAbelianGroup.map_comp",
+              "file_path": "Mathlib/GroupTheory/FreeAbelianGroup.lean",
+              "cosine_to_center": 0.8745591089875119
+            },
+            {
+              "full_name": "OrderHom.comp_id",
+              "file_path": "Mathlib/Order/Hom/Basic.lean",
+              "cosine_to_center": 0.8742774003593009
+            },
+            {
+              "full_name": "Algebra.TensorProduct.map_comp_includeLeft",
+              "file_path": "Mathlib/RingTheory/TensorProduct.lean",
+              "cosine_to_center": 0.8729712116119923
+            }
+          ]
+        }
+      ],
+      "module_association": {
+        "n": 10000,
+        "ami": 0.20315919084428113,
+        "nmi": 0.21052063990084713,
+        "cramers_v": 0.3422341125067656
+      },
+      "labels_sha256": "f90c9ff854dd89967ffcd5dd1ce294e1a2093942cdbf21776aafa13f83caf1da",
+      "centers_sha256": "414db4dfead9166833682ec3df0251303daecad97e2041aab6fa1d1cc854e051"
+    }
+  },
+  "cross_view_associations": [
+    {
+      "n": 10000,
+      "ami": 0.08037764840717247,
+      "nmi": 0.08138432359110939,
+      "cramers_v": 0.33717235316976457,
+      "comparison": "statement vs proof"
+    },
+    {
+      "n": 10000,
+      "ami": 0.36227123629279584,
+      "nmi": 0.36490348091499386,
+      "cramers_v": 0.47489319057295154,
+      "comparison": "statement vs joint"
+    },
+    {
+      "n": 10000,
+      "ami": 0.15160250077190296,
+      "nmi": 0.1525283480540803,
+      "cramers_v": 0.47357014811153786,
+      "comparison": "proof vs joint"
+    }
+  ],
+  "legacy_associations": [
+    {
+      "n": 9998,
+      "ami": 0.031901615544036026,
+      "nmi": 0.034112568072723524,
+      "cramers_v": 0.1505716967044866,
+      "comparison": "statement vs style"
+    },
+    {
+      "n": 8882,
+      "ami": 0.16520489958800172,
+      "nmi": 0.16776753920052045,
+      "cramers_v": 0.3696859403015564,
+      "comparison": "statement vs domain"
+    },
+    {
+      "n": 9998,
+      "ami": 0.2085398638174544,
+      "nmi": 0.20904958027672865,
+      "cramers_v": 0.4764621331195931,
+      "comparison": "proof vs style"
+    },
+    {
+      "n": 8882,
+      "ami": 0.06022185165522206,
+      "nmi": 0.061014732573656624,
+      "cramers_v": 0.26591702096486586,
+      "comparison": "proof vs domain"
+    },
+    {
+      "n": 9998,
+      "ami": 0.06305201646871568,
+      "nmi": 0.06518578570446118,
+      "cramers_v": 0.2124671334259545,
+      "comparison": "joint vs style"
+    },
+    {
+      "n": 8882,
+      "ami": 0.2090071990505832,
+      "nmi": 0.2114325464892233,
+      "cramers_v": 0.4409514352784342,
+      "comparison": "joint vs domain"
+    }
+  ],
+  "analysis_elapsed_seconds": 194.20592770003714,
+  "runtime": {
+    "python": "3.13.5 | packaged by Anaconda, Inc. | (main, Jun 12 2025, 16:37:03) [MSC v.1929 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.22631-SP0",
+    "numpy": "2.1.3",
+    "scipy": "1.15.3",
+    "scikit_learn": "1.6.1"
+  }
+}

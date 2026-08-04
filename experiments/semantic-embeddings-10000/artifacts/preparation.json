@@ -1,0 +1,133 @@
+{
+  "experiment_id": "semantic-embeddings-10000",
+  "sample": {
+    "available_tactic_proofs": 52187,
+    "available_by_split": {
+      "train.json": 50247,
+      "val.json": 979,
+      "test.json": 961
+    },
+    "selected": 10000,
+    "selected_by_split": {
+      "train.json": 9637,
+      "val.json": 185,
+      "test.json": 178
+    },
+    "seed": 0,
+    "selected_available_indices_sha256": "0b039e973778501ee8f5b70e93c9722c2010414bdd7837f519434b78a1162ad8",
+    "aligned_with_aws_10000_artifact": true
+  },
+  "statement_lookup": {
+    "matched": 10000,
+    "missing_or_ambiguous": 0,
+    "selected_names_with_multiple_corpus_candidates": [
+      "aux"
+    ],
+    "join_key": "full_name plus normalized corpus-path suffix match to file_path"
+  },
+  "view_sizes": {
+    "statement": {
+      "characters": {
+        "minimum": 47,
+        "median": 135.0,
+        "mean": 149.6751,
+        "p95": 275.0,
+        "maximum": 852,
+        "total": 1496751
+      },
+      "utf8_bytes": {
+        "minimum": 50,
+        "median": 143.0,
+        "mean": 159.2511,
+        "p95": 298.0,
+        "maximum": 967,
+        "total": 1592511
+      }
+    },
+    "proof": {
+      "characters": {
+        "minimum": 24,
+        "median": 108.0,
+        "mean": 226.6862,
+        "p95": 770.0499999999993,
+        "maximum": 8413,
+        "total": 2266862
+      },
+      "utf8_bytes": {
+        "minimum": 24,
+        "median": 110.0,
+        "mean": 234.4892,
+        "p95": 805.0999999999985,
+        "maximum": 8947,
+        "total": 2344892
+      }
+    },
+    "joint": {
+      "characters": {
+        "minimum": 80,
+        "median": 262.0,
+        "mean": 378.3613,
+        "p95": 978.0499999999993,
+        "maximum": 8601,
+        "total": 3783613
+      },
+      "utf8_bytes": {
+        "minimum": 81,
+        "median": 274.0,
+        "mean": 395.7403,
+        "p95": 1026.0999999999985,
+        "maximum": 9166,
+        "total": 3957403
+      }
+    }
+  },
+  "files": {
+    "inputs/manifest.jsonl": {
+      "bytes": 5038526,
+      "sha256": "7e9567320ad92d5757ee8c957225749b9cea05ccba5a9405b4e47d27e4694b00"
+    },
+    "inputs/statement.jsonl": {
+      "bytes": 1822514,
+      "sha256": "4d20d230667693f1ff1453176b67d8ac82f0f5dc7102eb1245c6e963b8adf40f"
+    },
+    "inputs/proof.jsonl": {
+      "bytes": 2605980,
+      "sha256": "190814f4b95b4533187049c3ec20b42937a5d689ecea2840d6819bf512a2db09"
+    },
+    "inputs/joint.jsonl": {
+      "bytes": 4259604,
+      "sha256": "446c6e3fe2cbdb0913886cc5c30527e0be25331475525f61cc3cff1493c67cdf"
+    }
+  },
+  "source_files": {
+    "experiments/semantic-embeddings-10000/config.json": {
+      "bytes": 1497,
+      "sha256": "a3651470f110c0570feecb07292a7affce6c20eba48fae8c5705b53eaa192718"
+    },
+    "data/leandojo_benchmark_4/leandojo_benchmark_4/random/train.json": {
+      "bytes": 328754417,
+      "sha256": "b406010fa9297aac935625c005d3d1e82161640129abca11e80d2a5309940e06"
+    },
+    "data/leandojo_benchmark_4/leandojo_benchmark_4/random/val.json": {
+      "bytes": 5425179,
+      "sha256": "5b31e5cdfe58b2f1820747e28d6ee39ddd162cef177c5b115f1d9239ebc21003"
+    },
+    "data/leandojo_benchmark_4/leandojo_benchmark_4/random/test.json": {
+      "bytes": 5942964,
+      "sha256": "cc06f643baad0c3c36424f32dd943f7dc0e542377ee3fb26dae096e5a9928906"
+    },
+    "data/leandojo_benchmark_4/leandojo_benchmark_4/corpus.jsonl": {
+      "bytes": 50488758,
+      "sha256": "c125679261b476413f244f10bed942f769d36455718dab5bb59afa6773c3854d"
+    },
+    "experiments/aws-10000/artifacts/proofs.json": {
+      "bytes": 6232172,
+      "sha256": "41293b08d1ad28f11b8319d741fead2b135de99d66d8bb985c80b55b6d797be2"
+    }
+  },
+  "runtime": {
+    "python": "3.13.5 | packaged by Anaconda, Inc. | (main, Jun 12 2025, 16:37:03) [MSC v.1929 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.22631-SP0",
+    "numpy": "2.1.3"
+  }
+}

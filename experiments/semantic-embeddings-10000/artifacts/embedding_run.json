@@ -1,0 +1,94 @@
+{
+  "experiment_id": "semantic-embeddings-10000",
+  "transport": "AWS CLI subprocess calling bedrock-runtime invoke-model",
+  "embedding_config": {
+    "provider": "Amazon Bedrock",
+    "transport": "AWS CLI",
+    "region": "us-east-1",
+    "model_id": "cohere.embed-v4:0",
+    "input_type": "clustering",
+    "embedding_type": "float",
+    "output_dimension": 1024,
+    "batch_size": 96,
+    "max_tokens": 128000,
+    "truncate": "NONE",
+    "max_attempts": 10,
+    "estimated_price_usd_per_million_text_tokens": 0.12
+  },
+  "aws": {
+    "aws_cli_version": "aws-cli/2.35.8 Python/3.14.5 Windows/11 exe/AMD64",
+    "identity_verified": true,
+    "identity_arn_type": "user"
+  },
+  "views": {
+    "statement": {
+      "inputs": 10000,
+      "characters": 1496751,
+      "batches": 105,
+      "new_aws_cli_calls": 105,
+      "reused_batches": 0,
+      "retries": 0,
+      "shape": [
+        10000,
+        1024
+      ],
+      "dtype": "float32",
+      "norm_minimum": 0.9999998211860657,
+      "norm_mean": 1.0,
+      "norm_maximum": 1.0000001192092896,
+      "elapsed_seconds": 254.86565649998374,
+      "path": "artifacts/embeddings/statement.npy",
+      "sha256": "930e01dc5d22debc9824eaf1043c2107c3b19f2243d3b1b7a459b35829d780d4"
+    },
+    "proof": {
+      "inputs": 10000,
+      "characters": 2266862,
+      "batches": 105,
+      "new_aws_cli_calls": 105,
+      "reused_batches": 0,
+      "retries": 0,
+      "shape": [
+        10000,
+        1024
+      ],
+      "dtype": "float32",
+      "norm_minimum": 0.9999998211860657,
+      "norm_mean": 1.0,
+      "norm_maximum": 1.0000001192092896,
+      "elapsed_seconds": 292.1524199999403,
+      "path": "artifacts/embeddings/proof.npy",
+      "sha256": "c58b01459d4fa178b984be05d10fdf83dc3ce1244303370ffaaebaf0d87037cd"
+    },
+    "joint": {
+      "inputs": 10000,
+      "characters": 3783613,
+      "batches": 105,
+      "new_aws_cli_calls": 105,
+      "reused_batches": 0,
+      "retries": 22,
+      "shape": [
+        10000,
+        1024
+      ],
+      "dtype": "float32",
+      "norm_minimum": 0.9999998211860657,
+      "norm_mean": 1.0,
+      "norm_maximum": 1.0000001192092896,
+      "elapsed_seconds": 510.118543199962,
+      "path": "artifacts/embeddings/joint.npy",
+      "sha256": "7d3cefa4b6ab526b3aa39cac95a82f84f4c435284368f5178cb1761b7315cce3"
+    }
+  },
+  "total_characters": 7547226,
+  "estimated_tokens": {
+    "at_4_characters_per_token": 1886806.5,
+    "at_3_characters_per_token": 2515742.0,
+    "at_2_5_characters_per_token": 3018890.4
+  },
+  "estimated_embedding_cost_usd": {
+    "at_4_characters_per_token": 0.22641677999999998,
+    "at_3_characters_per_token": 0.30188904,
+    "at_2_5_characters_per_token": 0.362266848
+  },
+  "elapsed_seconds": 1057.6939679998904
+}

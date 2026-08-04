@@ -1,0 +1,53 @@
+statement k=4: silhouette=0.0429, stability=0.3266
+statement k=6: silhouette=0.0287, stability=0.2791
+statement k=8: silhouette=0.0281, stability=0.3742
+statement k=10: silhouette=0.0322, stability=0.3505
+statement k=12: silhouette=0.0283, stability=0.4104
+statement k=14: silhouette=0.0274, stability=0.3940
+statement k=16: silhouette=0.0314, stability=0.4162
+proof k=4: silhouette=0.0761, stability=0.6224
+proof k=6: silhouette=0.0443, stability=0.5036
+proof k=8: silhouette=0.0690, stability=0.4520
+proof k=10: silhouette=0.0641, stability=0.4649
+proof k=12: silhouette=0.0614, stability=0.5038
+proof k=14: silhouette=0.0444, stability=0.5375
+proof k=16: silhouette=0.0332, stability=0.5599
+joint k=4: silhouette=0.0300, stability=0.3065
+joint k=6: silhouette=0.0329, stability=0.4185
+joint k=8: silhouette=0.0319, stability=0.4064
+joint k=10: silhouette=0.0338, stability=0.4197
+joint k=12: silhouette=0.0323, stability=0.4140
+joint k=14: silhouette=0.0325, stability=0.4519
+joint k=16: silhouette=0.0306, stability=0.4767
+{
+  "selected_k": {
+    "statement": 16,
+    "proof": 4,
+    "joint": 16
+  },
+  "cross_view_associations": [
+    {
+      "n": 10000,
+      "ami": 0.08037764840717247,
+      "nmi": 0.08138432359110939,
+      "cramers_v": 0.33717235316976457,
+      "comparison": "statement vs proof"
+    },
+    {
+      "n": 10000,
+      "ami": 0.36227123629279584,
+      "nmi": 0.36490348091499386,
+      "cramers_v": 0.47489319057295154,
+      "comparison": "statement vs joint"
+    },
+    {
+      "n": 10000,
+      "ami": 0.15160250077190296,
+      "nmi": 0.1525283480540803,
+      "cramers_v": 0.47357014811153786,
+      "comparison": "proof vs joint"
+    }
+  ],
+  "analysis_elapsed_seconds": 194.20592770003714,
+  "results_sha256": "a92a4539b547b179a9a822ca1b034e9d3a846c942f92771a60230afb94ab9f8b"
+}

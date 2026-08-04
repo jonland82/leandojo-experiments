@@ -1,0 +1,15 @@
+note.aux
+note.log
+note.out
+note.txt
+note.fdb_latexmk
+note.fls
+note-page-*.png
+build-pass*.log
+original.txt
+page-*.png
+audit-*.png
+final-*.png
+inspect*.png
+*-check*.png
+note-layout.txt
