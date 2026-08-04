@@ -34,6 +34,70 @@ These are descriptive and pilot-scale findings, not claims that proof spaces
 have a canonical number of clusters or that theorem statements determine
 proofs. The full reports retain uncertainty estimates, controls, and caveats.
 
+## Mathematical sketch
+
+For a proof $t$ with tactic-head sequence $(h_1,\ldots,h_L)$, the style view
+retains tactic unigrams and adjacent bigrams:
+
+$$
+\Phi_{\mathrm{style}}(t)
+=\{\mathtt{TAC}(h_i)\}_{i=1}^{L}
+\uplus
+\{\mathtt{BIGRAM}(h_i,h_{i+1})\}_{i=1}^{L-1}.
+$$
+
+If $P(t)$ is the set of explicitly annotated premises and $\nu(p)$ is the
+top-level namespace of premise $p$, the domain view is
+
+$$
+\Phi_{\mathrm{domain}}(t)
+=\{\mathtt{PREM}(p),\mathtt{NS}(\nu(p)):p\in P(t)\}.
+$$
+
+For each view $v\in\{\mathrm{style},\mathrm{domain}\}$, the feature matrix is
+TF–IDF weighted and approximated by nonnegative matrix factorization:
+
+$$
+X_v=\operatorname{TFIDF}(\Phi_v)
+\approx W_vH_v,
+\qquad W_v,H_v\geq0.
+$$
+
+The row-normalized proof mixture is
+
+$$
+\theta_{ik}^{(v)}
+=\frac{(W_v)_{ik}}{\sum_j(W_v)_{ij}}.
+$$
+
+Let $s_i$ and $p_i$ be the normalized statement and proof embeddings for
+theorem $i$. Their exact top-$k$ neighborhoods are
+
+$$
+S_i(k)=\operatorname{TopK}_{j\neq i}\cos(s_i,s_j),
+\qquad
+P_i(k)=\operatorname{TopK}_{j\neq i}\cos(p_i,p_j).
+$$
+
+The local transfer statistic compares proof similarity along statement
+neighbors with a context-matched random neighborhood $R_i(k)$:
+
+$$
+\Delta_k
+=\mathbb{E}_{j\in S_i(k)}[\cos(p_i,p_j)]
+-\mathbb{E}_{j\in R_i(k)}[\cos(p_i,p_j)].
+$$
+
+At $k=10$, the observed value is $\Delta_{10}=0.6727-0.6030=0.0696$.
+For generation condition $c$, kernel-verified success is
+
+$$
+\operatorname{pass@}k(i,c)
+=\mathbb{1}\!\left[
+\exists j\leq k:\operatorname{LeanAccept}(p_{ij}^{(c)})
+\right].
+$$
+
 ## Repository guide
 
 | Path | Contents |
