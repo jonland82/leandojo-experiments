@@ -111,5 +111,16 @@ All five documented experiments and four notes are complete. The natural next
 step is a larger paired comparison of semantic retrieval, BM25, and no
 retrieval; that run has not been performed in this repository.
 
-No open-source license has been selected yet. Add one before inviting external
-reuse or contributions.
+## License
+
+This repository uses a split license:
+
+- Original source code is licensed under the [MIT License](LICENSE).
+- Original reports, research prose, figures, LaTeX source, rendered PDFs, and
+  website content are licensed under
+  [Creative Commons Attribution 4.0](LICENSE-CONTENT.md).
+- LeanDojo/Mathlib-derived material, retained model or embedding outputs, and
+  other third-party content are not relicensed; see
+  [THIRD_PARTY.md](THIRD_PARTY.md).
+
+Copyright © 2026 Jonathan R. Landers.
