@@ -14,6 +14,7 @@ The repository follows a single research arc:
 
 [Explore the project site](https://jonland82.github.io/leandojo-experiments/) ·
 [Open the 3-D proof-space viewer](https://jonland82.github.io/leandojo-experiments/app/) ·
+[Read the papers](#papers-and-reports) ·
 [Read the experiment index](experiments/)
 
 ## Results at a glance
@@ -33,6 +34,21 @@ The repository follows a single research arc:
 These are descriptive and pilot-scale findings, not claims that proof spaces
 have a canonical number of clusters or that theorem statements determine
 proofs. The full reports retain uncertainty estimates, controls, and caveats.
+
+## Papers and reports
+
+- [**Textures of Modern Formal Mathematics**](notes/style-domain-note/note.pdf) —
+  tactic style, premise vocabulary, and the separation between procedure and
+  mathematical domain.
+- [**What Statements Know, What Proofs Do**](notes/semantic-embeddings-note/note.pdf) —
+  statement, proof, and joint embedding geometries across 10,000 theorem–proof
+  pairs.
+- [**Nearby Examples, New Proofs**](notes/retrieval-generation-note/note.pdf) —
+  the paired retrieval-guided Lean proof-generation pilot and kernel-verified
+  outcomes.
+- [**Proof Space Has More Than One Geometry**](notes/proof-geometry-literature-note/note.pdf) —
+  a synthesis connecting the experiments to proof theory, formal-library
+  networks, representation learning, and retrieval-guided proving.
 
 ## Mathematical sketch
 
