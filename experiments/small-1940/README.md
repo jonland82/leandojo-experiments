@@ -9,6 +9,8 @@ Run it from the repository root:
 python pipeline.py --profile small-1940
 ```
 
-The canonical rerun artifacts are written to `artifacts/`. `FINDINGS.md` contains the original
-full write-up. The historical root-level `out/` and `app/data.js` are retained so the existing
-viewer and note-generation code continue to work without modification.
+The canonical rerun artifacts are written to `artifacts/`.
+[`FINDINGS.md`](../../FINDINGS.md) contains the original full write-up. The
+historical root-level `out/` and `app/data.js` are retained for the published
+viewer and original reporting utilities; they are intentionally not treated as
+the canonical rerun output.

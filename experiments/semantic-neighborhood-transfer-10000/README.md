@@ -18,6 +18,8 @@ python experiments/semantic-neighborhood-transfer-10000/scripts/analyze_geometry
 
 The script computes exact top-100 neighborhoods in both views, compares proof
 similarity along statement neighborhoods against a coarse-module-matched random
-baseline that also preserves exact-source-file status, measures cross-view neighborhood overlap, samples global theorem
-pairs, and fits a controlled descriptive regression. See `RESULTS.md` for the
-findings and `AWS_PROOF_GENERATION_PLAN.md` for the paid follow-up design.
+baseline that also preserves exact-source-file status, measures cross-view
+neighborhood overlap, samples global theorem pairs, and fits a controlled
+descriptive regression. See `RESULTS.md` for the findings. The paid follow-up
+designed in `AWS_PROOF_GENERATION_PLAN.md` is now complete under
+`../retrieval-guided-proof-generation-100/`.

@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#050712">
+  <meta name="description" content="LeanDojo Proof Geometry Experiments studies how theorem statements, human-written Lean proofs, and retrieval-guided proof generation relate.">
+  <meta property="og:title" content="LeanDojo Proof Geometry Experiments">
+  <meta property="og:description" content="From proof style and semantic geometry to a kernel-verified retrieval-guided generation pilot.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://jonland82.github.io/leandojo-experiments/notes/proof-geometry-literature-note/proof_geometry_synthesis.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>LeanDojo Proof Geometry Experiments</title>
+  <script>
+    document.documentElement.classList.add('mathjax-loading');
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      },
+      chtml: { scale: 1 },
+      options: { enableMenu: false },
+      startup: {
+        ready: function () {
+          MathJax.startup.defaultReady();
+          MathJax.startup.promise.then(function () {
+            document.documentElement.classList.remove('mathjax-loading');
+          });
+        }
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-mml-chtml.js"></script>
+  <style>
+    :root {
+      color-scheme: dark;
+      --ink: #f5f3ff;
+      --muted: #a9acc1;
+      --quiet: #767b96;
+      --navy-950: #050712;
+      --navy-900: #080b1b;
+      --navy-850: #0c1025;
+      --navy-800: #11162f;
+      --panel: rgba(14, 18, 42, 0.72);
+      --panel-strong: rgba(15, 19, 44, 0.92);
+      --amethyst: #a78bfa;
+      --amethyst-bright: #c4b5fd;
+      --violet: #7c3aed;
+      --cyan: #67e8f9;
+      --line: rgba(167, 139, 250, 0.18);
+      --line-strong: rgba(167, 139, 250, 0.38);
+      --shadow: 0 28px 90px rgba(2, 3, 12, 0.5);
+      --radius: 24px;
+      --max: 980px;
+      --mouse-x: 50%;
+      --mouse-y: 10%;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      font-size: 11pt;
+      scroll-behavior: smooth;
+      scrollbar-color: var(--violet) var(--navy-950);
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      overflow-x: hidden;
+      color: var(--ink);
+      background:
+        radial-gradient(900px circle at var(--mouse-x) var(--mouse-y), rgba(124, 58, 237, 0.16), transparent 46%),
+        radial-gradient(700px circle at 90% 30%, rgba(103, 232, 249, 0.06), transparent 48%),
+        var(--navy-950);
+      font-family: Inter, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 1rem;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body::before {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      content: "";
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(167, 139, 250, 0.032) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(167, 139, 250, 0.032) 1px, transparent 1px);
+      background-size: 54px 54px;
+      mask-image: linear-gradient(to bottom, black, transparent 88%);
+    }
+
+    body::after {
+      position: fixed;
+      inset: 0;
+      z-index: 30;
+      content: "";
+      pointer-events: none;
+      opacity: 0.16;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.92' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.12'/%3E%3C/svg%3E");
+    }
+
+    a { color: inherit; }
+    img, svg { display: block; max-width: 100%; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    ::selection { color: #fff; background: rgba(124, 58, 237, 0.72); }
+
+    .skip-link {
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      z-index: 100;
+      padding: 9px 14px;
+      color: #fff;
+      background: var(--violet);
+      border-radius: 8px;
+      transform: translateY(-160%);
+      transition: transform 160ms ease;
+    }
+
+    .skip-link:focus { transform: translateY(0); }
+
+    .shell {
+      width: min(calc(100% - 72px), var(--max));
+      margin-inline: auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid rgba(167, 139, 250, 0.1);
+      background: rgba(5, 7, 18, 0.74);
+      backdrop-filter: blur(20px) saturate(130%);
+    }
+
+    .nav {
+      display: flex;
+      min-height: 62px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      color: var(--ink);
+      font-size: 1rem;
+      font-weight: 750;
+      letter-spacing: 0.14em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .brand-mark {
+      width: 31px;
+      height: 31px;
+      color: var(--amethyst-bright);
+      filter: drop-shadow(0 0 10px rgba(167, 139, 250, 0.35));
+    }
+
+    .nav-links { display: flex; align-items: center; gap: 27px; }
+
+    .nav-links > a:not(.nav-cta) {
+      color: var(--muted);
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 160ms ease;
+    }
+
+    .nav-links > a:not(.nav-cta):hover,
+    .nav-links > a:not(.nav-cta):focus-visible { color: var(--ink); }
+
+    .nav-cta, .button {
+      display: inline-flex;
+      min-height: 44px;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 0 18px;
+      border: 1px solid var(--line-strong);
+      border-radius: 12px;
+      color: #fff;
+      background: rgba(167, 139, 250, 0.09);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+      font-size: 1rem;
+      font-weight: 720;
+      text-decoration: none;
+      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+    }
+
+    .nav-cta:hover, .button:hover {
+      border-color: rgba(196, 181, 253, 0.68);
+      background: rgba(167, 139, 250, 0.16);
+      transform: translateY(-2px);
+    }
+
+    .button--primary {
+      border-color: rgba(167, 139, 250, 0.76);
+      background: linear-gradient(135deg, #6d28d9, #8b5cf6);
+      box-shadow: 0 12px 35px rgba(124, 58, 237, 0.26);
+    }
+
+    .button--primary:hover { background: linear-gradient(135deg, #7c3aed, #a78bfa); }
+    .button svg, .nav-cta svg { width: 17px; height: 17px; }
+
+    .hero {
+      position: relative;
+      display: grid;
+      min-width: 0;
+      min-height: min(650px, calc(100vh - 62px));
+      grid-template-columns: minmax(0, 1.04fr) minmax(380px, 0.96fr);
+      align-items: center;
+      gap: clamp(36px, 5vw, 58px);
+      padding-block: 68px 58px;
+    }
+
+    .hero::before {
+      position: absolute;
+      top: 4%;
+      left: 50%;
+      z-index: -1;
+      width: min(420px, 100vw);
+      height: 420px;
+      content: "";
+      border: 1px solid rgba(167, 139, 250, 0.06);
+      border-radius: 50%;
+      box-shadow: 0 0 0 84px rgba(167, 139, 250, 0.018), 0 0 0 168px rgba(167, 139, 250, 0.012);
+      transform: translateX(-50%);
+    }
+
+    .hero-copy { min-width: 0; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 25px;
+      color: var(--amethyst-bright);
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.17em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      width: 24px;
+      height: 1px;
+      content: "";
+      background: currentColor;
+      box-shadow: 0 0 12px currentColor;
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1 {
+      max-width: 720px;
+      margin-bottom: 19px;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 780;
+      letter-spacing: -0.05em;
+      line-height: 0.98;
+    }
+
+    h1 span {
+      display: block;
+      color: transparent;
+      background: linear-gradient(105deg, #fff 0%, var(--amethyst-bright) 42%, #8b5cf6 78%, var(--cyan) 130%);
+      background-clip: text;
+      -webkit-background-clip: text;
+    }
+
+    .hero-author {
+      margin: -2px 0 14px;
+      color: var(--amethyst-bright);
+      font-size: 1rem;
+      font-weight: 680;
+      letter-spacing: 0.08em;
+    }
+
+    .hero-lede {
+      max-width: 650px;
+      margin-bottom: 25px;
+      color: #c3c5d4;
+      font-size: 1.05rem;
+      line-height: 1.68;
+    }
+
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+    .hero-note {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin: 28px 0 0;
+      padding: 0;
+      color: var(--quiet);
+      font-family: "SFMono-Regular", Consolas, monospace;
+      font-size: 1rem;
+      letter-spacing: 0.035em;
+      list-style: none;
+      text-transform: uppercase;
+    }
+
+    .hero-note li { display: inline-flex; align-items: center; gap: 7px; }
+    .hero-note li::before { width: 5px; height: 5px; content: ""; background: var(--cyan); border-radius: 50%; box-shadow: 0 0 9px rgba(103, 232, 249, 0.65); }
+
+    .geometry-card {
+      position: relative;
+      min-height: 410px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(145deg, rgba(17, 22, 47, 0.86), rgba(8, 11, 27, 0.72));
+      box-shadow: var(--shadow), inset 0 1px rgba(255, 255, 255, 0.035);
+      isolation: isolate;
+    }
+
+    .geometry-card::before {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      content: "";
+      background: radial-gradient(circle at 52% 45%, rgba(124, 58, 237, 0.2), transparent 48%);
+    }
+
+    .geometry-label {
+      position: absolute;
+      z-index: 2;
+      padding: 6px 10px;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      color: var(--muted);
+      background: rgba(5, 7, 18, 0.72);
+      font-family: "SFMono-Regular", Consolas, monospace;
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      backdrop-filter: blur(10px);
+    }
+
+    .geometry-label--statement { top: 18px; left: 18px; }
+    .geometry-label--proof { right: 18px; bottom: 18px; }
+    .geometry-svg { width: 100%; height: 410px; }
+    .orbit { transform-origin: 210px 205px; animation: orbit 26s linear infinite; }
+    .orbit--reverse { animation-direction: reverse; animation-duration: 34s; }
+    .pulse { animation: pulse 3.6s ease-in-out infinite; }
+
+    @keyframes orbit { to { transform: rotate(360deg); } }
+    @keyframes pulse { 50% { opacity: 0.48; } }
+
+    .metric-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(12, 16, 37, 0.66);
+      box-shadow: inset 0 1px rgba(255, 255, 255, 0.025);
+    }
+
+    .metric { min-width: 0; padding: 24px 26px; }
+    .metric + .metric { border-left: 1px solid var(--line); }
+    .metric strong { display: block; margin-bottom: 2px; color: var(--ink); font-size: 1.65rem; line-height: 1.2; }
+    .metric span { color: var(--quiet); font-size: 1rem; letter-spacing: 0.08em; text-transform: uppercase; }
+
+    .math-shelf {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .math-chip {
+      min-width: 0;
+      overflow-x: auto;
+      padding: 15px 17px;
+      border: 1px solid rgba(167, 139, 250, 0.14);
+      border-radius: 13px;
+      color: var(--amethyst-bright);
+      background: rgba(10, 13, 31, 0.54);
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    .math-chip small {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--quiet);
+      font-family: "SFMono-Regular", Consolas, monospace;
+      font-size: 1rem;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    .math-chip mjx-container { margin: 0 !important; }
+    .mathjax-loading .tex { visibility: hidden; }
+
+    .section-math {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: -16px 0 32px;
+    }
+
+    .section-math .math-chip { flex: 1 1 240px; }
+
+    .feature-equation {
+      margin: 21px 0 0;
+      overflow-x: auto;
+      padding: 14px 16px;
+      border-left: 2px solid var(--violet);
+      color: var(--amethyst-bright);
+      background: rgba(124, 58, 237, 0.07);
+      font-size: 1rem;
+    }
+
+    .feature-equation mjx-container { margin: 0 !important; }
+
+    .section { padding-block: 44px; }
+    .section--tight { padding-top: 24px; }
+    .section--border { border-top: 1px solid rgba(167, 139, 250, 0.1); }
+
+    .section-heading { max-width: 680px; margin-bottom: 34px; }
+    .section-heading .eyebrow { margin-bottom: 18px; }
+
+    h2 {
+      margin-bottom: 16px;
+      font-size: clamp(1.8rem, 4vw, 2.75rem);
+      font-weight: 760;
+      letter-spacing: -0.045em;
+      line-height: 1.08;
+    }
+
+    .section-heading p { margin-bottom: 0; color: var(--muted); font-size: 1.03rem; }
+
+    .arc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+    .arc-card {
+      position: relative;
+      min-height: 300px;
+      padding: 27px 25px 25px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--panel);
+      box-shadow: inset 0 1px rgba(255, 255, 255, 0.025);
+      transition: border-color 180ms ease, transform 180ms ease, background 180ms ease;
+    }
+
+    .arc-card:hover { border-color: var(--line-strong); background: rgba(17, 22, 47, 0.84); transform: translateY(-4px); }
+    .arc-index { margin-bottom: 32px; color: var(--amethyst); font-family: "SFMono-Regular", Consolas, monospace; font-size: 1rem; letter-spacing: 0.12em; }
+    .arc-card h3 { margin-bottom: 11px; font-size: 1.08rem; line-height: 1.3; }
+    .arc-card p { margin-bottom: 25px; color: var(--muted); font-size: 1rem; }
+    .arc-equation {
+      margin: 18px 0 48px;
+      color: var(--amethyst-bright);
+      font-size: 1rem;
+      line-height: 1.45;
+    }
+
+    .arc-equation mjx-container { margin: 0 !important; }
+    .arc-result { position: absolute; right: 25px; bottom: 23px; left: 25px; padding-top: 14px; border-top: 1px solid var(--line); color: var(--cyan); font-family: "SFMono-Regular", Consolas, monospace; font-size: 1rem; }
+
+    .feature {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(330px, 0.82fr);
+      align-items: center;
+      gap: 54px;
+      padding: 46px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, rgba(17, 22, 47, 0.83), rgba(10, 13, 31, 0.78));
+      box-shadow: var(--shadow), inset 0 1px rgba(255, 255, 255, 0.03);
+    }
+
+    .feature h2 { margin-bottom: 15px; }
+    .feature p { color: var(--muted); }
+    .feature-actions { display: flex; flex-wrap: wrap; gap: 11px; margin-top: 25px; }
+
+    .mini-viewer {
+      position: relative;
+      min-height: 280px;
+      overflow: hidden;
+      border: 1px solid rgba(167, 139, 250, 0.15);
+      border-radius: 17px;
+      background: radial-gradient(circle at 50% 44%, rgba(124, 58, 237, 0.2), transparent 45%), #080b1b;
+    }
+
+    .mini-viewer::after { position: absolute; inset: 0; content: ""; background: linear-gradient(transparent 49%, rgba(167, 139, 250, 0.025) 50%), linear-gradient(90deg, transparent 49%, rgba(167, 139, 250, 0.025) 50%); background-size: 32px 32px; }
+    .mini-viewer svg { position: relative; z-index: 1; width: 100%; height: 280px; }
+
+    .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 18px; background: var(--panel); }
+    table { width: 100%; border-collapse: collapse; font-size: 1rem; }
+    th, td { padding: 17px 19px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    tr:last-child td { border-bottom: 0; }
+    th { color: var(--quiet); font-family: "SFMono-Regular", Consolas, monospace; font-size: 1rem; letter-spacing: 0.1em; text-transform: uppercase; }
+    td { color: var(--muted); }
+    td:first-child { color: var(--ink); font-weight: 650; }
+    td a { text-decoration-color: rgba(167, 139, 250, 0.45); text-underline-offset: 3px; }
+    .status { display: inline-flex; align-items: center; gap: 7px; white-space: nowrap; }
+    .status::before { width: 6px; height: 6px; content: ""; background: var(--cyan); border-radius: 50%; box-shadow: 0 0 8px rgba(103, 232, 249, 0.55); }
+
+    .notes-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .note-card { display: flex; min-height: 170px; flex-direction: column; padding: 26px; border: 1px solid var(--line); border-radius: 17px; background: var(--panel); text-decoration: none; transition: transform 180ms ease, border-color 180ms ease; }
+    .note-card:hover { border-color: var(--line-strong); transform: translateY(-3px); }
+    .note-card small { margin-bottom: 15px; color: var(--amethyst-bright); font-family: "SFMono-Regular", Consolas, monospace; font-size: 1rem; letter-spacing: 0.1em; text-transform: uppercase; }
+    .note-card strong { margin-bottom: 8px; font-size: 1.02rem; }
+    .note-card span { color: var(--muted); font-size: 1rem; }
+    .note-card em { margin-top: auto; padding-top: 18px; color: var(--quiet); font-size: 1rem; font-style: normal; }
+
+    .site-footer { padding-block: 35px 46px; border-top: 1px solid rgba(167, 139, 250, 0.1); }
+    .footer-row { display: flex; align-items: center; justify-content: space-between; gap: 28px; color: var(--quiet); font-size: 1rem; }
+    .footer-row p { margin: 0; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 20px; }
+    .footer-links a { text-decoration: none; }
+    .footer-links a:hover { color: var(--ink); }
+
+    .reveal { opacity: 1; transform: none; transition: opacity 600ms ease, transform 600ms ease; }
+    .reveal.is-visible { opacity: 1; transform: none; }
+
+    @media (max-width: 860px) {
+      .nav-links > a:not(.nav-cta) { display: none; }
+      .hero { grid-template-columns: 1fr; padding-top: 58px; }
+      .geometry-card { min-height: 360px; }
+      .geometry-svg { height: 360px; }
+      .arc-grid { grid-template-columns: 1fr; }
+      .arc-card { min-height: 240px; }
+      .feature { grid-template-columns: 1fr; gap: 34px; }
+    }
+
+    @media (max-width: 640px) {
+      .shell { width: min(calc(100% - 36px), var(--max)); }
+      .nav-cta { display: none; }
+      .hero { min-height: auto; padding-block: 50px 40px; }
+      h1 { font-size: clamp(2.6rem, 14vw, 4rem); }
+      .metric-strip { grid-template-columns: 1fr; }
+      .metric + .metric { border-top: 1px solid var(--line); border-left: 0; }
+      .math-shelf { grid-template-columns: 1fr; }
+      .section { padding-block: 36px; }
+      .feature { padding: 29px 24px; }
+      .notes-grid { grid-template-columns: 1fr; }
+      .footer-row { align-items: flex-start; flex-direction: column; }
+      th, td { padding: 14px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="shell nav">
+      <a class="brand" href="#top" aria-label="LeanDojo Proof Geometry home">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+          <circle cx="7" cy="9" r="2.4" fill="currentColor"/>
+          <circle cx="24" cy="6" r="2.4" fill="currentColor"/>
+          <circle cx="25" cy="24" r="2.4" fill="currentColor"/>
+          <circle cx="9" cy="25" r="2.4" fill="currentColor"/>
+          <circle cx="16" cy="16" r="2.8" fill="none" stroke="currentColor" stroke-width="1.4"/>
+          <path d="M9 10.5 14 14M22.3 8 18 13.7M23.1 22 18.1 18M11 23.4l3.6-5" fill="none" stroke="currentColor" stroke-width="1.25"/>
+        </svg>
+        Proof Geometry
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#arc">Research arc</a>
+        <a href="#experiments">Experiments</a>
+        <a href="#notes">Notes</a>
+        <a class="nav-cta" href="https://github.com/jonland82/leandojo-experiments">
+          View repository
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="shell hero" id="top">
+      <div class="hero-copy">
+        <div class="eyebrow">Lean theorem proving · empirical study</div>
+        <h1>What travels between <span>a theorem and its proof?</span></h1>
+        <p class="hero-author">Jonathan R. Landers</p>
+        <p class="hero-lede">A sequence of experiments asks how much structure survives the map <span class="tex">\(\text{theorem} \longleftrightarrow \text{proof}\)</span>, then tests that structure in kernel-verified Lean generation.</p>
+        <div class="hero-actions">
+          <a class="button button--primary" href="app/">
+            Explore proof space
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-5-5 5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="button" href="https://github.com/jonland82/leandojo-experiments#readme">Read the overview</a>
+        </div>
+        <ul class="hero-note" aria-label="Project properties">
+          <li>5 completed experiments</li>
+          <li>Kernel-verified pilot</li>
+          <li>Artifacts included</li>
+        </ul>
+      </div>
+
+      <div class="geometry-card" aria-label="Abstract diagram connecting statement and proof geometries">
+        <span class="geometry-label geometry-label--statement">Statement space</span>
+        <span class="geometry-label geometry-label--proof">Proof space</span>
+        <svg class="geometry-svg" viewBox="0 0 420 410" role="img" aria-labelledby="geometry-title geometry-desc">
+          <title id="geometry-title">Statement and proof geometry</title>
+          <desc id="geometry-desc">Two overlapping constellations joined by partial correspondence lines.</desc>
+          <defs>
+            <radialGradient id="glowA"><stop stop-color="#a78bfa" stop-opacity=".55"/><stop offset="1" stop-color="#7c3aed" stop-opacity="0"/></radialGradient>
+            <radialGradient id="glowC"><stop stop-color="#67e8f9" stop-opacity=".42"/><stop offset="1" stop-color="#67e8f9" stop-opacity="0"/></radialGradient>
+            <filter id="soft"><feGaussianBlur stdDeviation="8"/></filter>
+          </defs>
+          <circle cx="147" cy="160" r="104" fill="url(#glowA)" opacity=".42" filter="url(#soft)"/>
+          <circle cx="282" cy="251" r="105" fill="url(#glowC)" opacity=".34" filter="url(#soft)"/>
+          <g fill="none" stroke="#a78bfa" stroke-opacity=".22" stroke-width="1">
+            <path d="M77 126 120 91 169 111 204 157 165 205 108 197 77 126Z"/>
+            <path d="M120 91 108 197M169 111 108 197M77 126 204 157M165 205 204 157"/>
+          </g>
+          <g fill="none" stroke="#67e8f9" stroke-opacity=".22" stroke-width="1">
+            <path d="M224 223 268 188 328 202 347 257 309 306 248 292 224 223Z"/>
+            <path d="M268 188 248 292M328 202 248 292M224 223 347 257M309 306 347 257"/>
+          </g>
+          <g fill="none" stroke="#c4b5fd" stroke-opacity=".2" stroke-dasharray="4 7">
+            <path d="M169 111C230 125 242 170 268 188"/>
+            <path d="M204 157C249 177 278 188 328 202"/>
+            <path d="M165 205C206 238 222 261 248 292"/>
+          </g>
+          <g class="orbit" fill="#c4b5fd">
+            <circle cx="77" cy="126" r="4"/><circle cx="120" cy="91" r="5"/><circle cx="169" cy="111" r="3.7"/><circle cx="204" cy="157" r="5.2"/><circle cx="165" cy="205" r="4.2"/><circle cx="108" cy="197" r="3.4"/>
+          </g>
+          <g class="orbit orbit--reverse" fill="#67e8f9">
+            <circle cx="224" cy="223" r="4"/><circle cx="268" cy="188" r="4.7"/><circle cx="328" cy="202" r="3.5"/><circle cx="347" cy="257" r="5"/><circle cx="309" cy="306" r="4.3"/><circle cx="248" cy="292" r="3.8"/>
+          </g>
+          <circle class="pulse" cx="221" cy="205" r="11" fill="none" stroke="#fff" stroke-opacity=".55"/>
+          <circle cx="221" cy="205" r="3.2" fill="#fff"/>
+        </svg>
+      </div>
+    </section>
+
+    <section class="shell section--tight" aria-label="Headline results">
+      <div class="metric-strip reveal">
+        <div class="metric"><strong>10,000</strong><span>Theorem–proof pairs</span></div>
+        <div class="metric"><strong>+0.0696</strong><span>Local proof-cosine lift</span></div>
+        <div class="metric"><strong>24%</strong><span>Semantic retrieval pass@3</span></div>
+      </div>
+      <div class="math-shelf reveal" aria-label="Core model equations">
+        <div class="math-chip"><small>Represent</small><span class="tex">\(X_v=\operatorname{TFIDF}(\Phi_v)\)</span></div>
+        <div class="math-chip"><small>Factor</small><span class="tex">\(X_v\approx W_vH_v,\quad W_v,H_v\geq0\)</span></div>
+        <div class="math-chip"><small>Mix</small><span class="tex">\(\theta_{ik}=\dfrac{W_{ik}}{\sum_j W_{ij}}\)</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="arc">
+      <div class="shell">
+        <div class="section-heading reveal">
+          <div class="eyebrow">Research arc</div>
+          <h2>From description to intervention</h2>
+          <p>Each experiment tightens the question: first distinguish structures, then measure their local relationship, then test whether the relationship is useful.</p>
+        </div>
+        <div class="arc-grid">
+          <article class="arc-card reveal">
+            <div class="arc-index">01 / Separate</div>
+            <h3>Procedure is not subject</h3>
+            <p>Tactic unigrams and bigrams model proof style; explicit premises and namespaces model mathematical domain.</p>
+            <div class="arc-equation"><span class="tex">\(\Phi_{\mathrm{style}} \neq \Phi_{\mathrm{domain}}\)</span></div>
+            <div class="arc-result">Style ↔ domain AMI 0.0153</div>
+          </article>
+          <article class="arc-card reveal">
+            <div class="arc-index">02 / Compare</div>
+            <h3>Global mismatch, local signal</h3>
+            <p>Statement and proof clusters differ, yet nearby statements have measurably more-similar recorded proofs.</p>
+            <div class="arc-equation"><span class="tex">\(\Delta_{10}=0.6727-0.6030=0.0696\)</span></div>
+            <div class="arc-result">Top-10 proof cosine +0.0696</div>
+          </article>
+          <article class="arc-card reveal">
+            <div class="arc-index">03 / Test</div>
+            <h3>Retrieve, generate, verify</h3>
+            <p>Four retrieval conditions share the same held-out targets; every candidate is checked in its pinned Lean context.</p>
+            <div class="arc-equation"><span class="tex">\(\operatorname{pass@}k=\mathbb{1}[\exists j\!\leq\!k:\operatorname{Lean}(p_j)]\)</span></div>
+            <div class="arc-result">Semantic 24% · BM25 21%</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--border">
+      <div class="shell">
+        <div class="feature reveal">
+          <div>
+            <div class="eyebrow">Interactive artifact</div>
+            <h2>Orbit the original proof space</h2>
+            <p>Explore 1,940 tactic proofs in a dependency-free 3-D viewer. Switch between style and domain coloring, compare PCA with t-SNE, search theorem names and files, and inspect proof scripts.</p>
+            <div class="feature-equation"><span class="tex">\(X_{\mathrm{style}}\xrightarrow{\mathrm{SVD}_{64}}Z\xrightarrow{\mathrm{PCA}_3\;\mathrm{or}\;t\text{-}\mathrm{SNE}_3}\mathbb{R}^3\)</span></div>
+            <div class="feature-actions">
+              <a class="button button--primary" href="app/">Launch viewer</a>
+              <a class="button" href="https://github.com/jonland82/leandojo-experiments/blob/master/FINDINGS.md">Read findings</a>
+            </div>
+          </div>
+          <div class="mini-viewer" aria-hidden="true">
+            <svg viewBox="0 0 360 280">
+              <g fill="none" stroke="#a78bfa" stroke-opacity=".11">
+                <ellipse cx="180" cy="140" rx="125" ry="68"/><ellipse cx="180" cy="140" rx="78" ry="124" transform="rotate(28 180 140)"/>
+              </g>
+              <g fill="#a78bfa"><circle cx="83" cy="121" r="4"/><circle cx="109" cy="83" r="6"/><circle cx="151" cy="115" r="3"/><circle cx="128" cy="169" r="5"/><circle cx="174" cy="188" r="3"/></g>
+              <g fill="#67e8f9"><circle cx="204" cy="74" r="4"/><circle cx="248" cy="103" r="6"/><circle cx="277" cy="137" r="3"/><circle cx="232" cy="151" r="5"/></g>
+              <g fill="#c4b5fd"><circle cx="181" cy="135" r="7"/><circle cx="201" cy="176" r="4"/><circle cx="267" cy="191" r="5"/><circle cx="305" cy="162" r="3"/></g>
+              <g fill="#f5f3ff" opacity=".72"><circle cx="66" cy="181" r="2"/><circle cx="146" cy="55" r="2"/><circle cx="291" cy="87" r="2"/><circle cx="217" cy="218" r="2"/><circle cx="104" cy="214" r="2"/></g>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="experiments">
+      <div class="shell">
+        <div class="section-heading reveal">
+          <div class="eyebrow">Experiment index</div>
+          <h2>Five completed studies</h2>
+          <p>Frozen settings, machine-readable artifacts, exact prompts, verifier output, analysis code, and full interpretations live together.</p>
+        </div>
+        <div class="section-math reveal" aria-label="Neighborhood definitions">
+          <div class="math-chip"><small>Statement neighbors</small><span class="tex">\(S_i(k)=\operatorname{TopK}_{j\ne i}\cos(s_i,s_j)\)</span></div>
+          <div class="math-chip"><small>Proof neighbors</small><span class="tex">\(P_i(k)=\operatorname{TopK}_{j\ne i}\cos(p_i,p_j)\)</span></div>
+          <div class="math-chip"><small>Cross-view overlap</small><span class="tex">\(O_i(k)=\dfrac{|S_i(k)\cap P_i(k)|}{k}\)</span></div>
+        </div>
+        <div class="table-wrap reveal">
+          <table>
+            <thead><tr><th>Experiment</th><th>Scale</th><th>Question</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td><a href="https://github.com/jonland82/leandojo-experiments/tree/master/experiments/small-1940">Original topic study</a></td><td>1,940 proofs</td><td>Which tactic styles and premise domains recur?</td><td><span class="status">Complete</span></td></tr>
+              <tr><td><a href="https://github.com/jonland82/leandojo-experiments/tree/master/experiments/aws-10000">Large-sample replication</a></td><td>10,000 proofs</td><td>Does weak style/domain alignment survive scale?</td><td><span class="status">Complete</span></td></tr>
+              <tr><td><a href="https://github.com/jonland82/leandojo-experiments/tree/master/experiments/semantic-embeddings-10000">Semantic embeddings</a></td><td>10,000 pairs</td><td>How do statement, proof, and joint spaces align?</td><td><span class="status">Complete</span></td></tr>
+              <tr><td><a href="https://github.com/jonland82/leandojo-experiments/tree/master/experiments/semantic-neighborhood-transfer-10000">Neighborhood transfer</a></td><td>10,000 pairs</td><td>Do nearby statements have nearby recorded proofs?</td><td><span class="status">Complete</span></td></tr>
+              <tr><td><a href="https://github.com/jonland82/leandojo-experiments/tree/master/experiments/retrieval-guided-proof-generation-100">Generation pilot</a></td><td>100 targets</td><td>Does relevant retrieval improve verified generation?</td><td><span class="status">Complete</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--border" id="notes">
+      <div class="shell">
+        <div class="section-heading reveal">
+          <div class="eyebrow">Research notes</div>
+          <h2>Compact paper-style reports</h2>
+          <p>Four standalone PDFs present the experiment sequence and connect it to proof theory, formal-library networks, representation learning, and retrieval-guided theorem proving.</p>
+        </div>
+        <div class="section-math reveal" aria-label="Mixture entropy definition">
+          <div class="math-chip"><small>Normalized mixture entropy</small><span class="tex">\(E_i=-\dfrac{\sum_k\theta_{ik}\log\theta_{ik}}{\log K},\qquad 0\leq E_i\leq1\)</span></div>
+          <div class="math-chip"><small>Cosine similarity</small><span class="tex">\(\cos(x,y)=\dfrac{x^{\mathsf T}y}{\lVert x\rVert_2\lVert y\rVert_2}\)</span></div>
+        </div>
+        <div class="notes-grid">
+          <a class="note-card reveal" href="notes/style-domain-note/note.pdf"><small>Note 01 · PDF</small><strong>Proof style and mathematical domain</strong><span>The original two-view topic analysis.</span><em>Open report →</em></a>
+          <a class="note-card reveal" href="notes/semantic-embeddings-note/note.pdf"><small>Note 02 · PDF</small><strong>Semantic theorem/proof embeddings</strong><span>Global clusters and cross-view alignment.</span><em>Open report →</em></a>
+          <a class="note-card reveal" href="notes/retrieval-generation-note/note.pdf"><small>Note 03 · PDF</small><strong>Retrieval-guided generation</strong><span>Paired conditions and Lean-verified outcomes.</span><em>Open report →</em></a>
+          <a class="note-card reveal" href="notes/proof-geometry-literature-note/note.pdf"><small>Note 04 · PDF</small><strong>Proof geometry in context</strong><span>A synthesis with adjacent research traditions.</span><em>Open report →</em></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-row">
+      <p>LeanDojo Proof Geometry Experiments</p>
+      <div class="footer-links">
+        <a href="https://github.com/jonland82/leandojo-experiments">GitHub</a>
+        <a href="https://github.com/jonland82/leandojo-experiments/tree/master/experiments">Experiments</a>
+        <a href="https://github.com/jonland82/leandojo-experiments/tree/master/notes">Notes</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var root = document.documentElement;
+      window.addEventListener("pointermove", function (event) {
+        root.style.setProperty("--mouse-x", event.clientX + "px");
+        root.style.setProperty("--mouse-y", event.clientY + "px");
+      }, { passive: true });
+
+      var items = document.querySelectorAll(".reveal");
+      if (!("IntersectionObserver" in window)) {
+        items.forEach(function (item) { item.classList.add("is-visible"); });
+        return;
+      }
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      items.forEach(function (item) { observer.observe(item); });
+    }());
+  </script>
+</body>
+</html>

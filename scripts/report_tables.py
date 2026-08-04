@@ -1,4 +1,4 @@
-"""Emit Markdown tables used in FINDINGS.md from out/stats.json."""
+"""Emit Markdown tables used in FINDINGS.md from the historical artifact."""
 
 import json
 

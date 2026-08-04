@@ -1,4 +1,4 @@
-"""Regenerate app/data.js from out/proofs.json without re-running the pipeline."""
+"""Regenerate app/data.js from the historical viewer artifact."""
 import json
 import os
 

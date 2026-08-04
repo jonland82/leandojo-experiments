@@ -17,8 +17,10 @@ theorem. The generation experiment remains worthwhile as a small pilot even if
 the association is modest, because retrieved examples may contribute useful
 premises or proof fragments without making complete proofs geometrically close.
 
-This is a prospective plan only. No paid AWS inference or infrastructure is
-launched by the geometry experiment.
+The text below is the original prospective plan and is retained to make the
+decision trail auditable. The later pilot did run paid Bedrock inference, with a
+smaller frozen budget and local Lean verification; its `RESULTS.md` records the
+actual model, candidate count, cost, runtime, and deviations.
 
 ## Geometry gate: passed locally
 

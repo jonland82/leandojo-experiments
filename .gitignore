@@ -1,4 +1,16 @@
 __pycache__/
 *.py[cod]
+.venv/
 data/
 .aws-run/
+**/.runtime/
+
+# Local tooling and document-build intermediates
+.idea/
+.vscode/
+.DS_Store
+*.aux
+*.fdb_latexmk
+*.fls
+*.out
+*.synctex.gz

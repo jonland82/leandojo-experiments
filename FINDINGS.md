@@ -252,8 +252,8 @@ experiment describes human-written tactic vocabulary, not the full semantics of 
 
 ```text
 python pipeline.py       # fit both views and regenerate out/ plus app/data.js
-python summarize.py      # compact console summary
-python report_tables.py  # regenerate Markdown diagnostic/topic tables
+python scripts/summarize.py      # compact console summary
+python scripts/report_tables.py  # regenerate Markdown diagnostic/topic tables
 ```
 
 Open `app/index.html` directly in a browser. The viewer has no CDN or server dependency.
@@ -269,6 +269,7 @@ and style/domain coloring.
 | `out/proofs.json` | proof coordinates, mixture summaries, dominant topics, scripts |
 | `app/data.js` | script-loadable copy of `out/proofs.json` |
 | `app/index.html`, `app/viewer.js`, `app/style.css` | dependency-free explorer |
+| `scripts/` | cross-view analysis and small artifact/reporting utilities |
 
 Random seed 0 is fixed for NMF reference fits, subsampling, SVD, and t-SNE. Reproducibility is
 expected within the recorded software environment; exact floating-point identity across

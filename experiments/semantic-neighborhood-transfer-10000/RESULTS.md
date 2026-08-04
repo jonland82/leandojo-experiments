@@ -85,4 +85,6 @@ Run from the repository root:
 python experiments/semantic-neighborhood-transfer-10000/scripts/analyze_geometry.py
 ```
 
-The saved top-100 neighbor arrays can be reused as the retrieval candidates for the future generation experiment.
+The saved top-100 neighbor arrays supplied semantic retrieval candidates for the
+completed 100-target generation pilot in
+`../retrieval-guided-proof-generation-100/`.
