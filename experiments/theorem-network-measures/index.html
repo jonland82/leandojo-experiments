@@ -117,30 +117,32 @@
   <main>
     <section id="formalism">
       <h2>Three questions, three measures</h2>
+      <p class="label" style="margin-bottom:9px">Throughout, $i$ denotes one target theorem–proof record and $\log$ is the natural logarithm.</p>
       <div class="methods">
         <article class="card method">
           <h3>Dependency mass</h3>
           <p class="question">How reliant is it on prior mathematics?</p>
           <div class="equation">$$D_\alpha(i)=\sum_{u\in A(i)}\alpha^{d(u,i)},\quad \alpha=0.5$$</div>
-          <p>Kernel constants in the theorem type and proof term form $u\to i$. Shortest-path distance discounts remote ancestors; the displayed score is $\log(1+D_\alpha)$.</p>
+          <p>An edge $u\to v$ means declaration $v$ uses $u$ in its kernel type or proof term. $A(i)$ is the set of upstream declarations that can reach $i$; $d(u,i)$ is the shortest path length. The discount $\alpha=0.5$ downweights remote ancestors. The displayed score is $\log(1+D_{0.5}(i))$.</p>
         </article>
         <article class="card method semantic">
           <h3>Effective neighborhood</h3>
           <p class="question">How connected is it semantically?</p>
-          <div class="equation">$$N_{\rm eff}(i)=\exp\!\left(-\sum_jp_{ij}\log p_{ij}\right)$$</div>
-          <p>Cohere Embed v4 maps statement and proof text separately to unit vectors. Above-background cosine weights among the exact top 100 are normalized into $p_{ij}$.</p>
+          <div class="equation">$$x_i=\frac{e_i}{\lVert e_i\rVert_2},\qquad w_{ij}=\max(0,x_i^\top x_j-\tau)$$ $$p_{ij}=\frac{w_{ij}}{\sum_\ell w_{i\ell}}$$ $$N_{\rm eff}(i)=\exp\!\left(-\sum_jp_{ij}\log p_{ij}\right)$$</div>
+          <p>$e_i$ is the Cohere Embed v4 vector and $x_i$ its unit normalization. Indices $j$ and $\ell$ range over the exact top-100 neighbors; $\tau$ is the view-specific random-pair cosine threshold. Thus $w_{ij}$ is excess cosine similarity, $p_{ij}$ its normalized share, and $N_{\rm eff}$ the entropy-equivalent neighbor count; it is set to zero if all weights vanish.</p>
         </article>
         <article class="card method complexity">
           <h3>Structural complexity</h3>
           <p class="question">How involved is its recorded proof?</p>
-          <div class="equation">$$C(i)=\tfrac14\!\sum_{q\in\{\log(1+s),\log(1+r),h,H\}}z(q_i)$$</div>
-          <p>The equal-weight composite uses tactic count $s$, direct kernel references $r$, dependency depth $h$, and tactic-head entropy $H$.</p>
+          <div class="equation">$$H_i=-\sum_tq_{it}\log q_{it},\qquad z(y)=\frac{y-\bar y}{\operatorname{sd}(y)}$$ $$\begin{aligned}C(i)=\tfrac14\big[&z(\log(1+s_i))+z(\log(1+r_i))\\&+z(h_i)+z(H_i)\big]\end{aligned}$$</div>
+          <p>$s_i$ is tactic-step count, $r_i$ direct kernel-reference count, and $h_i$ maximum dependency depth. $q_{it}$ is the fraction of steps using tactic head $t$, making $H_i$ tactic-head entropy. In $z$, $\bar y$ and $\operatorname{sd}(y)$ are the population mean and standard deviation over all 10,000 targets.</p>
         </article>
       </div>
     </section>
 
     <section id="results">
       <h2>What the run shows</h2>
+      <p class="label" style="margin-bottom:9px">Every $\rho$ reported below is a Spearman rank correlation.</p>
       <div class="card">
         <div class="finding"><span class="bar"></span><div><strong>Reliance varies widely.</strong> Median $\log(1+D_{0.5})$ is 4.67; a typical target has 39 direct kernel dependencies and depth 18. The graph search completed without depth censoring.</div></div>
         <div class="finding"><span class="bar"></span><div><strong>Proof neighborhoods are sparser.</strong> Median effective size is 31.3 for statements versus 8.6 for proofs. Their rank correlation is only $\rho=0.490$, so the views overlap without collapsing into one notion.</div></div>

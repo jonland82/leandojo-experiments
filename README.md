@@ -49,6 +49,9 @@ proofs. The full reports retain uncertainty estimates, controls, and caveats.
 - [**Proof Space Has More Than One Geometry**](notes/proof-geometry-literature-note/note.pdf) —
   a synthesis connecting the experiments to proof theory, formal-library
   networks, representation learning, and retrieval-guided proving.
+- [**The Infrastructure–Isolation Principle**](notes/infrastructure-isolation-note/note.pdf) —
+  an empirical principle relating dependency reliance, semantic isolation,
+  and proof complexity, with a rank-sign law and one-factor diagnostic.
 
 ## Mathematical sketch
 
