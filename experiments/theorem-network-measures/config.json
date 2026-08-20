@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "experiment_id": "theorem-network-measures",
+  "source_experiment": "experiments/semantic-embeddings-10000",
+  "runtime": {
+    "mathlib_checkout": "experiments/retrieval-guided-proof-generation-100/.runtime/mathlib4-pinned",
+    "elan_home": "experiments/retrieval-guided-proof-generation-100/.runtime/elan-home"
+  },
+  "dataset": {
+    "sample_size": 10000,
+    "sample_seed": 0,
+    "mathlib_commit": "3c307701fa7e9acbdc0680d7f3b9c9fed9081740"
+  },
+  "dependency": {
+    "alpha": 0.5,
+    "maximum_distance": 64,
+    "include_type_constants": true,
+    "include_value_constants": true
+  },
+  "semantic": {
+    "null_pair_sample_size": 500000,
+    "null_pair_seed": 0,
+    "threshold_quantile": 0.99,
+    "neighbor_block_size": 256
+  },
+  "complexity": {
+    "weights": {
+      "log_tactic_count": 0.25,
+      "log_direct_dependency_count": 0.25,
+      "dependency_depth": 0.25,
+      "tactic_head_entropy": 0.25
+    }
+  },
+  "sensitivity": {
+    "dependency_alpha": [0.25, 0.5, 0.75, 1.0],
+    "semantic_threshold_quantiles": [0.975, 0.99, 0.995]
+  },
+  "figures": {
+    "dpi": 180,
+    "formats": ["png", "pdf"]
+  }
+}

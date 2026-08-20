@@ -13,6 +13,7 @@ its theorem statement, and can that shared structure improve proof generation?
 | [`semantic-embeddings-10000/`](semantic-embeddings-10000/) | 10,000 theorem–proof pairs | Statement, proof, and joint embedding comparison | Complete |
 | [`semantic-neighborhood-transfer-10000/`](semantic-neighborhood-transfer-10000/) | 10,000 theorem–proof pairs | Local cross-view neighborhood test | Complete |
 | [`retrieval-guided-proof-generation-100/`](retrieval-guided-proof-generation-100/) | 100 held-out targets | Paired retrieval-guided generation pilot with Lean verification | Complete |
+| [`theorem-network-measures/`](theorem-network-measures/) | 10,000 theorem–proof pairs | Per-theorem dependency, connectedness, and complexity measures | Complete |
 
 The first two profiles are defined in the root [`pipeline.py`](../pipeline.py)
 and use random seed 0 throughout:

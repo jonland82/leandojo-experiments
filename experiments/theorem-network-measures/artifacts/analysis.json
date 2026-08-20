@@ -1,0 +1,717 @@
+{
+  "schema_version": 1,
+  "experiment_id": "theorem-network-measures",
+  "n_targets": 10000,
+  "dependency_graph": {
+    "exported_declarations": 888992,
+    "graph_nodes": 1088386,
+    "edges": 13264773,
+    "maximum_distance": 64,
+    "censored_targets": 0,
+    "alpha": 0.5,
+    "direct_dependency_count": {
+      "minimum": 3.0,
+      "p05": 15.0,
+      "median": 39.0,
+      "mean": 52.1434,
+      "p95": 133.0,
+      "maximum": 541.0
+    },
+    "dependency_depth": {
+      "minimum": 2.0,
+      "p05": 6.0,
+      "median": 18.0,
+      "mean": 19.3655,
+      "p95": 32.0,
+      "maximum": 52.0
+    },
+    "dependency_mass_log": {
+      "minimum": 1.0116009116784799,
+      "p05": 2.992563180229453,
+      "median": 4.667989825301949,
+      "mean": 4.6090808311939835,
+      "p95": 6.122558822278655,
+      "maximum": 7.425971224286783
+    }
+  },
+  "semantic": {
+    "model": "cohere.embed-v4:0",
+    "dimension": 1024,
+    "threshold_rule": "fixed-pair null cosine quantile 0.99",
+    "top_neighbors_considered": 100,
+    "statement": {
+      "threshold": 0.6900060176849365,
+      "weighted_degree": {
+        "minimum": 0.0,
+        "p05": 0.11690232753753663,
+        "median": 1.4617248475551605,
+        "mean": 2.3491533293008806,
+        "p95": 7.45471818447113,
+        "maximum": 13.432237982749939
+      },
+      "effective_neighbors": {
+        "minimum": 0.0,
+        "p05": 2.665209194230873,
+        "median": 31.308937847039303,
+        "mean": 41.12675878353802,
+        "p95": 93.99961104727467,
+        "maximum": 98.76506745211778
+      },
+      "neighbor_count": {
+        "minimum": 0.0,
+        "p05": 4.0,
+        "median": 48.0,
+        "mean": 54.0381,
+        "p95": 100.0,
+        "maximum": 100.0
+      }
+    },
+    "proof": {
+      "threshold": 0.7546498775482178,
+      "weighted_degree": {
+        "minimum": 0.0,
+        "p05": 0.0,
+        "median": 0.33637964725494385,
+        "mean": 2.203012657737732,
+        "p95": 11.223229473829223,
+        "maximum": 24.530247628688812
+      },
+      "effective_neighbors": {
+        "minimum": 0.0,
+        "p05": 0.0,
+        "median": 8.588927647331634,
+        "mean": 27.0946756620356,
+        "p95": 98.03919896039551,
+        "maximum": 99.99999997776237
+      },
+      "neighbor_count": {
+        "minimum": 0.0,
+        "p05": 0.0,
+        "median": 13.0,
+        "mean": 33.4959,
+        "p95": 100.0,
+        "maximum": 100.0
+      }
+    },
+    "statement_proof_effective_neighbor_spearman": 0.49038830748939455
+  },
+  "complexity": {
+    "weights": {
+      "log_tactic_count": 0.25,
+      "log_direct_dependency_count": 0.25,
+      "dependency_depth": 0.25,
+      "tactic_head_entropy": 0.25
+    },
+    "tactic_count": {
+      "minimum": 1.0,
+      "p05": 1.0,
+      "median": 2.0,
+      "mean": 4.1925,
+      "p95": 14.0,
+      "maximum": 123.0
+    },
+    "direct_dependency_count": {
+      "minimum": 3.0,
+      "p05": 15.0,
+      "median": 39.0,
+      "mean": 52.1434,
+      "p95": 133.0,
+      "maximum": 541.0
+    },
+    "dependency_depth": {
+      "minimum": 2.0,
+      "p05": 6.0,
+      "median": 18.0,
+      "mean": 19.3655,
+      "p95": 32.0,
+      "maximum": 52.0
+    },
+    "tactic_head_entropy": {
+      "minimum": -0.0,
+      "p05": -0.0,
+      "median": 0.6931471805599453,
+      "mean": 0.7592414643327421,
+      "p95": 2.019814992492946,
+      "maximum": 2.936008465311438
+    },
+    "score": {
+      "minimum": -1.8146936174612618,
+      "p05": -1.0298208153609383,
+      "median": -0.1282613969298472,
+      "mean": 2.3447910280083307e-16,
+      "p95": 1.4597435119566453,
+      "maximum": 3.1988031945377777
+    }
+  },
+  "correlations": {
+    "labels": [
+      "dependency_mass_log",
+      "statement_effective",
+      "proof_effective",
+      "complexity"
+    ],
+    "spearman": [
+      [
+        1.0,
+        -0.3139527682198459,
+        -0.43136863621951643,
+        0.7337444459429393
+      ],
+      [
+        -0.3139527682198459,
+        1.0,
+        0.49038830748939455,
+        -0.3975604054718913
+      ],
+      [
+        -0.4313686362195165,
+        0.49038830748939455,
+        0.9999999999999999,
+        -0.5840145258915925
+      ],
+      [
+        0.7337444459429393,
+        -0.3975604054718913,
+        -0.5840145258915925,
+        0.9999999999999999
+      ]
+    ]
+  },
+  "sensitivity": {
+    "dependency_alpha": [
+      {
+        "value": 0.25,
+        "rho": 0.9602622713124005
+      },
+      {
+        "value": 0.5,
+        "rho": 1.0
+      },
+      {
+        "value": 0.75,
+        "rho": 0.9695645641224621
+      },
+      {
+        "value": 1.0,
+        "rho": 0.9036780000533018
+      }
+    ],
+    "semantic_threshold": [
+      {
+        "quantile": 0.975,
+        "statement_threshold": 0.6613181829452515,
+        "statement_rho": 0.9782488691730817,
+        "proof_threshold": 0.7150979042053223,
+        "proof_rho": 0.9482944261352422
+      },
+      {
+        "quantile": 0.99,
+        "statement_threshold": 0.6900060176849365,
+        "statement_rho": 1.0,
+        "proof_threshold": 0.7546498775482178,
+        "proof_rho": 0.9999999999999999
+      },
+      {
+        "quantile": 0.995,
+        "statement_threshold": 0.711023211479187,
+        "statement_rho": 0.9821839859709899,
+        "proof_threshold": 0.7870665788650513,
+        "proof_rho": 0.9257076639102894
+      }
+    ],
+    "complexity_leave_one_out": [
+      {
+        "component": "log_tactic_count",
+        "rho": 0.9776655227762215
+      },
+      {
+        "component": "log_direct_dependency_count",
+        "rho": 0.964270542366385
+      },
+      {
+        "component": "dependency_depth",
+        "rho": 0.9407228513752927
+      },
+      {
+        "component": "tactic_head_entropy",
+        "rho": 0.9669125138154495
+      }
+    ]
+  },
+  "exemplars": {
+    "dependency_mass_log": [
+      {
+        "i": 9712,
+        "full_name": "congrArg₂",
+        "file_path": "Std/Logic.lean",
+        "dependency_mass": 1.75,
+        "dependency_mass_log": 1.0116009116784799,
+        "direct_dependency_count": 3,
+        "dependency_depth": 2,
+        "dependency_depth_censored": false,
+        "statement_weighted_degree": 3.2029624581336975,
+        "statement_effective_neighbors": 84.04209024412351,
+        "statement_neighbor_count": 100,
+        "proof_weighted_degree": 4.0349361300468445,
+        "proof_effective_neighbors": 70.4490011905667,
+        "proof_neighbor_count": 95,
+        "tactic_count": 2,
+        "tactic_head_entropy": 0.6931471805599453,
+        "structural_complexity": -1.577190040804039
+      },
+      {
+        "i": 5585,
+        "full_name": "rec_heq_of_heq",
+        "file_path": "Mathlib/Logic/Basic.lean",
+        "dependency_mass": 2.0,
+        "dependency_mass_log": 1.0986122886681098,
+        "direct_dependency_count": 3,
+        "dependency_depth": 2,
+        "dependency_depth_censored": false,
+        "statement_weighted_degree": 2.573098659515381,
+        "statement_effective_neighbors": 45.00765077578108,
+        "statement_neighbor_count": 91,
+        "proof_weighted_degree": 3.6032726764678955,
+        "proof_effective_neighbors": 73.01506617865172,
+        "proof_neighbor_count": 100,
+        "tactic_count": 2,
+        "tactic_head_entropy": 0.6931471805599453,
+        "structural_complexity": -1.577190040804039
+      },
+      {
+        "i": 7146,
+        "full_name": "Relation.ReflTransGen.swap",
+        "file_path": "Mathlib/Logic/Relation.lean",
+        "dependency_mass": 2.75,
+        "dependency_mass_log": 1.3217558399823195,
+        "direct_dependency_count": 5,
+        "dependency_depth": 2,
+        "dependency_depth_censored": false,
+        "statement_weighted_degree": 1.560556411743164,
+        "statement_effective_neighbors": 32.763709023400544,
+        "statement_neighbor_count": 48,
+        "proof_weighted_degree": 0.353554904460907,
+        "proof_effective_neighbors": 10.905806399684586,
+        "proof_neighbor_count": 13,
+        "tactic_count": 3,
+        "tactic_head_entropy": 1.0986122886681096,
+        "structural_complexity": -1.1707799877816838
+      },
+      {
+        "i": 1500,
+        "full_name": "NumberField.mixedEmbedding.exists_ne_zero_mem_ideal_of_norm_le",
+        "file_path": "Mathlib/NumberTheory/NumberField/CanonicalEmbedding.lean",
+        "dependency_mass": 1678.0294956033945,
+        "dependency_mass_log": 7.425971224286783,
+        "direct_dependency_count": 428,
+        "dependency_depth": 48,
+        "dependency_depth_censored": false,
+        "statement_weighted_degree": 0.07876342535018921,
+        "statement_effective_neighbors": 1.0,
+        "statement_neighbor_count": 1,
+        "proof_weighted_degree": 0.024389803409576416,
+        "proof_effective_neighbors": 1.0,
+        "proof_neighbor_count": 1,
+        "tactic_count": 27,
+        "tactic_head_entropy": 2.201455266267027,
+        "structural_complexity": 3.0482015435156864
+      },
+      {
+        "i": 4669,
+        "full_name": "NumberField.mixedEmbedding.convexBodySum_volume",
+        "file_path": "Mathlib/NumberTheory/NumberField/CanonicalEmbedding.lean",
+        "dependency_mass": 1661.9826774314124,
+        "dependency_mass_log": 7.416368062681317,
+        "direct_dependency_count": 532,
+        "dependency_depth": 43,
+        "dependency_depth_censored": false,
+        "statement_weighted_degree": 0.3789764642715454,
+        "statement_effective_neighbors": 6.337428359255346,
+        "statement_neighbor_count": 7,
+        "proof_weighted_degree": 0.024389803409576416,
+        "proof_effective_neighbors": 1.0,
+        "proof_neighbor_count": 1,
+        "tactic_count": 24,
+        "tactic_head_entropy": 1.9214422523876622,
+        "structural_complexity": 2.8321752323602127
+      },
+      {
+        "i": 8685,
+        "full_name": "MeasureTheory.addHaar_image_le_mul_of_det_lt",
+        "file_path": "Mathlib/MeasureTheory/Function/Jacobian.lean",
+        "dependency_mass": 1210.3032095533563,
+        "dependency_mass_log": 7.099452091695921,
+        "direct_dependency_count": 462,
+        "dependency_depth": 33,
+        "dependency_depth_censored": false,
+        "statement_weighted_degree": 0.3254610300064087,
+        "statement_effective_neighbors": 4.289229374724306,
+        "statement_neighbor_count": 5,
+        "proof_weighted_degree": 0.08717095851898193,
+        "proof_effective_neighbors": 2.536483104427294,
+        "proof_neighbor_count": 4,
+        "tactic_count": 62,
+        "tactic_head_entropy": 2.4186170990805116,
+        "structural_complexity": 2.972606867899739
+      }
+    ],
+    "statement_effective": [
+      {
+        "i": 8,
+        "full_name": "NumberField.adjoin_eq_top_of_infinitePlace_lt",
+        "file_path": "Mathlib/NumberTheory/NumberField/Embeddings.lean",
+        "dependency_mass": 596.0136873539278,
+        "dependency_mass_log": 6.391940040020787,
+        "direct_dependency_count": 85,
+        "dependency_depth": 50,
+        "dependency_depth_censored": false,
+        "statement_weighted_degree": 0.0,
+        "statement_effective_neighbors": 0.0,
+        "statement_neighbor_count": 0,
+        "proof_weighted_degree": 0.011956393718719482,
+        "proof_effective_neighbors": 1.0,
+        "proof_neighbor_count": 1,
+        "tactic_count": 2,
+        "tactic_head_entropy": 0.6931471805599453,
+        "structural_complexity": 1.1391976826263366
+      },
+      {
+        "i": 9508,
+        "full_name": "MeasureTheory.measure_unitBall_eq_integral_div_gamma",
+        "file_path": "Mathlib/MeasureTheory/Measure/Lebesgue/VolumeOfBalls.lean",
+        "dependency_mass": 1185.1769831385463,
+        "dependency_mass_log": 7.0784907953540745,
+        "direct_dependency_count": 356,
+        "dependency_depth": 29,
+        "dependency_depth_censored": false,
+        "statement_weighted_degree": 0.0,
+        "statement_effective_neighbors": 0.0,
+        "statement_neighbor_count": 0,
+        "proof_weighted_degree": 0.0,
+        "proof_effective_neighbors": 0.0,
+        "proof_neighbor_count": 0,
+        "tactic_count": 12,
+        "tactic_head_entropy": 2.0947290475276485,
+        "structural_complexity": 2.0558208445589803
+      },
+      {
+        "i": 4317,
+        "full_name": "Besicovitch.exist_disjoint_covering_families",
+        "file_path": "Mathlib/MeasureTheory/Covering/Besicovitch.lean",
+        "dependency_mass": 391.49987160786986,
+        "dependency_mass_log": 5.972536210108702,
+        "direct_dependency_count": 158,
+        "dependency_depth": 28,
+        "dependency_depth_censored": false,
+        "statement_weighted_degree": 0.0,
+        "statement_effective_neighbors": 0.0,
+        "statement_neighbor_count": 0,
+        "proof_weighted_degree": 0.01639533042907715,
+        "proof_effective_neighbors": 1.0,
+        "proof_neighbor_count": 1,
+        "tactic_count": 36,
+        "tactic_head_entropy": 2.546218349126611,
+        "structural_complexity": 2.2514657195369807
+      },
+      {
+        "i": 5028,
+        "full_name": "one_nsmul",
+        "file_path": "Mathlib/Algebra/GroupPower/Basic.lean",
+        "dependency_mass": 22.4853515625,
+        "dependency_mass_log": 3.1563768890284,
+        "direct_dependency_count": 23,
+        "dependency_depth": 14,
+        "dependency_depth_censored": false,
+        "statement_weighted_degree": 11.718921840190887,
+        "statement_effective_neighbors": 98.76506745211778,
+        "statement_neighbor_count": 100,
+        "proof_weighted_degree": 7.28565526008606,
+        "proof_effective_neighbors": 94.64128148445907,
+        "proof_neighbor_count": 100,
+        "tactic_count": 1,
+        "tactic_head_entropy": -0.0,
+        "structural_complexity": -0.895514957864787
+      },
+      {
+        "i": 2101,
+        "full_name": "MultilinearMap.map_zero",
+        "file_path": "Mathlib/LinearAlgebra/Multilinear/Basic.lean",
+        "dependency_mass": 41.692138671875,
+        "dependency_mass_log": 3.7540147972398987,
+        "direct_dependency_count": 22,
+        "dependency_depth": 14,
+        "dependency_depth_censored": false,
+        "statement_weighted_degree": 10.99042409658432,
+        "statement_effective_neighbors": 98.57580404633556,
+        "statement_neighbor_count": 100,
+        "proof_weighted_degree": 0.0,
+        "proof_effective_neighbors": 0.0,
+        "proof_neighbor_count": 0,
+        "tactic_count": 2,
+        "tactic_head_entropy": 0.6931471805599453,
+        "structural_complexity": -0.5173208701491833
+      },
+      {
+        "i": 3966,
+        "full_name": "Fin.one_eq_zero_iff",
+        "file_path": "Mathlib/Data/Fin/Basic.lean",
+        "dependency_mass": 79.29443359375,
+        "dependency_mass_log": 4.385700298422319,
+        "direct_dependency_count": 26,
+        "dependency_depth": 11,
+        "dependency_depth_censored": false,
+        "statement_weighted_degree": 10.240951180458069,
+        "statement_effective_neighbors": 98.5499973336479,
+        "statement_neighbor_count": 100,
+        "proof_weighted_degree": 2.7383705377578735,
+        "proof_effective_neighbors": 54.95411313436239,
+        "proof_neighbor_count": 80,
+        "tactic_count": 1,
+        "tactic_head_entropy": -0.0,
+        "structural_complexity": -0.9452887298527293
+      }
+    ],
+    "proof_effective": [
+      {
+        "i": 6703,
+        "full_name": "controlled_prod_of_mem_closure_range",
+        "file_path": "Mathlib/Analysis/Normed/Group/Basic.lean",
+        "dependency_mass": 233.84592032432556,
+        "dependency_mass_log": 5.4589296409119665,
+        "direct_dependency_count": 68,
+        "dependency_depth": 22,
+        "dependency_depth_censored": false,
+        "statement_weighted_degree": 0.0,
+        "statement_effective_neighbors": 0.0,
+        "statement_neighbor_count": 0,
+        "proof_weighted_degree": 0.0,
+        "proof_effective_neighbors": 0.0,
+        "proof_neighbor_count": 0,
+        "tactic_count": 6,
+        "tactic_head_entropy": 1.2424533248940002,
+        "structural_complexity": 0.6668776202250025
+      },
+      {
+        "i": 4821,
+        "full_name": "Set.not_injOn_infinite_finite_image",
+        "file_path": "Mathlib/Data/Set/Finite.lean",
+        "dependency_mass": 38.17360669374466,
+        "dependency_mass_log": 3.6680032214001383,
+        "direct_dependency_count": 36,
+        "dependency_depth": 24,
+        "dependency_depth_censored": false,
+        "statement_weighted_degree": 0.7993977665901184,
+        "statement_effective_neighbors": 20.09108083373444,
+        "statement_neighbor_count": 33,
+        "proof_weighted_degree": 0.0,
+        "proof_effective_neighbors": 0.0,
+        "proof_neighbor_count": 0,
+        "tactic_count": 5,
+        "tactic_head_entropy": 0.9502705392332347,
+        "structural_complexity": 0.3286177552543953
+      },
+      {
+        "i": 4272,
+        "full_name": "Flow.isInvariant_omegaLimit",
+        "file_path": "Mathlib/Dynamics/OmegaLimit.lean",
+        "dependency_mass": 58.75968599319458,
+        "dependency_mass_log": 4.090331286346141,
+        "direct_dependency_count": 24,
+        "dependency_depth": 22,
+        "dependency_depth_censored": false,
+        "statement_weighted_degree": 0.06453508138656616,
+        "statement_effective_neighbors": 1.0,
+        "statement_neighbor_count": 1,
+        "proof_weighted_degree": 0.0,
+        "proof_effective_neighbors": 0.0,
+        "proof_neighbor_count": 0,
+        "tactic_count": 2,
+        "tactic_head_entropy": 0.6931471805599453,
+        "structural_complexity": -0.23050051318193693
+      },
+      {
+        "i": 6091,
+        "full_name": "MvPolynomial.mkDerivationₗ_X",
+        "file_path": "Mathlib/Data/MvPolynomial/Derivation.lean",
+        "dependency_mass": 216.33381247520447,
+        "dependency_mass_log": 5.381434477896624,
+        "direct_dependency_count": 100,
+        "dependency_depth": 22,
+        "dependency_depth_censored": false,
+        "statement_weighted_degree": 0.967982292175293,
+        "statement_effective_neighbors": 30.95100142532166,
+        "statement_neighbor_count": 48,
+        "proof_weighted_degree": 24.52075570821762,
+        "proof_effective_neighbors": 99.99999997776237,
+        "proof_neighbor_count": 100,
+        "tactic_count": 1,
+        "tactic_head_entropy": -0.0,
+        "structural_complexity": -0.0839005465638496
+      },
+      {
+        "i": 3197,
+        "full_name": "Matrix.lie_transpose",
+        "file_path": "Mathlib/Algebra/Lie/SkewAdjoint.lean",
+        "dependency_mass": 101.78164931386709,
+        "dependency_mass_log": 4.6326068284665345,
+        "direct_dependency_count": 40,
+        "dependency_depth": 27,
+        "dependency_depth_censored": false,
+        "statement_weighted_degree": 1.8829705119132996,
+        "statement_effective_neighbors": 55.124074011636885,
+        "statement_neighbor_count": 88,
+        "proof_weighted_degree": 24.521971940994263,
+        "proof_effective_neighbors": 99.99999991366786,
+        "proof_neighbor_count": 100,
+        "tactic_count": 1,
+        "tactic_head_entropy": -0.0,
+        "structural_complexity": -0.27435167530464305
+      },
+      {
+        "i": 1156,
+        "full_name": "SetTheory.PGame.moveRight_neg_symm",
+        "file_path": "Mathlib/SetTheory/Game/PGame.lean",
+        "dependency_mass": 22.84375,
+        "dependency_mass_log": 3.1715221284847304,
+        "direct_dependency_count": 21,
+        "dependency_depth": 7,
+        "dependency_depth_censored": false,
+        "statement_weighted_degree": 2.4321504831314087,
+        "statement_effective_neighbors": 57.523421974229684,
+        "statement_neighbor_count": 86,
+        "proof_weighted_degree": 24.52262592315674,
+        "proof_effective_neighbors": 99.99999988619818,
+        "proof_neighbor_count": 100,
+        "tactic_count": 1,
+        "tactic_head_entropy": -0.0,
+        "structural_complexity": -1.1519306047114362
+      }
+    ],
+    "complexity": [
+      {
+        "i": 7136,
+        "full_name": "Subtype.restrict_apply",
+        "file_path": "Mathlib/Data/Subtype.lean",
+        "dependency_mass": 2.75,
+        "dependency_mass_log": 1.3217558399823195,
+        "direct_dependency_count": 5,
+        "dependency_depth": 2,
+        "dependency_depth_censored": false,
+        "statement_weighted_degree": 0.7766440510749817,
+        "statement_effective_neighbors": 21.914062940792768,
+        "statement_neighbor_count": 33,
+        "proof_weighted_degree": 14.434508383274078,
+        "proof_effective_neighbors": 91.56760342424892,
+        "proof_neighbor_count": 100,
+        "tactic_count": 1,
+        "tactic_head_entropy": -0.0,
+        "structural_complexity": -1.8146936174612618
+      },
+      {
+        "i": 1198,
+        "full_name": "Eq.congr_right",
+        "file_path": "Std/Logic.lean",
+        "dependency_mass": 4.5,
+        "dependency_mass_log": 1.7047480922384253,
+        "direct_dependency_count": 6,
+        "dependency_depth": 2,
+        "dependency_depth_censored": false,
+        "statement_weighted_degree": 6.07967221736908,
+        "statement_effective_neighbors": 94.23411452365787,
+        "statement_neighbor_count": 100,
+        "proof_weighted_degree": 8.894215822219849,
+        "proof_effective_neighbors": 85.43442889033777,
+        "proof_neighbor_count": 100,
+        "tactic_count": 1,
+        "tactic_head_entropy": -0.0,
+        "structural_complexity": -1.7549327753080772
+      },
+      {
+        "i": 8476,
+        "full_name": "SetTheory.PGame.Subsequent.mk_right'",
+        "file_path": "Mathlib/SetTheory/Game/PGame.lean",
+        "dependency_mass": 4.4375,
+        "dependency_mass_log": 1.6933193964148026,
+        "direct_dependency_count": 5,
+        "dependency_depth": 4,
+        "dependency_depth_censored": false,
+        "statement_weighted_degree": 0.5649452209472656,
+        "statement_effective_neighbors": 7.419200182542308,
+        "statement_neighbor_count": 17,
+        "proof_weighted_degree": 0.3442436456680298,
+        "proof_effective_neighbors": 2.7300111902333777,
+        "proof_neighbor_count": 6,
+        "tactic_count": 1,
+        "tactic_head_entropy": -0.0,
+        "structural_complexity": -1.7510698340817874
+      },
+      {
+        "i": 5494,
+        "full_name": "AddCircle.addWellApproximable_ae_empty_or_univ",
+        "file_path": "Mathlib/NumberTheory/WellApproximable.lean",
+        "dependency_mass": 1119.862207676284,
+        "dependency_mass_log": 7.021853496405733,
+        "direct_dependency_count": 376,
+        "dependency_depth": 32,
+        "dependency_depth_censored": false,
+        "statement_weighted_degree": 0.0,
+        "statement_effective_neighbors": 0.0,
+        "statement_neighbor_count": 0,
+        "proof_weighted_degree": 0.0,
+        "proof_effective_neighbors": 0.0,
+        "proof_neighbor_count": 0,
+        "tactic_count": 95,
+        "tactic_head_entropy": 2.936008465311438,
+        "structural_complexity": 3.1988031945377777
+      },
+      {
+        "i": 1100,
+        "full_name": "Real.tendsto_sum_pi_div_four",
+        "file_path": "Mathlib/Data/Real/Pi/Leibniz.lean",
+        "dependency_mass": 969.5338464460801,
+        "dependency_mass_log": 6.877846277267377,
+        "direct_dependency_count": 541,
+        "dependency_depth": 33,
+        "dependency_depth_censored": false,
+        "statement_weighted_degree": 1.3350404500961304,
+        "statement_effective_neighbors": 32.61722983392717,
+        "statement_neighbor_count": 55,
+        "proof_weighted_degree": 0.0,
+        "proof_effective_neighbors": 0.0,
+        "proof_neighbor_count": 0,
+        "tactic_count": 71,
+        "tactic_head_entropy": 2.5746167105982294,
+        "structural_complexity": 3.13786405140083
+      },
+      {
+        "i": 14,
+        "full_name": "MeasureTheory.measurableSet_range_of_continuous_injective",
+        "file_path": "Mathlib/MeasureTheory/Constructions/Polish.lean",
+        "dependency_mass": 764.8903723951662,
+        "dependency_mass_log": 6.64103904252079,
+        "direct_dependency_count": 370,
+        "dependency_depth": 34,
+        "dependency_depth_censored": false,
+        "statement_weighted_degree": 0.38124728202819824,
+        "statement_effective_neighbors": 6.625023558561161,
+        "statement_neighbor_count": 12,
+        "proof_weighted_degree": 0.024965107440948486,
+        "proof_effective_neighbors": 0.9999999999999996,
+        "proof_neighbor_count": 1,
+        "tactic_count": 88,
+        "tactic_head_entropy": 2.679948407982224,
+        "structural_complexity": 3.137301039047777
+      }
+    ]
+  },
+  "provenance": {
+    "config_sha256": "f6bac37ee6792a0aa2002a9b452d7945843521d8684446f8beb056de7381d031",
+    "dependency_export_sha256": "dcd4e435c6b9f75ce4d4e0887a81f45a3e7e4014e72e065252a7d2a89420fe2d",
+    "manifest_sha256": "7e9567320ad92d5757ee8c957225749b9cea05ccba5a9405b4e47d27e4694b00",
+    "runtime_seconds": 94.33593106269836,
+    "python": "3.13.5 | packaged by Anaconda, Inc. | (main, Jun 12 2025, 16:37:03) [MSC v.1929 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.22631-SP0",
+    "numpy": "2.1.3",
+    "scipy": "1.15.3"
+  }
+}

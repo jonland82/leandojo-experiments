@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f3f8">
+  <meta name="description" content="Three per-theorem measures of dependency reliance, semantic connectedness, and structural proof complexity in 10,000 LeanDojo theorem–proof pairs.">
+  <title>Theorem network measures</title>
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$', '$']], displayMath: [['$$', '$$']] },
+      chtml: { scale: 0.94 },
+      options: { enableMenu: false }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-mml-chtml.js"></script>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #202332;
+      --muted: #666d7f;
+      --paper: #f5f4f8;
+      --panel: #fff;
+      --line: #dddde7;
+      --violet: #7454cc;
+      --teal: #168c8e;
+      --orange: #d77836;
+      --rose: #b63d6a;
+      --max: 960px;
+    }
+    * { box-sizing: border-box; }
+    html { font: 14px/1.52 Inter, "Segoe UI", Helvetica, Arial, sans-serif; scroll-behavior: smooth; }
+    body { margin: 0; min-width: 300px; overflow-x: hidden; color: var(--ink); background: var(--paper); }
+    a { color: #5740a5; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+    header, main, footer { width: min(calc(100% - 28px), var(--max)); margin-inline: auto; }
+    header { padding: 28px 0 16px; border-bottom: 1px solid var(--line); }
+    h1, h2, h3 { margin: 0; line-height: 1.25; }
+    h1 { font-size: 16px; letter-spacing: .01em; }
+    h2 { margin-bottom: 9px; font-size: 15px; }
+    h3 { margin-bottom: 6px; font-size: 14px; }
+    p { margin: 6px 0; }
+    .eyebrow { margin-bottom: 5px; color: var(--violet); font-size: 11px; font-weight: 750; letter-spacing: .09em; text-transform: uppercase; }
+    .lede { max-width: 740px; margin-top: 8px; color: var(--muted); }
+    nav { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 13px; font-size: 12px; }
+    main { padding: 18px 0 28px; }
+    section { margin-top: 22px; }
+    .metrics, .methods, .figures { display: grid; gap: 10px; }
+    .metrics { grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 13px; }
+    .methods { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .figures { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .card, figure { min-width: 0; margin: 0; padding: 13px; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); box-shadow: 0 5px 18px rgba(37, 31, 65, .045); }
+    .number { display: block; margin-bottom: 2px; color: var(--ink); font-size: 16px; font-weight: 760; }
+    .label, small, figcaption { color: var(--muted); font-size: 11px; }
+    .method { border-top: 3px solid var(--violet); }
+    .method.semantic { border-top-color: var(--teal); }
+    .method.complexity { border-top-color: var(--rose); }
+    .question { color: var(--muted); font-style: italic; }
+    .equation { min-height: 72px; margin: 7px 0; overflow-x: auto; font-size: 12px; }
+    mjx-container { max-width: 100%; }
+    figure img { display: block; width: 100%; height: auto; border-radius: 6px; }
+    figcaption { margin-top: 7px; }
+    .wide { grid-column: 1 / -1; }
+    .finding { display: grid; grid-template-columns: 5px 1fr; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+    .finding:last-child { border-bottom: 0; }
+    .bar { border-radius: 9px; background: var(--violet); }
+    .finding:nth-child(2) .bar { background: var(--teal); }
+    .finding:nth-child(3) .bar { background: var(--rose); }
+    .takeaways { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+    .takeaway { padding: 10px 11px; border: 1px solid var(--line); border-radius: 9px; background: #fff; }
+    .takeaway p { color: var(--muted); }
+    .quadrants { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; margin-top: 10px; }
+    .quadrant { padding: 8px 9px; border-radius: 7px; background: #f7f5fb; }
+    .quadrant strong, .quadrant span { display: block; }
+    .quadrant span { margin-top: 2px; color: var(--muted); font-size: 11px; }
+    table { width: 100%; table-layout: fixed; border-collapse: collapse; font-size: 12px; }
+    th, td { padding: 7px 5px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th:first-child, td:first-child { width: 48px; }
+    th:last-child, td:last-child { width: 52px; }
+    th:last-child, td:last-child { text-align: right; }
+    td:nth-child(2) { min-width: 0; overflow: hidden; }
+    code { display: block; max-width: 100%; white-space: normal; overflow-wrap: anywhere; word-break: break-word; font: 11px/1.35 "Cascadia Code", Consolas, monospace; }
+    td small { display: block; max-width: 100%; margin-top: 2px; overflow-wrap: anywhere; word-break: break-word; }
+    .tag { display: inline-block; min-width: 31px; padding: 1px 4px; border-radius: 4px; color: white; text-align: center; font-size: 10px; }
+    .tag.low { background: #747b8d; }
+    .tag.high { background: var(--violet); }
+    .note { padding: 11px 13px; border-left: 3px solid var(--orange); background: #fffaf4; color: #5e574e; }
+    footer { padding: 15px 0 25px; border-top: 1px solid var(--line); color: var(--muted); font-size: 11px; }
+    @media (max-width: 760px) {
+      .metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .methods, .figures, .takeaways { grid-template-columns: 1fr; }
+      .wide { grid-column: auto; }
+    }
+    @media (max-width: 430px) {
+      html { font-size: 13px; }
+      header, main, footer { width: min(calc(100% - 18px), var(--max)); }
+      header { padding-top: 20px; }
+      .metrics { grid-template-columns: 1fr 1fr; gap: 7px; }
+      .card, figure { padding: 10px; border-radius: 9px; }
+      table { font-size: 11px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="eyebrow">LeanDojo · empirical measure study</div>
+    <h1>Theorem network measures</h1>
+    <p class="lede">Three compact magnitudes describe how a recorded theorem relies on prior mathematics, sits in semantic space, and unfolds as a tactic proof.</p>
+    <nav><a href="#formalism">Formalism</a><a href="#results">Results</a><a href="#takeaways">Takeaways</a><a href="#figures">Figures</a><a href="#examples">Examples</a><a href="README.md">Reproduce</a></nav>
+    <div class="metrics">
+      <div class="card"><span class="number">{{N_TARGETS}}</span><span class="label">theorem–proof targets</span></div>
+      <div class="card"><span class="number">{{N_DECLARATIONS}}</span><span class="label">kernel declarations exported</span></div>
+      <div class="card"><span class="number">{{N_EDGES}}</span><span class="label">direct dependency edges</span></div>
+      <div class="card"><span class="number">1,024</span><span class="label">embedding dimensions</span></div>
+    </div>
+  </header>
+
+  <main>
+    <section id="formalism">
+      <h2>Three questions, three measures</h2>
+      <div class="methods">
+        <article class="card method">
+          <h3>Dependency mass</h3>
+          <p class="question">How reliant is it on prior mathematics?</p>
+          <div class="equation">$$D_\alpha(i)=\sum_{u\in A(i)}\alpha^{d(u,i)},\quad \alpha=0.5$$</div>
+          <p>Kernel constants in the theorem type and proof term form $u\to i$. Shortest-path distance discounts remote ancestors; the displayed score is $\log(1+D_\alpha)$.</p>
+        </article>
+        <article class="card method semantic">
+          <h3>Effective neighborhood</h3>
+          <p class="question">How connected is it semantically?</p>
+          <div class="equation">$$N_{\rm eff}(i)=\exp\!\left(-\sum_jp_{ij}\log p_{ij}\right)$$</div>
+          <p>Cohere Embed v4 maps statement and proof text separately to unit vectors. Above-background cosine weights among the exact top 100 are normalized into $p_{ij}$.</p>
+        </article>
+        <article class="card method complexity">
+          <h3>Structural complexity</h3>
+          <p class="question">How involved is its recorded proof?</p>
+          <div class="equation">$$C(i)=\tfrac14\!\sum_{q\in\{\log(1+s),\log(1+r),h,H\}}z(q_i)$$</div>
+          <p>The equal-weight composite uses tactic count $s$, direct kernel references $r$, dependency depth $h$, and tactic-head entropy $H$.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="results">
+      <h2>What the run shows</h2>
+      <div class="card">
+        <div class="finding"><span class="bar"></span><div><strong>Reliance varies widely.</strong> Median $\log(1+D_{0.5})$ is {{DEP_MEDIAN}}; a typical target has {{DIRECT_MEDIAN}} direct kernel dependencies and depth {{DEPTH_MEDIAN}}. The graph search completed without depth censoring.</div></div>
+        <div class="finding"><span class="bar"></span><div><strong>Proof neighborhoods are sparser.</strong> Median effective size is {{STATEMENT_NEFF}} for statements versus {{PROOF_NEFF}} for proofs. Their rank correlation is only $\rho={{CROSS_VIEW_RHO}}$, so the views overlap without collapsing into one notion.</div></div>
+        <div class="finding"><span class="bar"></span><div><strong>Infrastructure and involvement travel together.</strong> Reliance and complexity have $\rho={{DEP_COMPLEXITY_RHO}}$; proof connectedness and complexity have $\rho={{PROOF_COMPLEXITY_RHO}}$. The first relationship is partly structural because $C$ includes reference count and depth.</div></div>
+      </div>
+      <p class="note"><strong>Robustness:</strong> rank correlations stay at least {{ALPHA_MIN_RHO}} across dependency discounts, {{THRESHOLD_MIN_RHO}} across tested semantic thresholds, and {{COMPLEXITY_MIN_RHO}} after omitting any one complexity component. These are descriptive scores, not claims of intrinsic mathematical difficulty.</p>
+    </section>
+
+    <section id="takeaways">
+      <h2>Conceptual takeaways</h2>
+      <div class="takeaways">
+        <article class="takeaway"><h3>Position has multiple axes</h3><p>Using a lot of mathematics, resembling many other theorems, and having an involved recorded proof are different properties. No single notion of “importance” subsumes all three.</p></article>
+        <article class="takeaway"><h3>Reliance is not connectedness</h3><p>Dependency mass correlates negatively with statement and proof connectedness. Deeply supported theorems are often specialized endpoints rather than semantic hubs.</p></article>
+        <article class="takeaway"><h3>Claims cluster more than procedures</h3><p>Statements have {{STATEMENT_NEFF}} median effective neighbors versus {{PROOF_NEFF}} for proofs. Mathematical claims reuse common forms more readily than tactic implementations do.</p></article>
+        <article class="takeaway"><h3>Proof strategy retains freedom</h3><p>Statement and proof connectedness agree only moderately, $\rho={{CROSS_VIEW_RHO}}$. Similar-looking statements constrain proof style without determining it.</p></article>
+        <article class="takeaway"><h3>Involved proofs are often bespoke</h3><p>Complexity and proof connectedness have $\rho={{PROOF_COMPLEXITY_RHO}}$. Structurally involved proofs tend to have fewer close procedural analogues.</p></article>
+        <article class="takeaway"><h3>The retrieval frontier is specialized</h3><p>High-reliance, low-connectedness theorems may be hardest for retrieval: they need broad infrastructure while offering few genuinely close examples.</p></article>
+      </div>
+      <div class="card" style="margin-top:10px">
+        <h3>A two-axis map</h3>
+        <div class="quadrants">
+          <div class="quadrant"><strong>Low reliance · connected</strong><span>Reusable or basic theorem families</span></div>
+          <div class="quadrant"><strong>Low reliance · isolated</strong><span>Unusual but elementary results</span></div>
+          <div class="quadrant"><strong>High reliance · connected</strong><span>Mature specialized families</span></div>
+          <div class="quadrant"><strong>High reliance · isolated</strong><span>Bespoke endpoints atop deep infrastructure</span></div>
+        </div>
+      </div>
+      <p class="note"><strong>Scope:</strong> these scores describe position in this Mathlib snapshot and this embedding geometry—not intrinsic mathematical depth. Dependency mass includes formalization machinery, while semantic isolation can reflect notation and proof-writing style.</p>
+    </section>
+
+    <section id="figures">
+      <h2>Figures</h2>
+      <div class="figures">
+        <figure class="wide"><a href="figures/metric_distributions.pdf"><img src="figures/metric_distributions.png" alt="Histograms and kernel density estimates for dependency reliance, statement and proof effective neighborhoods, and structural complexity"></a><figcaption>Marginal distributions. Dashed lines mark medians; statement and proof connectedness are overlaid.</figcaption></figure>
+        <figure><a href="figures/metric_correlations.pdf"><img src="figures/metric_correlations.png" alt="Spearman rank-correlation matrix among dependency mass, statement and proof connectedness, and structural complexity"></a><figcaption>Rank correlation separates shared structure from distinct signal.</figcaption></figure>
+        <figure><a href="figures/statement_proof_connectedness.pdf"><img src="figures/statement_proof_connectedness.png" alt="Hexbin comparison of effective statement and proof neighborhood sizes"></a><figcaption>Statement-space connectedness only partly predicts proof-space connectedness.</figcaption></figure>
+        <figure class="wide"><a href="figures/rank_sensitivity.pdf"><img src="figures/rank_sensitivity.png" alt="Sensitivity of theorem rankings to dependency discount, semantic threshold, and complexity components"></a><figcaption>The ordering of theorems is stable across the tested design choices.</figcaption></figure>
+      </div>
+    </section>
+
+    <section id="examples">
+      <h2>Extreme examples</h2>
+      <div class="methods">
+        <div class="card"><h3>Dependency score</h3><table><thead><tr><th>tail</th><th>theorem</th><th>score</th></tr></thead><tbody>{{DEPENDENCY_EXEMPLARS}}</tbody></table></div>
+        <div class="card"><h3>Statement neighborhood</h3><table><thead><tr><th>tail</th><th>theorem</th><th>$N_{\rm eff}$</th></tr></thead><tbody>{{SEMANTIC_EXEMPLARS}}</tbody></table></div>
+        <div class="card"><h3>Complexity score</h3><table><thead><tr><th>tail</th><th>theorem</th><th>score</th></tr></thead><tbody>{{COMPLEXITY_EXEMPLARS}}</tbody></table></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Design details</h2>
+      <div class="card">
+        <p>The dependency graph is extracted from pinned Mathlib commit <code>3c307701…</code>. Semantic thresholds are the 99th percentiles of 500,000 fixed random-pair cosines: {{STATEMENT_THRESHOLD}} for statements and {{PROOF_THRESHOLD}} for proofs. Neighborhood size is capped at the retained exact top 100. Full per-target values live in <a href="artifacts/scores.jsonl">scores.jsonl</a>; frozen settings and provenance live in <a href="config.json">config.json</a> and <a href="artifacts/analysis.json">analysis.json</a>.</p>
+      </div>
+    </section>
+  </main>
+  <footer>Generated from local, frozen artifacts. Figure PDFs are linked from each image.</footer>
+</body>
+</html>
