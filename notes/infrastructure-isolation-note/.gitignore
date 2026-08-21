@@ -6,4 +6,8 @@ note.fdb_latexmk
 note.fls
 build-pass*.log
 preview-*.png
+page-check-*.png
+final-page-check-*.png
+editorial*.png
+final-editorial-*.png
 note-layout.txt

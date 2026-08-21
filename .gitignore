@@ -14,3 +14,5 @@ data/
 *.fls
 *.out
 *.synctex.gz
+texput.log
+build-pass*.log

@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "experiment_id": "proof-prefix-trajectories",
+  "source_experiment": "experiments/semantic-embeddings-10000",
+  "dataset": {
+    "root": "data/leandojo_benchmark_4/leandojo_benchmark_4",
+    "splits": ["train.json", "val.json", "test.json"]
+  },
+  "sample": {
+    "minimum_tactics": 16,
+    "size": 300,
+    "seed": 20260820,
+    "checkpoints": [1, 2, 4, 8, 16],
+    "include_full_proof": true
+  },
+  "trajectories": {
+    "actual": "newline-joined tactic prefix",
+    "repeat": "first tactic repeated to the same checkpoint length"
+  },
+  "embedding": {
+    "provider": "Amazon Bedrock",
+    "region": "us-east-1",
+    "model_id": "cohere.embed-v4:0",
+    "input_type": "clustering",
+    "embedding_type": "float",
+    "output_dimension": 1024,
+    "batch_size": 96,
+    "max_tokens": 128000,
+    "truncate": "NONE",
+    "max_attempts": 10
+  },
+  "analysis": {
+    "reference_view": "proof",
+    "top_neighbors": 100,
+    "cosine_threshold": 0.7546498775482178,
+    "primary_checkpoint": 16,
+    "local_subspace_neighbors": 100,
+    "bootstrap_repetitions": 5000,
+    "bootstrap_seed": 20260820
+  }
+}

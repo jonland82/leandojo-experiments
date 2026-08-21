@@ -1,0 +1,17 @@
+{
+  "experiment_id": "proof-prefix-trajectories",
+  "inputs": 3506,
+  "characters": 2419451,
+  "shape": [
+    3506,
+    1024
+  ],
+  "new_aws_cli_calls_this_run": 0,
+  "reused_batches_this_run": 37,
+  "retries_this_run": 0,
+  "invoke_seconds_this_run": 0.0,
+  "cumulative_new_aws_cli_calls": 37,
+  "cumulative_retries": 20,
+  "cumulative_invoke_seconds": 181.93400270096026,
+  "sha256": "ed22b54d0ca342a1b9fa69f5abaa42fda2e639e92310987c16468be9fe3a7276"
+}
