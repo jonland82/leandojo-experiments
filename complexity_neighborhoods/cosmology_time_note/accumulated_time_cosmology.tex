@@ -8,12 +8,16 @@
 \usepackage{array}
 \usepackage{xcolor}
 \usepackage{titlesec}
+\usepackage[font=small,labelfont=bf,skip=4pt]{caption}
 \usepackage[numbers,sort&compress]{natbib}
+\usepackage[most]{tcolorbox}
+\usepackage{enumitem}
 \usepackage{hyperref}
 
 \definecolor{ink}{HTML}{1F2933}
 \definecolor{muted}{HTML}{66737F}
 \definecolor{accent}{HTML}{394B59}
+\definecolor{boxbg}{HTML}{F2F5F7}
 \hypersetup{colorlinks=true,linkcolor=accent,urlcolor=accent,citecolor=accent}
 \color{ink}
 
@@ -24,7 +28,24 @@
 \setlength{\bibsep}{1pt}
 \renewcommand{\bibfont}{\small}
 
-\title{\vspace{-2.3em}\textbf{Accumulated Time as Structural Complexity:\\A Relational Route to the Hubble Scale and Its Cosmological Tests}}
+% --- Conceptual Persuasions callout -------------------------------------
+\newtcolorbox{cpbox}{
+  enhanced, breakable,
+  colback=boxbg, colframe=boxbg,
+  boxrule=0pt, arc=2.5pt, outer arc=2.5pt,
+  left=10pt, right=10pt, top=7pt, bottom=8pt,
+  borderline west={2.4pt}{0pt}{accent},
+  before skip=0.95em, after skip=0.95em,
+}
+\newenvironment{persuasions}
+  {\begin{cpbox}\small\setlength{\parskip}{0pt}%
+   {\footnotesize\bfseries\color{accent}%
+    \textls[110]{CONCEPTUAL PERSUASIONS}}\par\vspace{3pt}%
+   \begin{itemize}[leftmargin=1.15em,itemsep=2.5pt,topsep=0pt,parsep=0pt,
+                   label=\textcolor{accent}{\scriptsize$\blacktriangleright$}]}
+  {\end{itemize}\end{cpbox}}
+
+\title{\vspace{-2.3em}\textbf{Hubble Scale from Time-Induced Complexity}}
 \author{J. R. Landers}
 \date{}
 
@@ -172,8 +193,13 @@ chain is therefore
 \label{eq:dictionary-chain}
 \end{equation}
 
-The mapping can be read directly against the relational formalism:
+The mapping can be read directly against the relational formalism
+(Table~\ref{tab:dictionary}):
 \begin{center}
+\captionof{table}{Proposed dictionary between the relational-shape quantities
+and their cosmological readings.  The first five rows are internal to the
+relational geometry; the last three are hypotheses added here.}
+\label{tab:dictionary}
 \small
 \begin{tabular}{>{\raggedright\arraybackslash}p{0.29\linewidth}
                 >{\raggedright\arraybackslash}p{0.62\linewidth}}
@@ -196,6 +222,19 @@ three introduce the information measure and then identify its inverse density
 with a volume and a scale.  Identifying $a_{\rm rel}$ with the physical
 Friedmann--Lema\^itre--Robertson--Walker (FLRW) scale factor $a(t)$ is the first
 specifically cosmological hypothesis.
+
+\begin{persuasions}
+\item Adding a new way to tell objects apart can only increase the distance
+between them, never decrease it.  So neighborhoods shrink as detail
+accumulates.  This much is proved.
+\item If only one object in $2^C$ still matches you exactly, then $C$ is your
+distinguishing information, measured in bits.
+\item The added step: treat the number of remaining matches as a volume---the
+fewer the matches, the larger the volume---and take its cube root to get a
+length.
+\item That length is then identified with the cosmic scale factor.  The
+thinning is a theorem; this identification is an assumption.
+\end{persuasions}
 
 \section*{The accumulated-history idea}
 
@@ -242,7 +281,7 @@ Eqs.~\eqref{eq:relational-scale} and \eqref{eq:bridge}, followed by the
 hypothesis $a=a_{\rm rel}$, yields
 \begin{equation}
 \frac{a(t)}{a_*}=\left(\frac{t}{t_*}\right)^p,\qquad
-H(t)=\frac{p}{t},qquad
+H(t)=\frac{p}{t},\qquad
 p=\frac{d_{\rm eff}}{3}.
 \label{eq:power}
 \end{equation}
@@ -258,7 +297,7 @@ In the first, history increases the information required to maintain a
 doubling gives $d_{\rm eff}=3$.  Then
 \begin{equation}
 C(t)-C_*=3\log_2(t/t_*),\qquad
-a(t)\propto t,qquad H(t)=\frac{1}{t}.
+a(t)\propto t,\qquad H(t)=\frac{1}{t}.
 \label{eq:three}
 \end{equation}
 Time drives the accumulation, but is not itself counted as an interchangeable
@@ -268,12 +307,26 @@ In the literal version, the three spatial directions and accumulated time are
 all counted positively, so $d_{\rm eff}=4$.  This gives
 \begin{equation}
 C(t)-C_*=4\log_2(t/t_*),\qquad
-a(t)\propto t^{4/3},qquad H(t)=\frac{4}{3t}.
+a(t)\propto t^{4/3},\qquad H(t)=\frac{4}{3t}.
 \label{eq:four}
 \end{equation}
 The distinction matters.  Equations~\eqref{eq:three} and \eqref{eq:four} make
 different predictions and provide two clean benchmarks against which the
 required evolution of $d_{\rm eff}$ can be measured.
+
+\begin{persuasions}
+\item A present state has to be consistent with everything that already
+happened.  Each past event adds another constraint, so the list of constraints
+grows with time.  Time supplies the coordinates; it is not one of them.
+\item Two histories that looked identical early on become distinguishable
+later, once enough record has built up to separate them.
+\item The assumption: every doubling of the age of the Universe adds the same
+number of new bits, $d_{\rm eff}$.  No epoch is treated as special.
+\item That alone gives $a\propto t^{p}$ with $p=d_{\rm eff}/3$---a specific
+expansion history, which data can check.
+\item Three spatial channels means $d_{\rm eff}=3$ and no acceleration.
+Counting time as a fourth means $d_{\rm eff}=4$ and slight acceleration.
+\end{persuasions}
 
 \section*{Why the present scale looks so promising}
 
@@ -283,19 +336,23 @@ present Hubble rate.  The superscripts $(3)$ and $(4)$ below label the
 three- and four-channel hypotheses; they are not exponents.  The three-channel
 law gives
 \begin{align}
-H_0^{(3)}&=\frac{1}{t_0}\\
+H_0^{(3)}&=\frac{1}{t_0}\notag\\
 &=\frac{3.0856776\times10^{19}\,\mathrm{km/Mpc}}
-{13.80\times3.15576\times10^{16}\,\mathrm{s}}\\
+{13.80\times3.15576\times10^{16}\,\mathrm{s}}\notag\\
 &=70.85\,\mathrm{km\,s^{-1}\,Mpc^{-1}}.
+\label{eq:h0-three}
 \end{align}
 Here $\mathrm{Mpc}$ denotes a megaparsec.  This lies $5.1\%$ above the Planck
 base-$\Lambda$CDM value, where $\Lambda$CDM denotes the standard cosmology with
 a cosmological constant $\Lambda$ and cold dark matter,
 $67.4\pm0.5\,\mathrm{km\,s^{-1}\,Mpc^{-1}}$ \citep{Planck2018}, $3.9\%$
 above the DESI DR2+cosmic microwave background (CMB) value used in the
-accompanying analysis
+accompanying analysis, $68.17\,\mathrm{km\,s^{-1}\,Mpc^{-1}}$
 \citep{DESI2025}, and $3.0\%$ below the SH0ES distance-ladder value
 $73.04\pm1.04\,\mathrm{km\,s^{-1}\,Mpc^{-1}}$ \citep{Riess2022}.
+Because the CMB-inferred age and $H_0$ are strongly correlated and derived
+within $\Lambda$CDM itself, Eq.~\eqref{eq:h0-three} is not an independent
+prediction of $H_0$; it is a consistency of scale, not a measurement.
 
 That is more than a dimensional order-of-magnitude match: it is a few-percent
 match to the scale of the current expansion.  In information language, the
@@ -323,6 +380,20 @@ approximately $0.95$ for Planck, $0.96$ for DESI DR2+CMB, and $1.03$ for SH0ES.
 Any ansatz $H\sim1/t$ will therefore land near the current Hubble scale.  The
 real test is whether it predicts the function $H(z)$ and the acceleration, not
 whether it reproduces one inverse timescale today.
+
+\begin{persuasions}
+\item Put in the measured age, $13.80\,\mathrm{Gyr}$, and the model returns
+$H_0=70.85$, within a few percent of every measurement.  Nothing was fitted.
+\item The implied rate is very slow: about one new distinction per comoving
+region every $3.2$ billion years.
+\item But $H_0t_0$ is already close to $1$ in the real Universe, so any model
+of the form $H\sim1/t$ would land here.  The agreement is expected rather than
+informative.
+\item The age itself was derived from $\Lambda$CDM, so comparing $1/t_0$ with
+$\Lambda$CDM's own $H_0$ tests consistency, not prediction.
+\item Matching one epoch says nothing about the rest of the expansion history.
+That is what the next section tests.
+\end{persuasions}
 
 \section*{What the simplest construction teaches}
 
@@ -409,9 +480,14 @@ statistic is
 \end{equation}
 where $\mathsf T$ denotes transpose.  The degrees of freedom equal the number
 of data values minus the number of fitted parameters.  The matter-like
-$p=2/3$ row below is included as a familiar power-law benchmark.
+$p=2/3$ row of Table~\ref{tab:bao} is included as a familiar power-law
+benchmark.
 
 \begin{center}
+\captionof{table}{Fits to the 13-element DESI DR2 BAO vector with the nuisance
+scale $X$ profiled analytically for every row.  Fixed power laws are compared
+with the best single power and with flat $\Lambda$CDM.}
+\label{tab:bao}
 \begin{tabular}{lrr}
 \toprule
 History law & $\chi^2$ & degrees of freedom\\
@@ -435,6 +511,20 @@ $p=1.1185$, but its six genuinely held-out predictions at $z\geq1$ have
 $\chi^2=670.72$.  This is useful predictive information: the next construction
 must promote $d_{\rm eff}$ to a dynamical quantity, or replace total accumulated
 complexity by a conditional information rate.
+
+\begin{persuasions}
+\item A constant $d_{\rm eff}$ fixes the deceleration for all time: $p=1$ gives
+none, $p=4/3$ gives a little.  The real Universe accelerates more than either.
+\item Because $d_{\rm eff}(t)=3H(t)t$, any measured expansion rate converts
+directly into a bit rate.  The data can be read in the model's own terms.
+\item Acceleration can then come from two places: the size of $d_{\rm eff}$, or
+its rate of change.  A fixed law only has the first.
+\item No constant power fits the DESI distances.  Fitting $p$ below $z=1$ and
+predicting the six points above it gives $\chi^2=670.72$---a clear failure of a
+real prediction.
+\item The failure is specific rather than fatal: it says $d_{\rm eff}$ must
+change with time.
+\end{persuasions}
 
 \section*{Toward a relativistic information rate}
 
@@ -496,6 +586,21 @@ conditional new information between neighboring causal slices after their
 common past has been removed.  That extension preserves the core relational
 idea while replacing accumulated amount by an independent information rate.
 
+\begin{persuasions}
+\item Time cannot be swapped for a spatial direction: elapsed time depends on
+the path taken, and causal order separates past from future.  A covariant
+version has to respect that.
+\item The relativistic version of ``accumulated history'' is the four-volume of
+the observer's causal past---everything that could have influenced them.
+\item Using that volume directly fails: the coupling it requires changes by a
+factor of $322$ since $z=2.33$.  Using its logarithm cuts the change to $1.5$.
+\item The drift that remains has a clear cause.  The four-volume contains the
+same early history at every step, so old information gets counted again and
+again.
+\item The fix is to count only what is new: the information one causal slice
+adds beyond the one before it.
+\end{persuasions}
+
 \section*{The constructive next step}
 
 The cosmological analogy makes quantitative contact immediately.  The exact
@@ -519,6 +624,18 @@ $d_{\rm eff}(t_0)\simeq3$.  The simple model has therefore identified both the
 natural present scale and the mathematical quantity whose evolution must be
 explained.  That is a promising starting point for a relational account of
 cosmic expansion.
+
+\begin{persuasions}
+\item What works is the chain from bit rate to expansion rate.  It reproduces
+today's Hubble scale without being given it.
+\item What fails is the assumption that $d_{\rm eff}$ is constant.  It has to
+become a dynamical quantity.
+\item Translated, $H_0\simeq1/t_0$ says only that $d_{\rm eff}\simeq3$ at
+present.  It does not say three channels at every epoch.
+\item The remaining work is well defined: build $C$ as the conditional
+information between neighboring causal slices, derive how it evolves, and test
+it against $d_{\rm eff}(t)=3H(t)t$, which the data already give.
+\end{persuasions}
 
 \bibliographystyle{unsrtnat}
 \bibliography{../neighborhood_thinning_cosmology/complexity_cosmology}
