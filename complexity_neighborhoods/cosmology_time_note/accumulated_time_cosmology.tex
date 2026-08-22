@@ -1,0 +1,526 @@
+\documentclass[10pt]{article}
+\usepackage[letterpaper,margin=0.76in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{hyperref}
+
+\definecolor{ink}{HTML}{1F2933}
+\definecolor{muted}{HTML}{66737F}
+\definecolor{accent}{HTML}{394B59}
+\hypersetup{colorlinks=true,linkcolor=accent,urlcolor=accent,citecolor=accent}
+\color{ink}
+
+\titleformat{\section}{\large\bfseries\color{accent}}{}{0pt}{}
+\titlespacing*{\section}{0pt}{0.75em}{0.25em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.40em}
+\setlength{\bibsep}{1pt}
+\renewcommand{\bibfont}{\small}
+
+\title{\vspace{-2.3em}\textbf{Accumulated Time as Structural Complexity:\\A Relational Route to the Hubble Scale and Its Cosmological Tests}}
+\author{J. R. Landers}
+\date{}
+
+\begin{document}
+\maketitle
+\vspace{-1.25em}
+
+\begin{abstract}
+The thinning of neighborhoods under added distinguishing structure suggests a
+natural cosmological program.  As a three-dimensional world accumulates a
+longer history, more relational information is required to specify its present
+state; the thinning of compatible histories may then acquire a geometric
+expression.  The simplest realization is unexpectedly suggestive: it predicts
+$H_0=1/t_0=70.85\,\mathrm{km\,s^{-1}\,Mpc^{-1}}$ from the age of the Universe,
+close to measured values.  This note develops the mathematical bridge from the
+relational-shape theorem to that estimate and then uses cosmological data to
+identify its next required ingredient.  Three spatial history channels imply
+$a(t)\propto t$, while literal counting of three spatial dimensions plus time
+implies $a(t)\propto t^{4/3}$.  These fixed laws are informative first
+approximations; DESI DR2 baryon acoustic oscillation distances point beyond
+them to an evolving rate of independent relational information.
+A relativistic causal-past construction reinforces the same direction.  The
+result is a concrete scale connection together with a sharply defined route
+toward a covariant, dynamical model.
+\end{abstract}
+
+\section*{The relational-shape theorem and the proposed bridge}
+
+The point of departure is the formalism of the companion paper, \emph{The
+Relational Shape of Structural Complexity and Neighborhood Density}.  Let
+\(
+\mathcal O=\{O_1,\ldots,O_K\}
+\)
+be a population of $K\geq2$ objects.  At refinement depth $N$, object $O_i$ is
+represented by $N$ metadata values,
+\[
+O_i^{(N)}=(o_{i1},\ldots,o_{iN}),
+\]
+where $i,j\in\{1,\ldots,K\}$ label objects and $n\in\{1,\ldots,N\}$ labels a
+metadata coordinate.  The additive distance is
+\begin{equation}
+\delta_N(O_i,O_j)=\sum_{n=1}^{N}d_n(o_{in},o_{jn}),
+\qquad d_n(x,y)\geq0,
+\label{eq:additive-distance}
+\end{equation}
+where $d_n$ is the nonnegative dissimilarity contributed by coordinate $n$.
+The mean separation of $O_i$ from the rest of the population is
+\begin{equation}
+D_N(i)=\frac{1}{K-1}\sum_{j\ne i}\delta_N(O_i,O_j).
+\label{eq:mean-distance}
+\end{equation}
+
+For a tolerance radius $r\geq0$, define the neighborhood and its normalized
+density by
+\begin{align}
+\mathcal N_r^{(N)}(O_i)
+&=\{O_j\in\mathcal O:j\ne i,\ \delta_N(O_i,O_j)\leq r\},\\
+\rho_N(i;r)
+&=\frac{|\mathcal N_r^{(N)}(O_i)|}{K-1}
+=\frac{1}{K-1}\sum_{j\ne i}
+\mathbf 1\!\{\delta_N(O_i,O_j)\leq r\},
+\label{eq:neighborhood-density}
+\end{align}
+where $|\cdot|$ denotes cardinality and $\mathbf 1\{\cdot\}$ is an indicator,
+equal to one when its condition is true and zero otherwise.  Because the new
+coordinate contribution is nonnegative,
+\begin{equation}
+\delta_{N+1}\geq\delta_N,
+\qquad D_{N+1}(i)\geq D_N(i),
+\qquad
+\mathcal N_r^{(N+1)}(O_i)\subseteq\mathcal N_r^{(N)}(O_i),
+\qquad \rho_{N+1}(i;r)\leq\rho_N(i;r).
+\label{eq:thinning-theorem}
+\end{equation}
+The first inequality is shorthand for every pair $(O_i,O_j)$.  These
+inequalities are the proved relational-shape result.  They require no
+cosmology and no probabilistic assumption.  The associated discrete isolation
+velocity,
+\begin{equation}
+v_i(N)\equiv D_{N+1}(i)-D_N(i)
+=\frac{1}{K-1}\sum_{j\ne i}
+d_{N+1}(o_{i,N+1},o_{j,N+1})\geq0,
+\label{eq:isolation-velocity}
+\end{equation}
+measures the mean outward distance contributed by the newly appended
+coordinate.
+
+The cosmological analogy uses a particular probabilistic specialization.  Let
+the coordinates be independent unbiased bits and let $d_n$ be Hamming
+distance, $d_n(x,y)=\mathbf 1\{x\ne y\}$.  For the exact-match neighborhood
+$r=0$, the ensemble-mean density is
+\begin{equation}
+\bar\rho_N\equiv\mathbb E[\rho_N(i;0)]
+=\Pr[\delta_N(O_i,O_j)=0]=2^{-N},
+\label{eq:binary-density}
+\end{equation}
+where $\mathbb E$ denotes expectation and $\Pr$ probability.  It is useful to
+define the effective distinguishing information
+\begin{equation}
+C_N\equiv-\log_2\bar\rho_N.
+\label{eq:complexity-information}
+\end{equation}
+Here $\log_2$ is the base-two logarithm.  Thus $C_N=N$ bits in this special
+independent-binary model.  In general,
+$C_N$, the coordinate count $N$, and the distance increment $v_i(N)$ need not
+be equal: redundant coordinates can increase $N$ without adding a bit of
+distinguishing information, while $v_i$ measures distance rather than the
+logarithmic loss of neighbors.  For one unbiased binary coordinate,
+$C_{N+1}-C_N=1$ bit whereas the ensemble-mean Hamming contribution is
+$\mathbb E[v_i(N)]=1/2$.
+
+Now comes the additional dictionary, not a consequence of the theorem.  Choose
+a reference refinement $N_*$ and define inverse density as a dimensionless
+relational-volume ratio,
+\begin{equation}
+\frac{V_{\rm rel}(N)}{V_{\rm rel}(N_*)}
+\equiv\frac{\bar\rho_{N_*}}{\bar\rho_N}
+=2^{C_N-C_{N_*}}.
+\label{eq:relational-volume}
+\end{equation}
+Assigning that volume a three-dimensional linear scale gives
+\begin{equation}
+\frac{a_{\rm rel}(N)}{a_{\rm rel}(N_*)}
+\equiv\left[\frac{V_{\rm rel}(N)}{V_{\rm rel}(N_*)}\right]^{1/3}
+=2^{(C_N-C_{N_*})/3}.
+\label{eq:relational-scale}
+\end{equation}
+If the discrete sequence $C_N$ admits a continuous interpolation $C(t)$ in
+cosmic time $t$, an overdot denotes $d/dt$, $\ln$ is the natural logarithm,
+and
+\begin{equation}
+H_{\rm rel}\equiv\frac{\dot a_{\rm rel}}{a_{\rm rel}}
+=\frac{d\ln a_{\rm rel}}{dt}
+=\frac{\ln2}{3}\dot C.
+\label{eq:bridge}
+\end{equation}
+The earlier $N$-based formula is the special case $C=N$.  The complete logical
+chain is therefore
+\begin{equation}
+\boxed{
+\rho\ \longrightarrow\ C=-\log_2\rho
+\ \longrightarrow\ V_{\rm rel}\propto2^C
+\ \longrightarrow\ a_{\rm rel}\propto2^{C/3}
+\ \longrightarrow\ H_{\rm rel}=\frac{\ln2}{3}\dot C .}
+\label{eq:dictionary-chain}
+\end{equation}
+
+The mapping can be read directly against the relational formalism:
+\begin{center}
+\small
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.29\linewidth}
+                >{\raggedright\arraybackslash}p{0.62\linewidth}}
+\toprule
+Relational quantity & Proposed cosmological reading\\
+\midrule
+$O_i^{(N)}$ & A candidate state or history specified by $N$ accumulated constraints.\\
+$\delta_N$ & Cumulative incompatibility between two candidate histories.\\
+$\mathcal N_r^{(N)}(O_i)$ & Histories still compatible with $O_i$ within tolerance $r$.\\
+$\rho_N(i;r)$ & Fraction of alternatives remaining locally compatible.\\
+$v_i(N)$ & Outward distance added by the next distinguishing constraint.\\
+$C=-\log_2\bar\rho$ & Effective independent distinguishing information, in bits.\\
+$V_{\rm rel}\propto\bar\rho^{-1}$ & Hypothesized relational volume.\\
+$a_{\rm rel}\propto V_{\rm rel}^{1/3}$ & Hypothesized three-dimensional scale factor.\\
+\bottomrule
+\end{tabular}
+\end{center}
+Only the first five rows belong to the relational geometry itself.  The last
+three introduce the information measure and then identify its inverse density
+with a volume and a scale.  Identifying $a_{\rm rel}$ with the physical
+Friedmann--Lema\^itre--Robertson--Walker (FLRW) scale factor $a(t)$ is the first
+specifically cosmological hypothesis.
+
+\section*{The accumulated-history idea}
+
+A present state is not specified only by what exists now.  In a dynamical
+world, it must also be compatible with an accumulated past.  As the temporal
+baseline grows, two histories that once appeared equivalent may become
+distinguishable.  The analogy with structural complexity is therefore direct:
+history supplies additional relational constraints, thinning the set of states
+that remain locally compatible with the present.
+
+Operationally, fix a comoving domain---a spatial region carried with the mean
+cosmic flow---and a comparison ensemble of candidate histories.  At cosmic
+time $t$, $O_i^{(N(t))}$ denotes one history described by
+the constraints accumulated so far, and coordinate $o_{in}$ records the value
+of the $n$th independent relational constraint.  The radius $r$ specifies how
+much cumulative incompatibility is still regarded as locally equivalent.  If
+later times append rather than erase constraints, then for $t_2>t_1$ the
+relational theorem gives
+\begin{equation}
+\mathcal N_r^{(N(t_2))}(O_i)
+\subseteq\mathcal N_r^{(N(t_1))}(O_i),
+\qquad
+\bar\rho(t_2)\leq\bar\rho(t_1),
+\qquad
+C(t_2)\geq C(t_1).
+\label{eq:history-filtration}
+\end{equation}
+Thus accumulated time is not inserted as a Euclidean distance coordinate.
+Rather, time indexes a filtration of history neighborhoods, and $C(t)$ counts
+the effective distinctions revealed by that filtration.  This is the direct
+mathematical connection between accumulated history and structural
+complexity.
+
+The cleanest scale-free assumption is that each doubling of cosmic age adds a
+fixed number $d_{\rm eff}$ of effective independent bits,
+\begin{equation}
+C(t)-C_*=d_{\rm eff}\log_2(t/t_*),
+\label{eq:history}
+\end{equation}
+where $t_*>0$ is a reference cosmic time and $C_*=C(t_*)$.  In the independent
+binary specialization one may write the same equation as
+$N(t)-N_*=d_{\rm eff}\log_2(t/t_*)$, where $N_*=N(t_*)$.  Substitution into
+Eqs.~\eqref{eq:relational-scale} and \eqref{eq:bridge}, followed by the
+hypothesis $a=a_{\rm rel}$, yields
+\begin{equation}
+\frac{a(t)}{a_*}=\left(\frac{t}{t_*}\right)^p,\qquad
+H(t)=\frac{p}{t},qquad
+p=\frac{d_{\rm eff}}{3}.
+\label{eq:power}
+\end{equation}
+Here $a_*=a(t_*)$, $H\equiv\dot a/a$ is the physical Hubble rate, and $p$ is
+the constant power-law index.  The hypothesis has become a definite
+cosmology.  It is also now testable.
+
+There are two closely related ways to interpret ``three dimensions plus
+accumulated time,'' and it is important not to mix them.
+
+In the first, history increases the information required to maintain a
+\emph{three-dimensional} state.  One new distinction per spatial channel per
+doubling gives $d_{\rm eff}=3$.  Then
+\begin{equation}
+C(t)-C_*=3\log_2(t/t_*),\qquad
+a(t)\propto t,qquad H(t)=\frac{1}{t}.
+\label{eq:three}
+\end{equation}
+Time drives the accumulation, but is not itself counted as an interchangeable
+fourth coordinate.
+
+In the literal version, the three spatial directions and accumulated time are
+all counted positively, so $d_{\rm eff}=4$.  This gives
+\begin{equation}
+C(t)-C_*=4\log_2(t/t_*),\qquad
+a(t)\propto t^{4/3},qquad H(t)=\frac{4}{3t}.
+\label{eq:four}
+\end{equation}
+The distinction matters.  Equations~\eqref{eq:three} and \eqref{eq:four} make
+different predictions and provide two clean benchmarks against which the
+required evolution of $d_{\rm eff}$ can be measured.
+
+\section*{Why the present scale looks so promising}
+
+Let $t_0=13.80\,\mathrm{Gyr}$ denote the measured present age of the Universe,
+where $\mathrm{Gyr}$ means $10^9$ years, and let $H_0\equiv H(t_0)$ be the
+present Hubble rate.  The superscripts $(3)$ and $(4)$ below label the
+three- and four-channel hypotheses; they are not exponents.  The three-channel
+law gives
+\begin{align}
+H_0^{(3)}&=\frac{1}{t_0}\\
+&=\frac{3.0856776\times10^{19}\,\mathrm{km/Mpc}}
+{13.80\times3.15576\times10^{16}\,\mathrm{s}}\\
+&=70.85\,\mathrm{km\,s^{-1}\,Mpc^{-1}}.
+\end{align}
+Here $\mathrm{Mpc}$ denotes a megaparsec.  This lies $5.1\%$ above the Planck
+base-$\Lambda$CDM value, where $\Lambda$CDM denotes the standard cosmology with
+a cosmological constant $\Lambda$ and cold dark matter,
+$67.4\pm0.5\,\mathrm{km\,s^{-1}\,Mpc^{-1}}$ \citep{Planck2018}, $3.9\%$
+above the DESI DR2+cosmic microwave background (CMB) value used in the
+accompanying analysis
+\citep{DESI2025}, and $3.0\%$ below the SH0ES distance-ladder value
+$73.04\pm1.04\,\mathrm{km\,s^{-1}\,Mpc^{-1}}$ \citep{Riess2022}.
+
+That is more than a dimensional order-of-magnitude match: it is a few-percent
+match to the scale of the current expansion.  In information language, the
+corresponding present rate is
+\[
+\dot C_0=\frac{3H_0}{\ln2}=0.3136\,\mathrm{bits/Gyr},
+\]
+where $\dot C_0=\dot C(t_0)$.  This is one effective distinction every $3.19$
+billion years.  In the independent-binary specialization, $C=N$ and hence
+$\dot C_0=\dot N_0$.
+
+The literal four-channel law predicts a larger normalization:
+\[
+H_0^{(4)}=\frac{4}{3t_0}
+=94.47\,\mathrm{km\,s^{-1}\,Mpc^{-1}}.
+\]
+Thus the especially close numerical connection belongs to the idea that
+accumulated history increases the distinguishing complexity of a
+three-dimensional state.  Treating time as a fourth Euclidean metadata
+coordinate gives a distinct, readily testable benchmark.
+
+The successful number also has a conventional cosmological explanation.  The
+dimensionless product $H_0t_0$ is close to unity in the observed Universe:
+approximately $0.95$ for Planck, $0.96$ for DESI DR2+CMB, and $1.03$ for SH0ES.
+Any ansatz $H\sim1/t$ will therefore land near the current Hubble scale.  The
+real test is whether it predicts the function $H(z)$ and the acceleration, not
+whether it reproduces one inverse timescale today.
+
+\section*{What the simplest construction teaches}
+
+For a power-law scale factor $a(t)\propto t^p$, the deceleration parameter is
+\begin{equation}
+q=-\frac{a\ddot a}{\dot a^2}=\frac{1}{p}-1.
+\end{equation}
+Here $\dot a=d a/dt$ and $\ddot a=d^2a/dt^2$; negative $q$ denotes accelerated
+expansion.
+The three-channel model has $p=1$ and therefore $q=0$: it supplies the coasting
+benchmark.  The literal $3+1$ model has $p=4/3$ and $q=-1/4$, so the same
+formalism also naturally accesses accelerated expansion.  The observed
+late-time value asks for a stronger and evolving effect.  For comparison, the
+present flat-$\Lambda$CDM value for
+$\Omega_m=0.3027$ is $q_0\simeq-0.546$, where $\Omega_m$ is the present matter
+density as a fraction of the critical density and the subscript $0$ denotes
+the present epoch.
+
+The relational bridge itself suggests the generalization.  Define the
+instantaneous effective number of new bits per doubling of cosmic age by
+\begin{equation}
+d_{\rm eff}(t)\equiv\frac{dC}{d\log_2 t}.
+\label{eq:dynamic-deff}
+\end{equation}
+Equation~\eqref{eq:bridge} then gives the exact dictionary
+\begin{equation}
+d_{\rm eff}(t)=3H(t)t,
+\qquad
+H(t)=\frac{d_{\rm eff}(t)}{3t}.
+\label{eq:dynamic-bridge}
+\end{equation}
+Consequently,
+\begin{equation}
+q(t)=-1-\frac{\dot H}{H^2}
+=-1+\frac{3}{d_{\rm eff}(t)}
+-\frac{3t\dot d_{\rm eff}(t)}{d_{\rm eff}(t)^2}.
+\label{eq:dynamic-q}
+\end{equation}
+The constant-channel models set $\dot d_{\rm eff}=0$ and recover
+$q=3/d_{\rm eff}-1=1/p-1$.  In the broader relational program, accelerated
+expansion can depend both on the amount of new distinguishing information and
+on how its rate changes.  The cosmological data can therefore be read as a
+target curve for $d_{\rm eff}(t)$ rather than only as a verdict on a fixed
+power law.
+
+The expansion history supplies the stronger test.  Normalize $a(t_0)=a_0=1$
+and define cosmological redshift by $1+z=a_0/a(t)$, so $z=0$ today and
+$H_0=H(z=0)$.  Equation~\eqref{eq:power} predicts
+\begin{equation}
+H(z)=H_0(1+z)^{1/p}.
+\label{eq:hz}
+\end{equation}
+Let $c$ be the speed of light and $r_d$ the comoving sound horizon at the
+baryon-drag epoch.  In a spatially flat FLRW geometry, the radial Hubble
+distance and transverse comoving distance are
+\begin{equation}
+D_H(z)\equiv\frac{c}{H(z)},\qquad
+D_M(z)\equiv c\int_0^z\frac{dz'}{H(z')}.
+\label{eq:bao-definitions}
+\end{equation}
+Writing the dimensionless nuisance scale as $X\equiv c/(H_0r_d)$ gives
+\begin{align}
+\frac{D_H(z)}{r_d}&=X(1+z)^{-1/p},\\
+\frac{D_M(z)}{r_d}&=X\int_0^z(1+z')^{-1/p}\,dz'.
+\end{align}
+For $p=1$, the second expression is $X\ln(1+z)$.  For $p\ne1$ it is
+\begin{equation}
+\frac{D_M(z)}{r_d}
+=X\frac{(1+z)^{1-1/p}-1}{1-1/p}.
+\end{equation}
+These are the complete distance--redshift predictions of the construction.
+
+We compare them with the published 13-element DESI DR2 BAO vector and full
+covariance \citep{DESI2025}.  The nuisance scale $X$ is fitted analytically for
+every row, so the result isolates the redshift-dependent shape independently
+of a model's chosen $H_0$ or sound horizon.
+Writing the data vector as $\mathbf y$, a model prediction as $\mathbf m$, and
+the published covariance matrix as $\boldsymbol\Sigma_{\rm BAO}$, the reported
+statistic is
+\begin{equation}
+\chi^2=(\mathbf y-\mathbf m)^{\mathsf T}
+\boldsymbol\Sigma_{\rm BAO}^{-1}(\mathbf y-\mathbf m),
+\label{eq:chi-square}
+\end{equation}
+where $\mathsf T$ denotes transpose.  The degrees of freedom equal the number
+of data values minus the number of fitted parameters.  The matter-like
+$p=2/3$ row below is included as a familiar power-law benchmark.
+
+\begin{center}
+\begin{tabular}{lrr}
+\toprule
+History law & $\chi^2$ & degrees of freedom\\
+\midrule
+Matter-like, $p=2/3$ & 1420.18 & 12\\
+Three spatial channels, $p=1$ & 187.09 & 12\\
+Literal 3D plus time, $p=4/3$ & 1364.93 & 12\\
+Best constant power, $p=0.9125$ & 96.97 & 11\\
+Flat $\Lambda$CDM, $\Omega_m=0.3027$ & 10.63 & 12\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The comparison gives a precise design constraint.  The three-channel law
+retains its striking present-day normalization, while the distance data show
+that a constant information rate per logarithmic time cannot capture the full
+redshift dependence.  Literal $3+1$ counting probes a different constant slope
+and is still farther from the measured shape.  Even the best constant $p$
+cannot follow all epochs.  Fitting the free power law only below $z=1$ gives
+$p=1.1185$, but its six genuinely held-out predictions at $z\geq1$ have
+$\chi^2=670.72$.  This is useful predictive information: the next construction
+must promote $d_{\rm eff}$ to a dynamical quantity, or replace total accumulated
+complexity by a conditional information rate.
+
+\section*{Toward a relativistic information rate}
+
+Time is not simply another spatial coordinate.  Proper time depends on the
+worldline, causal order distinguishes past from future, and the spacetime
+metric has Lorentzian rather than Euclidean signature.  Information-based
+approaches that take spacetime seriously therefore work with local horizons or
+causal order rather than appending a positive time distance
+\citep{Jacobson1995,Surya2019}.
+
+A natural relativistic extension is the four-volume of an observer's causal
+past in flat FLRW spacetime,
+\begin{equation}
+V_4(\tau_o)=\frac{4\pi}{3}\int_0^{\tau_o}c\,d\tau'\,a^3(\tau')
+\left[\int_{\tau'}^{\tau_o}\frac{c\,d\tau''}{a(\tau'')}\right]^3.
+\label{eq:causal-volume}
+\end{equation}
+Here $\tau_o$ is the observer's proper time, $\tau'$ and $\tau''$ are integration
+variables along the past history, $a(\tau)$ is the FLRW scale factor, and $c$
+is retained so $V_4$ has dimensions of length to the fourth power.  The
+observer has unit timelike four-velocity $u^\mu$, $\nabla_\mu$ is the spacetime
+covariant derivative, and repeated Greek indices run over spacetime
+coordinates.  The covariant expansion scalar is
+$\theta\equiv\nabla_\mu u^\mu=3H$ for the comoving FLRW flow.
+
+To test a constitutive connection, define either a raw causal-history variable
+$\mathcal C_{\rm raw}=V_4$ or the dimensionless logarithmic variable
+\begin{equation}
+\mathcal C_{\log}(\tau_o)
+\equiv\log_2\!\left[\frac{V_4(\tau_o)}{V_{4,*}}\right],
+\label{eq:causal-complexity}
+\end{equation}
+where $V_{4,*}>0$ is an arbitrary reference four-volume.  If causal history
+directly generated expansion with a constant constitutive coupling, one would
+write
+\begin{equation}
+3H=\kappa\dot{\mathcal C},
+\label{eq:constitutive-coupling}
+\end{equation}
+where the overdot here is $d/d\tau_o$ and $\kappa$ is the coupling between the
+chosen causal-history variable and expansion.  Its units depend on whether
+$\mathcal C$ is raw or logarithmic.  For the dimensionless bit count of the
+direct relational dictionary, Eq.~\eqref{eq:bridge} would give
+$\kappa=\ln2$.
+
+Evaluated from $z=2.33$ to the present along the DESI-calibrated background,
+the coupling required for raw $V_4$ changes by a factor of $321.8$.  Taking the
+logarithm removes most of the drift, but the required coupling still changes by
+a factor of $1.514$, with present value $0.5373$ rather than the $\ln2=0.6931$
+suggested by the direct neighborhood dictionary.  This substantial
+improvement from raw volume to logarithmic volume is encouraging: it shows
+that information-like normalization is the right direction, while also
+indicating that total causal volume alone is not yet the desired invariant.
+
+The result points to a natural refinement.  Total causal volume counts shared
+history again and again, whereas the relational-shape construction responds to
+new distinctions.  A more faithful covariant quantity would therefore be the
+conditional new information between neighboring causal slices after their
+common past has been removed.  That extension preserves the core relational
+idea while replacing accumulated amount by an independent information rate.
+
+\section*{The constructive next step}
+
+The cosmological analogy makes quantitative contact immediately.  The exact
+neighborhood law produces a transparent dictionary between distinction rate
+and expansion rate, and the measured age of the Universe gives the correct
+scale for $H_0$.  The distance--redshift curve then adds something valuable:
+it shows that the relevant independent-information rate is dynamical rather
+than a fixed channel count.
+
+This leaves a concrete research program.  Accumulated history can be analogous
+to increased structural complexity, with
+$d_{\rm eff}(t)=dC/d\log_2t=3H(t)t$ providing the observational target.  The
+next step is to define $C$ as an independent, covariant conditional-information
+measure on neighboring causal slices and derive its dynamics.  Such a measure
+would preserve the neighborhood-thinning mechanism while respecting the
+special role of time and avoiding repeated counts of shared causal history.
+
+The near equality $H_0\simeq1/t_0$ remains an elegant clue about why the idea
+is quantitatively compelling: by Eq.~\eqref{eq:dynamic-bridge}, it says
+$d_{\rm eff}(t_0)\simeq3$.  The simple model has therefore identified both the
+natural present scale and the mathematical quantity whose evolution must be
+explained.  That is a promising starting point for a relational account of
+cosmic expansion.
+
+\bibliographystyle{unsrtnat}
+\bibliography{../neighborhood_thinning_cosmology/complexity_cosmology}
+
+\end{document}

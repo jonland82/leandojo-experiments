@@ -1,17 +1,19 @@
-\documentclass[10.5pt]{article}
-\usepackage[letterpaper,margin=0.76in]{geometry}
+\documentclass[10pt]{article}
+\usepackage[letterpaper,margin=0.60in]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \usepackage{microtype}
+\usepackage{etoolbox}
 \usepackage{amsmath,amssymb,amsthm,mathtools}
-\usepackage{enumitem}
 \usepackage{xcolor}
 \usepackage{titlesec}
+\usepackage[most]{tcolorbox}
 \usepackage{hyperref}
 
-\definecolor{ink}{HTML}{1F2933}
-\definecolor{muted}{HTML}{66737F}
-\definecolor{accent}{HTML}{394B59}
+\definecolor{ink}{HTML}{000000}
+\definecolor{accent}{HTML}{000000}
+\definecolor{boxfill}{HTML}{F4F7F9}
+\definecolor{boxline}{HTML}{CBD9E3}
 \hypersetup{colorlinks=true,linkcolor=accent,urlcolor=accent,citecolor=accent}
 \color{ink}
 
@@ -19,10 +21,42 @@
 \titlespacing*{\section}{0pt}{0.75em}{0.25em}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{0.40em}
-\setlist{nosep,leftmargin=1.35em}
+\newlength{\extradisplayshortskip}
+\setlength{\extradisplayshortskip}{0pt}
+\AtBeginEnvironment{equation*}{%
+  \normalsize
+  \addtolength{\abovedisplayshortskip}{\extradisplayshortskip}%
+}
 
-\newtheorem{proposition}{Proposition}
-\newtheorem*{remark}{Remark}
+\newtcolorbox{resultbox}{
+  enhanced,
+  breakable,
+  colback=boxfill,
+  colframe=boxline,
+  boxrule=0.45pt,
+  arc=3.5mm,
+  left=7.5pt,
+  right=7.5pt,
+  top=5pt,
+  bottom=5pt,
+  before skip=0.45em,
+  after skip=0.45em
+}
+
+\newtcolorbox{highlightbox}{
+  enhanced,
+  breakable,
+  colback=boxfill,
+  colframe=boxline,
+  boxrule=0.45pt,
+  arc=3.5mm,
+  left=7.5pt,
+  right=7.5pt,
+  top=7pt,
+  bottom=7pt,
+  before skip=9.5pt,
+  after skip=8pt
+}
 
 \title{\vspace{-2.3em}\textbf{The Relational Shape of Structural Complexity\\and Neighborhood Density}}
 \author{J. R. Landers}
@@ -30,10 +64,11 @@
 
 \begin{document}
 \maketitle
-\vspace{-1.25em}
+\vspace{-1.35em}
+\small
 
 \begin{abstract}
-A mathematical object becomes more richly specified as metadata is added to its description. A natural question is whether this additional structure also changes the object's \emph{relational position}: does a more detailed object tend to lie farther from the other objects in a population, and therefore occupy a sparser neighborhood? For a broad class of additive distances the answer is exact rather than heuristic. Additional distinguishing coordinates can only increase pairwise separation, while the density of every fixed-radius neighborhood can only decrease. The effect admits a direct information-theoretic interpretation.
+A mathematical object becomes more richly specified as metadata is added to its description. A natural question is whether this additional structure also changes the object's \emph{relational position}: does a more detailed object tend to lie farther from the other objects in a population, and therefore occupy a sparser neighborhood? For a broad class of additive distances the answer is exact rather than heuristic. Additional distinguishing coordinates can only increase pairwise separation, while fixed-radius neighborhoods form a nested, progressively thinning family. This yields a natural rate of relational isolation, and in a simple random metadata model the expected local density decays exponentially with descriptive complexity. The effect also admits a direct information-theoretic interpretation.
 \end{abstract}
 
 \section*{Objects, descriptions, and distance}
@@ -68,7 +103,8 @@ Also define its normalized radius-$r$ neighborhood density by
 \]
 where $\mathbf 1\{\cdot\}$ is the indicator function. The quantity $\rho_N(i;r)$ is simply the fraction of the remaining objects lying within distance $r$ of $O_i$.
 
-\begin{proposition}[Structural separation and neighborhood thinning]
+\begin{resultbox}
+\textbf{Proposition} --- \textbf{Structural separation and neighborhood thinning.}
 For every $i$, every $j\ne i$, and every radius $r\ge 0$,
 \[
 \delta_{N+1}(O_i,O_j)\ge \delta_N(O_i,O_j),
@@ -80,7 +116,7 @@ D_{N+1}(i)\ge D_N(i),
 \rho_{N+1}(i;r)\le \rho_N(i;r).
 \]
 If the appended metadata distinguishes $O_i$ from at least one other object, then $D_{N+1}(i)>D_N(i)$ whenever the corresponding coordinate distance is strictly positive.
-\end{proposition}
+\end{resultbox}
 
 \begin{proof}
 Because $d_{N+1}\ge 0$,
@@ -93,6 +129,50 @@ Averaging this inequality over $j\ne i$ gives $D_{N+1}(i)\ge D_N(i)$. Since no p
 
 The proposition gives a simple relational picture: richer descriptions do not merely enlarge the internal representation of an object. When the new structure is distinguishing, they push that object outward relative to the population, thinning its fixed-radius neighborhood.
 
+\section*{Neighborhoods as a filtration}
+The density statement can be sharpened from a scalar inequality to a set-theoretic one. For radius $r\ge 0$, define the radius-$r$ neighborhood of $O_i$ at complexity $N$ by
+\[
+\mathcal N_r^{(N)}(O_i)
+=\{O_j\in\mathcal O:j\ne i,\ \delta_N(O_i,O_j)\le r\}.
+\]
+Its normalized cardinality is exactly the density introduced above,
+\[
+\rho_N(i;r)=\frac{\lvert\mathcal N_r^{(N)}(O_i)\rvert}{K-1}.
+\]
+
+\begin{resultbox}
+\textbf{Corollary} --- \textbf{Nested relational neighborhoods.}
+For every fixed object $O_i$ and radius $r\ge 0$,
+\[
+\mathcal N_r^{(N+1)}(O_i)\subseteq\mathcal N_r^{(N)}(O_i).
+\]
+Hence increasing descriptive complexity generates the descending filtration
+\[
+\mathcal N_r^{(1)}(O_i)\supseteq\mathcal N_r^{(2)}(O_i)
+\supseteq\cdots\supseteq\mathcal N_r^{(N)}(O_i)\supseteq\cdots.
+\]
+\end{resultbox}
+
+\begin{proof}
+If $O_j\in\mathcal N_r^{(N+1)}(O_i)$, then $\delta_{N+1}(O_i,O_j)\le r$. Since $\delta_N(O_i,O_j)\le\delta_{N+1}(O_i,O_j)$, it follows that $\delta_N(O_i,O_j)\le r$, so $O_j\in\mathcal N_r^{(N)}(O_i)$.
+\end{proof}
+
+This filtration makes the relational effect of complexity visible without averaging: once an object leaves a fixed-radius neighborhood, it cannot re-enter under further additive nonnegative refinement. Complexity therefore removes neighbors monotonically, although it may remove none at a particular step.
+
+A complementary scalar quantity records how rapidly an object becomes isolated. Define the \emph{relational isolation velocity}
+\[
+v_i(N)=D_{N+1}(i)-D_N(i).
+\]
+Using the additive form of $\delta_N$ gives the identity
+\begin{highlightbox}
+\[
+v_i(N)=\frac{1}{K-1}\sum_{j\ne i}
+d_{N+1}(o_{i,N+1},o_{j,N+1})\ge 0.
+\]
+\end{highlightbox}
+Thus $v_i(N)$ is not merely an analogy to motion: it is exactly the average distinguishing contribution of the newly appended coordinate. A coordinate shared by the entire population has zero velocity; a coordinate that strongly separates $O_i$ from its peers produces a larger outward step.
+
+\setlength{\extradisplayshortskip}{1.3pt}
 \section*{The information carried by a new coordinate}
 For categorical metadata, the connection to information is especially transparent. Suppose coordinate $n$ takes values in a finite alphabet $\mathcal A_n$ with probabilities $p_n(x)$, and use Hamming distance,
 \[
@@ -108,6 +188,7 @@ Therefore
 \mathbb E\,\delta_N(O_i,O_j)
 =\sum_{n=1}^{N}\left(1-\sum_{x\in\mathcal A_n}p_n(x)^2\right).
 \]
+\newpage
 Each coordinate contributes exactly its probability of distinguishing two sampled objects. A constant coordinate contributes zero; a highly diverse coordinate contributes more. The term $\sum_x p_n(x)^2$ is the collision probability and is directly related to R\'enyi entropy of order $2$,
 \[
 H_2(p_n)=-\log\!\left(\sum_x p_n(x)^2\right).
@@ -124,15 +205,42 @@ Expected separation grows linearly with description length. For real-valued inde
 \]
 so the typical Euclidean scale grows on the order of $\sqrt N$.
 
-\section*{What the principle does -- and does not -- say}
+\section*{A stochastic thinning law}
+The filtration above is deterministic. Under a simple random metadata model, one can also quantify how rapidly a fixed neighborhood disappears. Suppose every metadata coordinate is drawn independently and uniformly from a $q$-symbol alphabet, and let $\delta_N$ be Hamming distance. For any pair of independently sampled objects, the number of mismatched coordinates is binomial:
+\[
+\delta_N(O_i,O_j)\sim\operatorname{Bin}(N,p),
+\qquad p=1-\frac1q.
+\]
+Therefore, for a fixed radius $r\ge 0$ and $R=\lfloor r\rfloor$,
+\[
+\mathbb E\,\rho_N(i;r)
+=\Pr\{\delta_N(O_i,O_j)\le R\}
+=\sum_{m=0}^{R}\binom Nm
+\left(1-\frac1q\right)^m
+\left(\frac1q\right)^{N-m}.
+\]
+Equivalently,
+\[
+\mathbb E\,\rho_N(i;r)
+=q^{-N}\sum_{m=0}^{R}\binom Nm(q-1)^m.
+\]
+For fixed $r$ and fixed $q\ge 2$, the finite sum is polynomial in $N$ of degree $R$, while $q^{-N}$ is exponential. Hence
+\begin{highlightbox}
+\[
+\mathbb E\,\rho_N(i;r)=\Theta\!\left(N^R q^{-N}\right)
+\qquad(N\to\infty).
+\]
+\end{highlightbox}
+So in this model local density does not merely decline: every fixed-radius neighborhood becomes exponentially sparse, up to a polynomial factor. The result separates two scales cleanly. Pairwise distance grows linearly in expectation, while the probability of remaining genuinely nearby collapses exponentially.
+
+\section*{Presumptions of the principle}
 The essential distinction is between \emph{more metadata} and \emph{more distinguishing structure}. Appending the same value to every object increases description length but leaves all distances unchanged. Redundant coordinates may likewise add little genuinely new separation. Moreover, dimension-normalized distances can behave differently because the normalization itself changes with $N$.
 
 Under a distance that accumulates nonnegative coordinate-wise differences, however, the relational consequence is sharp:
-\[
-\boxed{
-\text{distinguishing structural complexity increases separation and thins local neighborhoods.}
-}
-\]
+\begin{highlightbox}
+\centering
+\emph{distinguishing structural complexity increases separation and thins local neighborhoods.}
+\end{highlightbox}
 This suggests viewing structural complexity not only as an intrinsic property of an object, but as a geometric property of its position among alternatives. As an object becomes more specifically described, its identity is expressed partly through the progressive disappearance of nearby peers.
 
 \end{document}

@@ -28,7 +28,7 @@ from scipy.stats import spearmanr
 
 SNAPSHOTS = (86, 88, 90)
 BASE_ROOT = "https://users.flatironinstitute.org/~camels/Sims"
-DATA_ROOT = Path(__file__).resolve().parents[1] / "data"
+DATA_ROOT = Path(__file__).resolve().parents[2] / "data"
 MIN_PARTICLES = 100
 NEIGHBORS = 16
 KERNEL_CANDIDATES = 64

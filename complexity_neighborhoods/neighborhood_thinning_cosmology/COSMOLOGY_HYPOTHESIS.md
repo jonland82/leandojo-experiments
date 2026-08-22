@@ -40,6 +40,12 @@ interpretation can mean. A five-page, two-column manuscript implementing this
 framing was completed as `neighborhood_thinning_cosmology.tex` and compiled to
 `neighborhood_thinning_cosmology.pdf` on 2026-08-21.
 
+A second, deliberately narrower note was completed on the same date in
+`../cosmology_time_note/`. It isolates the accumulated-time construction, shows
+why $N=3\log_2(t/t_*)$ gives the attractive $70.85$ Hubble-scale estimate,
+distinguishes it from literal $3+1$ counting, and gives the explicit power-law
+and DESI reasons both constructions fail as expansion histories.
+
 ## 1. The exact bridge
 
 For independent binary distinguishing coordinates and an exact-match
@@ -528,8 +534,10 @@ LambdaCDM expansion.
 
 | file | purpose |
 |---|---|
-| `relational_shape (2).tex` | source of the original neighborhood-complexity paper |
-| `The_Relational_Shape_of_Structural_Complexity_and_Neighborhood_Density (2).pdf` | compiled original paper |
+| `../relational_shape (2).tex` | untouched source of the original neighborhood-complexity paper |
+| `../The_Relational_Shape_of_Structural_Complexity_and_Neighborhood_Density (2).pdf` | untouched compiled original paper |
+| `../cosmology_time_note/accumulated_time_cosmology.tex` | focused single-column note on accumulated history, 3D, and why the construction fails |
+| `../cosmology_time_note/accumulated_time_cosmology.pdf` | compiled four-page accumulated-time note |
 | `COSMOLOGY_HYPOTHESIS.md` | master scientific checkpoint and current interpretation |
 | `cosmology_toy_model.py` | age-scale estimate, constant-rate calibration, and turnaround calculation |
 | `test_history_models.py` | DESI DR2 BAO shape fits and held-out-redshift tests |
@@ -541,8 +549,8 @@ LambdaCDM expansion.
 | `neighborhood_thinning_cosmology.pdf` | compiled five-page short paper |
 | `figures/` | publication figures in PDF and PNG formats |
 
-The DESI likelihood vector and covariance are in
-`complexity_neighborhoods/data/`. Downloaded CAMELS catalogs are cached under
+The DESI likelihood vector and covariance are in this folder's `data/`
+subdirectory. Downloaded CAMELS catalogs are cached under
 `data/camels_cv0/` and `data/camels/`. These data directories are ignored by
 Git; a fresh checkout must retain or redownload them. The CAMELS test downloads
 missing catalogs automatically. The Python dependencies are recorded in the
@@ -591,13 +599,13 @@ editorial rather than another parameter fit:
 Run:
 
 ```powershell
-python complexity_neighborhoods/cosmology_toy_model.py
-python complexity_neighborhoods/test_history_models.py
-python complexity_neighborhoods/test_relativistic_history.py
-python complexity_neighborhoods/test_conditional_information.py
-python complexity_neighborhoods/test_conditional_information.py --realizations 0 1 2 3 4
-python complexity_neighborhoods/test_conditional_information.py --simulation-set LH --realizations 0 1 2
-python complexity_neighborhoods/test_conditional_information.py --suite IllustrisTNG_DM --simulation-set LH --realizations 0 1 2
+python complexity_neighborhoods/neighborhood_thinning_cosmology/cosmology_toy_model.py
+python complexity_neighborhoods/neighborhood_thinning_cosmology/test_history_models.py
+python complexity_neighborhoods/neighborhood_thinning_cosmology/test_relativistic_history.py
+python complexity_neighborhoods/neighborhood_thinning_cosmology/test_conditional_information.py
+python complexity_neighborhoods/neighborhood_thinning_cosmology/test_conditional_information.py --realizations 0 1 2 3 4
+python complexity_neighborhoods/neighborhood_thinning_cosmology/test_conditional_information.py --simulation-set LH --realizations 0 1 2
+python complexity_neighborhoods/neighborhood_thinning_cosmology/test_conditional_information.py --suite IllustrisTNG_DM --simulation-set LH --realizations 0 1 2
 ```
 
 Published calibration sources:
