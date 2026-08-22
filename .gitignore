@@ -16,3 +16,10 @@ data/
 *.synctex.gz
 texput.log
 build-pass*.log
+
+# Complexity-neighborhoods manuscript build/visual-check artifacts
+complexity_neighborhoods/neighborhood_thinning_cosmology.bbl
+complexity_neighborhoods/neighborhood_thinning_cosmology.blg
+complexity_neighborhoods/neighborhood_thinning_cosmology.log
+complexity_neighborhoods/preview_page-*.png
+complexity_neighborhoods/final_page*.png

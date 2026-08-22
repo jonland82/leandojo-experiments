@@ -1,0 +1,467 @@
+\documentclass[10pt,twocolumn]{article}
+
+\usepackage[letterpaper,margin=0.72in,columnsep=0.27in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage[colorlinks=true,allcolors=blue!45!black]{hyperref}
+
+\definecolor{ink}{HTML}{1F2933}
+\definecolor{accent}{HTML}{294C60}
+\color{ink}
+\titleformat{\section}{\large\bfseries\color{accent}}{}{0pt}{}
+\titleformat{\subsection}{\normalsize\bfseries\color{accent}}{}{0pt}{}
+\titlespacing*{\section}{0pt}{0.8em}{0.35em}
+\titlespacing*{\subsection}{0pt}{0.65em}{0.25em}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.1em}
+\setlist{nosep,leftmargin=1.25em}
+\setlength{\bibsep}{1pt}
+\renewcommand{\bibfont}{\footnotesize}
+
+\newcommand{\LCDM}{$\Lambda$CDM}
+\newcommand{\kmsmpc}{\mathrm{km\,s^{-1}\,Mpc^{-1}}}
+
+\title{\vspace{-2.0em}\textbf{From Neighborhood Thinning to Cosmic Expansion:\\Quantitative Tests of a Relational-Complexity Hypothesis}}
+\author{J. R. Landers}
+\date{August 2026}
+
+\begin{document}
+\maketitle
+\vspace{-1.2em}
+
+\begin{abstract}
+Adding genuinely distinguishing coordinates to an object increases its
+separation from alternatives and thins every fixed-radius neighborhood under a
+broad class of additive distances.  The result invites a speculative but
+testable question: could physical expansion reflect the growth of relational
+distinguishability?  We construct the simplest bridge by identifying inverse
+exact-match density with relational volume, obtaining
+$H=(\ln 2/3)\dot N$.  A minimal history law then predicts
+$H_0=70.85\,\kmsmpc$ from the measured cosmic age, placing the observed Hubble
+scale within a few percent without inserting $H_0$.  The coincidence is
+instructive but incomplete: the same law produces a coasting universe and is
+strongly rejected by the DESI DR2 baryon-acoustic-oscillation distance shape.
+A two-channel extension fits the BAO data well, but is algebraically identical
+to the flat-\LCDM{} background.  Replacing accumulated time by relativistic
+causal-past four-volume also fails to yield a constant expansion--complexity
+coupling.  Finally, public CAMELS simulations show that neighborhood change is
+enhanced in dense, bound environments where expansion is suppressed.  Most of
+this signal is predicted by peculiar motion, and it persists in matched
+gravity-only simulations.  These results do not eliminate a relational account
+of spacetime.  They narrow its viable content: the tested complexity measures
+behave more naturally as diagnostics of gravitational dependency and binding
+than as a local source of dark-energy expansion.
+\end{abstract}
+
+\section{A geometric question with cosmological stakes}
+
+The discovery that the cosmic expansion is accelerating transformed the
+cosmological constant from a formal possibility into an empirical problem
+\citep{Riess1998,Perlmutter1999}.  Flat \LCDM{} remains an economical and highly
+successful description of the background, particularly when confronted with
+the cosmic microwave background and baryon acoustic oscillations
+\citep{Planck2018,DESI2025}.  Yet its dark-energy scale is entered as a fitted
+constant rather than derived from a microscopic principle.  That gap has kept
+alive a broad question: might geometry be an effective description of deeper
+statistical, thermodynamic, or informational structure?
+
+There is serious precedent for asking the question carefully.  Einstein's
+equation can be recovered as a local thermodynamic equation of state under
+specific horizon-entropy assumptions \citep{Jacobson1995}, while causal-set
+theory explores how Lorentzian order and spacetime volume might emerge from a
+locally finite relational structure \citep{Surya2019}.  These programs do not
+license an arbitrary identification of information with geometry.  They do,
+however, show what a successful bridge must eventually provide: a covariant
+object, a dynamical law, and quantitative contact with observation.
+
+The present work begins from a much simpler exact fact.  Under additive
+nonnegative distances, appending a distinguishing coordinate can only increase
+pairwise separation and can only reduce the population inside a fixed-radius
+neighborhood.  For independent binary coordinates, exact-match density falls
+as $2^{-N}$.  If the inverse of this density is interpreted as an effective
+relational volume, then complexity growth has the kinematics of expansion.
+
+Our purpose is not to promote that analogy by rhetoric.  It is to give it every
+reasonable quantitative opportunity to succeed, then identify precisely what
+survives.  We proceed in four stages: derive the exact kinematic bridge, test
+simple history laws against the Hubble scale and the DESI DR2 distance shape,
+replace naive accumulated time by a relativistic causal-history construction,
+and examine neighborhood evolution directly in hydrodynamic and gravity-only
+cosmological simulations.
+
+\section{The exact bridge---and the missing dynamics}
+
+Consider objects described by $N$ coordinates, with additive distance
+\begin{equation}
+ \delta_N(O_i,O_j)=\sum_{n=1}^{N}d_n(o_{in},o_{jn}),
+ \qquad d_n\geq0.
+\end{equation}
+Appending a coordinate gives
+$\delta_{N+1}=\delta_N+d_{N+1}\geq\delta_N$.  Consequently every
+fixed-radius neighborhood is nonincreasing with $N$.  In the particularly
+transparent case of independent uniform binary coordinates and exact matching,
+the expected neighborhood density is
+\begin{equation}
+ \rho_N=2^{-N}.
+\end{equation}
+Define an effective relational volume and a three-dimensional scale factor,
+\begin{equation}
+ V_{\rm rel}=\rho_N^{-1},\qquad
+ a_{\rm rel}=V_{\rm rel}^{1/3}=2^{N/3}.
+\end{equation}
+The corresponding expansion rate is then exact:
+\begin{equation}
+ H_{\rm rel}\equiv\frac{\dot a_{\rm rel}}{a_{\rm rel}}
+ =\frac{\ln2}{3}\dot N.
+ \label{eq:bridge}
+\end{equation}
+
+Equation~\eqref{eq:bridge} is the central bridge, but also the central warning.
+It is a dictionary, not a field equation.  The factor of three comes from the
+chosen volume interpretation; the bit rate $\dot N$ has not been derived; and
+no stress--energy tensor or conservation law has appeared.  Physical content
+begins only when $N$ is defined independently of the observed scale factor and
+its dynamics predict more than one number.
+
+\section{A numerical coincidence worth testing}
+
+Suppose that maintaining a distinguishable three-dimensional history requires
+one new binary distinction per spatial dimension whenever the temporal
+baseline doubles:
+\begin{equation}
+ N(t)=3\log_2(t/t_*).
+ \label{eq:agelaw}
+\end{equation}
+Equations~\eqref{eq:bridge} and \eqref{eq:agelaw} imply
+\begin{equation}
+ a(t)\propto t,\qquad H(t)=t^{-1}.
+ \label{eq:coasting}
+\end{equation}
+Using $t_0=13.80\,\mathrm{Gyr}$ gives
+\begin{equation}
+ H_0^{\rm age}=70.85\,\kmsmpc.
+\end{equation}
+This is $5.1\%$ above the Planck base-\LCDM{} value
+$67.4\pm0.5\,\kmsmpc$ \citep{Planck2018}, $3.9\%$ above the DESI
+DR2+CMB value used here, and $3.0\%$ below the SH0ES distance-ladder value
+$73.04\pm1.04\,\kmsmpc$ \citep{Riess2022}.  Because CMB-derived age and
+$H_0$ are correlated and model dependent, this is not a precision independent
+prediction.  It is nevertheless a striking dimensional result: a transparent
+information law lands on the observed Hubble scale without inserting it.
+
+The same simplicity makes the decisive failure immediate.  Equation
+\eqref{eq:coasting} gives $\ddot a=0$ and $q=0$, whereas the measured late
+universe accelerates.  A correct value of $H$ at one epoch is not a correct
+expansion history.  The coincidence therefore earns a shape test rather than a
+claim.
+
+\section{DESI tests the history, not merely the scale}
+
+Baryon acoustic oscillations provide a standard-ruler measurement of transverse
+and radial cosmic distances \citep{Eisenstein2005}.  We use the published
+13-element DESI DR2 BAO data vector and covariance \citep{DESI2025}.  For every
+model, the nuisance normalization
+\begin{equation}
+ X=\frac{c}{H_0r_d}
+\end{equation}
+is profiled analytically.  The comparison therefore tests the redshift
+dependence of the distance relation without using the value of $H_0$ that
+motivated the hypothesis.
+
+For the family
+\begin{equation}
+ N(t)=d_{\rm eff}\log_2(t/t_*),\quad
+ a(t)\propto t^p,\quad p=d_{\rm eff}/3,
+\end{equation}
+we test a matter-like history, the coasting spatial history, a literal
+``3D plus time'' history, and a freely fitted constant $p$.  Table~\ref{tab:bao}
+and Fig.~\ref{fig:desi} show the result.  No constant-dimensional history
+describes the BAO shape.  Even the best constant power gives
+$\chi^2=96.97$ for 11 degrees of freedom.  More sharply, fitting $p$ and $X$
+only below $z=1$ gives $p=1.1185$, but the six held-out measurements at
+$z\geq1$ yield $\chi^2=670.72$ without refitting.
+
+\begin{table}[t]
+\centering
+\caption{DESI DR2 BAO shape fits.  The BAO normalization is fitted in every
+row.  The two-channel row also fits its channel ratio.}
+\label{tab:bao}
+\small
+\begin{tabular}{lrr}
+\toprule
+Model & $\chi^2$ & dof\\
+\midrule
+$p=2/3$ & 1420.18 & 12\\
+$p=1$ & 187.09 & 12\\
+$p=4/3$ & 1364.93 & 12\\
+Best constant $p=0.9125$ & 96.97 & 11\\
+Two channel & 10.27 & 11\\
+Flat \LCDM{}, $\Omega_m=0.3027$ & 10.63 & 12\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.82\textwidth]{figures/desi_model_comparison.pdf}
+\caption{Reduced $\chi^2$ for the DESI DR2 BAO distance shape after profiling
+the common ruler normalization.  The logarithmic axis makes visible both the
+strong rejection of constant-dimensional histories and the good background fit
+of the two-channel and flat-\LCDM{} forms.}
+\label{fig:desi}
+\end{figure*}
+
+\subsection{The successful extension and its honest interpretation}
+
+A more flexible relational construction separates local material interactions
+from a persistent history channel and combines statistically independent rates
+in quadrature:
+\begin{equation}
+ \dot N_{\rm eff}^{,2}
+ =\dot N_{m,0}^{,2}a^{-3}+\dot N_h^{,2}.
+ \label{eq:channels}
+\end{equation}
+Together with Eq.~\eqref{eq:bridge},
+\begin{equation}
+ H^2(a)=\left(\frac{\ln2}{3}\right)^2
+ \left(\dot N_{m,0}^{,2}a^{-3}+\dot N_h^{,2}\right).
+ \label{eq:twochannel}
+\end{equation}
+Fitting the channel ratio and BAO scale gives
+$\Omega_{m,\rm eff}=0.2975$ and $\chi^2=10.27$ for 11 degrees of freedom.
+A fit restricted to $z<1$ gives $\Omega_{m,\rm eff}=0.3095$ and predicts the
+six high-redshift measurements with $\chi^2=4.74$.  With the reference ruler
+$r_d=147.09\,\mathrm{Mpc}$, the full fit corresponds to
+$H_0=69.03\,\kmsmpc$, a present material-channel rate of
+$0.1667\,\mathrm{bits\,Gyr^{-1}}$, and a history-channel rate of
+$0.2561\,\mathrm{bits\,Gyr^{-1}}$.
+
+This is a useful success of form, but not yet a new explanation.  Equation
+\eqref{eq:twochannel} is exactly the flat-\LCDM{} background equation under a
+change of names.  It predicts the familiar acceleration transition,
+$z_{\rm acc}\simeq0.68$, but becomes explanatory only if the quadratic
+composition rule, the $a^{-3}$ term, the constant rate, and the approximately
+$0.30{:}0.70$ channel ratio follow from an independent microscopic theory.
+The fit tells us what must be derived; it does not perform the derivation.
+
+\section{Time must be made relativistic}
+
+The literal addition of time as a fourth positive metadata coordinate is not
+covariant.  Cosmic time is not an interchangeable Euclidean feature, and
+relativistic observables are organized by causal structure.  Motivated by the
+role of causal order in discrete approaches to spacetime \citep{Surya2019}, we
+replace accumulated coordinate time by the causal past of an observation event.
+In flat FLRW spacetime its four-volume is
+\begin{equation}
+ V_4(\tau_o)=\frac{4\pi}{3}\int_0^{\tau_o}\!d\tau'\,a^3(\tau')
+ \left[\int_{\tau'}^{\tau_o}\frac{c\,d\tau''}{a(\tau'')}\right]^3.
+ \label{eq:v4}
+\end{equation}
+The covariant expansion scalar is $\theta=\nabla_\mu u^\mu=3H$.  We ask
+whether a redshift-independent constitutive relation
+\begin{equation}
+ 3H=\kappa\dot C
+ \label{eq:kappa}
+\end{equation}
+can hold for either $C=V_4$ in fixed units or $C=\log_2V_4$.  Evaluating
+Eq.~\eqref{eq:v4} from $z=2.33$ to the present along the DESI-calibrated
+two-channel background, the required $\kappa$ varies by a factor of 321.8 for
+raw four-volume.  Logarithmic volume performs substantially better, but still
+requires a factor 1.514 drift.  Its present coupling is $0.5373$, rather than
+the $\ln2=0.6931$ supplied by the direct neighborhood-volume dictionary.
+
+This result is more constructive than simply declaring ``time is different.''
+It identifies the problem: total causal volume repeatedly counts shared and
+redundant history.  If a history channel exists, the more plausible object is
+the \emph{conditional new information} between neighboring causal slices after
+conditioning on their common past.  That object is not supplied by
+Eq.~\eqref{eq:v4}, so we next seek an empirical analogue in evolving
+cosmological neighborhoods.
+
+\section{Neighborhood evolution in CAMELS}
+
+CAMELS provides many $25\,h^{-1}\mathrm{Mpc}$ cosmological volumes, including
+IllustrisTNG hydrodynamic simulations and gravity-only counterparts
+\citep{CAMELS2021,CAMELSRelease2022}.  The hydrodynamic runs use the
+IllustrisTNG galaxy-formation framework \citep{Pillepich2018}.  These
+simulations assume an FLRW/\LCDM{} background and therefore cannot establish
+that information causes cosmic expansion.  They can test the narrower local
+prediction: does independently measured neighborhood novelty rise where
+physical expansion is stronger, and is it suppressed in bound regions?
+
+\subsection{Tracking and estimators}
+
+We analyze snapshots 86, 88, and 90, corresponding approximately to
+$z=0.100$, $0.049$, and 0.  Subhalos with at least 100 particles are matched
+between adjacent snapshots using mutual-nearest comoving positions, a mass
+ratio within a factor of three, and a maximum displacement of
+$0.5\,\mathrm{Mpc}/h$.  Where the most-bound particle remains available, this
+geometric procedure recovers the persistent identity in 94--98\% of cases
+across the analyzed samples.
+
+For every matched object we construct a $k=16$ nearest-neighbor set.  A discrete
+estimator assigns surprisal to newly appearing neighbors conditional on the old
+set.  A continuous robustness estimator assigns Gaussian weights over the
+union of 64 nearby candidates and measures the Jensen--Shannon divergence
+between successive neighborhood distributions \citep{Lin1991}.  The physical
+volume change follows the same old neighbors into the next snapshot, using the
+determinant of their local covariance ellipsoid and restoring the background
+$a^3$ factor.  Low-density centrals define the field sample.  Satellites or
+objects in the upper local-density quartile define a bound-region proxy.
+
+In the initial fixed-cosmology volume, neighbor retention is 96.5--96.6\%.
+The field follows global expansion, with local-to-global ratios 0.982 and
+0.989, while the bound proxy gives 0.460 and 0.455.  Yet the continuous
+neighborhood JS change is roughly 24 times larger in the bound proxy.  Novelty
+correlates positively with density and negatively with local expansion.  The
+same environmental separation persists for $k=8,32,$ and 64.  Thus the direct
+prediction has the wrong local sign: the largest relational rearrangements
+occur not in freely expanding neighborhoods but in structured regions of
+orbital motion, close passages, and mergers.
+
+\subsection{Conditioning on phase space}
+
+Much of this rearrangement can be reversible dynamics rather than new
+information.  We therefore propagate each old phase-space state using its
+measured peculiar velocity.  In comoving $\mathrm{Mpc}/h$, the first-order FLRW
+prediction is
+\begin{equation}
+ \begin{split}
+ \boldsymbol{x}_{\rm pred}(a_2)&=\boldsymbol{x}(a_1)
+ +\frac{\boldsymbol{v}_{\rm pec}(a_1)}{100}
+ \int_{a_1}^{a_2}\frac{da}{a^2E(a)},\\
+ E(a)&=\sqrt{\Omega_ma^{-3}+\Omega_\Lambda}.
+ \end{split}
+ \label{eq:phase}
+\end{equation}
+The residual is the JS divergence between the neighborhood predicted by
+Eq.~\eqref{eq:phase} and the observed neighborhood.  This is a deliberately
+conservative ballistic control: accelerations, mergers, disruption, and halo
+identification remain in the residual.
+
+Across five independent fixed-cosmology IllustrisTNG realizations and two
+intervals per realization, field patches expand at $0.992\pm0.021$ of the
+global rate, whereas the bound proxy expands at $0.500\pm0.089$.  Raw median JS
+changes are $(3.80\pm0.85)\times10^{-5}$ bits in the field and
+$(8.39\pm1.53)\times10^{-4}$ bits in the bound proxy.  Phase conditioning
+reduces these to $(1.33\pm0.32)\times10^{-6}$ and
+$(1.40\pm0.64)\times10^{-4}$ bits: reductions of 96.5\% and 83.3\%,
+respectively.  The residual remains anticorrelated with expansion
+($\rho=-0.304\pm0.047$) and correlated with density
+($\rho=+0.629\pm0.032$).  Quoted dispersions are sample standard deviations
+across realization--interval measurements, not cosmological parameter errors.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.82\textwidth]{figures/camels_phase_control.pdf}
+\caption{Continuous neighborhood change in field and bound-proxy samples.
+Velocity propagation removes most of the raw change, especially in the field.
+The bound excess and its survival in gravity-only simulations indicate that
+ordinary nonlinear gravitational dynamics, not baryonic complexity, is the
+dominant source of the measured signal.  Error bars show sample standard
+deviations across realization--interval measurements.}
+\label{fig:camels}
+\end{figure*}
+
+\subsection{A matched gravity-only control}
+
+To isolate baryonic structural complexity, we repeat the analysis for matched
+IllustrisTNG and IllustrisTNG-DM Latin-hypercube realizations LH\_0--LH\_2,
+which share simulation indices, cosmologies, and initial seeds.  The
+hydrodynamic and gravity-only samples yield field expansion ratios
+$1.000\pm0.011$ and $0.988\pm0.017$, and bound ratios $0.533\pm0.062$ and
+$0.542\pm0.049$.  Their raw field JS changes are nearly identical.  The raw
+bound change is $(1.041\pm0.046)\times10^{-3}$ bits in hydrodynamics and
+$(1.241\pm0.116)\times10^{-3}$ bits in gravity only; after phase conditioning
+the corresponding residuals are $(2.32\pm1.34)\times10^{-4}$ and
+$(3.21\pm0.56)\times10^{-4}$ bits (Fig.~\ref{fig:camels}).
+
+The qualitative effect therefore does not require gas physics, star formation,
+or feedback.  Collisionless gravity is sufficient.  This does not make the
+relational pattern uninteresting.  It changes its most natural interpretation:
+neighborhood complexity records the dynamically maintained dependencies of
+bound structure rather than acting as an independent pressure that expands
+space.
+
+\section{What the tests leave standing}
+
+The original intuition separates into three claims that should no longer be
+conflated.
+
+First, \emph{structural distinction thins abstract neighborhoods}.  This is an
+exact combinatorial statement under the stated distance assumptions, and none
+of the cosmological tests alters it.
+
+Second, \emph{inverse neighborhood density can be written as an effective
+volume}.  This produces the exact kinematic relation
+Eq.~\eqref{eq:bridge}.  It is mathematically coherent and explains why the
+Hubble scale emerges so readily from a bit rate.  But without independent
+dynamics, any measured $H(t)$ can be translated into a fitted $N(t)$, making
+the construction tautological.
+
+Third, \emph{complexity growth physically drives cosmic expansion}.  The
+specific realizations tested here do not support this claim.  Fixed-dimensional
+history laws fail the BAO shape; total causal history lacks a constant
+coupling; and direct local novelty is largest where expansion is smallest.  A
+successful future model must introduce a covariant, coarse-grained,
+irreversible information functional and derive its gravitational coupling
+before using expansion data.  It must also distinguish itself from \LCDM{} in
+growth, lensing, redshift-space distortions, or another observable, rather than
+only relabeling the background equation.
+
+The binding result offers a productive direction.  In standard gravity, the
+competition between a bound mass $M$ and late-time accelerated expansion sets
+a maximum turnaround scale
+\begin{equation}
+ R_{\rm TA,max}=\left(\frac{3GM}{\Lambda c^2}\right)^{1/3},
+\end{equation}
+which has been proposed as a test of \LCDM{} and alternatives
+\citep{Pavlidou2014}.  The CAMELS results suggest that relational dependency
+measures may illuminate the structured side of this boundary.  The challenge
+is to derive---not rename---the dependence on $G$, $M$, and $R$, and to show
+whether an information balance reproduces the turnaround normalization.
+
+\section{Conclusion}
+
+The neighborhood-thinning idea survives contact with cosmology, but in a more
+interesting and disciplined form than the opening analogy.  Its exact
+combinatorics provide a clean bridge from distinguishing information to an
+effective expansion rate.  A minimal history law then lands unexpectedly close
+to the observed Hubble scale.  Precision distance data show that the same law
+cannot describe the expansion history, while a successful two-channel version
+reveals itself as the standard flat-\LCDM{} background in relational language.
+Making history relativistic improves the formulation but not yet the dynamics.
+
+The simulations supply the most concrete new clue.  Relational rearrangement
+is enhanced where gravity binds and cosmic expansion is suppressed; ordinary
+phase-space motion explains most of it; and gravity alone reproduces it.  The
+result redirects the hypothesis rather than ending it.  Neighborhood
+complexity appears better suited to describing how gravitational structures
+maintain dependent histories than to serving, in its present form, as the
+source of dark energy.  That narrowed target is now precise: construct an
+irreversible covariant information measure, derive its coupling, and demand a
+prediction that cannot be obtained by translating the observed Friedmann
+equation.
+
+\section*{Data and reproducibility}
+
+All calculations are implemented in the accompanying repository.  The DESI
+test uses the public DR2 BAO mean vector and covariance.  CAMELS group catalogs
+are downloaded from the public release \citep{CAMELSRelease2022}; positions and
+velocities follow the published Illustris catalog conventions.  The scripts
+record the selections, matching cuts, estimators, phase propagation, and all
+reported fit statistics.  No CAMELS result is used as an independent test of
+the assumed background cosmology.
+
+\bibliographystyle{unsrtnat}
+\bibliography{complexity_cosmology}
+
+\end{document}

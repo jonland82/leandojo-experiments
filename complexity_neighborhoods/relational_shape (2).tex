@@ -1,0 +1,138 @@
+\documentclass[10.5pt]{article}
+\usepackage[letterpaper,margin=0.76in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{hyperref}
+
+\definecolor{ink}{HTML}{1F2933}
+\definecolor{muted}{HTML}{66737F}
+\definecolor{accent}{HTML}{394B59}
+\hypersetup{colorlinks=true,linkcolor=accent,urlcolor=accent,citecolor=accent}
+\color{ink}
+
+\titleformat{\section}{\large\bfseries\color{accent}}{}{0pt}{}
+\titlespacing*{\section}{0pt}{0.75em}{0.25em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.40em}
+\setlist{nosep,leftmargin=1.35em}
+
+\newtheorem{proposition}{Proposition}
+\newtheorem*{remark}{Remark}
+
+\title{\vspace{-2.3em}\textbf{The Relational Shape of Structural Complexity\\and Neighborhood Density}}
+\author{J. R. Landers}
+\date{}
+
+\begin{document}
+\maketitle
+\vspace{-1.25em}
+
+\begin{abstract}
+A mathematical object becomes more richly specified as metadata is added to its description. A natural question is whether this additional structure also changes the object's \emph{relational position}: does a more detailed object tend to lie farther from the other objects in a population, and therefore occupy a sparser neighborhood? For a broad class of additive distances the answer is exact rather than heuristic. Additional distinguishing coordinates can only increase pairwise separation, while the density of every fixed-radius neighborhood can only decrease. The effect admits a direct information-theoretic interpretation.
+\end{abstract}
+
+\section*{Objects, descriptions, and distance}
+Let
+\[
+\mathcal O=\{O_1,\ldots,O_K\}
+\]
+be a finite collection of $K$ objects. At descriptive complexity $N$, object $O_i$ is represented by metadata
+\[
+O_i^{(N)}=(o_{i1},\ldots,o_{iN}),
+\]
+where $o_{in}$ denotes the value of the $n$th metadata coordinate. Assume separation is measured by an additive nonnegative distance
+\[
+\delta_N(O_i,O_j)=\sum_{n=1}^{N} d_n(o_{in},o_{jn}),
+\qquad d_n(x,y)\ge 0,
+\]
+with each $d_n$ measuring dissimilarity along coordinate $n$. The next level of structural complexity appends one further coordinate, so that
+\[
+\delta_{N+1}(O_i,O_j)
+=\delta_N(O_i,O_j)+d_{N+1}(o_{i,N+1},o_{j,N+1}).
+\]
+Thus added structure acts geometrically: it contributes another nonnegative direction along which two objects may differ.
+
+For a fixed object $O_i$, define its mean relational separation
+\[
+D_N(i)=\frac{1}{K-1}\sum_{j\ne i}\delta_N(O_i,O_j).
+\]
+Also define its normalized radius-$r$ neighborhood density by
+\[
+\rho_N(i;r)=\frac{1}{K-1}\sum_{j\ne i}
+\mathbf 1\!\left\{\delta_N(O_i,O_j)\le r\right\},
+\]
+where $\mathbf 1\{\cdot\}$ is the indicator function. The quantity $\rho_N(i;r)$ is simply the fraction of the remaining objects lying within distance $r$ of $O_i$.
+
+\begin{proposition}[Structural separation and neighborhood thinning]
+For every $i$, every $j\ne i$, and every radius $r\ge 0$,
+\[
+\delta_{N+1}(O_i,O_j)\ge \delta_N(O_i,O_j),
+\]
+and consequently
+\[
+D_{N+1}(i)\ge D_N(i),
+\qquad
+\rho_{N+1}(i;r)\le \rho_N(i;r).
+\]
+If the appended metadata distinguishes $O_i$ from at least one other object, then $D_{N+1}(i)>D_N(i)$ whenever the corresponding coordinate distance is strictly positive.
+\end{proposition}
+
+\begin{proof}
+Because $d_{N+1}\ge 0$,
+\[
+\delta_{N+1}(O_i,O_j)-\delta_N(O_i,O_j)
+=d_{N+1}(o_{i,N+1},o_{j,N+1})\ge 0.
+\]
+Averaging this inequality over $j\ne i$ gives $D_{N+1}(i)\ge D_N(i)$. Since no pairwise distance decreases, an object that lies outside a radius-$r$ neighborhood at level $N$ cannot move into that neighborhood merely by appending a nonnegative distance contribution. Hence every indicator in $\rho_N(i;r)$ is nonincreasing, and so is their average. Strict growth of $D_N(i)$ follows if at least one added contribution is positive.
+\end{proof}
+
+The proposition gives a simple relational picture: richer descriptions do not merely enlarge the internal representation of an object. When the new structure is distinguishing, they push that object outward relative to the population, thinning its fixed-radius neighborhood.
+
+\section*{The information carried by a new coordinate}
+For categorical metadata, the connection to information is especially transparent. Suppose coordinate $n$ takes values in a finite alphabet $\mathcal A_n$ with probabilities $p_n(x)$, and use Hamming distance,
+\[
+d_n(x,y)=\mathbf 1\{x\ne y\}.
+\]
+For two independently sampled objects,
+\[
+\Pr(o_{in}\ne o_{jn})
+=1-\sum_{x\in\mathcal A_n}p_n(x)^2.
+\]
+Therefore
+\[
+\mathbb E\,\delta_N(O_i,O_j)
+=\sum_{n=1}^{N}\left(1-\sum_{x\in\mathcal A_n}p_n(x)^2\right).
+\]
+Each coordinate contributes exactly its probability of distinguishing two sampled objects. A constant coordinate contributes zero; a highly diverse coordinate contributes more. The term $\sum_x p_n(x)^2$ is the collision probability and is directly related to R\'enyi entropy of order $2$,
+\[
+H_2(p_n)=-\log\!\left(\sum_x p_n(x)^2\right).
+\]
+Thus the growth of expected distance is governed not by metadata count alone, but by the \emph{distinguishing information} carried by the appended structure.
+
+In the uniform $q$-ary case, $p_n(x)=1/q$, so
+\[
+\mathbb E\,\delta_N=N\left(1-\frac1q\right).
+\]
+Expected separation grows linearly with description length. For real-valued independent coordinates of variance $\sigma^2$, squared Euclidean distance yields the analogous identity
+\[
+\mathbb E\,\delta_N^2=2N\sigma^2,
+\]
+so the typical Euclidean scale grows on the order of $\sqrt N$.
+
+\section*{What the principle does -- and does not -- say}
+The essential distinction is between \emph{more metadata} and \emph{more distinguishing structure}. Appending the same value to every object increases description length but leaves all distances unchanged. Redundant coordinates may likewise add little genuinely new separation. Moreover, dimension-normalized distances can behave differently because the normalization itself changes with $N$.
+
+Under a distance that accumulates nonnegative coordinate-wise differences, however, the relational consequence is sharp:
+\[
+\boxed{
+\text{distinguishing structural complexity increases separation and thins local neighborhoods.}
+}
+\]
+This suggests viewing structural complexity not only as an intrinsic property of an object, but as a geometric property of its position among alternatives. As an object becomes more specifically described, its identity is expressed partly through the progressive disappearance of nearby peers.
+
+\end{document}
