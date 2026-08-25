@@ -6,10 +6,9 @@ present-day Hubble-scale estimate, its DESI tests, and the resulting dynamical
 conditional-information program.
 
 - `accumulated_time_cosmology.tex` — LaTeX source
-- `accumulated_time_cosmology.pdf` — compiled six-page note
+- `accumulated_time_cosmology.pdf` — compiled seven-page note
 
-The bibliography is shared with the larger study at
-`../neighborhood_thinning_cosmology/complexity_cosmology.bib`.
+The bibliography is shared at `../../references/complexity_cosmology.bib`.
 
 Build from this directory with:
 

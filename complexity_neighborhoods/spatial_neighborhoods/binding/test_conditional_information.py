@@ -7,8 +7,10 @@ Lagrangian patch.  Dense, satellite-rich regions serve as the bound-environment
 comparison and low-density central subhalos as the field comparison.
 
 This is a test inside a LambdaCDM simulation, not evidence that information
-causes expansion.  It tests the narrower local prediction that relational
-novelty should accompany expansion and be suppressed by binding.
+causes expansion. It measures fixed-k spatial-neighborhood rearrangement in
+comoving coordinates, not fixed-radius survival in an ensemble of alternative
+histories. Its result therefore belongs to the binding/rearrangement track and
+does not directly test the accumulated-history hypothesis.
 """
 
 from __future__ import annotations
@@ -28,7 +30,9 @@ from scipy.stats import spearmanr
 
 SNAPSHOTS = (86, 88, 90)
 BASE_ROOT = "https://users.flatironinstitute.org/~camels/Sims"
-DATA_ROOT = Path(__file__).resolve().parents[2] / "data"
+# Shared, ignored repository data cache. The extra parent reflects this
+# experiment's placement under complexity_neighborhoods/spatial_neighborhoods.
+DATA_ROOT = Path(__file__).resolve().parents[3] / "data"
 MIN_PARTICLES = 100
 NEIGHBORS = 16
 KERNEL_CANDIDATES = 64

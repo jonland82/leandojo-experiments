@@ -1,5 +1,9 @@
 # Neighborhood thinning as a cosmological mechanism
 
+> **Archived checkpoint.** This document records the state of the project on
+> 2026-08-21. The active accumulated-history program and reorganized file map
+> are described in `../../PROGRAM.md` and `../../accumulated_history/`.
+
 ## Status
 
 **Restart checkpoint: 2026-08-21.** This is a falsifiable toy model and
@@ -40,8 +44,8 @@ interpretation can mean. A five-page, two-column manuscript implementing this
 framing was completed as `neighborhood_thinning_cosmology.tex` and compiled to
 `neighborhood_thinning_cosmology.pdf` on 2026-08-21.
 
-A second, deliberately narrower note was completed on the same date in
-`../cosmology_time_note/`. It isolates the accumulated-time construction, shows
+A second, deliberately narrower note was completed on the same date and now
+resides in `../../accumulated_history/note/`. It isolates the accumulated-time construction, shows
 why $N=3\log_2(t/t_*)$ gives the attractive $70.85$ Hubble-scale estimate,
 distinguishes it from literal $3+1$ counting, and gives the explicit power-law
 and DESI reasons both constructions fail as expansion histories.
@@ -534,24 +538,25 @@ LambdaCDM expansion.
 
 | file | purpose |
 |---|---|
-| `../relational_shape (2).tex` | untouched source of the original neighborhood-complexity paper |
-| `../The_Relational_Shape_of_Structural_Complexity_and_Neighborhood_Density (2).pdf` | untouched compiled original paper |
-| `../cosmology_time_note/accumulated_time_cosmology.tex` | focused single-column note on accumulated history, 3D, and why the construction fails |
-| `../cosmology_time_note/accumulated_time_cosmology.pdf` | compiled four-page accumulated-time note |
-| `COSMOLOGY_HYPOTHESIS.md` | master scientific checkpoint and current interpretation |
-| `cosmology_toy_model.py` | age-scale estimate, constant-rate calibration, and turnaround calculation |
-| `test_history_models.py` | DESI DR2 BAO shape fits and held-out-redshift tests |
-| `test_relativistic_history.py` | causal-past four-volume and coupling-drift test |
-| `test_conditional_information.py` | CAMELS matching, neighborhood estimators, FLRW phase propagation, replication, and gravity-only control |
+| `../../foundation/relational_shape.tex` | source of the original neighborhood-complexity paper |
+| `../../foundation/relational_shape.pdf` | compiled original paper |
+| `../../accumulated_history/note/accumulated_time_cosmology.tex` | focused single-column note on accumulated history, 3D, and why the construction fails |
+| `../../accumulated_history/note/accumulated_time_cosmology.pdf` | compiled accumulated-time note |
+| `SCIENTIFIC_CHECKPOINT_2026-08-21.md` | archived scientific checkpoint and interpretation |
+| `../../accumulated_history/benchmarks/cosmology_toy_model.py` | age-scale estimate, constant-rate calibration, and turnaround calculation |
+| `../../accumulated_history/experiments/expansion_history/test_history_models.py` | DESI DR2 BAO shape fits and held-out-redshift tests |
+| `../../accumulated_history/experiments/causal_volume/test_relativistic_history.py` | causal-past four-volume and coupling-drift test |
+| `../../spatial_neighborhoods/binding/test_conditional_information.py` | CAMELS matching, neighborhood estimators, FLRW phase propagation, replication, and gravity-only control |
 | `make_paper_figures.py` | reproducibly generates the two manuscript figures |
-| `complexity_cosmology.bib` | manuscript bibliography with primary observational, theoretical, and simulation sources |
+| `../../references/complexity_cosmology.bib` | shared bibliography with primary observational, theoretical, and simulation sources |
 | `neighborhood_thinning_cosmology.tex` | professional short-paper source |
 | `neighborhood_thinning_cosmology.pdf` | compiled five-page short paper |
 | `figures/` | publication figures in PDF and PNG formats |
 
-The DESI likelihood vector and covariance are in this folder's `data/`
-subdirectory. Downloaded CAMELS catalogs are cached under
-`data/camels_cv0/` and `data/camels/`. These data directories are ignored by
+The DESI likelihood vector and covariance are under
+`../../accumulated_history/experiments/expansion_history/data/`. Downloaded
+CAMELS catalogs are cached under the repository-level ignored `data/`
+directory. These data directories are ignored by
 Git; a fresh checkout must retain or redownload them. The CAMELS test downloads
 missing catalogs automatically. The Python dependencies are recorded in the
 repository-level `requirements.txt`; `h5py` was added for the HDF5 catalogs.
@@ -599,13 +604,13 @@ editorial rather than another parameter fit:
 Run:
 
 ```powershell
-python complexity_neighborhoods/neighborhood_thinning_cosmology/cosmology_toy_model.py
-python complexity_neighborhoods/neighborhood_thinning_cosmology/test_history_models.py
-python complexity_neighborhoods/neighborhood_thinning_cosmology/test_relativistic_history.py
-python complexity_neighborhoods/neighborhood_thinning_cosmology/test_conditional_information.py
-python complexity_neighborhoods/neighborhood_thinning_cosmology/test_conditional_information.py --realizations 0 1 2 3 4
-python complexity_neighborhoods/neighborhood_thinning_cosmology/test_conditional_information.py --simulation-set LH --realizations 0 1 2
-python complexity_neighborhoods/neighborhood_thinning_cosmology/test_conditional_information.py --suite IllustrisTNG_DM --simulation-set LH --realizations 0 1 2
+python complexity_neighborhoods/accumulated_history/benchmarks/cosmology_toy_model.py
+python complexity_neighborhoods/accumulated_history/experiments/expansion_history/test_history_models.py
+python complexity_neighborhoods/accumulated_history/experiments/causal_volume/test_relativistic_history.py
+python complexity_neighborhoods/spatial_neighborhoods/binding/test_conditional_information.py
+python complexity_neighborhoods/spatial_neighborhoods/binding/test_conditional_information.py --realizations 0 1 2 3 4
+python complexity_neighborhoods/spatial_neighborhoods/binding/test_conditional_information.py --simulation-set LH --realizations 0 1 2
+python complexity_neighborhoods/spatial_neighborhoods/binding/test_conditional_information.py --suite IllustrisTNG_DM --simulation-set LH --realizations 0 1 2
 ```
 
 Published calibration sources:

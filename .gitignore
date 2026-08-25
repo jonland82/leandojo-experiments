@@ -2,6 +2,8 @@ __pycache__/
 *.py[cod]
 .venv/
 data/
+!complexity_neighborhoods/accumulated_history/experiments/expansion_history/data/
+!complexity_neighborhoods/accumulated_history/experiments/expansion_history/data/*.txt
 .aws-run/
 **/.runtime/
 
@@ -18,12 +20,19 @@ texput.log
 build-pass*.log
 
 # Complexity-neighborhoods manuscript build/visual-check artifacts
-complexity_neighborhoods/neighborhood_thinning_cosmology/neighborhood_thinning_cosmology.bbl
-complexity_neighborhoods/neighborhood_thinning_cosmology/neighborhood_thinning_cosmology.blg
-complexity_neighborhoods/neighborhood_thinning_cosmology/neighborhood_thinning_cosmology.log
-complexity_neighborhoods/neighborhood_thinning_cosmology/preview_page-*.png
-complexity_neighborhoods/neighborhood_thinning_cosmology/final_page*.png
-complexity_neighborhoods/cosmology_time_note/accumulated_time_cosmology.bbl
-complexity_neighborhoods/cosmology_time_note/accumulated_time_cosmology.blg
-complexity_neighborhoods/cosmology_time_note/accumulated_time_cosmology.log
-complexity_neighborhoods/cosmology_time_note/note_page*.png
+complexity_neighborhoods/archive/no_go_paper/neighborhood_thinning_cosmology.bbl
+complexity_neighborhoods/archive/no_go_paper/neighborhood_thinning_cosmology.blg
+complexity_neighborhoods/archive/no_go_paper/neighborhood_thinning_cosmology.log
+complexity_neighborhoods/archive/no_go_paper/preview_page-*.png
+complexity_neighborhoods/archive/no_go_paper/final_page*.png
+complexity_neighborhoods/accumulated_history/note/accumulated_time_cosmology.bbl
+complexity_neighborhoods/accumulated_history/note/accumulated_time_cosmology.blg
+complexity_neighborhoods/accumulated_history/note/accumulated_time_cosmology.log
+complexity_neighborhoods/accumulated_history/note/note_page*.png
+complexity_neighborhoods/accumulated_history/noether_history_note/noether_compatible_histories.bbl
+complexity_neighborhoods/accumulated_history/noether_history_note/noether_compatible_histories.blg
+complexity_neighborhoods/accumulated_history/noether_history_note/noether_compatible_histories.log
+complexity_neighborhoods/accumulated_history/noether_history_note/note_page*.png
+complexity_neighborhoods/accumulated_history/noether_history_note/final_page*.png
+complexity_neighborhoods/accumulated_history/noether_history_note/checked_page*.png
+complexity_neighborhoods/accumulated_history/noether_history_note/finalcheck*.png
