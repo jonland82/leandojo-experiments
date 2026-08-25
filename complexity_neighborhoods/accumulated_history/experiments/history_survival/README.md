@@ -7,7 +7,11 @@ misspecification results are in `CONDITIONING_STRESS_RESULTS.md`; and the
 full-radius gate is recorded in `MULTISCALE_IDENTIFIABILITY_RESULTS.md`. The
 Noether energy-shell and stationary-action extension is recorded in
 `NOETHER_CARDINALITY_RESULTS.md`; its coordinate and grid invariance test is in
-`NOETHER_INVARIANCE_RESULTS.md`.
+`NOETHER_INVARIANCE_RESULTS.md`. The complete-history pushforward, nonlinear
+canonical, clock, and constrained-gauge tests are implemented in
+`run_history_pushforward.py`, `run_history_measure_extensions.py`, and
+`run_constrained_history_gauge.py`; their synthesis is the paper in
+`../../invariant_history_note/`.
 
 ## Scientific question
 
@@ -72,4 +76,7 @@ python complexity_neighborhoods/accumulated_history/experiments/history_survival
 python complexity_neighborhoods/accumulated_history/experiments/history_survival/run_multiscale_identifiability.py
 python complexity_neighborhoods/accumulated_history/experiments/history_survival/run_noether_cardinality.py
 python complexity_neighborhoods/accumulated_history/experiments/history_survival/run_noether_invariance.py
+python complexity_neighborhoods/accumulated_history/experiments/history_survival/run_history_pushforward.py
+python complexity_neighborhoods/accumulated_history/experiments/history_survival/run_history_measure_extensions.py
+python complexity_neighborhoods/accumulated_history/experiments/history_survival/run_constrained_history_gauge.py
 ```

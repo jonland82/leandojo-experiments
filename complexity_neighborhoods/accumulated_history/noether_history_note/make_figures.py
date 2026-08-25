@@ -36,6 +36,7 @@ MUTED = "#66737F"
 ACCENT = "#394B59"
 PALE = "#AAB4BC"
 LIGHT = "#D6DDE2"
+TEXT = "#000000"
 
 
 def set_style() -> None:
@@ -43,12 +44,12 @@ def set_style() -> None:
         {
             "font.family": "serif",
             "font.size": 9,
-            "axes.labelcolor": INK,
-            "axes.edgecolor": MUTED,
-            "axes.titlecolor": INK,
-            "xtick.color": MUTED,
-            "ytick.color": MUTED,
-            "text.color": INK,
+            "axes.labelcolor": TEXT,
+            "axes.edgecolor": TEXT,
+            "axes.titlecolor": TEXT,
+            "xtick.color": TEXT,
+            "ytick.color": TEXT,
+            "text.color": TEXT,
             "legend.frameon": False,
             "axes.spines.top": False,
             "axes.spines.right": False,
@@ -87,13 +88,19 @@ def radius_figure() -> None:
         )
 
     ax.axhline(0.25, color=MUTED, linestyle=(0, (3, 3)), linewidth=1.0)
-    ax.text(0.0108, 0.263, "same apparent target", color=MUTED, fontsize=8)
+    ax.text(0.0108, 0.263, "same apparent target", color=TEXT, fontsize=8)
     ax.set_xscale("log")
     ax.set_xlim(0.01, 5.0)
     ax.set_ylim(0.0, 0.72)
     ax.set_xlabel(r"Compatibility radius $r$ (initial RMS-separation units)")
     ax.set_ylabel(r"Inferred rate (bits/Gyr)")
-    ax.legend(loc="upper right", ncol=3, columnspacing=1.2, handlelength=2.2)
+    ax.legend(
+        loc="lower left",
+        bbox_to_anchor=(0.01, 0.035),
+        ncol=3,
+        columnspacing=1.2,
+        handlelength=2.2,
+    )
     ax.grid(axis="y", color=LIGHT, linewidth=0.55, alpha=0.75)
     fig.tight_layout(pad=0.5)
     fig.savefig(HERE / "radius_identifiability.pdf", bbox_inches="tight")
@@ -155,13 +162,14 @@ def invariance_figure() -> None:
             label=name,
         )
     right.axhline(0.0, color=MUTED, linewidth=0.8)
+    right.set_ylim(-0.10, 0.22)
     right.set_xticks(
         x,
         ("aspect\n0.5", "aspect\n1", "aspect\n2", "canonical\nshear"),
     )
     right.set_ylabel("Liouville-density error (%)")
     right.set_title("Phase volume forgets the grid")
-    right.legend(loc="upper left")
+    right.legend(loc="upper right")
     right.grid(axis="y", color=LIGHT, linewidth=0.55, alpha=0.75)
 
     handles, legend_labels = left.get_legend_handles_labels()

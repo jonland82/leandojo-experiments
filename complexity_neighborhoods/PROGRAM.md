@@ -23,8 +23,13 @@ experiment produced a favorable result.
    unresolved distinctions.
 7. **Current invariant candidate:** Noether constraints define dynamical
    admissibility, while Liouville phase volume survives the tested grid and
-   canonical-coordinate changes. Absolute temporal normalization remains open.
-8. **Separate result:** spatial halo-neighborhood turnover primarily tracks
+   canonical-coordinate changes.
+8. **Finite constrained-history result:** reduced Liouville measure induces a
+   complete-history measure by pushforward through deterministic dynamics.
+   Lapse weighting removes clock-density artifacts and the gauge-fixed
+   determinant removes orbit-counting artifacts in the parametrized-oscillator
+   test. Extension to gravitational constraints remains open.
+9. **Separate result:** spatial halo-neighborhood turnover primarily tracks
    peculiar motion and gravitational binding. It is not a direct test of the
    active compatible-history hypothesis.
 
@@ -32,8 +37,8 @@ experiment produced a favorable result.
 
 - `foundation/` — the relational-shape theorem and its original paper.
 - `accumulated_history/` — the active compatible-history cosmology program,
-  retained baselines, the accumulated-time note, and its Noether/Liouville
-  sequel.
+  retained baselines, the accumulated-time note, its Noether/Liouville sequel,
+  and the invariant classical-history paper.
 - `spatial_neighborhoods/` — local spatial-neighborhood and binding studies.
 - `references/` — bibliography shared by the papers.
 - `archive/no_go_paper/` — completed 2026-08-21 synthesis of the first round of
@@ -53,4 +58,4 @@ Each active experiment should state:
 
 The completed estimator sequence and its next-stage requirements are recorded
 in `accumulated_history/experiments/history_survival/README.md`; the current
-synthesis is `accumulated_history/noether_history_note/`.
+synthesis is `accumulated_history/invariant_history_note/`.

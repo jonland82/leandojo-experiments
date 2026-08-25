@@ -13,6 +13,9 @@ Directory roles:
 - `note/` — focused accumulated-time paper and its compiled PDF.
 - `noether_history_note/` — sequel developing Noether-defined admissibility
   and invariant Liouville measure, with its compiled PDF and figures.
+- `invariant_history_note/` — fourth paper constructing complete-history
+  measure by pushforward from reduced phase space and testing nonlinear
+  canonical, clock, and gauge invariance.
 - `experiments/expansion_history/` — DESI rejection of constant-rate history
   laws, retained as a falsified baseline.
 - `experiments/causal_volume/` — causal-past volume diagnostic, retained as an
@@ -22,6 +25,7 @@ Directory roles:
 - `benchmarks/` — numerical calibrations and phenomenological comparisons that
   do not independently derive the mechanism.
 
-The active program must now lift the invariant conditional measure to a
-constrained gravitational system and derive its temporal normalization without
-reconstructing the rate from the expansion it is intended to explain.
+The finite constrained classical construction now passes canonical, clock,
+and gauge tests. The active program must lift it to a constrained gravitational
+system without reconstructing the rate from the expansion it is intended to
+explain.
