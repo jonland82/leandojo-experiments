@@ -1,0 +1,76 @@
+{
+  "experiment_id": "frontier-vocabulary-ablation",
+  "declarations": 18852,
+  "changed": 10269,
+  "replacements": 22527,
+  "total_characters": 3383299,
+  "projects": {
+    "flt": {
+      "declarations": 2003,
+      "changed": 936,
+      "replacements": 3350,
+      "distinct_resolved_symbols": 755,
+      "changed_fraction": 0.4672990514228657
+    },
+    "formalized-logic": {
+      "declarations": 2505,
+      "changed": 1447,
+      "replacements": 2558,
+      "distinct_resolved_symbols": 248,
+      "changed_fraction": 0.5776447105788424
+    },
+    "lean-liquid": {
+      "declarations": 2502,
+      "changed": 1531,
+      "replacements": 3641,
+      "distinct_resolved_symbols": 753,
+      "changed_fraction": 0.6119104716227018
+    },
+    "navier-stokes-euler": {
+      "declarations": 2507,
+      "changed": 1664,
+      "replacements": 4151,
+      "distinct_resolved_symbols": 558,
+      "changed_fraction": 0.6637415237335461
+    },
+    "pfr": {
+      "declarations": 910,
+      "changed": 347,
+      "replacements": 644,
+      "distinct_resolved_symbols": 41,
+      "changed_fraction": 0.3813186813186813
+    },
+    "pnt": {
+      "declarations": 2503,
+      "changed": 1206,
+      "replacements": 1469,
+      "distinct_resolved_symbols": 194,
+      "changed_fraction": 0.4818218138234119
+    },
+    "schoenflies": {
+      "declarations": 2501,
+      "changed": 1431,
+      "replacements": 3322,
+      "distinct_resolved_symbols": 195,
+      "changed_fraction": 0.5721711315473811
+    },
+    "sphere-eversion": {
+      "declarations": 909,
+      "changed": 430,
+      "replacements": 628,
+      "distinct_resolved_symbols": 72,
+      "changed_fraction": 0.4730473047304731
+    },
+    "ten-proofs": {
+      "declarations": 2512,
+      "changed": 1277,
+      "replacements": 2764,
+      "distinct_resolved_symbols": 478,
+      "changed_fraction": 0.508359872611465
+    }
+  },
+  "conservative_token_estimate": 1353319.6,
+  "projected_cost_usd": 0.162398352,
+  "hard_cost_cap_usd": 15.0,
+  "within_cap": true
+}

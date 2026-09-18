@@ -1,0 +1,5 @@
+artifacts/embedding_chunks/
+artifacts/embeddings/
+inputs/
+logs/
+

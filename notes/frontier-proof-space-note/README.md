@@ -1,7 +1,8 @@
 # Frontier proof-space note
 
-This directory contains the short paper-style report for the
-`frontier-formalizations` experiment.
+This directory contains the compact paper-style report synthesizing the
+frontier formalization, rarity, time, style, architecture, dependency,
+depth-isolation, vocabulary-ablation, and headline-isolation experiments.
 
 Build from this directory with:
 
@@ -9,5 +10,5 @@ Build from this directory with:
 latexmk -pdf -interaction=nonstopmode -halt-on-error note.tex
 ```
 
-The figure is read directly from the experiment's checked-in artifacts so the
-note and analysis use the same rendered object.
+Figures are read directly from the experiments' checked-in artifacts so the
+note and analyses use the same rendered objects.

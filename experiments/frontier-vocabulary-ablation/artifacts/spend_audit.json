@@ -1,0 +1,7 @@
+{
+  "successful_calls": 197,
+  "failed_or_throttled_attempts": 85,
+  "successful_characters": 3383299,
+  "conservative_token_estimate": 1353319.6,
+  "estimated_successful_output_cost_usd": 0.162398352
+}

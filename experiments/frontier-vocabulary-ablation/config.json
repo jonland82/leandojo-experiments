@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "experiment_id": "frontier-vocabulary-ablation",
+  "neighbor_k": 10,
+  "embedding": {
+    "region": "us-east-1",
+    "model_id": "global.cohere.embed-v4:0",
+    "input_type": "clustering",
+    "embedding_type": "float",
+    "output_dimension": 1024,
+    "batch_size": 96,
+    "max_tokens": 128000,
+    "truncate": "NONE",
+    "max_attempts": 10,
+    "workers": 4,
+    "estimated_price_usd_per_million_text_tokens": 0.12,
+    "hard_cost_cap_usd": 15.0,
+    "cost_guard_characters_per_token": 2.5
+  }
+}
+

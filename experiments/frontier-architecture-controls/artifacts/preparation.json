@@ -1,0 +1,16 @@
+{
+  "experiment_id": "frontier-architecture-controls",
+  "control_declarations": 21000,
+  "frontier_declarations": 16350,
+  "projects": {
+    "flt": 2003,
+    "formalized-logic": 2505,
+    "navier-stokes-euler": 2507,
+    "pfr": 910,
+    "pnt": 2503,
+    "schoenflies": 2501,
+    "sphere-eversion": 909,
+    "ten-proofs": 2512
+  },
+  "feature_file": "artifacts/features.jsonl"
+}

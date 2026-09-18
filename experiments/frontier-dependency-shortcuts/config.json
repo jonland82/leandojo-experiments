@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "experiment_id": "frontier-dependency-shortcuts",
+  "matched_controls_per_headline": 20,
+  "random_seed": 20260918,
+  "primary_projects": [
+    "ten-proofs",
+    "navier-stokes-euler",
+    "flt",
+    "pfr",
+    "pnt",
+    "formalized-logic",
+    "schoenflies",
+    "sphere-eversion"
+  ],
+  "descriptive_projects": ["lean-liquid"]
+}
+

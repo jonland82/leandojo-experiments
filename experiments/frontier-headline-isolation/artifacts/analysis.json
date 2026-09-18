@@ -1,0 +1,177 @@
+{
+  "experiment_id": "frontier-headline-isolation",
+  "headlines": 34,
+  "sampled_headline_ancestors": 5492,
+  "all_nonheadline_controls": {
+    "headline_level": {
+      "mean": -0.012016391052919276,
+      "lower": -0.025501500269157096,
+      "upper": 0.0014687181633185435,
+      "n": 34
+    },
+    "project_balanced": {
+      "mean": -0.005990500606241681,
+      "lower": -0.025243398980785606,
+      "upper": 0.013262397768302243,
+      "n": 8
+    },
+    "mean_absolute_standardized_imbalance_before": 1.0887812724772632,
+    "mean_absolute_standardized_imbalance_after": 0.6736096445505424,
+    "minimum_controls_per_headline": 4,
+    "median_controls_per_headline": 20.0,
+    "projects": [
+      {
+        "project": "flt",
+        "headlines": 3,
+        "isolation_lift": -0.05073400338490804,
+        "headline_density": 0.8198767701784769,
+        "control_density": 0.769142766793569
+      },
+      {
+        "project": "formalized-logic",
+        "headlines": 5,
+        "isolation_lift": 0.017250001430511475,
+        "headline_density": 0.7196179032325745,
+        "control_density": 0.7368679046630859
+      },
+      {
+        "project": "navier-stokes-euler",
+        "headlines": 7,
+        "isolation_lift": -0.01018772806440081,
+        "headline_density": 0.7233026879174369,
+        "control_density": 0.7131149598530361
+      },
+      {
+        "project": "pfr",
+        "headlines": 2,
+        "isolation_lift": -0.004390895366668701,
+        "headline_density": 0.7596898376941681,
+        "control_density": 0.7552989423274994
+      },
+      {
+        "project": "pnt",
+        "headlines": 3,
+        "isolation_lift": 0.005502065022786458,
+        "headline_density": 0.7600730458895365,
+        "control_density": 0.765575110912323
+      },
+      {
+        "project": "schoenflies",
+        "headlines": 1,
+        "isolation_lift": 0.0006639361381530762,
+        "headline_density": 0.7492779493331909,
+        "control_density": 0.749941885471344
+      },
+      {
+        "project": "sphere-eversion",
+        "headlines": 1,
+        "isolation_lift": 0.018850088119506836,
+        "headline_density": 0.736009418964386,
+        "control_density": 0.7548595070838928
+      },
+      {
+        "project": "ten-proofs",
+        "headlines": 12,
+        "isolation_lift": -0.024877468744913738,
+        "headline_density": 0.7436882505814234,
+        "control_density": 0.7188107818365097
+      }
+    ]
+  },
+  "headline_cone_excluded_controls": {
+    "headline_level": {
+      "mean": -0.007406366222045001,
+      "lower": -0.021169226211336066,
+      "upper": 0.006356493767246064,
+      "n": 34
+    },
+    "project_balanced": {
+      "mean": -0.002045779125321479,
+      "lower": -0.023545919984941533,
+      "upper": 0.019454361734298573,
+      "n": 8
+    },
+    "mean_absolute_standardized_imbalance_before": 1.145154809955823,
+    "mean_absolute_standardized_imbalance_after": 0.8190569993124004,
+    "minimum_controls_per_headline": 2,
+    "median_controls_per_headline": 20.0,
+    "projects": [
+      {
+        "project": "flt",
+        "headlines": 3,
+        "isolation_lift": -0.05073400338490804,
+        "headline_density": 0.8198767701784769,
+        "control_density": 0.769142766793569
+      },
+      {
+        "project": "formalized-logic",
+        "headlines": 5,
+        "isolation_lift": 0.01734968423843384,
+        "headline_density": 0.7196179032325745,
+        "control_density": 0.7369675874710083
+      },
+      {
+        "project": "navier-stokes-euler",
+        "headlines": 7,
+        "isolation_lift": -0.013334580830165319,
+        "headline_density": 0.7233026879174369,
+        "control_density": 0.7099681070872715
+      },
+      {
+        "project": "pfr",
+        "headlines": 2,
+        "isolation_lift": -0.009170681238174438,
+        "headline_density": 0.7596898376941681,
+        "control_density": 0.7505191564559937
+      },
+      {
+        "project": "pnt",
+        "headlines": 3,
+        "isolation_lift": -0.0027981003125508628,
+        "headline_density": 0.7600730458895365,
+        "control_density": 0.7572749455769857
+      },
+      {
+        "project": "schoenflies",
+        "headlines": 1,
+        "isolation_lift": 0.0206756591796875,
+        "headline_density": 0.7492779493331909,
+        "control_density": 0.7699536085128784
+      },
+      {
+        "project": "sphere-eversion",
+        "headlines": 1,
+        "isolation_lift": 0.03151911497116089,
+        "headline_density": 0.736009418964386,
+        "control_density": 0.7675285339355469
+      },
+      {
+        "project": "ten-proofs",
+        "headlines": 12,
+        "isolation_lift": -0.009873325626055399,
+        "headline_density": 0.7436882505814234,
+        "control_density": 0.733814924955368
+      }
+    ]
+  },
+  "interpretation": "Positive lift means headline statements are less dense than architecture-matched declarations in the same repository and raw semantic cluster.",
+  "limitations": [
+    "only 34 modern headline theorems across eight project-level replication units",
+    "headline selection was supplied by repository metadata or the experiment manifest",
+    "project-vocabulary resolution is conservative and lexical"
+  ],
+  "sensitivity_excluding_macro_obscured_flt": {
+    "all_nonheadline_controls": {
+      "mean": 0.0004014283621392281,
+      "lower": -0.013848561521975963,
+      "upper": 0.01465141824625442,
+      "n": 7
+    },
+    "headline_cone_excluded_controls": {
+      "mean": 0.004909681483190887,
+      "lower": -0.011636351725491044,
+      "upper": 0.021455714691872817,
+      "n": 7
+    }
+  }
+}

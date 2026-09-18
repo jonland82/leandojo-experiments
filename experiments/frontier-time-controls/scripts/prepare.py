@@ -19,11 +19,11 @@ CORPUS = ROOT / "data/leandojo_benchmark_4/leandojo_benchmark_4/corpus.jsonl"
 REPO = ROOT / CONFIG["mathlib_repository"]
 
 TARGET_RE = re.compile(
-    r"(?m)^(?:\s*@\[[^\n]*\]\s*)?(?:(?:private|protected|noncomputable|unsafe|partial)\s+)*"
+    r"(?m)^(?:\s*@\[[^\n]*?\]\s*)?(?:(?:private|protected|noncomputable|unsafe|partial|nonrec)\s+)*"
     r"(?P<kind>theorem|lemma)\s+(?P<name>[^\s(:{\[]+)"
 )
 BOUNDARY_RE = re.compile(
-    r"(?m)^(?:\s*@\[[^\n]*\]\s*)?(?:(?:private|protected|noncomputable|unsafe|partial)\s+)*"
+    r"(?m)^(?:\s*@\[[^\n]*?\]\s*)?(?:(?:private|protected|noncomputable|unsafe|partial|nonrec)\s+)*"
     r"(?:theorem|lemma|def|abbrev|instance|structure|class|inductive|coinductive|axiom|opaque|example)\b"
 )
 

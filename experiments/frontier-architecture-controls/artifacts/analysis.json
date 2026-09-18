@@ -1,0 +1,485 @@
+{
+  "experiment_id": "frontier-architecture-controls",
+  "baseline_alpha_normalized": {
+    "mean": -0.04523097281344231,
+    "lower": -0.0684946003693388,
+    "upper": -0.02196734525754582,
+    "n": 8
+  },
+  "architecture_matched": {
+    "mean": -0.050541547519969754,
+    "lower": -0.07749897831664301,
+    "upper": -0.023584116723296487,
+    "n": 8
+  },
+  "architecture_regression": {
+    "mean": -0.0337871666767223,
+    "lower": -0.05957785508166144,
+    "upper": -0.007996478271783156,
+    "n": 8
+  },
+  "architecture_nonlinear": {
+    "mean": -0.04454908570825111,
+    "lower": -0.06557168396941637,
+    "upper": -0.023526487447085857,
+    "n": 8
+  },
+  "attenuation_by_estimator": {
+    "matching": -0.11741013681998869,
+    "linear": 0.2530081805651325,
+    "nonlinear": 0.01507566746361344
+  },
+  "mean_absolute_standardized_difference": {
+    "before": 0.8007865229318822,
+    "after": 0.5059460043339463
+  },
+  "project_effects": [
+    {
+      "project": "ten-proofs",
+      "alpha_baseline": -0.0559700690209865,
+      "architecture_matched": -0.09506625682115555,
+      "architecture_regression": -0.015348265581199526,
+      "architecture_nonlinear": -0.07513183839993709,
+      "control_cv_r_squared": 0.4219920804863476
+    },
+    {
+      "project": "navier-stokes-euler",
+      "alpha_baseline": -0.066126525402069,
+      "architecture_matched": -0.06340347975492477,
+      "architecture_regression": -0.05378802564380097,
+      "architecture_nonlinear": -0.06295891207599086,
+      "control_cv_r_squared": 0.41038394284326074
+    },
+    {
+      "project": "flt",
+      "alpha_baseline": -0.0332953035831451,
+      "architecture_matched": -0.04812546819448471,
+      "architecture_regression": -0.01868792854861449,
+      "architecture_nonlinear": -0.03778852742888813,
+      "control_cv_r_squared": 0.3796420155256137
+    },
+    {
+      "project": "pfr",
+      "alpha_baseline": -0.0320185162127018,
+      "architecture_matched": -0.038739174604415894,
+      "architecture_regression": -0.012331341134659786,
+      "architecture_nonlinear": -0.023137643786157725,
+      "control_cv_r_squared": 0.38132578883529056
+    },
+    {
+      "project": "pnt",
+      "alpha_baseline": -0.0906820148229599,
+      "architecture_matched": -0.08476671576499939,
+      "architecture_regression": -0.10065575238766036,
+      "architecture_nonlinear": -0.0724404802262064,
+      "control_cv_r_squared": 0.41557137123411736
+    },
+    {
+      "project": "formalized-logic",
+      "alpha_baseline": -0.0056551843881607,
+      "architecture_matched": -0.0005647478392347693,
+      "architecture_regression": -0.015272346568268097,
+      "architecture_nonlinear": -0.012974865002993859,
+      "control_cv_r_squared": 0.40307809944934747
+    },
+    {
+      "project": "schoenflies",
+      "alpha_baseline": -0.0595782697200775,
+      "architecture_matched": -0.05851571261882782,
+      "architecture_regression": -0.03995095851320356,
+      "architecture_nonlinear": -0.05503489347209497,
+      "control_cv_r_squared": 0.41557137123411736
+    },
+    {
+      "project": "sphere-eversion",
+      "alpha_baseline": -0.018521899357438,
+      "architecture_matched": -0.015150824561715126,
+      "architecture_regression": -0.014262715036371597,
+      "architecture_nonlinear": -0.016925525273739896,
+      "control_cv_r_squared": 0.38022911647265134
+    }
+  ],
+  "project_matching": {
+    "ten-proofs": {
+      "components": 6,
+      "explained_variance": 0.6667122491667146,
+      "before_mean_absolute_smd": 1.600187088197328,
+      "mean_difference": -0.09506625682115555,
+      "frontier_density": 0.7049339413642883,
+      "matched_control_density": 0.8000002503395081,
+      "median_distance": 6.603214471449249,
+      "q95_distance": 8.629133292131362,
+      "unique_control_matches": 172,
+      "after_mean_absolute_smd": 1.2853983014556223,
+      "feature_smd_after": {
+        "log_statement_characters": 1.3605609716534015,
+        "log_proof_characters": 0.668425133906408,
+        "log_file_lines": 5.490707942505649,
+        "log_file_declarations": 3.226174651417048,
+        "relative_declaration_position": 0.2115089779206268,
+        "log_direct_imports": 1.6689759800727766,
+        "scope_depth": -1.0673494802924284,
+        "explicit_binders": 0.9866540186562769,
+        "implicit_binders": 0.3250847802090611,
+        "instance_binders": -0.5376103390093818,
+        "arrow_forall_count": -0.41651706463120863,
+        "delimiter_depth": 0.5783612259178976,
+        "prior_definition_fraction": 0.8482635605602485,
+        "log_local_references": 0.6093820936262996
+      },
+      "distance_calipers": {
+        "1.0": {
+          "n": 0,
+          "coverage_fraction": 0.0,
+          "mean_difference": null
+        },
+        "2.0": {
+          "n": 0,
+          "coverage_fraction": 0.0,
+          "mean_difference": null
+        },
+        "3.0": {
+          "n": 7,
+          "coverage_fraction": 0.002786624203821656,
+          "mean_difference": 0.030865898355841637
+        }
+      }
+    },
+    "navier-stokes-euler": {
+      "components": 6,
+      "explained_variance": 0.6726642696497074,
+      "before_mean_absolute_smd": 0.9619644450006922,
+      "mean_difference": -0.06340347975492477,
+      "frontier_density": 0.7051184177398682,
+      "matched_control_density": 0.7685219645500183,
+      "median_distance": 3.3256182474227654,
+      "q95_distance": 7.200102683022931,
+      "unique_control_matches": 256,
+      "after_mean_absolute_smd": 0.5764104073979961,
+      "feature_smd_after": {
+        "log_statement_characters": 0.7050444118286855,
+        "log_proof_characters": 0.028283639599910253,
+        "log_file_lines": 0.17078471889302677,
+        "log_file_declarations": -0.06395895357802305,
+        "relative_declaration_position": -0.07336798943859042,
+        "log_direct_imports": 2.468231223232342,
+        "scope_depth": -0.08671191356829909,
+        "explicit_binders": 1.3127748066748421,
+        "implicit_binders": 0.5014580226221605,
+        "instance_binders": -0.955677593761039,
+        "arrow_forall_count": 0.7240648674109275,
+        "delimiter_depth": -0.03257286117939989,
+        "prior_definition_fraction": 0.6492436471481923,
+        "log_local_references": 0.2975710546365076
+      },
+      "distance_calipers": {
+        "1.0": {
+          "n": 6,
+          "coverage_fraction": 0.0023932987634623054,
+          "mean_difference": -0.1038174107670784
+        },
+        "2.0": {
+          "n": 264,
+          "coverage_fraction": 0.10530514559234144,
+          "mean_difference": -0.0551937073469162
+        },
+        "3.0": {
+          "n": 1028,
+          "coverage_fraction": 0.41005185480654166,
+          "mean_difference": -0.053485531359910965
+        }
+      }
+    },
+    "flt": {
+      "components": 6,
+      "explained_variance": 0.6687300354048308,
+      "before_mean_absolute_smd": 1.193694899696984,
+      "mean_difference": -0.04812546819448471,
+      "frontier_density": 0.7280395030975342,
+      "matched_control_density": 0.7761649489402771,
+      "median_distance": 4.7289854489482535,
+      "q95_distance": 10.238492466450884,
+      "unique_control_matches": 197,
+      "after_mean_absolute_smd": 0.9037590558201695,
+      "feature_smd_after": {
+        "log_statement_characters": 0.7223737996631666,
+        "log_proof_characters": 0.30145966496799936,
+        "log_file_lines": 0.3447018860510544,
+        "log_file_declarations": -0.24290694961966305,
+        "relative_declaration_position": -0.010300857537412155,
+        "log_direct_imports": 4.742831674782235,
+        "scope_depth": 2.9452483331542147,
+        "explicit_binders": 1.161255421206824,
+        "implicit_binders": 0.3810660791365451,
+        "instance_binders": -0.19799080768095065,
+        "arrow_forall_count": 0.7587610508735622,
+        "delimiter_depth": 0.77272138183946,
+        "prior_definition_fraction": -0.03428838621008453,
+        "log_local_references": 0.036720488759199706
+      },
+      "distance_calipers": {
+        "1.0": {
+          "n": 5,
+          "coverage_fraction": 0.0024962556165751375,
+          "mean_difference": 0.00719450693577528
+        },
+        "2.0": {
+          "n": 94,
+          "coverage_fraction": 0.046929605591612585,
+          "mean_difference": -0.00886497925966978
+        },
+        "3.0": {
+          "n": 383,
+          "coverage_fraction": 0.19121318022965553,
+          "mean_difference": -0.02199290506541729
+        }
+      }
+    },
+    "pfr": {
+      "components": 6,
+      "explained_variance": 0.6679836531244276,
+      "before_mean_absolute_smd": 0.6274502466232705,
+      "mean_difference": -0.038739174604415894,
+      "frontier_density": 0.7432096600532532,
+      "matched_control_density": 0.7819488644599915,
+      "median_distance": 1.388650681749406,
+      "q95_distance": 3.297000017607379,
+      "unique_control_matches": 307,
+      "after_mean_absolute_smd": 0.26439025763377416,
+      "feature_smd_after": {
+        "log_statement_characters": -0.013939755024803146,
+        "log_proof_characters": 0.34095473650969305,
+        "log_file_lines": 0.41329517904566104,
+        "log_file_declarations": -0.2773238326858853,
+        "relative_declaration_position": -0.2956957111458065,
+        "log_direct_imports": 0.015080769726963794,
+        "scope_depth": -0.3666975248223593,
+        "explicit_binders": -0.033986087004620365,
+        "implicit_binders": -0.14699951980787293,
+        "instance_binders": 1.43394156321646,
+        "arrow_forall_count": -0.19115590816806097,
+        "delimiter_depth": -0.06573694242474029,
+        "prior_definition_fraction": 0.05112993059388053,
+        "log_local_references": -0.05552614669603143
+      },
+      "distance_calipers": {
+        "1.0": {
+          "n": 172,
+          "coverage_fraction": 0.189010989010989,
+          "mean_difference": -0.04531881958246231
+        },
+        "2.0": {
+          "n": 688,
+          "coverage_fraction": 0.756043956043956,
+          "mean_difference": -0.04201905429363251
+        },
+        "3.0": {
+          "n": 840,
+          "coverage_fraction": 0.9230769230769231,
+          "mean_difference": -0.03989076614379883
+        }
+      }
+    },
+    "pnt": {
+      "components": 6,
+      "explained_variance": 0.6636374847638923,
+      "before_mean_absolute_smd": 0.8212763363274574,
+      "mean_difference": -0.08476671576499939,
+      "frontier_density": 0.7030444741249084,
+      "matched_control_density": 0.7878111600875854,
+      "median_distance": 2.6797242796410705,
+      "q95_distance": 6.068958355631113,
+      "unique_control_matches": 242,
+      "after_mean_absolute_smd": 0.3716762345016337,
+      "feature_smd_after": {
+        "log_statement_characters": 0.36448258379900167,
+        "log_proof_characters": 0.4645980798331824,
+        "log_file_lines": 0.6914790708811169,
+        "log_file_declarations": 0.06605392942918005,
+        "relative_declaration_position": -0.1274316912308498,
+        "log_direct_imports": 1.3860281803111485,
+        "scope_depth": -0.7128557375800264,
+        "explicit_binders": 0.05301383022846238,
+        "implicit_binders": 0.08444000768953559,
+        "instance_binders": -0.5326074339150779,
+        "arrow_forall_count": 0.20919676530414877,
+        "delimiter_depth": 0.1530968603253822,
+        "prior_definition_fraction": -0.33511061703915906,
+        "log_local_references": -0.023072495456600114
+      },
+      "distance_calipers": {
+        "1.0": {
+          "n": 44,
+          "coverage_fraction": 0.01757890531362365,
+          "mean_difference": -0.05381754785776138
+        },
+        "2.0": {
+          "n": 615,
+          "coverage_fraction": 0.2457051538154215,
+          "mean_difference": -0.12274181097745895
+        },
+        "3.0": {
+          "n": 1441,
+          "coverage_fraction": 0.5757091490211745,
+          "mean_difference": -0.1255621314048767
+        }
+      }
+    },
+    "formalized-logic": {
+      "components": 6,
+      "explained_variance": 0.6624008359475588,
+      "before_mean_absolute_smd": 0.29293111758045576,
+      "mean_difference": -0.0005647478392347693,
+      "frontier_density": 0.775237500667572,
+      "matched_control_density": 0.7758021950721741,
+      "median_distance": 1.1937833756071574,
+      "q95_distance": 2.280192359430769,
+      "unique_control_matches": 976,
+      "after_mean_absolute_smd": 0.15922883471347316,
+      "feature_smd_after": {
+        "log_statement_characters": -0.2216033297349503,
+        "log_proof_characters": -0.08426373034238047,
+        "log_file_lines": -0.14935277569664865,
+        "log_file_declarations": 0.14016343671836395,
+        "relative_declaration_position": 0.16358793822020942,
+        "log_direct_imports": 0.0,
+        "scope_depth": 0.376929125884086,
+        "explicit_binders": 0.09974681541447639,
+        "implicit_binders": 0.19386554714122062,
+        "instance_binders": 0.003500008364262711,
+        "arrow_forall_count": 0.26154321505461126,
+        "delimiter_depth": -0.0895320517483753,
+        "prior_definition_fraction": 0.3168472322130436,
+        "log_local_references": 0.12826847945599498
+      },
+      "distance_calipers": {
+        "1.0": {
+          "n": 765,
+          "coverage_fraction": 0.30538922155688625,
+          "mean_difference": 0.01379326730966568
+        },
+        "2.0": {
+          "n": 2284,
+          "coverage_fraction": 0.9117764471057884,
+          "mean_difference": 0.0014613133389502764
+        },
+        "3.0": {
+          "n": 2485,
+          "coverage_fraction": 0.9920159680638723,
+          "mean_difference": -0.0003051897801924497
+        }
+      }
+    },
+    "schoenflies": {
+      "components": 6,
+      "explained_variance": 0.6636374847638923,
+      "before_mean_absolute_smd": 0.6143254497096925,
+      "mean_difference": -0.05851571261882782,
+      "frontier_density": 0.7129178643226624,
+      "matched_control_density": 0.7714335322380066,
+      "median_distance": 2.7344563843238068,
+      "q95_distance": 4.834419420438752,
+      "unique_control_matches": 232,
+      "after_mean_absolute_smd": 0.3486180934074108,
+      "feature_smd_after": {
+        "log_statement_characters": 0.2946918080118519,
+        "log_proof_characters": 0.4216683337014461,
+        "log_file_lines": 0.3156967873565188,
+        "log_file_declarations": -0.32919459870482404,
+        "relative_declaration_position": -0.1353091918479087,
+        "log_direct_imports": 1.3535033573238178,
+        "scope_depth": 0.151630936812533,
+        "explicit_binders": 0.5672032822554142,
+        "implicit_binders": 0.22685292044143066,
+        "instance_binders": -0.4613571093112571,
+        "arrow_forall_count": -0.21381072601187914,
+        "delimiter_depth": -0.24620351375031013,
+        "prior_definition_fraction": -0.14664351849392784,
+        "log_local_references": -0.01688722368063071
+      },
+      "distance_calipers": {
+        "1.0": {
+          "n": 22,
+          "coverage_fraction": 0.008796481407437025,
+          "mean_difference": -0.0381847582757473
+        },
+        "2.0": {
+          "n": 486,
+          "coverage_fraction": 0.1943222710915634,
+          "mean_difference": -0.044114045798778534
+        },
+        "3.0": {
+          "n": 1502,
+          "coverage_fraction": 0.6005597760895641,
+          "mean_difference": -0.053236059844493866
+        }
+      }
+    },
+    "sphere-eversion": {
+      "components": 6,
+      "explained_variance": 0.6698523889969563,
+      "before_mean_absolute_smd": 0.294462600319178,
+      "mean_difference": -0.015150824561715126,
+      "frontier_density": 0.7520068883895874,
+      "matched_control_density": 0.7671576738357544,
+      "median_distance": 1.2327393542474243,
+      "q95_distance": 2.749247068928978,
+      "unique_control_matches": 498,
+      "after_mean_absolute_smd": 0.13808684974149119,
+      "feature_smd_after": {
+        "log_statement_characters": -0.020582799118270167,
+        "log_proof_characters": 0.013019414619370295,
+        "log_file_lines": 0.002940037495324084,
+        "log_file_declarations": -0.17291006151975793,
+        "relative_declaration_position": 0.06448829933650607,
+        "log_direct_imports": -0.02034659293780541,
+        "scope_depth": -0.26984280145553213,
+        "explicit_binders": 0.18815856065149558,
+        "implicit_binders": 0.09465924680577942,
+        "instance_binders": -0.20292485894359022,
+        "arrow_forall_count": 0.40213776056644274,
+        "delimiter_depth": 0.07310406221240442,
+        "prior_definition_fraction": 0.3466974936738596,
+        "log_local_references": 0.06140390704473854
+      },
+      "distance_calipers": {
+        "1.0": {
+          "n": 257,
+          "coverage_fraction": 0.28272827282728275,
+          "mean_difference": -0.01076226495206356
+        },
+        "2.0": {
+          "n": 774,
+          "coverage_fraction": 0.8514851485148515,
+          "mean_difference": -0.014014564454555511
+        },
+        "3.0": {
+          "n": 874,
+          "coverage_fraction": 0.9614961496149615,
+          "mean_difference": -0.014950867742300034
+        }
+      }
+    }
+  },
+  "features": [
+    "log_statement_characters",
+    "log_proof_characters",
+    "log_file_lines",
+    "log_file_declarations",
+    "relative_declaration_position",
+    "log_direct_imports",
+    "scope_depth",
+    "explicit_binders",
+    "implicit_binders",
+    "instance_binders",
+    "arrow_forall_count",
+    "delimiter_depth",
+    "prior_definition_fraction",
+    "log_local_references"
+  ],
+  "limitations": [
+    "source-static architecture is not an elaborated dependency graph",
+    "local reference reuse is lexical and approximate",
+    "matching remains observational and cannot identify mathematical novelty causally"
+  ]
+}

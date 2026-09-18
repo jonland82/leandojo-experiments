@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "experiment_id": "frontier-architecture-controls",
+  "matching": {
+    "exact_on": "raw_statement_cluster",
+    "pca_variance": 0.8,
+    "maximum_components": 6,
+    "with_replacement": true
+  },
+  "features": [
+    "log_statement_characters",
+    "log_proof_characters",
+    "log_file_lines",
+    "log_file_declarations",
+    "relative_declaration_position",
+    "log_direct_imports",
+    "scope_depth",
+    "explicit_binders",
+    "implicit_binders",
+    "instance_binders",
+    "arrow_forall_count",
+    "delimiter_depth",
+    "prior_definition_fraction",
+    "log_local_references"
+  ]
+}

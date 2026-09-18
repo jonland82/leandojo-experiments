@@ -1,0 +1,12 @@
+{
+  "experiment_id": "frontier-vocabulary-ablation",
+  "model_id": "global.cohere.embed-v4:0",
+  "inputs": 18852,
+  "new_calls": 0,
+  "shape": [
+    18852,
+    1024
+  ],
+  "projected_cost_usd": 0.162398352,
+  "elapsed_seconds": 0.20229119999930845
+}

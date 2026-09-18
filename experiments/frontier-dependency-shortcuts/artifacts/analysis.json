@@ -1,0 +1,233 @@
+{
+  "experiment_id": "frontier-dependency-shortcuts",
+  "graph": {
+    "experiment_id": "frontier-dependency-shortcuts",
+    "projects": {
+      "ten-proofs": {
+        "files": 11,
+        "nodes": 27650,
+        "edges": 172064,
+        "resolved_tokens": 173815,
+        "headlines": 12
+      },
+      "navier-stokes-euler": {
+        "files": 2657,
+        "nodes": 50998,
+        "edges": 307883,
+        "resolved_tokens": 312928,
+        "headlines": 7
+      },
+      "flt": {
+        "files": 60416,
+        "nodes": 714531,
+        "edges": 4360652,
+        "resolved_tokens": 4445018,
+        "headlines": 3
+      },
+      "pfr": {
+        "files": 74,
+        "nodes": 1035,
+        "edges": 3330,
+        "resolved_tokens": 3584,
+        "headlines": 2
+      },
+      "pnt": {
+        "files": 236,
+        "nodes": 9069,
+        "edges": 49790,
+        "resolved_tokens": 50494,
+        "headlines": 3
+      },
+      "formalized-logic": {
+        "files": 212,
+        "nodes": 9175,
+        "edges": 27187,
+        "resolved_tokens": 29025,
+        "headlines": 5
+      },
+      "schoenflies": {
+        "files": 131,
+        "nodes": 5008,
+        "edges": 44651,
+        "resolved_tokens": 46107,
+        "headlines": 1
+      },
+      "lean-liquid": {
+        "files": 402,
+        "nodes": 7264,
+        "edges": 39587,
+        "resolved_tokens": 41071,
+        "headlines": 2
+      },
+      "sphere-eversion": {
+        "files": 65,
+        "nodes": 1232,
+        "edges": 4646,
+        "resolved_tokens": 4893,
+        "headlines": 1
+      }
+    },
+    "total_nodes": 825962,
+    "total_edges": 5009790,
+    "headline_nodes": 36
+  },
+  "primary_project_balanced": {
+    "compression_fraction_lift": {
+      "mean": -0.11246524004715888,
+      "lower": -0.32549608084418036,
+      "upper": 0.1005656007498626,
+      "n": 8
+    },
+    "log_closure_lift": {
+      "mean": -0.002002759272165436,
+      "lower": -1.786939109385701,
+      "upper": 1.7829335908413702,
+      "n": 8
+    },
+    "reusable_fraction_lift": {
+      "mean": 0.025866994504171077,
+      "lower": -0.0787991966260862,
+      "upper": 0.13053318563442837,
+      "n": 8
+    },
+    "closure_depth_lift": {
+      "mean": -1.1245684523809532,
+      "lower": -9.310189218258373,
+      "upper": 7.061052313496467,
+      "n": 8
+    }
+  },
+  "sensitivity_excluding_macro_obscured_flt": {
+    "compression_fraction_lift": {
+      "mean": -0.026018680554396573,
+      "lower": -0.09768386822818215,
+      "upper": 0.045646507119389,
+      "n": 7
+    },
+    "log_closure_lift": {
+      "mean": 0.6924351662625672,
+      "lower": -0.14360372894081097,
+      "upper": 1.5284740614659453,
+      "n": 7
+    },
+    "reusable_fraction_lift": {
+      "mean": -0.0051835149990753825,
+      "lower": -0.0943133788050158,
+      "upper": 0.08394634880686504,
+      "n": 7
+    },
+    "closure_depth_lift": {
+      "mean": 2.2457312925170063,
+      "lower": 0.013000666647230652,
+      "upper": 4.478461918386782,
+      "n": 7
+    }
+  },
+  "headline_level_descriptive": {
+    "compression_fraction_lift": {
+      "mean": -0.08824603512135018,
+      "lower": -0.16620826291268592,
+      "upper": -0.010283807330014452,
+      "n": 34
+    },
+    "log_closure_lift": {
+      "mean": 0.4680914397394019,
+      "lower": -0.23680127329062484,
+      "upper": 1.1729841527694287,
+      "n": 34
+    },
+    "reusable_fraction_lift": {
+      "mean": -0.024065145302565046,
+      "lower": -0.0815556318836029,
+      "upper": 0.033425341278472805,
+      "n": 34
+    },
+    "closure_depth_lift": {
+      "mean": 0.7308823529411763,
+      "lower": -2.5270298293339915,
+      "upper": 3.9887945352163436,
+      "n": 34
+    }
+  },
+  "projects": [
+    {
+      "project": "flt",
+      "headlines": 3,
+      "compression_fraction_lift": -0.7175911564964951,
+      "log_closure_lift": -4.863068238015294,
+      "reusable_fraction_lift": 0.2432205610268963,
+      "closure_depth_lift": -24.71666666666667
+    },
+    {
+      "project": "formalized-logic",
+      "headlines": 5,
+      "compression_fraction_lift": 0.060588549184244146,
+      "log_closure_lift": 1.2900292583140005,
+      "reusable_fraction_lift": 0.07253010112499395,
+      "closure_depth_lift": 2.3600000000000003
+    },
+    {
+      "project": "lean-liquid",
+      "headlines": 2,
+      "compression_fraction_lift": -0.019956599266867603,
+      "log_closure_lift": 0.16939872276593348,
+      "reusable_fraction_lift": -0.011056877104598573,
+      "closure_depth_lift": 0.1750000000000007
+    },
+    {
+      "project": "navier-stokes-euler",
+      "headlines": 7,
+      "compression_fraction_lift": 0.01662985523592697,
+      "log_closure_lift": 0.7887955997100031,
+      "reusable_fraction_lift": 0.008373538652673143,
+      "closure_depth_lift": 2.214285714285713
+    },
+    {
+      "project": "pfr",
+      "headlines": 2,
+      "compression_fraction_lift": -0.16265278726043608,
+      "log_closure_lift": 1.8159258236591556,
+      "reusable_fraction_lift": 0.004057305294691171,
+      "closure_depth_lift": 5.725
+    },
+    {
+      "project": "pnt",
+      "headlines": 3,
+      "compression_fraction_lift": 0.039373459941840494,
+      "log_closure_lift": -0.7859561395225146,
+      "reusable_fraction_lift": 0.1158457376496957,
+      "closure_depth_lift": -0.38333333333333286
+    },
+    {
+      "project": "schoenflies",
+      "headlines": 1,
+      "compression_fraction_lift": -0.04025846081312201,
+      "log_closure_lift": 0.2451902807440529,
+      "reusable_fraction_lift": -0.025585154607745686,
+      "closure_depth_lift": -0.3500000000000014
+    },
+    {
+      "project": "sphere-eversion",
+      "headlines": 1,
+      "compression_fraction_lift": -0.011839705484554264,
+      "log_closure_lift": 0.08211922045896092,
+      "reusable_fraction_lift": -0.021715002618338697,
+      "closure_depth_lift": 1.0999999999999996
+    },
+    {
+      "project": "ten-proofs",
+      "headlines": 12,
+      "compression_fraction_lift": -0.08397167468467526,
+      "log_closure_lift": 1.4109421204743118,
+      "reusable_fraction_lift": -0.18979113048949725,
+      "closure_depth_lift": 5.054166666666666
+    }
+  ],
+  "interpretation": "Positive lift means a named result has more reusable compression or prerequisite reach than source-architecture-matched declarations in the same project.",
+  "limitations": [
+    "lexical references undercount elaborated, notation-hidden, generated, and typeclass dependencies",
+    "compression savings use source characters as a minimum-description-length proxy",
+    "within-project matching is descriptive and does not identify a causal novelty effect",
+    "Lean 3 lean-liquid is reported descriptively but excluded from the primary eight-project interval"
+  ]
+}

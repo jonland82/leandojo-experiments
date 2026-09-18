@@ -1,0 +1,71 @@
+{
+  "experiment_id": "frontier-vocabulary-ablation",
+  "project_balanced_effect": {
+    "mean": -0.03220539484755136,
+    "lower": -0.05084095888597742,
+    "upper": -0.0135698308091253,
+    "n": 8
+  },
+  "alpha_normalized_baseline": {
+    "mean": -0.04523097281344235,
+    "lower": -0.06849460036933884,
+    "upper": -0.021967345257545862,
+    "n": 8
+  },
+  "raw_baseline": {
+    "mean": -0.059985486324876505,
+    "lower": -0.07911024013215513,
+    "upper": -0.04086073251759788,
+    "n": 8
+  },
+  "attenuation_from_alpha_baseline": 0.2879791690445329,
+  "combined_attenuation_from_raw_baseline": 0.4631135492820786,
+  "projects": [
+    {
+      "project": "ten-proofs",
+      "n": 2512,
+      "effect": -0.04366910457611084
+    },
+    {
+      "project": "navier-stokes-euler",
+      "n": 2507,
+      "effect": -0.05098618566989899
+    },
+    {
+      "project": "flt",
+      "n": 2003,
+      "effect": -0.021774882450699806
+    },
+    {
+      "project": "pfr",
+      "n": 910,
+      "effect": -0.030839703977108
+    },
+    {
+      "project": "pnt",
+      "n": 2503,
+      "effect": -0.06430718302726746
+    },
+    {
+      "project": "formalized-logic",
+      "n": 2505,
+      "effect": 0.000555392587557435
+    },
+    {
+      "project": "schoenflies",
+      "n": 2501,
+      "effect": -0.040936511009931564
+    },
+    {
+      "project": "sphere-eversion",
+      "n": 909,
+      "effect": -0.005684980656951666
+    }
+  ],
+  "interpretation": "Attenuation estimates sensitivity to conservatively resolved project-global names; unresolved vocabulary and mathematical structure remain.",
+  "limitations": [
+    "symbol resolution is lexical rather than elaborated",
+    "ambiguous unqualified project symbols are deliberately retained",
+    "placeholder anonymization removes symbol identity semantics as well as spelling"
+  ]
+}

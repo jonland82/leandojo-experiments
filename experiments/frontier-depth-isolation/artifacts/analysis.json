@@ -1,0 +1,112 @@
+{
+  "experiment_id": "frontier-depth-isolation",
+  "declarations": 16350,
+  "project_balanced_depth_coefficient": {
+    "mean": 0.0014023053409861989,
+    "lower": -0.0018753168238692043,
+    "upper": 0.004679927505841602,
+    "n": 8
+  },
+  "project_balanced_compression_coefficient": {
+    "mean": 0.0022870382201443597,
+    "lower": -0.0013864603920180178,
+    "upper": 0.005960536832306737,
+    "n": 8
+  },
+  "project_balanced_incremental_r2": {
+    "mean": 0.0032223647336303562,
+    "lower": -0.0008294908725836351,
+    "upper": 0.007274220339844348,
+    "n": 8
+  },
+  "project_balanced_mean_isolation": 0.034315400428388355,
+  "depth_coefficient_fraction_of_mean_isolation": 0.04086518949159933,
+  "projects": [
+    {
+      "project": "flt",
+      "n": 2003,
+      "depth_coefficient": -0.002021365557144743,
+      "compression_coefficient": 0.003272467480775442,
+      "base_r2": 0.18562458735070364,
+      "full_r2": 0.18461143916375966,
+      "incremental_r2": -0.0010131481869439796,
+      "mean_isolation": 0.02480512518199515
+    },
+    {
+      "project": "formalized-logic",
+      "n": 2505,
+      "depth_coefficient": 0.0044083893729407716,
+      "compression_coefficient": -8.523867109395838e-05,
+      "base_r2": 0.22771717539807268,
+      "full_r2": 0.2295434715899396,
+      "incremental_r2": 0.0018262961918669163,
+      "mean_isolation": -0.00539141053449132
+    },
+    {
+      "project": "navier-stokes-euler",
+      "n": 2507,
+      "depth_coefficient": 0.006306043301473392,
+      "compression_coefficient": -0.0015890636969264856,
+      "base_r2": 0.3116713575686333,
+      "full_r2": 0.31674121625985296,
+      "incremental_r2": 0.005069858691219675,
+      "mean_isolation": 0.049491579569712736
+    },
+    {
+      "project": "pfr",
+      "n": 910,
+      "depth_coefficient": 0.0014307203856622252,
+      "compression_coefficient": 0.004073459457541732,
+      "base_r2": 0.24212003523131354,
+      "full_r2": 0.24242091930508658,
+      "incremental_r2": 0.0003008840737730445,
+      "mean_isolation": 0.020646486374048086
+    },
+    {
+      "project": "pnt",
+      "n": 2503,
+      "depth_coefficient": -0.005428100170538218,
+      "compression_coefficient": 0.008820232802271386,
+      "base_r2": 0.46271027841928036,
+      "full_r2": 0.46891115731414257,
+      "incremental_r2": 0.006200878894862205,
+      "mean_isolation": 0.0803030129913516
+    },
+    {
+      "project": "schoenflies",
+      "n": 2501,
+      "depth_coefficient": 0.0038867160380563637,
+      "compression_coefficient": -0.003975180978356125,
+      "base_r2": 0.21188377420276372,
+      "full_r2": 0.21186686889896933,
+      "incremental_r2": -1.6905303794390036e-05,
+      "mean_isolation": 0.04907665356117837
+    },
+    {
+      "project": "sphere-eversion",
+      "n": 909,
+      "depth_coefficient": -0.0009119939106014815,
+      "compression_coefficient": 0.007303191319722903,
+      "base_r2": 0.23057081240482635,
+      "full_r2": 0.2439456844426443,
+      "incremental_r2": 0.013374872037817953,
+      "mean_isolation": 0.011336517806100373
+    },
+    {
+      "project": "ten-proofs",
+      "n": 2512,
+      "depth_coefficient": 0.00354803326804128,
+      "compression_coefficient": 0.0004764380472199834,
+      "base_r2": 0.25235646081785734,
+      "full_r2": 0.25239264228809877,
+      "incremental_r2": 3.618147024142537e-05,
+      "mean_isolation": 0.04425523847721185
+    }
+  ],
+  "interpretation": "Coefficients are within-project partial associations with positive exact-snapshot isolation residual; they are not causal effects.",
+  "limitations": [
+    "dependency edges are lexical rather than elaborated",
+    "depth is maximum shortest-path prerequisite distance",
+    "project intervals have eight replication units"
+  ]
+}

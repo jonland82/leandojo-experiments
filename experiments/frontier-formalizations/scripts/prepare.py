@@ -17,11 +17,11 @@ EXPERIMENT = Path(__file__).resolve().parents[1]
 CONFIG = json.loads((EXPERIMENT / "config.json").read_text(encoding="utf-8"))
 
 TARGET_RE = re.compile(
-    r"(?m)^(?:\s*@\[[^\n]*\]\s*)?(?:(?:private|protected|noncomputable|unsafe|partial)\s+)*"
+    r"(?m)^(?:\s*@\[[^\n]*?\]\s*)?(?:(?:private|protected|noncomputable|unsafe|partial|nonrec)\s+)*"
     r"(?P<kind>theorem|lemma)\s+(?P<name>[^\s(:{\[]+)"
 )
 BOUNDARY_RE = re.compile(
-    r"(?m)^(?:\s*@\[[^\n]*\]\s*)?(?:(?:private|protected|noncomputable|unsafe|partial)\s+)*"
+    r"(?m)^(?:\s*@\[[^\n]*?\]\s*)?(?:(?:private|protected|noncomputable|unsafe|partial|nonrec)\s+)*"
     r"(?:theorem|lemma|def|abbrev|instance|structure|class|inductive|coinductive|axiom|opaque|example)\b"
 )
 DECLARATION_META_RE = re.compile(r"declaration:\s*[\"']?([^\"'\s]+)")

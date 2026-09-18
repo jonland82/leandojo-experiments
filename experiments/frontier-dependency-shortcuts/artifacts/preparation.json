@@ -1,0 +1,71 @@
+{
+  "experiment_id": "frontier-dependency-shortcuts",
+  "projects": {
+    "ten-proofs": {
+      "files": 11,
+      "nodes": 27650,
+      "edges": 172064,
+      "resolved_tokens": 173815,
+      "headlines": 12
+    },
+    "navier-stokes-euler": {
+      "files": 2657,
+      "nodes": 50998,
+      "edges": 307883,
+      "resolved_tokens": 312928,
+      "headlines": 7
+    },
+    "flt": {
+      "files": 60416,
+      "nodes": 714531,
+      "edges": 4360652,
+      "resolved_tokens": 4445018,
+      "headlines": 3
+    },
+    "pfr": {
+      "files": 74,
+      "nodes": 1035,
+      "edges": 3330,
+      "resolved_tokens": 3584,
+      "headlines": 2
+    },
+    "pnt": {
+      "files": 236,
+      "nodes": 9069,
+      "edges": 49790,
+      "resolved_tokens": 50494,
+      "headlines": 3
+    },
+    "formalized-logic": {
+      "files": 212,
+      "nodes": 9175,
+      "edges": 27187,
+      "resolved_tokens": 29025,
+      "headlines": 5
+    },
+    "schoenflies": {
+      "files": 131,
+      "nodes": 5008,
+      "edges": 44651,
+      "resolved_tokens": 46107,
+      "headlines": 1
+    },
+    "lean-liquid": {
+      "files": 402,
+      "nodes": 7264,
+      "edges": 39587,
+      "resolved_tokens": 41071,
+      "headlines": 2
+    },
+    "sphere-eversion": {
+      "files": 65,
+      "nodes": 1232,
+      "edges": 4646,
+      "resolved_tokens": 4893,
+      "headlines": 1
+    }
+  },
+  "total_nodes": 825962,
+  "total_edges": 5009790,
+  "headline_nodes": 36
+}
