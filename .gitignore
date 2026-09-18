@@ -18,6 +18,7 @@ data/
 *.synctex.gz
 texput.log
 build-pass*.log
+notes/frontier-proof-space-note/note.log
 
 # Complexity-neighborhoods manuscript build/visual-check artifacts
 complexity_neighborhoods/archive/no_go_paper/neighborhood_thinning_cosmology.bbl

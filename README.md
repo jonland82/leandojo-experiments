@@ -52,6 +52,9 @@ proofs. The full reports retain uncertainty estimates, controls, and caveats.
 - [**The Infrastructure–Isolation Principle**](notes/infrastructure-isolation-note/note.pdf) —
   an empirical principle relating dependency reliance, semantic isolation,
   and proof complexity, with a rank-sign law and one-factor diagnostic.
+- [**Where Major Theorems Live in Proof Space**](notes/frontier-proof-space-note/note.pdf) —
+  a short map of nine landmark formalization projects against the frozen
+  LeanDojo statement and proof spaces.
 
 ## Mathematical sketch
 
@@ -122,7 +125,7 @@ $$
 | Path | Contents |
 |---|---|
 | [`experiments/`](experiments/) | Frozen designs, scripts, inputs, outputs, and results for five completed experiments |
-| [`notes/`](notes/) | Four compact LaTeX/PDF research notes and their figure-generation code |
+| [`notes/`](notes/) | Six compact LaTeX/PDF research notes and their figure-generation code |
 | [`app/`](app/) | Dependency-free interactive 3-D viewer for the original 1,940-proof analysis |
 | [`pipeline.py`](pipeline.py) | Shared style/domain topic pipeline for the 1,940- and 10,000-proof profiles |
 | [`scripts/`](scripts/) | Cross-view analysis and small artifact/reporting utilities |
@@ -190,7 +193,7 @@ for the small amount of typeset mathematics.
 
 ## Project status
 
-All five documented experiments and four notes are complete. The natural next
+All documented experiments and six notes are complete. The natural next
 step is a larger paired comparison of semantic retrieval, BM25, and no
 retrieval; that run has not been performed in this repository.
 

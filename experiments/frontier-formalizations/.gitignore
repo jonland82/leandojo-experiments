@@ -1,0 +1,4 @@
+# Reproducible high-volume embedding inputs and caches.
+/inputs/*.jsonl
+/artifacts/embeddings/
+/artifacts/embedding_chunks/

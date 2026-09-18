@@ -1,0 +1,2159 @@
+{
+  "experiment_id": "frontier-formalizations",
+  "declarations": 18852,
+  "headlines": 36,
+  "reference_declarations": 10000,
+  "reference_baselines": {
+    "statement_top10_mean": {
+      "mean": 0.7662120461463928,
+      "median": 0.7655652761459351,
+      "q05": 0.6938409209251404,
+      "q95": 0.8410830497741699
+    },
+    "proof_top10_mean": {
+      "mean": 0.7971201539039612,
+      "median": 0.7841516137123108,
+      "q05": 0.7122313976287842,
+      "q95": 0.9514713883399963
+    },
+    "statement_q05": 0.6938409209251404,
+    "proof_q05": 0.7122313976287842
+  },
+  "overall": {
+    "statement_top10_mean": {
+      "mean": 0.6716827154159546,
+      "median": 0.6729155778884888,
+      "q05": 0.5646911263465881,
+      "q95": 0.7727228403091431
+    },
+    "proof_top10_mean": {
+      "mean": 0.7030174732208252,
+      "median": 0.6931192874908447,
+      "q05": 0.5785586833953857,
+      "q95": 0.901755154132843
+    },
+    "statement_below_reference_q05_fraction": 0.627466581795035,
+    "proof_below_reference_q05_fraction": 0.6069913006577552,
+    "statement_proof_neighbor_jaccard": {
+      "mean": 0.028155825706684637,
+      "median": 0.0,
+      "q05": 0.0,
+      "q95": 0.1111111111111111
+    },
+    "transfer_delta": {
+      "mean": 0.056538425385951996,
+      "median": 0.052420780062675476,
+      "q05": 0.0006142912316136062,
+      "q95": 0.12518541514873505
+    }
+  },
+  "projects": {
+    "flt": {
+      "n": 2003,
+      "headline_n": 3,
+      "statement_top1": {
+        "mean": 0.7021358609199524,
+        "median": 0.7036743760108948,
+        "q05": 0.6050153374671936,
+        "q95": 0.7958303093910217
+      },
+      "statement_top10_mean": {
+        "mean": 0.6726157069206238,
+        "median": 0.6745086908340454,
+        "q05": 0.5864485502243042,
+        "q95": 0.7552157640457153
+      },
+      "proof_top1": {
+        "mean": 0.7406054139137268,
+        "median": 0.7302454710006714,
+        "q05": 0.630472719669342,
+        "q95": 0.9022358655929565
+      },
+      "proof_top10_mean": {
+        "mean": 0.7149077653884888,
+        "median": 0.703169584274292,
+        "q05": 0.611217200756073,
+        "q95": 0.894159197807312
+      },
+      "statement_below_reference_q05_fraction": 0.6410384423364952,
+      "proof_below_reference_q05_fraction": 0.5596605092361457,
+      "statement_proof_neighbor_jaccard": {
+        "mean": 0.027563444994187423,
+        "median": 0.0,
+        "q05": 0.0,
+        "q95": 0.1111111111111111
+      },
+      "proof_similarity_on_statement_neighbors": {
+        "mean": 0.5908440351486206,
+        "median": 0.5897095203399658,
+        "q05": 0.5051904320716858,
+        "q95": 0.6757887005805969
+      },
+      "random_proof_similarity": {
+        "mean": 0.531870424747467,
+        "median": 0.5320595502853394,
+        "q05": 0.45973825454711914,
+        "q95": 0.6036402583122253
+      },
+      "transfer_delta": {
+        "mean": 0.05897362902760506,
+        "median": 0.05675017833709717,
+        "q05": 0.001906484249047935,
+        "q95": 0.12213420867919922
+      },
+      "statement_clusters": {
+        "0": 276,
+        "1": 18,
+        "2": 48,
+        "3": 301,
+        "4": 175,
+        "5": 72,
+        "6": 154,
+        "7": 15,
+        "8": 247,
+        "9": 92,
+        "10": 64,
+        "11": 111,
+        "12": 55,
+        "13": 101,
+        "14": 87,
+        "15": 187
+      },
+      "proof_clusters": {
+        "0": 115,
+        "1": 1059,
+        "2": 516,
+        "3": 313
+      }
+    },
+    "formalized-logic": {
+      "n": 2505,
+      "headline_n": 5,
+      "statement_top1": {
+        "mean": 0.7399812936782837,
+        "median": 0.7338498830795288,
+        "q05": 0.6558384299278259,
+        "q95": 0.845569908618927
+      },
+      "statement_top10_mean": {
+        "mean": 0.7122194170951843,
+        "median": 0.7077884078025818,
+        "q05": 0.6335352063179016,
+        "q95": 0.8069794774055481
+      },
+      "proof_top1": {
+        "mean": 0.8018999099731445,
+        "median": 0.7834110260009766,
+        "q05": 0.6776739954948425,
+        "q95": 1.0000001192092896
+      },
+      "proof_top10_mean": {
+        "mean": 0.7812299728393555,
+        "median": 0.7596008777618408,
+        "q05": 0.6564164161682129,
+        "q95": 1.0000001192092896
+      },
+      "statement_below_reference_q05_fraction": 0.39401197604790417,
+      "proof_below_reference_q05_fraction": 0.24830339321357286,
+      "statement_proof_neighbor_jaccard": {
+        "mean": 0.013101832111490814,
+        "median": 0.0,
+        "q05": 0.0,
+        "q95": 0.05263157894736842
+      },
+      "proof_similarity_on_statement_neighbors": {
+        "mean": 0.6201621890068054,
+        "median": 0.6198026537895203,
+        "q05": 0.5354750156402588,
+        "q95": 0.7069463729858398
+      },
+      "random_proof_similarity": {
+        "mean": 0.568173348903656,
+        "median": 0.5700947642326355,
+        "q05": 0.4920928180217743,
+        "q95": 0.6350558996200562
+      },
+      "transfer_delta": {
+        "mean": 0.05198884382843971,
+        "median": 0.049071431159973145,
+        "q05": -0.005785596091300249,
+        "q95": 0.11787545680999756
+      },
+      "statement_clusters": {
+        "0": 7,
+        "1": 280,
+        "2": 400,
+        "3": 194,
+        "4": 156,
+        "5": 491,
+        "6": 39,
+        "7": 139,
+        "8": 33,
+        "9": 169,
+        "10": 7,
+        "11": 214,
+        "12": 1,
+        "13": 6,
+        "14": 265,
+        "15": 104
+      },
+      "proof_clusters": {
+        "0": 934,
+        "1": 199,
+        "2": 701,
+        "3": 671
+      }
+    },
+    "lean-liquid": {
+      "n": 2502,
+      "headline_n": 2,
+      "statement_top1": {
+        "mean": 0.7382711172103882,
+        "median": 0.7359386682510376,
+        "q05": 0.6398834586143494,
+        "q95": 0.8465973734855652
+      },
+      "statement_top10_mean": {
+        "mean": 0.7043750286102295,
+        "median": 0.7041558623313904,
+        "q05": 0.6184134483337402,
+        "q95": 0.7955225110054016
+      },
+      "proof_top1": {
+        "mean": 0.7883105874061584,
+        "median": 0.7691821455955505,
+        "q05": 0.6753963232040405,
+        "q95": 1.0000001192092896
+      },
+      "proof_top10_mean": {
+        "mean": 0.7629996538162231,
+        "median": 0.7390236854553223,
+        "q05": 0.6527061462402344,
+        "q95": 1.0000001192092896
+      },
+      "statement_below_reference_q05_fraction": 0.4212629896083134,
+      "proof_below_reference_q05_fraction": 0.30895283772981613,
+      "statement_proof_neighbor_jaccard": {
+        "mean": 0.028426155827021512,
+        "median": 0.0,
+        "q05": 0.0,
+        "q95": 0.1111111111111111
+      },
+      "proof_similarity_on_statement_neighbors": {
+        "mean": 0.609317421913147,
+        "median": 0.6098588705062866,
+        "q05": 0.5230260491371155,
+        "q95": 0.6978145837783813
+      },
+      "random_proof_similarity": {
+        "mean": 0.5497494339942932,
+        "median": 0.5500589609146118,
+        "q05": 0.48240387439727783,
+        "q95": 0.6194964051246643
+      },
+      "transfer_delta": {
+        "mean": 0.05956803262233734,
+        "median": 0.05579522252082825,
+        "q05": 0.000786513788625598,
+        "q95": 0.13272236287593842
+      },
+      "statement_clusters": {
+        "0": 66,
+        "1": 90,
+        "2": 74,
+        "3": 612,
+        "4": 143,
+        "5": 230,
+        "6": 39,
+        "7": 24,
+        "8": 77,
+        "9": 134,
+        "10": 24,
+        "11": 555,
+        "12": 6,
+        "13": 285,
+        "14": 58,
+        "15": 85
+      },
+      "proof_clusters": {
+        "0": 325,
+        "1": 504,
+        "2": 1035,
+        "3": 638
+      }
+    },
+    "navier-stokes-euler": {
+      "n": 2507,
+      "headline_n": 7,
+      "statement_top1": {
+        "mean": 0.6685463190078735,
+        "median": 0.6637083888053894,
+        "q05": 0.5705393552780151,
+        "q95": 0.780406653881073
+      },
+      "statement_top10_mean": {
+        "mean": 0.6431767344474792,
+        "median": 0.6386590600013733,
+        "q05": 0.5534778237342834,
+        "q95": 0.7428800463676453
+      },
+      "proof_top1": {
+        "mean": 0.6842155456542969,
+        "median": 0.6740260720252991,
+        "q05": 0.5772508382797241,
+        "q95": 0.8128592371940613
+      },
+      "proof_top10_mean": {
+        "mean": 0.6625640392303467,
+        "median": 0.6524140238761902,
+        "q05": 0.5595711469650269,
+        "q95": 0.7764447927474976
+      },
+      "statement_below_reference_q05_fraction": 0.7917830075787794,
+      "proof_below_reference_q05_fraction": 0.8085360989230156,
+      "statement_proof_neighbor_jaccard": {
+        "mean": 0.028489510416585193,
+        "median": 0.0,
+        "q05": 0.0,
+        "q95": 0.1111111111111111
+      },
+      "proof_similarity_on_statement_neighbors": {
+        "mean": 0.5578489899635315,
+        "median": 0.5558712482452393,
+        "q05": 0.4693549573421478,
+        "q95": 0.6491599082946777
+      },
+      "random_proof_similarity": {
+        "mean": 0.506529688835144,
+        "median": 0.506308376789093,
+        "q05": 0.42760756611824036,
+        "q95": 0.5852197408676147
+      },
+      "transfer_delta": {
+        "mean": 0.05131931230425835,
+        "median": 0.045974910259246826,
+        "q05": -0.0015716487541794777,
+        "q95": 0.12299756705760956
+      },
+      "statement_clusters": {
+        "0": 64,
+        "1": 28,
+        "2": 167,
+        "3": 103,
+        "4": 137,
+        "5": 119,
+        "6": 170,
+        "7": 8,
+        "8": 56,
+        "9": 88,
+        "10": 848,
+        "11": 41,
+        "12": 76,
+        "13": 413,
+        "14": 64,
+        "15": 125
+      },
+      "proof_clusters": {
+        "0": 216,
+        "1": 668,
+        "2": 1080,
+        "3": 543
+      }
+    },
+    "pfr": {
+      "n": 910,
+      "headline_n": 2,
+      "statement_top1": {
+        "mean": 0.7112793922424316,
+        "median": 0.7037792801856995,
+        "q05": 0.6341918110847473,
+        "q95": 0.8161457180976868
+      },
+      "statement_top10_mean": {
+        "mean": 0.6795249581336975,
+        "median": 0.674934983253479,
+        "q05": 0.6139124631881714,
+        "q95": 0.7601372003555298
+      },
+      "proof_top1": {
+        "mean": 0.7209491729736328,
+        "median": 0.7136409878730774,
+        "q05": 0.6206607818603516,
+        "q95": 0.8420642614364624
+      },
+      "proof_top10_mean": {
+        "mean": 0.6957412362098694,
+        "median": 0.6871671676635742,
+        "q05": 0.6007226705551147,
+        "q95": 0.8042035102844238
+      },
+      "statement_below_reference_q05_fraction": 0.6527472527472528,
+      "proof_below_reference_q05_fraction": 0.6450549450549451,
+      "statement_proof_neighbor_jaccard": {
+        "mean": 0.033644537437107096,
+        "median": 0.0,
+        "q05": 0.0,
+        "q95": 0.1111111111111111
+      },
+      "proof_similarity_on_statement_neighbors": {
+        "mean": 0.5908942222595215,
+        "median": 0.5903299450874329,
+        "q05": 0.4984367787837982,
+        "q95": 0.6828972697257996
+      },
+      "random_proof_similarity": {
+        "mean": 0.5252377390861511,
+        "median": 0.5227973461151123,
+        "q05": 0.4470939338207245,
+        "q95": 0.6055948734283447
+      },
+      "transfer_delta": {
+        "mean": 0.06565653532743454,
+        "median": 0.06412303447723389,
+        "q05": 0.005820197053253651,
+        "q95": 0.13492579758167267
+      },
+      "statement_clusters": {
+        "0": 9,
+        "1": 15,
+        "2": 11,
+        "3": 17,
+        "4": 20,
+        "5": 24,
+        "6": 37,
+        "7": 13,
+        "8": 16,
+        "9": 15,
+        "10": 3,
+        "11": 27,
+        "12": 610,
+        "13": 5,
+        "14": 46,
+        "15": 42
+      },
+      "proof_clusters": {
+        "0": 80,
+        "1": 39,
+        "2": 696,
+        "3": 95
+      }
+    },
+    "pnt": {
+      "n": 2503,
+      "headline_n": 3,
+      "statement_top1": {
+        "mean": 0.6695252656936646,
+        "median": 0.6752787828445435,
+        "q05": 0.5475276112556458,
+        "q95": 0.7910551428794861
+      },
+      "statement_top10_mean": {
+        "mean": 0.6435163617134094,
+        "median": 0.6482936143875122,
+        "q05": 0.5346329212188721,
+        "q95": 0.7438234090805054
+      },
+      "proof_top1": {
+        "mean": 0.6865494847297668,
+        "median": 0.6800013780593872,
+        "q05": 0.5940096378326416,
+        "q95": 0.8295789361000061
+      },
+      "proof_top10_mean": {
+        "mean": 0.6612159609794617,
+        "median": 0.653600811958313,
+        "q05": 0.5741440057754517,
+        "q95": 0.7770185470581055
+      },
+      "statement_below_reference_q05_fraction": 0.7295245705153816,
+      "proof_below_reference_q05_fraction": 0.7942469037155413,
+      "statement_proof_neighbor_jaccard": {
+        "mean": 0.03324469528894188,
+        "median": 0.0,
+        "q05": 0.0,
+        "q95": 0.1111111111111111
+      },
+      "proof_similarity_on_statement_neighbors": {
+        "mean": 0.5642893314361572,
+        "median": 0.5561227202415466,
+        "q05": 0.4806886911392212,
+        "q95": 0.6601387858390808
+      },
+      "random_proof_similarity": {
+        "mean": 0.5013369917869568,
+        "median": 0.49948081374168396,
+        "q05": 0.42433181405067444,
+        "q95": 0.5806170105934143
+      },
+      "transfer_delta": {
+        "mean": 0.0629524514079094,
+        "median": 0.0557323694229126,
+        "q05": 0.007632001768797636,
+        "q95": 0.13604198396205902
+      },
+      "statement_clusters": {
+        "0": 50,
+        "1": 4,
+        "2": 913,
+        "3": 21,
+        "4": 278,
+        "5": 29,
+        "6": 206,
+        "7": 9,
+        "8": 37,
+        "9": 13,
+        "10": 177,
+        "11": 2,
+        "12": 46,
+        "13": 462,
+        "14": 228,
+        "15": 28
+      },
+      "proof_clusters": {
+        "0": 121,
+        "1": 761,
+        "2": 708,
+        "3": 913
+      }
+    },
+    "schoenflies": {
+      "n": 2501,
+      "headline_n": 1,
+      "statement_top1": {
+        "mean": 0.6966342926025391,
+        "median": 0.693552553653717,
+        "q05": 0.6073060035705566,
+        "q95": 0.7961664199829102
+      },
+      "statement_top10_mean": {
+        "mean": 0.6683515906333923,
+        "median": 0.6666779518127441,
+        "q05": 0.5859299898147583,
+        "q95": 0.7571582794189453
+      },
+      "proof_top1": {
+        "mean": 0.6814188957214355,
+        "median": 0.6652146577835083,
+        "q05": 0.5680441856384277,
+        "q95": 0.839798629283905
+      },
+      "proof_top10_mean": {
+        "mean": 0.6572622656822205,
+        "median": 0.639390766620636,
+        "q05": 0.5488089323043823,
+        "q95": 0.8074237704277039
+      },
+      "statement_below_reference_q05_fraction": 0.6865253898440624,
+      "proof_below_reference_q05_fraction": 0.7916833266693323,
+      "statement_proof_neighbor_jaccard": {
+        "mean": 0.027324806477232195,
+        "median": 0.0,
+        "q05": 0.0,
+        "q95": 0.1111111111111111
+      },
+      "proof_similarity_on_statement_neighbors": {
+        "mean": 0.5468415021896362,
+        "median": 0.5427635312080383,
+        "q05": 0.4554690420627594,
+        "q95": 0.6503268480300903
+      },
+      "random_proof_similarity": {
+        "mean": 0.49693262577056885,
+        "median": 0.4931456446647644,
+        "q05": 0.41340288519859314,
+        "q95": 0.5952450633049011
+      },
+      "transfer_delta": {
+        "mean": 0.04990888759493828,
+        "median": 0.04806339740753174,
+        "q05": 0.0031232833862304688,
+        "q95": 0.10225212574005127
+      },
+      "statement_clusters": {
+        "0": 60,
+        "1": 59,
+        "2": 167,
+        "3": 225,
+        "4": 34,
+        "5": 119,
+        "6": 162,
+        "7": 381,
+        "8": 26,
+        "9": 459,
+        "10": 32,
+        "11": 160,
+        "13": 32,
+        "14": 148,
+        "15": 437
+      },
+      "proof_clusters": {
+        "0": 195,
+        "1": 111,
+        "2": 1609,
+        "3": 586
+      }
+    },
+    "sphere-eversion": {
+      "n": 909,
+      "headline_n": 1,
+      "statement_top1": {
+        "mean": 0.7408637404441833,
+        "median": 0.7390052676200867,
+        "q05": 0.6361490488052368,
+        "q95": 0.854901909828186
+      },
+      "statement_top10_mean": {
+        "mean": 0.7027680277824402,
+        "median": 0.7046485543251038,
+        "q05": 0.6165387034416199,
+        "q95": 0.7897254228591919
+      },
+      "proof_top1": {
+        "mean": 0.7506059408187866,
+        "median": 0.7398936748504639,
+        "q05": 0.6361453533172607,
+        "q95": 1.0000001192092896
+      },
+      "proof_top10_mean": {
+        "mean": 0.7248932719230652,
+        "median": 0.7107243537902832,
+        "q05": 0.6148254871368408,
+        "q95": 0.9999637007713318
+      },
+      "statement_below_reference_q05_fraction": 0.40924092409240925,
+      "proof_below_reference_q05_fraction": 0.5071507150715071,
+      "statement_proof_neighbor_jaccard": {
+        "mean": 0.03650810680360384,
+        "median": 0.0,
+        "q05": 0.0,
+        "q95": 0.17647058823529413
+      },
+      "proof_similarity_on_statement_neighbors": {
+        "mean": 0.5934637188911438,
+        "median": 0.5944133996963501,
+        "q05": 0.5010338425636292,
+        "q95": 0.6821950674057007
+      },
+      "random_proof_similarity": {
+        "mean": 0.5345129370689392,
+        "median": 0.5372105836868286,
+        "q05": 0.4535787105560303,
+        "q95": 0.6107968688011169
+      },
+      "transfer_delta": {
+        "mean": 0.05895077809691429,
+        "median": 0.055207669734954834,
+        "q05": -0.004856789018958807,
+        "q95": 0.1295730620622635
+      },
+      "statement_clusters": {
+        "0": 17,
+        "1": 21,
+        "2": 45,
+        "3": 176,
+        "4": 17,
+        "5": 88,
+        "6": 5,
+        "7": 24,
+        "8": 12,
+        "9": 91,
+        "10": 220,
+        "11": 47,
+        "12": 14,
+        "13": 46,
+        "14": 35,
+        "15": 51
+      },
+      "proof_clusters": {
+        "0": 109,
+        "1": 89,
+        "2": 483,
+        "3": 228
+      }
+    },
+    "ten-proofs": {
+      "n": 2512,
+      "headline_n": 12,
+      "statement_top1": {
+        "mean": 0.6698314547538757,
+        "median": 0.665888786315918,
+        "q05": 0.5718420147895813,
+        "q95": 0.7763381004333496
+      },
+      "statement_top10_mean": {
+        "mean": 0.6436941623687744,
+        "median": 0.6410040855407715,
+        "q05": 0.553644061088562,
+        "q95": 0.740230917930603
+      },
+      "proof_top1": {
+        "mean": 0.701129138469696,
+        "median": 0.6944884061813354,
+        "q05": 0.5988425016403198,
+        "q95": 0.8279944658279419
+      },
+      "proof_top10_mean": {
+        "mean": 0.6780979633331299,
+        "median": 0.6708964109420776,
+        "q05": 0.5830608010292053,
+        "q95": 0.7960953712463379
+      },
+      "statement_below_reference_q05_fraction": 0.8001592356687898,
+      "proof_below_reference_q05_fraction": 0.75,
+      "statement_proof_neighbor_jaccard": {
+        "mean": 0.033783957207869184,
+        "median": 0.0,
+        "q05": 0.0,
+        "q95": 0.14052287581698159
+      },
+      "proof_similarity_on_statement_neighbors": {
+        "mean": 0.5793113112449646,
+        "median": 0.5771180987358093,
+        "q05": 0.5000744462013245,
+        "q95": 0.6677637100219727
+      },
+      "random_proof_similarity": {
+        "mean": 0.5219531059265137,
+        "median": 0.518413782119751,
+        "q05": 0.45248693227767944,
+        "q95": 0.5999143719673157
+      },
+      "transfer_delta": {
+        "mean": 0.05735819414258003,
+        "median": 0.05341413617134094,
+        "q05": 0.0023215238470584154,
+        "q95": 0.12461899220943451
+      },
+      "statement_clusters": {
+        "0": 101,
+        "1": 121,
+        "2": 153,
+        "3": 103,
+        "4": 294,
+        "5": 98,
+        "6": 112,
+        "7": 30,
+        "8": 151,
+        "9": 60,
+        "10": 108,
+        "11": 60,
+        "12": 85,
+        "13": 366,
+        "14": 485,
+        "15": 185
+      },
+      "proof_clusters": {
+        "0": 241,
+        "1": 865,
+        "2": 998,
+        "3": 408
+      }
+    }
+  },
+  "headline_results": [
+    {
+      "project": "ten-proofs",
+      "name": "quantitativeCompactnessCounterexample",
+      "file_path": "CompactnessAndDegeneracy.lean",
+      "line": 9320,
+      "statement_top1": 0.5784106254577637,
+      "proof_top1": 0.6331334710121155,
+      "statement_cluster": 14,
+      "proof_cluster": 2,
+      "neighbor_jaccard": 0.0,
+      "transfer_delta": 0.011094272136688232,
+      "nearest_statement_neighbors": [
+        {
+          "full_name": "SimpleGraph.IsRegularOfDegree.compl",
+          "file_path": "Mathlib/Combinatorics/SimpleGraph/Finite.lean",
+          "cosine": 0.5784106254577637
+        },
+        {
+          "full_name": "CategoryTheory.Presieve.Arrows.Compatible.familyOfElements_compatible",
+          "file_path": "Mathlib/CategoryTheory/Sites/IsSheafFor.lean",
+          "cosine": 0.5692263245582581
+        },
+        {
+          "full_name": "Fermat42.not_minimal",
+          "file_path": "Mathlib/NumberTheory/FLT/Four.lean",
+          "cosine": 0.5538833141326904
+        },
+        {
+          "full_name": "Seminorm.isBounded_const",
+          "file_path": "Mathlib/Analysis/LocallyConvex/WithSeminorms.lean",
+          "cosine": 0.5535951256752014
+        },
+        {
+          "full_name": "bernsteinApproximation.le_of_mem_S_compl",
+          "file_path": "Mathlib/Analysis/SpecialFunctions/Bernstein.lean",
+          "cosine": 0.5532313585281372
+        }
+      ]
+    },
+    {
+      "project": "ten-proofs",
+      "name": "twoDegenerateExtremalCounterexample",
+      "file_path": "CompactnessAndDegeneracy.lean",
+      "line": 18441,
+      "statement_top1": 0.6051271557807922,
+      "proof_top1": 0.6040782928466797,
+      "statement_cluster": 13,
+      "proof_cluster": 2,
+      "neighbor_jaccard": 0.0,
+      "transfer_delta": 0.010147541761398315,
+      "nearest_statement_neighbors": [
+        {
+          "full_name": "SimpleGraph.IsRegularOfDegree.compl",
+          "file_path": "Mathlib/Combinatorics/SimpleGraph/Finite.lean",
+          "cosine": 0.6051271557807922
+        },
+        {
+          "full_name": "IsExtreme.trans",
+          "file_path": "Mathlib/Analysis/Convex/Extreme.lean",
+          "cosine": 0.5862209796905518
+        },
+        {
+          "full_name": "HomogeneousLocalization.NumDenSameDeg.ext",
+          "file_path": "Mathlib/RingTheory/GradedAlgebra/HomogeneousLocalization.lean",
+          "cosine": 0.5743850469589233
+        },
+        {
+          "full_name": "Polynomial.degree_sub_le",
+          "file_path": "Mathlib/Data/Polynomial/Degree/Definitions.lean",
+          "cosine": 0.5727300643920898
+        },
+        {
+          "full_name": "Polynomial.degree_sub_C",
+          "file_path": "Mathlib/Data/Polynomial/Degree/Definitions.lean",
+          "cosine": 0.5662761330604553
+        }
+      ]
+    },
+    {
+      "project": "ten-proofs",
+      "name": "exists_infinite_pairwise_nonisomorphic_propertyT_icc_groups_with_isomorphic_factors",
+      "file_path": "ConnesRigidity.lean",
+      "line": 37347,
+      "statement_top1": 0.6119951605796814,
+      "proof_top1": 0.6421017646789551,
+      "statement_cluster": 11,
+      "proof_cluster": 2,
+      "neighbor_jaccard": 0.0,
+      "transfer_delta": 0.03907299041748047,
+      "nearest_statement_neighbors": [
+        {
+          "full_name": "IsPGroup.isNilpotent",
+          "file_path": "Mathlib/GroupTheory/Nilpotent.lean",
+          "cosine": 0.6119951605796814
+        },
+        {
+          "full_name": "isNilpotent_of_product_of_sylow_group",
+          "file_path": "Mathlib/GroupTheory/Nilpotent.lean",
+          "cosine": 0.6116780638694763
+        },
+        {
+          "full_name": "isNilpotent_pi_of_bounded_class",
+          "file_path": "Mathlib/GroupTheory/Nilpotent.lean",
+          "cosine": 0.6094473600387573
+        },
+        {
+          "full_name": "IsPGroup.disjoint_of_ne",
+          "file_path": "Mathlib/GroupTheory/PGroup.lean",
+          "cosine": 0.6079227328300476
+        },
+        {
+          "full_name": "isNilpotent_of_finite_tFAE",
+          "file_path": "Mathlib/GroupTheory/Nilpotent.lean",
+          "cosine": 0.6006885170936584
+        }
+      ]
+    },
+    {
+      "project": "ten-proofs",
+      "name": "ehrhart_volume_inequality_for_sets",
+      "file_path": "EhrhartVolumeInequality.lean",
+      "line": 55733,
+      "statement_top1": 0.6552537083625793,
+      "proof_top1": 0.6381303071975708,
+      "statement_cluster": 13,
+      "proof_cluster": 2,
+      "neighbor_jaccard": 0.0,
+      "transfer_delta": 0.048666149377822876,
+      "nearest_statement_neighbors": [
+        {
+          "full_name": "Real.volume_pi_le_diam_pow",
+          "file_path": "Mathlib/MeasureTheory/Measure/Lebesgue/Basic.lean",
+          "cosine": 0.6552537083625793
+        },
+        {
+          "full_name": "MeasureTheory.Measure.Subtype.volume_univ",
+          "file_path": "Mathlib/MeasureTheory/Measure/Restrict.lean",
+          "cosine": 0.6527133584022522
+        },
+        {
+          "full_name": "Convex.combo_closure_interior_subset_interior",
+          "file_path": "Mathlib/Analysis/Convex/Topology.lean",
+          "cosine": 0.6447376012802124
+        },
+        {
+          "full_name": "volume_iUnion_setOf_liouvilleWith",
+          "file_path": "Mathlib/NumberTheory/Liouville/Measure.lean",
+          "cosine": 0.6337859034538269
+        },
+        {
+          "full_name": "Balanced.starConvex",
+          "file_path": "Mathlib/Analysis/Convex/Gauge.lean",
+          "cosine": 0.6317151784896851
+        }
+      ]
+    },
+    {
+      "project": "ten-proofs",
+      "name": "gapCVP400IsNPHard",
+      "file_path": "GapCVP.lean",
+      "line": 130398,
+      "statement_top1": 0.6617501378059387,
+      "proof_top1": 0.5867401361465454,
+      "statement_cluster": 2,
+      "proof_cluster": 3,
+      "neighbor_jaccard": 0.0,
+      "transfer_delta": 0.009256958961486816,
+      "nearest_statement_neighbors": [
+        {
+          "full_name": "ZMod.isQuadratic_χ₄",
+          "file_path": "Mathlib/NumberTheory/LegendreSymbol/ZModChar.lean",
+          "cosine": 0.6617501378059387
+        },
+        {
+          "full_name": "IsDedekindDomainInv.integrallyClosed",
+          "file_path": "Mathlib/RingTheory/DedekindDomain/Ideal.lean",
+          "cosine": 0.6416002511978149
+        },
+        {
+          "full_name": "goldConj_neg",
+          "file_path": "Mathlib/Data/Real/GoldenRatio.lean",
+          "cosine": 0.6415337324142456
+        },
+        {
+          "full_name": "Real.pi_le_four",
+          "file_path": "Mathlib/Analysis/SpecialFunctions/Trigonometric/Basic.lean",
+          "cosine": 0.6396275162696838
+        },
+        {
+          "full_name": "Ordinal.IsNormal.apply_le_nfp",
+          "file_path": "Mathlib/SetTheory/Ordinal/FixedPoint.lean",
+          "cosine": 0.6391022801399231
+        }
+      ]
+    },
+    {
+      "project": "ten-proofs",
+      "name": "binaryRate_lt_mrrw",
+      "file_path": "MetricCodes.lean",
+      "line": 20797,
+      "statement_top1": 0.6990793347358704,
+      "proof_top1": 0.7094422578811646,
+      "statement_cluster": 2,
+      "proof_cluster": 3,
+      "neighbor_jaccard": 0.05263157894736842,
+      "transfer_delta": 0.02137923240661621,
+      "nearest_statement_neighbors": [
+        {
+          "full_name": "Real.mul_lt_sin",
+          "file_path": "Mathlib/Analysis/SpecialFunctions/Trigonometric/Complex.lean",
+          "cosine": 0.6990793347358704
+        },
+        {
+          "full_name": "USize.mod_lt",
+          "file_path": "Std/Data/Fin/Lemmas.lean",
+          "cosine": 0.6928697824478149
+        },
+        {
+          "full_name": "ENNReal.half_lt_self",
+          "file_path": "Mathlib/Data/ENNReal/Inv.lean",
+          "cosine": 0.6892897486686707
+        },
+        {
+          "full_name": "Int.bmod_lt",
+          "file_path": "Std/Data/Int/DivMod.lean",
+          "cosine": 0.6873707175254822
+        },
+        {
+          "full_name": "Real.one_lt_rpow",
+          "file_path": "Mathlib/Analysis/SpecialFunctions/Pow/Real.lean",
+          "cosine": 0.6863580942153931
+        }
+      ]
+    },
+    {
+      "project": "ten-proofs",
+      "name": "strict_hierarchy",
+      "file_path": "MetricCodes.lean",
+      "line": 114336,
+      "statement_top1": 0.6458263397216797,
+      "proof_top1": 0.61705082654953,
+      "statement_cluster": 2,
+      "proof_cluster": 2,
+      "neighbor_jaccard": 0.05263157894736842,
+      "transfer_delta": 0.028302669525146484,
+      "nearest_statement_neighbors": [
+        {
+          "full_name": "rank_submodule_le",
+          "file_path": "Mathlib/LinearAlgebra/Dimension/Basic.lean",
+          "cosine": 0.6458263397216797
+        },
+        {
+          "full_name": "exists_locallyFinite_subset_iUnion_ball_radius_lt",
+          "file_path": "Mathlib/Topology/MetricSpace/ShrinkingLemma.lean",
+          "cosine": 0.6404809951782227
+        },
+        {
+          "full_name": "Real.sqrt_le_sqrt",
+          "file_path": "Mathlib/Data/Real/Sqrt.lean",
+          "cosine": 0.6264392733573914
+        },
+        {
+          "full_name": "Complex.hasStrictDerivAt_cosh",
+          "file_path": "Mathlib/Analysis/SpecialFunctions/Trigonometric/Deriv.lean",
+          "cosine": 0.6262739896774292
+        },
+        {
+          "full_name": "Complex.hasStrictDerivAt_sin",
+          "file_path": "Mathlib/Analysis/SpecialFunctions/Trigonometric/Deriv.lean",
+          "cosine": 0.624836266040802
+        }
+      ]
+    },
+    {
+      "project": "ten-proofs",
+      "name": "erdos_problem_183_explicit",
+      "file_path": "MulticolorTriangleRamsey.lean",
+      "line": 3042,
+      "statement_top1": 0.6589885950088501,
+      "proof_top1": 0.597793698310852,
+      "statement_cluster": 13,
+      "proof_cluster": 3,
+      "neighbor_jaccard": 0.0,
+      "transfer_delta": -0.04102310538291931,
+      "nearest_statement_neighbors": [
+        {
+          "full_name": "Real.tendsto_sum_pi_div_four",
+          "file_path": "Mathlib/Data/Real/Pi/Leibniz.lean",
+          "cosine": 0.6589885950088501
+        },
+        {
+          "full_name": "Real.tendsto_exp_div_pow_atTop",
+          "file_path": "Mathlib/Analysis/SpecialFunctions/Exp.lean",
+          "cosine": 0.6538639664649963
+        },
+        {
+          "full_name": "tendsto_exp_mul_div_rpow_atTop",
+          "file_path": "Mathlib/Analysis/SpecialFunctions/Pow/Asymptotics.lean",
+          "cosine": 0.6394537687301636
+        },
+        {
+          "full_name": "ENNReal.tendsto_rpow_at_top",
+          "file_path": "Mathlib/Analysis/SpecialFunctions/Pow/Asymptotics.lean",
+          "cosine": 0.6220794916152954
+        },
+        {
+          "full_name": "Stirling.log_stirlingSeq_diff_hasSum",
+          "file_path": "Mathlib/Analysis/SpecialFunctions/Stirling.lean",
+          "cosine": 0.6152611374855042
+        }
+      ]
+    },
+    {
+      "project": "ten-proofs",
+      "name": "exists_finitelyPresented_nonsofic_group",
+      "file_path": "NonSoficGroup.lean",
+      "line": 34430,
+      "statement_top1": 0.6626707911491394,
+      "proof_top1": 0.6660366058349609,
+      "statement_cluster": 14,
+      "proof_cluster": 2,
+      "neighbor_jaccard": 0.1111111111111111,
+      "transfer_delta": 0.07764708995819092,
+      "nearest_statement_neighbors": [
+        {
+          "full_name": "IsPGroup.isNilpotent",
+          "file_path": "Mathlib/GroupTheory/Nilpotent.lean",
+          "cosine": 0.6626707911491394
+        },
+        {
+          "full_name": "Finset.not_nontrivial_singleton",
+          "file_path": "Mathlib/Data/Finset/Basic.lean",
+          "cosine": 0.6621880531311035
+        },
+        {
+          "full_name": "isSimpleGroup_of_prime_card",
+          "file_path": "Mathlib/GroupTheory/SpecificGroups/Cyclic.lean",
+          "cosine": 0.6605209112167358
+        },
+        {
+          "full_name": "Part.some_ne_none",
+          "file_path": "Mathlib/Data/Part.lean",
+          "cosine": 0.6552228331565857
+        },
+        {
+          "full_name": "IsPGroup.center_nontrivial",
+          "file_path": "Mathlib/GroupTheory/PGroup.lean",
+          "cosine": 0.6547092199325562
+        }
+      ]
+    },
+    {
+      "project": "ten-proofs",
+      "name": "permanent_rational_formula_logarithmic_lower_bound",
+      "file_path": "Permanent.lean",
+      "line": 27551,
+      "statement_top1": 0.6931895017623901,
+      "proof_top1": 0.7335460186004639,
+      "statement_cluster": 4,
+      "proof_cluster": 3,
+      "neighbor_jaccard": 0.0,
+      "transfer_delta": 0.02528470754623413,
+      "nearest_statement_neighbors": [
+        {
+          "full_name": "Behrend.lower_bound_le_one'",
+          "file_path": "Mathlib/Combinatorics/Additive/Behrend.lean",
+          "cosine": 0.6931895017623901
+        },
+        {
+          "full_name": "Int.log_mono_right",
+          "file_path": "Mathlib/Data/Int/Log.lean",
+          "cosine": 0.6545577645301819
+        },
+        {
+          "full_name": "Bertrand.real_main_inequality",
+          "file_path": "Mathlib/NumberTheory/Bertrand.lean",
+          "cosine": 0.6414110660552979
+        },
+        {
+          "full_name": "NumberField.Units.dirichletUnitTheorem.log_le_of_logEmbedding_le",
+          "file_path": "Mathlib/NumberTheory/NumberField/Units.lean",
+          "cosine": 0.6360356211662292
+        },
+        {
+          "full_name": "Real.rpow_logb_of_neg",
+          "file_path": "Mathlib/Analysis/SpecialFunctions/Log/Base.lean",
+          "cosine": 0.6321278214454651
+        }
+      ]
+    },
+    {
+      "project": "ten-proofs",
+      "name": "distributionUniformExponential",
+      "file_path": "QuantumParallelRepetition.lean",
+      "line": 70953,
+      "statement_top1": 0.6217005848884583,
+      "proof_top1": 0.6915796399116516,
+      "statement_cluster": 14,
+      "proof_cluster": 0,
+      "neighbor_jaccard": 0.0,
+      "transfer_delta": 0.020916014909744263,
+      "nearest_statement_neighbors": [
+        {
+          "full_name": "Behrend.lower_bound_le_one'",
+          "file_path": "Mathlib/Combinatorics/Additive/Behrend.lean",
+          "cosine": 0.6217005848884583
+        },
+        {
+          "full_name": "Complex.ofReal_exp_ofReal_re",
+          "file_path": "Mathlib/Data/Complex/Exponential.lean",
+          "cosine": 0.6023194789886475
+        },
+        {
+          "full_name": "Complex.abs_exp",
+          "file_path": "Mathlib/Data/Complex/Exponential.lean",
+          "cosine": 0.5998136401176453
+        },
+        {
+          "full_name": "ContinuousMap.dist_le",
+          "file_path": "Mathlib/Topology/ContinuousFunction/Compact.lean",
+          "cosine": 0.5984229445457458
+        },
+        {
+          "full_name": "Complex.exp_log",
+          "file_path": "Mathlib/Analysis/SpecialFunctions/Complex/Log.lean",
+          "cosine": 0.596886396408081
+        }
+      ]
+    },
+    {
+      "project": "ten-proofs",
+      "name": "sharpFullCohnElkiesManuscriptConclusions",
+      "file_path": "SpherePacking.lean",
+      "line": 55591,
+      "statement_top1": 0.6614617109298706,
+      "proof_top1": 0.6220977306365967,
+      "statement_cluster": 15,
+      "proof_cluster": 2,
+      "neighbor_jaccard": 0.0,
+      "transfer_delta": -0.003873288631439209,
+      "nearest_statement_neighbors": [
+        {
+          "full_name": "Real.sinh_strictMono",
+          "file_path": "Mathlib/Analysis/SpecialFunctions/Trigonometric/Deriv.lean",
+          "cosine": 0.6614617109298706
+        },
+        {
+          "full_name": "Cardinal.beth_strictMono",
+          "file_path": "Mathlib/SetTheory/Cardinal/Ordinal.lean",
+          "cosine": 0.6590158343315125
+        },
+        {
+          "full_name": "IsDedekindDomainInv.integrallyClosed",
+          "file_path": "Mathlib/RingTheory/DedekindDomain/Ideal.lean",
+          "cosine": 0.6544832587242126
+        },
+        {
+          "full_name": "MonoidHom.ker_transferSylow_isComplement'",
+          "file_path": "Mathlib/GroupTheory/Transfer.lean",
+          "cosine": 0.6495532989501953
+        },
+        {
+          "full_name": "Order.sequenceOfCofinals.monotone",
+          "file_path": "Mathlib/Order/Ideal.lean",
+          "cosine": 0.6446687579154968
+        }
+      ]
+    },
+    {
+      "project": "navier-stokes-euler",
+      "name": "exists_compact_smooth_euler_singularity",
+      "file_path": "Euler/EulerSingularity.lean",
+      "line": 133,
+      "statement_top1": 0.5936076641082764,
+      "proof_top1": 0.5806281566619873,
+      "statement_cluster": 10,
+      "proof_cluster": 3,
+      "neighbor_jaccard": 0.0,
+      "transfer_delta": 0.04235374927520752,
+      "nearest_statement_neighbors": [
+        {
+          "full_name": "exists_continuous_nonneg_pos",
+          "file_path": "Mathlib/Topology/UrysohnsLemma.lean",
+          "cosine": 0.5936076641082764
+        },
+        {
+          "full_name": "MeasureTheory.Integrable.exists_hasCompactSupport_integral_sub_le",
+          "file_path": "Mathlib/MeasureTheory/Function/ContinuousMapDense.lean",
+          "cosine": 0.5765688419342041
+        },
+        {
+          "full_name": "IsOpen.exists_msmooth_support_eq",
+          "file_path": "Mathlib/Geometry/Manifold/PartitionOfUnity.lean",
+          "cosine": 0.5716512799263
+        },
+        {
+          "full_name": "HasCompactSupport.convolutionExists_left_of_continuous_right",
+          "file_path": "Mathlib/Analysis/Convolution.lean",
+          "cosine": 0.571191668510437
+        },
+        {
+          "full_name": "IsCompact.exists_open_superset_measure_lt_top'",
+          "file_path": "Mathlib/MeasureTheory/Measure/Typeclasses.lean",
+          "cosine": 0.5584667921066284
+        }
+      ]
+    },
+    {
+      "project": "navier-stokes-euler",
+      "name": "euler_breakdown_R3",
+      "file_path": "Euler/Solution.lean",
+      "line": 33,
+      "statement_top1": 0.6209210753440857,
+      "proof_top1": 0.6311233043670654,
+      "statement_cluster": 0,
+      "proof_cluster": 2,
+      "neighbor_jaccard": 0.0,
+      "transfer_delta": 0.009148269891738892,
+      "nearest_statement_neighbors": [
+        {
+          "full_name": "exists_vector_zero",
+          "file_path": "Mathlib/Data/Vector3.lean",
+          "cosine": 0.6209210753440857
+        },
+        {
+          "full_name": "Polynomial.X_ne_zero",
+          "file_path": "Mathlib/Data/Polynomial/Basic.lean",
+          "cosine": 0.5926994681358337
+        },
+        {
+          "full_name": "Real.aux₀",
+          "file_path": "Mathlib/NumberTheory/DiophantineApproximation.lean",
+          "cosine": 0.5913834571838379
+        },
+        {
+          "full_name": "Nat.prime_three",
+          "file_path": "Mathlib/Data/Nat/Prime.lean",
+          "cosine": 0.5899786949157715
+        },
+        {
+          "full_name": "Matrix.smul_vec3",
+          "file_path": "Mathlib/Data/Matrix/Notation.lean",
+          "cosine": 0.5868975520133972
+        }
+      ]
+    },
+    {
+      "project": "navier-stokes-euler",
+      "name": "exists_compact_smooth_euler_singularity",
+      "file_path": "Euler/Solution.lean",
+      "line": 43,
+      "statement_top1": 0.5736289024353027,
+      "proof_top1": 0.606515109539032,
+      "statement_cluster": 13,
+      "proof_cluster": 2,
+      "neighbor_jaccard": 0.0,
+      "transfer_delta": 0.05526497960090637,
+      "nearest_statement_neighbors": [
+        {
+          "full_name": "MeasureTheory.Integrable.exists_hasCompactSupport_integral_sub_le",
+          "file_path": "Mathlib/MeasureTheory/Function/ContinuousMapDense.lean",
+          "cosine": 0.5736289024353027
+        },
+        {
+          "full_name": "tendsto_integral_exp_inner_smul_cocompact_of_continuous_compact_support",
+          "file_path": "Mathlib/Analysis/Fourier/RiemannLebesgueLemma.lean",
+          "cosine": 0.5694295763969421
+        },
+        {
+          "full_name": "exists_smooth_zero_one_of_isClosed",
+          "file_path": "Mathlib/Geometry/Manifold/PartitionOfUnity.lean",
+          "cosine": 0.5694204568862915
+        },
+        {
+          "full_name": "exists_continuous_nonneg_pos",
+          "file_path": "Mathlib/Topology/UrysohnsLemma.lean",
+          "cosine": 0.5685826539993286
+        },
+        {
+          "full_name": "IsCompact.exists_open_superset_measure_lt_top'",
+          "file_path": "Mathlib/MeasureTheory/Measure/Typeclasses.lean",
+          "cosine": 0.5516911745071411
+        }
+      ]
+    },
+    {
+      "project": "navier-stokes-euler",
+      "name": "navier_stokes_breakdown_R3",
+      "file_path": "NavierStokes/ComparatorR3Theorem.lean",
+      "line": 38,
+      "statement_top1": 0.5817529559135437,
+      "proof_top1": 0.6796939969062805,
+      "statement_cluster": 13,
+      "proof_cluster": 2,
+      "neighbor_jaccard": 0.0,
+      "transfer_delta": 0.01526486873626709,
+      "nearest_statement_neighbors": [
+        {
+          "full_name": "MeasureTheory.lintegral_rnDeriv_mul",
+          "file_path": "Mathlib/MeasureTheory/Decomposition/RadonNikodym.lean",
+          "cosine": 0.5817529559135437
+        },
+        {
+          "full_name": "exists_vector_zero",
+          "file_path": "Mathlib/Data/Vector3.lean",
+          "cosine": 0.5606807470321655
+        },
+        {
+          "full_name": "exists_vector_succ",
+          "file_path": "Mathlib/Data/Vector3.lean",
+          "cosine": 0.5605758428573608
+        },
+        {
+          "full_name": "UV.mem_compression",
+          "file_path": "Mathlib/Combinatorics/SetFamily/Compression/UV.lean",
+          "cosine": 0.5585380792617798
+        },
+        {
+          "full_name": "Real.summable_nat_rpow_inv",
+          "file_path": "Mathlib/Analysis/PSeries.lean",
+          "cosine": 0.5576159358024597
+        }
+      ]
+    },
+    {
+      "project": "navier-stokes-euler",
+      "name": "navier_stokes_breakdown_R3",
+      "file_path": "NavierStokes/ComparatorSolution.lean",
+      "line": 16,
+      "statement_top1": 0.5610710382461548,
+      "proof_top1": 0.6157970428466797,
+      "statement_cluster": 13,
+      "proof_cluster": 3,
+      "neighbor_jaccard": 0.0,
+      "transfer_delta": 0.0031587183475494385,
+      "nearest_statement_neighbors": [
+        {
+          "full_name": "AnalyticAt.exists_eventuallyEq_pow_smul_nonzero_iff",
+          "file_path": "Mathlib/Analysis/Analytic/IsolatedZeros.lean",
+          "cosine": 0.5610710382461548
+        },
+        {
+          "full_name": "exists_vector_succ",
+          "file_path": "Mathlib/Data/Vector3.lean",
+          "cosine": 0.5512630343437195
+        },
+        {
+          "full_name": "MeasureTheory.lintegral_rnDeriv_mul",
+          "file_path": "Mathlib/MeasureTheory/Decomposition/RadonNikodym.lean",
+          "cosine": 0.5487024188041687
+        },
+        {
+          "full_name": "MeasureTheory.exists_not_mem_null_le_average",
+          "file_path": "Mathlib/MeasureTheory/Integral/Average.lean",
+          "cosine": 0.5464270710945129
+        },
+        {
+          "full_name": "exists_vector_zero",
+          "file_path": "Mathlib/Data/Vector3.lean",
+          "cosine": 0.5458926558494568
+        }
+      ]
+    },
+    {
+      "project": "navier-stokes-euler",
+      "name": "navier_stokes_breakdown_periodic",
+      "file_path": "NavierStokes/ComparatorSolution.lean",
+      "line": 23,
+      "statement_top1": 0.613813042640686,
+      "proof_top1": 0.6430577039718628,
+      "statement_cluster": 13,
+      "proof_cluster": 0,
+      "neighbor_jaccard": 0.05263157894736842,
+      "transfer_delta": 0.04072117805480957,
+      "nearest_statement_neighbors": [
+        {
+          "full_name": "Function.nodup_periodicOrbit",
+          "file_path": "Mathlib/Dynamics/PeriodicPts.lean",
+          "cosine": 0.613813042640686
+        },
+        {
+          "full_name": "Function.Periodic.eq",
+          "file_path": "Mathlib/Algebra/Periodic.lean",
+          "cosine": 0.5847984552383423
+        },
+        {
+          "full_name": "Complex.circleTransformDeriv_periodic",
+          "file_path": "Mathlib/MeasureTheory/Integral/CircleTransform.lean",
+          "cosine": 0.5789549946784973
+        },
+        {
+          "full_name": "Function.Periodic.neg",
+          "file_path": "Mathlib/Algebra/Periodic.lean",
+          "cosine": 0.5749870538711548
+        },
+        {
+          "full_name": "AnalyticAt.exists_eventuallyEq_pow_smul_nonzero_iff",
+          "file_path": "Mathlib/Analysis/Analytic/IsolatedZeros.lean",
+          "cosine": 0.573306143283844
+        }
+      ]
+    },
+    {
+      "project": "navier-stokes-euler",
+      "name": "navier_stokes_breakdown_periodic",
+      "file_path": "NavierStokes/ComparatorTheorem.lean",
+      "line": 47,
+      "statement_top1": 0.5977606773376465,
+      "proof_top1": 0.6312746405601501,
+      "statement_cluster": 13,
+      "proof_cluster": 3,
+      "neighbor_jaccard": 0.05263157894736842,
+      "transfer_delta": 0.06059926748275757,
+      "nearest_statement_neighbors": [
+        {
+          "full_name": "Function.nodup_periodicOrbit",
+          "file_path": "Mathlib/Dynamics/PeriodicPts.lean",
+          "cosine": 0.5977606773376465
+        },
+        {
+          "full_name": "Complex.circleTransformDeriv_periodic",
+          "file_path": "Mathlib/MeasureTheory/Integral/CircleTransform.lean",
+          "cosine": 0.5819516181945801
+        },
+        {
+          "full_name": "Function.Periodic.eq",
+          "file_path": "Mathlib/Algebra/Periodic.lean",
+          "cosine": 0.579358696937561
+        },
+        {
+          "full_name": "Function.Periodic.neg",
+          "file_path": "Mathlib/Algebra/Periodic.lean",
+          "cosine": 0.5708235502243042
+        },
+        {
+          "full_name": "Nat.periodic_gcd",
+          "file_path": "Mathlib/Data/Nat/Periodic.lean",
+          "cosine": 0.5705798268318176
+        }
+      ]
+    },
+    {
+      "project": "flt",
+      "name": "flt_pinned",
+      "file_path": "FinalCheck.lean",
+      "line": 6,
+      "statement_top1": 0.751268744468689,
+      "proof_top1": 0.7695004343986511,
+      "statement_cluster": 4,
+      "proof_cluster": 0,
+      "neighbor_jaccard": 0.0,
+      "transfer_delta": 0.053086817264556885,
+      "nearest_statement_neighbors": [
+        {
+          "full_name": "Polynomial.X_pow_add_C_ne_zero",
+          "file_path": "Mathlib/Data/Polynomial/Degree/Definitions.lean",
+          "cosine": 0.751268744468689
+        },
+        {
+          "full_name": "Even.pow_pos",
+          "file_path": "Mathlib/Algebra/Parity.lean",
+          "cosine": 0.7270246744155884
+        },
+        {
+          "full_name": "Matrix.zpow_add_of_nonneg",
+          "file_path": "Mathlib/LinearAlgebra/Matrix/ZPow.lean",
+          "cosine": 0.711650013923645
+        },
+        {
+          "full_name": "pow_lt_one",
+          "file_path": "Mathlib/Algebra/GroupPower/Order.lean",
+          "cosine": 0.7091873288154602
+        },
+        {
+          "full_name": "Pell.n_lt_a_pow",
+          "file_path": "Mathlib/NumberTheory/PellMatiyasevic.lean",
+          "cosine": 0.7085760235786438
+        }
+      ]
+    },
+    {
+      "project": "flt",
+      "name": "flt_mathlib",
+      "file_path": "FinalCheck.lean",
+      "line": 7,
+      "statement_top1": 0.7222790122032166,
+      "proof_top1": 0.7137281894683838,
+      "statement_cluster": 14,
+      "proof_cluster": 1,
+      "neighbor_jaccard": 0.0,
+      "transfer_delta": 0.012270450592041016,
+      "nearest_statement_neighbors": [
+        {
+          "full_name": "Nat.prime_three",
+          "file_path": "Mathlib/Data/Nat/Prime.lean",
+          "cosine": 0.7222790122032166
+        },
+        {
+          "full_name": "Polynomial.mirror_mirror",
+          "file_path": "Mathlib/Data/Polynomial/Mirror.lean",
+          "cosine": 0.7115638852119446
+        },
+        {
+          "full_name": "Fin.neg_last",
+          "file_path": "Mathlib/Data/Fin/Basic.lean",
+          "cosine": 0.7057662010192871
+        },
+        {
+          "full_name": "ENNReal.not_lt_zero",
+          "file_path": "Mathlib/Data/ENNReal/Operations.lean",
+          "cosine": 0.7016841769218445
+        },
+        {
+          "full_name": "Int.fmod_def",
+          "file_path": "Std/Data/Int/DivMod.lean",
+          "cosine": 0.7008618116378784
+        }
+      ]
+    },
+    {
+      "project": "flt",
+      "name": "fermat_last_theorem",
+      "file_path": "Theorems/Thm_fermat_last_theorem.lean",
+      "line": 128,
+      "statement_top1": 0.7807410955429077,
+      "proof_top1": 0.6888560056686401,
+      "statement_cluster": 4,
+      "proof_cluster": 3,
+      "neighbor_jaccard": 0.0,
+      "transfer_delta": 0.0367741584777832,
+      "nearest_statement_neighbors": [
+        {
+          "full_name": "Polynomial.X_pow_add_C_ne_zero",
+          "file_path": "Mathlib/Data/Polynomial/Degree/Definitions.lean",
+          "cosine": 0.7807410955429077
+        },
+        {
+          "full_name": "Even.pow_pos",
+          "file_path": "Mathlib/Algebra/Parity.lean",
+          "cosine": 0.7534456253051758
+        },
+        {
+          "full_name": "Pell.n_lt_a_pow",
+          "file_path": "Mathlib/NumberTheory/PellMatiyasevic.lean",
+          "cosine": 0.7362592220306396
+        },
+        {
+          "full_name": "Matrix.zpow_add_of_nonneg",
+          "file_path": "Mathlib/LinearAlgebra/Matrix/ZPow.lean",
+          "cosine": 0.7307857871055603
+        },
+        {
+          "full_name": "npow_mul",
+          "file_path": "Mathlib/Algebra/Group/NatPowAssoc.lean",
+          "cosine": 0.7227147221565247
+        }
+      ]
+    },
+    {
+      "project": "pfr",
+      "name": "approx_hom_pfr",
+      "file_path": "PFR/ApproxHomPFR.lean",
+      "line": 38,
+      "statement_top1": 0.6445411443710327,
+      "proof_top1": 0.6384822130203247,
+      "statement_cluster": 13,
+      "proof_cluster": 2,
+      "neighbor_jaccard": 0.05263157894736842,
+      "transfer_delta": 0.07395043969154358,
+      "nearest_statement_neighbors": [
+        {
+          "full_name": "SchwartzMap.decay_add_le_aux",
+          "file_path": "Mathlib/Analysis/Distribution/SchwartzSpace.lean",
+          "cosine": 0.6445411443710327
+        },
+        {
+          "full_name": "Rep.diagonalHomEquiv_apply",
+          "file_path": "Mathlib/RepresentationTheory/GroupCohomology/Resolution.lean",
+          "cosine": 0.6445307731628418
+        },
+        {
+          "full_name": "Real.BohrMollerup.f_add_nat_eq",
+          "file_path": "Mathlib/Analysis/SpecialFunctions/Gamma/BohrMollerup.lean",
+          "cosine": 0.6409883499145508
+        },
+        {
+          "full_name": "CategoryTheory.NonPreadditiveAbelian.comp_add",
+          "file_path": "Mathlib/CategoryTheory/Abelian/NonPreadditive.lean",
+          "cosine": 0.6333485245704651
+        },
+        {
+          "full_name": "ContinuousLinearMap.map_add_add",
+          "file_path": "Mathlib/Analysis/NormedSpace/OperatorNorm.lean",
+          "cosine": 0.6303859353065491
+        }
+      ]
+    },
+    {
+      "project": "pfr",
+      "name": "homomorphism_pfr",
+      "file_path": "PFR/HomPFR.lean",
+      "line": 75,
+      "statement_top1": 0.7041516900062561,
+      "proof_top1": 0.694722592830658,
+      "statement_cluster": 9,
+      "proof_cluster": 2,
+      "neighbor_jaccard": 0.0,
+      "transfer_delta": 0.07025182247161865,
+      "nearest_statement_neighbors": [
+        {
+          "full_name": "SimplicialObject.Splitting.hom_ext",
+          "file_path": "Mathlib/AlgebraicTopology/SplitSimplicialObject.lean",
+          "cosine": 0.7041516900062561
+        },
+        {
+          "full_name": "Finset.prod_add_prod_le'",
+          "file_path": "Mathlib/Algebra/BigOperators/Order.lean",
+          "cosine": 0.6905564069747925
+        },
+        {
+          "full_name": "Polynomial.sum_add'",
+          "file_path": "Mathlib/Data/Polynomial/Basic.lean",
+          "cosine": 0.6711379289627075
+        },
+        {
+          "full_name": "CategoryTheory.NonPreadditiveAbelian.comp_add",
+          "file_path": "Mathlib/CategoryTheory/Abelian/NonPreadditive.lean",
+          "cosine": 0.6700963377952576
+        },
+        {
+          "full_name": "Memℓp.add",
+          "file_path": "Mathlib/Analysis/NormedSpace/lpSpace.lean",
+          "cosine": 0.6699168682098389
+        }
+      ]
+    },
+    {
+      "project": "pnt",
+      "name": "chebyshev_asymptotic",
+      "file_path": "PrimeNumberTheoremAnd/Consequences.lean",
+      "line": 177,
+      "statement_top1": 0.7319410443305969,
+      "proof_top1": 0.7228904366493225,
+      "statement_cluster": 5,
+      "proof_cluster": 1,
+      "neighbor_jaccard": 0.0,
+      "transfer_delta": 0.009437739849090576,
+      "nearest_statement_neighbors": [
+        {
+          "full_name": "AkraBazziRecurrence.isBigO_asympBound",
+          "file_path": "Mathlib/Computability/AkraBazzi/AkraBazzi.lean",
+          "cosine": 0.7319410443305969
+        },
+        {
+          "full_name": "IsSemiringHom.id",
+          "file_path": "Mathlib/Deprecated/Ring.lean",
+          "cosine": 0.6828466057777405
+        },
+        {
+          "full_name": "OrderHom.comp_id",
+          "file_path": "Mathlib/Order/Hom/Basic.lean",
+          "cosine": 0.6814448833465576
+        },
+        {
+          "full_name": "List.Func.equiv_of_eq",
+          "file_path": "Mathlib/Data/List/Func.lean",
+          "cosine": 0.674967885017395
+        },
+        {
+          "full_name": "Real.tendsto_tan_pi_div_two",
+          "file_path": "Mathlib/Analysis/SpecialFunctions/Trigonometric/Basic.lean",
+          "cosine": 0.6676565408706665
+        }
+      ]
+    },
+    {
+      "project": "pnt",
+      "name": "MediumPNT",
+      "file_path": "PrimeNumberTheoremAnd/MediumPNT.lean",
+      "line": 3710,
+      "statement_top1": 0.686872661113739,
+      "proof_top1": 0.6614860892295837,
+      "statement_cluster": 13,
+      "proof_cluster": 2,
+      "neighbor_jaccard": 0.0,
+      "transfer_delta": 0.04662889242172241,
+      "nearest_statement_neighbors": [
+        {
+          "full_name": "Real.log_div_self_rpow_antitoneOn",
+          "file_path": "Mathlib/Analysis/SpecialFunctions/Log/Monotone.lean",
+          "cosine": 0.686872661113739
+        },
+        {
+          "full_name": "integral_exp_neg_Ioi_zero",
+          "file_path": "Mathlib/Analysis/SpecialFunctions/ImproperIntegrals.lean",
+          "cosine": 0.6820688247680664
+        },
+        {
+          "full_name": "Real.tendsto_exp_div_pow_atTop",
+          "file_path": "Mathlib/Analysis/SpecialFunctions/Exp.lean",
+          "cosine": 0.6818771958351135
+        },
+        {
+          "full_name": "Real.rpow_def_of_pos",
+          "file_path": "Mathlib/Analysis/SpecialFunctions/Pow/Real.lean",
+          "cosine": 0.6796453595161438
+        },
+        {
+          "full_name": "isLittleO_rpow_exp_atTop",
+          "file_path": "Mathlib/Analysis/SpecialFunctions/Pow/Asymptotics.lean",
+          "cosine": 0.6786903142929077
+        }
+      ]
+    },
+    {
+      "project": "pnt",
+      "name": "WeakPNT",
+      "file_path": "PrimeNumberTheoremAnd/Wiener.lean",
+      "line": 2446,
+      "statement_top1": 0.7488483786582947,
+      "proof_top1": 0.6505634188652039,
+      "statement_cluster": 13,
+      "proof_cluster": 1,
+      "neighbor_jaccard": 0.0,
+      "transfer_delta": 0.049905985593795776,
+      "nearest_statement_neighbors": [
+        {
+          "full_name": "FormalMultilinearSeries.compPartialSumTarget_tendsto_atTop",
+          "file_path": "Mathlib/Analysis/Analytic/Composition.lean",
+          "cosine": 0.7488483786582947
+        },
+        {
+          "full_name": "Real.tendsto_sum_pi_div_four",
+          "file_path": "Mathlib/Data/Real/Pi/Leibniz.lean",
+          "cosine": 0.7281861901283264
+        },
+        {
+          "full_name": "Real.tendsto_exp_div_pow_atTop",
+          "file_path": "Mathlib/Analysis/SpecialFunctions/Exp.lean",
+          "cosine": 0.7046263813972473
+        },
+        {
+          "full_name": "Real.tendsto_tan_pi_div_two",
+          "file_path": "Mathlib/Analysis/SpecialFunctions/Trigonometric/Basic.lean",
+          "cosine": 0.6962011456489563
+        },
+        {
+          "full_name": "ENNReal.tendsto_atTop_zero_of_tsum_ne_top",
+          "file_path": "Mathlib/Topology/Instances/ENNReal.lean",
+          "cosine": 0.6959778070449829
+        }
+      ]
+    },
+    {
+      "project": "formalized-logic",
+      "name": "incomplete",
+      "file_path": "Foundation/FirstOrder/Incompleteness/First.lean",
+      "line": 17,
+      "statement_top1": 0.6494280099868774,
+      "proof_top1": 0.6532398462295532,
+      "statement_cluster": 2,
+      "proof_cluster": 2,
+      "neighbor_jaccard": 0.0,
+      "transfer_delta": 0.0047149658203125,
+      "nearest_statement_neighbors": [
+        {
+          "full_name": "Cardinal.succ_aleph0",
+          "file_path": "Mathlib/SetTheory/Cardinal/Ordinal.lean",
+          "cosine": 0.6494280099868774
+        },
+        {
+          "full_name": "CategoryTheory.indecomposable_of_simple",
+          "file_path": "Mathlib/CategoryTheory/Simple.lean",
+          "cosine": 0.6484798789024353
+        },
+        {
+          "full_name": "Pell.Solution₁.d_nonsquare_of_one_lt_x",
+          "file_path": "Mathlib/NumberTheory/Pell.lean",
+          "cosine": 0.6465314626693726
+        },
+        {
+          "full_name": "Nat.testBit_one_zero",
+          "file_path": "Std/Data/Nat/Bitwise.lean",
+          "cosine": 0.6429299116134644
+        },
+        {
+          "full_name": "Real.zero_lt_one",
+          "file_path": "Mathlib/Data/Real/Basic.lean",
+          "cosine": 0.6420302987098694
+        }
+      ]
+    },
+    {
+      "project": "formalized-logic",
+      "name": "incomplete_of_RE",
+      "file_path": "Foundation/FirstOrder/Incompleteness/First.lean",
+      "line": 59,
+      "statement_top1": 0.6425653696060181,
+      "proof_top1": 0.6855989098548889,
+      "statement_cluster": 2,
+      "proof_cluster": 2,
+      "neighbor_jaccard": 0.0,
+      "transfer_delta": 0.019200265407562256,
+      "nearest_statement_neighbors": [
+        {
+          "full_name": "CategoryTheory.indecomposable_of_simple",
+          "file_path": "Mathlib/CategoryTheory/Simple.lean",
+          "cosine": 0.6425653696060181
+        },
+        {
+          "full_name": "Real.arccos_of_one_le",
+          "file_path": "Mathlib/Analysis/SpecialFunctions/Trigonometric/Inverse.lean",
+          "cosine": 0.6416891813278198
+        },
+        {
+          "full_name": "Cardinal.succ_aleph0",
+          "file_path": "Mathlib/SetTheory/Cardinal/Ordinal.lean",
+          "cosine": 0.6257962584495544
+        },
+        {
+          "full_name": "Nat.testBit_one_zero",
+          "file_path": "Std/Data/Nat/Bitwise.lean",
+          "cosine": 0.6166769862174988
+        },
+        {
+          "full_name": "Real.one_lt_rpow_of_pos_of_lt_one_of_neg",
+          "file_path": "Mathlib/Analysis/SpecialFunctions/Pow/Real.lean",
+          "cosine": 0.615693986415863
+        }
+      ]
+    },
+    {
+      "project": "formalized-logic",
+      "name": "first_incompleteness",
+      "file_path": "Foundation/FirstOrder/Incompleteness/ProvabilityAbstraction/Basic.lean",
+      "line": 214,
+      "statement_top1": 0.6746057271957397,
+      "proof_top1": 0.6556810736656189,
+      "statement_cluster": 15,
+      "proof_cluster": 2,
+      "neighbor_jaccard": 0.0,
+      "transfer_delta": 0.010962069034576416,
+      "nearest_statement_neighbors": [
+        {
+          "full_name": "CategoryTheory.indecomposable_of_simple",
+          "file_path": "Mathlib/CategoryTheory/Simple.lean",
+          "cosine": 0.6746057271957397
+        },
+        {
+          "full_name": "IsDedekindDomainInv.integrallyClosed",
+          "file_path": "Mathlib/RingTheory/DedekindDomain/Ideal.lean",
+          "cosine": 0.6636304259300232
+        },
+        {
+          "full_name": "ne_compl_self",
+          "file_path": "Mathlib/Order/Heyting/Basic.lean",
+          "cosine": 0.638152003288269
+        },
+        {
+          "full_name": "CategoryTheory.zero_not_simple",
+          "file_path": "Mathlib/CategoryTheory/Simple.lean",
+          "cosine": 0.632030725479126
+        },
+        {
+          "full_name": "Projectivization.independent_iff_completeLattice_independent",
+          "file_path": "Mathlib/LinearAlgebra/Projectivization/Independence.lean",
+          "cosine": 0.6320210695266724
+        }
+      ]
+    },
+    {
+      "project": "formalized-logic",
+      "name": "consistent_unprovable",
+      "file_path": "Foundation/FirstOrder/Incompleteness/Second.lean",
+      "line": 19,
+      "statement_top1": 0.662739098072052,
+      "proof_top1": 0.5852962732315063,
+      "statement_cluster": 15,
+      "proof_cluster": 3,
+      "neighbor_jaccard": 0.0,
+      "transfer_delta": -0.0040367841720581055,
+      "nearest_statement_neighbors": [
+        {
+          "full_name": "Fin.tail_cons",
+          "file_path": "Mathlib/Data/Fin/Tuple/Basic.lean",
+          "cosine": 0.662739098072052
+        },
+        {
+          "full_name": "Stream'.const_eq",
+          "file_path": "Mathlib/Data/Stream/Init.lean",
+          "cosine": 0.6602522134780884
+        },
+        {
+          "full_name": "Valued.continuous_valuation",
+          "file_path": "Mathlib/Topology/Algebra/ValuedField.lean",
+          "cosine": 0.6580996513366699
+        },
+        {
+          "full_name": "hnot_top",
+          "file_path": "Mathlib/Order/Heyting/Basic.lean",
+          "cosine": 0.6557416915893555
+        },
+        {
+          "full_name": "Valued.continuous_extension",
+          "file_path": "Mathlib/Topology/Algebra/ValuedField.lean",
+          "cosine": 0.6538777947425842
+        }
+      ]
+    },
+    {
+      "project": "formalized-logic",
+      "name": "craig_consistent_unprovable_of_RE",
+      "file_path": "Foundation/FirstOrder/Incompleteness/Second.lean",
+      "line": 23,
+      "statement_top1": 0.6330504417419434,
+      "proof_top1": 0.693585216999054,
+      "statement_cluster": 15,
+      "proof_cluster": 3,
+      "neighbor_jaccard": 0.0,
+      "transfer_delta": 0.02609330415725708,
+      "nearest_statement_neighbors": [
+        {
+          "full_name": "Stream'.const_eq",
+          "file_path": "Mathlib/Data/Stream/Init.lean",
+          "cosine": 0.6330504417419434
+        },
+        {
+          "full_name": "Int.cast_four",
+          "file_path": "Mathlib/Data/Int/Cast/Basic.lean",
+          "cosine": 0.6219675540924072
+        },
+        {
+          "full_name": "Real.arccos_of_one_le",
+          "file_path": "Mathlib/Analysis/SpecialFunctions/Trigonometric/Inverse.lean",
+          "cosine": 0.615015983581543
+        },
+        {
+          "full_name": "ProbabilityTheory.kernel.Invariant.comp_const",
+          "file_path": "Mathlib/Probability/Kernel/Invariance.lean",
+          "cosine": 0.612763524055481
+        },
+        {
+          "full_name": "Fin.comp_cons",
+          "file_path": "Mathlib/Data/Fin/Tuple/Basic.lean",
+          "cosine": 0.6102249622344971
+        }
+      ]
+    },
+    {
+      "project": "schoenflies",
+      "name": "jordan_schoenflies",
+      "file_path": "Schoenflies/JordanSchoenflies.lean",
+      "line": 46,
+      "statement_top1": 0.6415426135063171,
+      "proof_top1": 0.6006795763969421,
+      "statement_cluster": 3,
+      "proof_cluster": 3,
+      "neighbor_jaccard": 0.0,
+      "transfer_delta": 0.049052655696868896,
+      "nearest_statement_neighbors": [
+        {
+          "full_name": "Set.surjective_iff_surjOn_univ",
+          "file_path": "Mathlib/Data/Set/Function.lean",
+          "cosine": 0.6415426135063171
+        },
+        {
+          "full_name": "CategoryTheory.Limits.Cones.cone_iso_of_hom_iso",
+          "file_path": "Mathlib/CategoryTheory/Limits/Cones.lean",
+          "cosine": 0.6414855718612671
+        },
+        {
+          "full_name": "CategoryTheory.IsUniversalColimit.of_iso",
+          "file_path": "Mathlib/CategoryTheory/Limits/VanKampen.lean",
+          "cosine": 0.6405969262123108
+        },
+        {
+          "full_name": "IsLocalDiffeomorphOn.isLocalHomeomorphOn",
+          "file_path": "Mathlib/Geometry/Manifold/LocalDiffeomorph.lean",
+          "cosine": 0.6405332684516907
+        },
+        {
+          "full_name": "CategoryTheory.HomOrthogonal.equiv_of_iso",
+          "file_path": "Mathlib/CategoryTheory/Preadditive/HomOrthogonal.lean",
+          "cosine": 0.6391456723213196
+        }
+      ]
+    },
+    {
+      "project": "lean-liquid",
+      "name": "liquid_tensor_experiment",
+      "file_path": "src/challenge.lean",
+      "line": 28,
+      "statement_top1": 0.616854190826416,
+      "proof_top1": 0.6956120133399963,
+      "statement_cluster": 15,
+      "proof_cluster": 1,
+      "neighbor_jaccard": 0.0,
+      "transfer_delta": 0.038640737533569336,
+      "nearest_statement_neighbors": [
+        {
+          "full_name": "MeasureTheory.VectorMeasure.AbsolutelyContinuous.mk",
+          "file_path": "Mathlib/MeasureTheory/Measure/VectorMeasure.lean",
+          "cosine": 0.616854190826416
+        },
+        {
+          "full_name": "MeasureTheory.VectorMeasure.AbsolutelyContinuous.ennrealToMeasure",
+          "file_path": "Mathlib/MeasureTheory/Measure/VectorMeasure.lean",
+          "cosine": 0.605414867401123
+        },
+        {
+          "full_name": "zero_memℓp",
+          "file_path": "Mathlib/Analysis/NormedSpace/lpSpace.lean",
+          "cosine": 0.603733241558075
+        },
+        {
+          "full_name": "MeasureTheory.VectorMeasure.MutuallySingular.mk",
+          "file_path": "Mathlib/MeasureTheory/Measure/VectorMeasure.lean",
+          "cosine": 0.6020684838294983
+        },
+        {
+          "full_name": "MeasureTheory.SignedMeasure.totalVariation_zero",
+          "file_path": "Mathlib/MeasureTheory/Decomposition/Jordan.lean",
+          "cosine": 0.5957843661308289
+        }
+      ]
+    },
+    {
+      "project": "lean-liquid",
+      "name": "first_target",
+      "file_path": "src/liquid.lean",
+      "line": 37,
+      "statement_top1": 0.5822522044181824,
+      "proof_top1": 0.5866824984550476,
+      "statement_cluster": 13,
+      "proof_cluster": 2,
+      "neighbor_jaccard": 0.0,
+      "transfer_delta": 0.028704732656478882,
+      "nearest_statement_neighbors": [
+        {
+          "full_name": "CategoryTheory.exact_zero_left_of_mono",
+          "file_path": "Mathlib/Algebra/Homology/Exact.lean",
+          "cosine": 0.5822522044181824
+        },
+        {
+          "full_name": "UpperHalfPlane.bounded_mem",
+          "file_path": "Mathlib/Analysis/Complex/UpperHalfPlane/FunctionsBoundedAtInfty.lean",
+          "cosine": 0.577858030796051
+        },
+        {
+          "full_name": "ChartedSpaceCore.open_target",
+          "file_path": "Mathlib/Geometry/Manifold/ChartedSpace.lean",
+          "cosine": 0.5762344002723694
+        },
+        {
+          "full_name": "Combinatorics.exists_mono_homothetic_copy",
+          "file_path": "Mathlib/Combinatorics/HalesJewett.lean",
+          "cosine": 0.5739633440971375
+        },
+        {
+          "full_name": "Seminorm.isBounded_const",
+          "file_path": "Mathlib/Analysis/LocallyConvex/WithSeminorms.lean",
+          "cosine": 0.5736377239227295
+        }
+      ]
+    },
+    {
+      "project": "sphere-eversion",
+      "name": "sphere_eversion",
+      "file_path": "SphereEversion/Global/Immersion.lean",
+      "line": 307,
+      "statement_top1": 0.6967065334320068,
+      "proof_top1": 0.6954916715621948,
+      "statement_cluster": 15,
+      "proof_cluster": 2,
+      "neighbor_jaccard": 0.05263157894736842,
+      "transfer_delta": 0.039616405963897705,
+      "nearest_statement_neighbors": [
+        {
+          "full_name": "sphere_ext_iff",
+          "file_path": "Mathlib/Geometry/Manifold/Instances/Sphere.lean",
+          "cosine": 0.6967065334320068
+        },
+        {
+          "full_name": "UpperHalfPlane.image_coe_sphere",
+          "file_path": "Mathlib/Analysis/Complex/UpperHalfPlane/Metric.lean",
+          "cosine": 0.6696162223815918
+        },
+        {
+          "full_name": "ContMDiff.codRestrict_sphere",
+          "file_path": "Mathlib/Geometry/Manifold/Instances/Sphere.lean",
+          "cosine": 0.6610496640205383
+        },
+        {
+          "full_name": "frontier_sphere'",
+          "file_path": "Mathlib/Analysis/NormedSpace/Real.lean",
+          "cosine": 0.6558985114097595
+        },
+        {
+          "full_name": "MeasureTheory.Measure.toSphere_apply'",
+          "file_path": "Mathlib/MeasureTheory/Constructions/HaarToSphere.lean",
+          "cosine": 0.6504910588264465
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "experiment_id": "frontier-formalizations",
+  "sample_seed": 0,
+  "source_root": "data/frontier_sources",
+  "project_sample_size": 2500,
+  "flt_sample_size": 2000,
+  "maximum_declaration_characters": 240000,
+  "views": {
+    "statement": "Lean 4 theorem statement:\n{statement}",
+    "proof": "Lean 4 tactic proof:\n{proof}",
+    "joint": "Lean 4 theorem statement:\n{statement}\n\nLean 4 tactic proof:\n{proof}"
+  },
+  "embedding": {
+    "provider": "Amazon Bedrock",
+    "transport": "AWS CLI",
+    "region": "us-east-1",
+    "model_id": "cohere.embed-v4:0",
+    "input_type": "clustering",
+    "embedding_type": "float",
+    "output_dimension": 1024,
+    "batch_size": 96,
+    "max_tokens": 128000,
+    "truncate": "NONE",
+    "max_attempts": 10,
+    "estimated_price_usd_per_million_text_tokens": 0.12,
+    "pricing_checked_date": "2026-08-03",
+    "hard_cost_cap_usd": 15.0,
+    "cost_guard_characters_per_token": 2.5
+  },
+  "projects": [
+    {
+      "id": "ten-proofs",
+      "repository": "https://github.com/openai/ten-proofs",
+      "cohort": "ai-frontier",
+      "exclude_prefixes": ["ComparatorChallenges/"],
+      "headline_metadata": "formalization.yaml"
+    },
+    {
+      "id": "navier-stokes-euler",
+      "repository": "https://github.com/openai/NavierStokesAndEuler",
+      "cohort": "ai-frontier",
+      "exclude_prefixes": ["ComparatorChallenges/"],
+      "headline_metadata": "formalization.yaml"
+    },
+    {
+      "id": "flt",
+      "repository": "https://github.com/anthropics/fermats-last-theorem",
+      "cohort": "ai-frontier",
+      "exclude_prefixes": ["verification/", "tools/"],
+      "headline_names": ["fermat_last_theorem", "flt_pinned", "flt_mathlib"]
+    },
+    {
+      "id": "pfr",
+      "repository": "https://github.com/teorth/pfr",
+      "cohort": "collaborative",
+      "exclude_prefixes": ["PFRPalomar/"],
+      "headline_metadata": "formalization.yaml"
+    },
+    {
+      "id": "pnt",
+      "repository": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+      "cohort": "collaborative",
+      "exclude_prefixes": [],
+      "headline_names": ["WeakPNT", "MediumPNT", "chebyshev_asymptotic"]
+    },
+    {
+      "id": "formalized-logic",
+      "repository": "https://github.com/FormalizedFormalLogic/Foundation",
+      "cohort": "collaborative",
+      "exclude_prefixes": [],
+      "headline_names": ["incomplete", "incomplete_of_RE", "first_incompleteness", "consistent_unprovable", "craig_consistent_unprovable_of_RE"]
+    },
+    {
+      "id": "schoenflies",
+      "repository": "https://github.com/alonamaloh/schoenflies-lean",
+      "cohort": "collaborative",
+      "exclude_prefixes": ["Comparator/"],
+      "headline_names": ["schoenflies", "jordan_schoenflies"]
+    },
+    {
+      "id": "lean-liquid",
+      "repository": "https://github.com/leanprover-community/lean-liquid",
+      "cohort": "collaborative-legacy",
+      "exclude_prefixes": ["backup/", "scripts/"],
+      "headline_names": ["liquid_tensor_experiment", "first_target"]
+    },
+    {
+      "id": "sphere-eversion",
+      "repository": "https://github.com/leanprover-community/sphere-eversion",
+      "cohort": "collaborative",
+      "exclude_prefixes": [],
+      "headline_names": ["sphere_eversion", "exists_eversion"]
+    }
+  ]
+}

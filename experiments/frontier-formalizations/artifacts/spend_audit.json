@@ -1,0 +1,14 @@
+{
+  "pricing_usd_per_million_tokens": 0.12,
+  "successful_inference_characters": {
+    "balanced_run_including_partial_joint": 15889100,
+    "archived_unbalanced_pilot": 4056339,
+    "total": 19945439
+  },
+  "estimated_cost_usd": {
+    "at_4_characters_per_token": 0.5984,
+    "at_2_5_characters_per_token": 0.9578
+  },
+  "hard_cap_usd": 15.0,
+  "note": "Estimate uses successful AWS responses only. Throttled requests were rejected; Bedrock did not return billing-token totals."
+}

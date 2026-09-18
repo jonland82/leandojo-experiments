@@ -1,0 +1,24 @@
+{
+  "experiment_id": "frontier-formalizations",
+  "projected_cost_usd": 1.4445359039999999,
+  "hard_cost_cap_usd": 15.0,
+  "views": {
+    "statement": {
+      "inputs": 18852,
+      "new_calls": 0,
+      "shape": [
+        18852,
+        1024
+      ]
+    },
+    "proof": {
+      "inputs": 18852,
+      "new_calls": 0,
+      "shape": [
+        18852,
+        1024
+      ]
+    }
+  },
+  "elapsed_seconds": 0.7922053000002052
+}

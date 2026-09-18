@@ -1,0 +1,102 @@
+{
+  "experiment_id": "frontier-formalizations",
+  "declarations": 18852,
+  "projects": {
+    "ten-proofs": {
+      "commit": "94bc0feb6a9ff12c7d31d6de640a725c9d43d2b6",
+      "lean_files": 11,
+      "lean_files_scanned": 11,
+      "declarations_extracted": 18223,
+      "declarations_retained": 2512,
+      "headlines_retained": 12,
+      "truncated_retained": 0
+    },
+    "navier-stokes-euler": {
+      "commit": "f9e8bc5b38b6e212696e8a30e3e91517af887bbd",
+      "lean_files": 2657,
+      "lean_files_scanned": 2657,
+      "declarations_extracted": 38517,
+      "declarations_retained": 2507,
+      "headlines_retained": 7,
+      "truncated_retained": 0
+    },
+    "flt": {
+      "commit": "aa2d8b34692b16c70f699536de0d8e75b9a3e9ef",
+      "lean_files": 60416,
+      "lean_files_scanned": 5252,
+      "declarations_extracted": 53345,
+      "declarations_retained": 2003,
+      "headlines_retained": 3,
+      "truncated_retained": 0
+    },
+    "pfr": {
+      "commit": "fbc9f34d3b540286adcfe560a8430a31ddc4fcd9",
+      "lean_files": 74,
+      "lean_files_scanned": 74,
+      "declarations_extracted": 910,
+      "declarations_retained": 910,
+      "headlines_retained": 2,
+      "truncated_retained": 0
+    },
+    "pnt": {
+      "commit": "a5154676af9aa3095150ee410cdda80555aa0642",
+      "lean_files": 236,
+      "lean_files_scanned": 236,
+      "declarations_extracted": 8294,
+      "declarations_retained": 2503,
+      "headlines_retained": 3,
+      "truncated_retained": 0
+    },
+    "formalized-logic": {
+      "commit": "df4ada7bbfe939946800a398e530764180847af3",
+      "lean_files": 212,
+      "lean_files_scanned": 212,
+      "declarations_extracted": 5577,
+      "declarations_retained": 2505,
+      "headlines_retained": 5,
+      "truncated_retained": 0
+    },
+    "schoenflies": {
+      "commit": "05a43d29cde026618777db3d4e4316204ccca237",
+      "lean_files": 131,
+      "lean_files_scanned": 131,
+      "declarations_extracted": 4298,
+      "declarations_retained": 2501,
+      "headlines_retained": 1,
+      "truncated_retained": 0
+    },
+    "lean-liquid": {
+      "commit": "087fffad55dc1dd8d54ab35c9816926a45b8c0fd",
+      "lean_files": 402,
+      "lean_files_scanned": 402,
+      "declarations_extracted": 3533,
+      "declarations_retained": 2502,
+      "headlines_retained": 2,
+      "truncated_retained": 0
+    },
+    "sphere-eversion": {
+      "commit": "e03dfec32debbef8736185d6778bf3aa2f1d0572",
+      "lean_files": 65,
+      "lean_files_scanned": 65,
+      "declarations_extracted": 909,
+      "declarations_retained": 909,
+      "headlines_retained": 1,
+      "truncated_retained": 0
+    }
+  },
+  "cohorts": {
+    "ai-frontier": 7022,
+    "collaborative": 9328,
+    "collaborative-legacy": 2502
+  },
+  "view_characters": {
+    "statement": 4405688,
+    "proof": 10622709,
+    "joint": 15066101
+  },
+  "total_characters": 30094498,
+  "conservative_token_estimate": 12037799.2,
+  "projected_cost_usd": 1.4445359039999999,
+  "hard_cost_cap_usd": 15.0,
+  "within_cap": true
+}

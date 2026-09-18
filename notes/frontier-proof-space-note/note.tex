@@ -1,0 +1,161 @@
+\documentclass[10pt]{article}
+\usepackage[margin=0.82in]{geometry}
+\usepackage{amsmath,amssymb,booktabs,graphicx,microtype,float}
+\usepackage[font=small,skip=3pt]{caption}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt plus 1pt minus 1pt}
+\setlength{\textfloatsep}{6pt plus 2pt minus 2pt}
+\title{\vspace{-1.7em}\textbf{Where Major Theorems Live in Proof Space}\vspace{-0.5em}}
+\author{J. R. Landers\\[-1pt]\small A pilot map against LeanDojo Benchmark 4}
+\date{\vspace{-1.4em}}
+
+\begin{document}
+\maketitle
+\vspace{-1.5em}
+
+\begin{abstract}
+We place 18,852 declarations from nine major Lean formalization projects into
+statement and proof embedding spaces anchored by a fixed sample of 10,000
+LeanDojo theorem--proof pairs.  The frontier declarations are substantially
+more isolated than the reference corpus: 62.7\% of their statement
+neighborhood densities fall below the fifth percentile of LeanDojo's own
+density distribution.  They are nevertheless not detached from the library.
+LeanDojo statements selected as semantic neighbors have proofs that are, on
+average, 0.0565 cosine points closer to the frontier proof than random
+references.  The result supports a picture of frontier formalization as
+peripheral but locally connected to established proof infrastructure.
+\end{abstract}
+
+\paragraph{Corpus.}
+The reference set $R=\{1,\ldots,10{,}000\}$ is the seed-0 LeanDojo sample used
+in the earlier semantic-geometry experiments.  The frontier set contains
+declarations from OpenAI's Ten Proofs and Navier--Stokes/Euler repositories,
+the complete FLT certificate, PFR, PNT+, Formalized Formal Logic,
+Jordan--Sch\"onflies, Liquid Tensor, and Sphere Eversion.  Large projects are
+represented by a seed-0 sample of approximately 2,500 declarations plus every
+identified headline theorem; smaller projects are retained in full.  FLT is a
+stratified 2,003-declaration sample of theorem cards, proof modules, and
+definitions.  This balancing prevents the largest generated repositories from
+determining the aggregate by sheer file count.
+
+\paragraph{Frozen semantic map.}
+For view $v\in\{s,p\}$, let $r_i^{(v)}\in\mathbb R^{1024}$ be the unit-normalized
+embedding of LeanDojo reference $i$, where $s$ is theorem-statement text and
+$p$ is proof text.  Let $x_j^{(v)}$ denote the corresponding embedding of
+frontier declaration $j$.  All vectors use the same frozen Cohere Embed v4
+model and prompts as the original experiment; neither the reference sample nor
+its fitted clusters is changed.
+
+For a frontier vector $x$ define its exact top-$k$ reference neighborhood and
+local reference density by
+\[
+ N_k^{(v)}(x)=\operatorname*{arg\,topk}_{i\in R}
+ \langle x^{(v)},r_i^{(v)}\rangle,
+ \qquad
+ d_k^{(v)}(x)=\frac1k\sum_{i\in N_k^{(v)}(x)}
+ \langle x^{(v)},r_i^{(v)}\rangle .
+\]
+Cosine similarity is the inner product because the vectors have unit length.
+For each reference vector, the same statistic is computed after excluding the
+vector itself.  If $q_{.05}^{(v)}$ is the fifth percentile of those reference
+densities, the indicator
+\[
+ I^{(v)}(x)=\mathbf 1\!\left[d_{10}^{(v)}(x)<q_{.05}^{(v)}\right]
+\]
+marks a declaration as locally sparse relative to LeanDojo.
+
+To test whether statement proximity carries proof information, let
+$S_j=N_{10}^{(s)}(x_j)$ and let $U_j$ be ten seed-0 random reference indices.
+The transfer statistic is
+\[
+ \Delta_j=\frac1{10}\sum_{i\in S_j}
+ \langle x_j^{(p)},r_i^{(p)}\rangle
+ -\frac1{10}\sum_{i\in U_j}
+ \langle x_j^{(p)},r_i^{(p)}\rangle .
+\]
+This is a simple global-random baseline, not the context-matched baseline used
+in the earlier within-LeanDojo experiment.
+
+\paragraph{Results.}
+At $k=10$, the frontier statement-density mean is 0.6717, compared with 0.7662
+for reference declarations.  The corresponding proof values are 0.7030 and
+0.7971.  Consequently, 62.7\% of frontier statements and 60.7\% of frontier
+proofs fall below their reference fifth-percentile thresholds.  Isolation is
+therefore a corpus-level shift, not a property of only a few famous endpoints.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{lrrrr}
+\toprule
+Project & $n$ & $\bar d_{10}^{(s)}$ & $I^{(s)}$ (\%) & $\bar\Delta$ \\
+\midrule
+Ten Proofs              & 2,512 & 0.6437 & 80.0 & 0.0574 \\
+Navier--Stokes/Euler    & 2,507 & 0.6432 & 79.2 & 0.0513 \\
+PNT+                    & 2,503 & 0.6435 & 73.0 & 0.0630 \\
+Jordan--Sch\"onflies    & 2,501 & 0.6684 & 68.7 & 0.0499 \\
+PFR                     &   910 & 0.6795 & 65.3 & 0.0657 \\
+FLT                     & 2,003 & 0.6726 & 64.1 & 0.0590 \\
+Liquid Tensor           & 2,502 & 0.7044 & 42.1 & 0.0596 \\
+Sphere Eversion         &   909 & 0.7028 & 40.9 & 0.0590 \\
+Formalized Logic        & 2,505 & 0.7122 & 39.4 & 0.0520 \\
+\bottomrule
+\end{tabular}
+\caption{Project-level statement density, fraction below the LeanDojo fifth-percentile
+threshold, and statement-to-proof transfer advantage.  Lower density and larger
+$I^{(s)}$ indicate a more peripheral project; positive $\bar\Delta$ means its
+statement neighbors retain useful proof-space signal.}
+\label{tab:projects}
+\end{table}
+
+The project ordering is interpretable.  The diverse 2026 Ten Proofs bundle and
+the new PDE corpus are the most peripheral, while logic and established
+topological developments lie closer to material already represented in
+Mathlib.  Headline results need not be the most isolated parts of their
+projects: the FLT endpoint has nearest-statement cosine 0.7807, whereas a
+Navier--Stokes breakdown endpoint is as low as 0.5611.  This distinction is why
+the project cloud is more informative than one dot per famous theorem.
+
+Across all declarations, $\mathbb E[\Delta_j]=0.0565$ (median 0.0524).  Thus the
+frontier is sparse relative to LeanDojo but remains locally tethered to it:
+nearby established statements tend to have more relevant proof representations
+than arbitrary library statements.  Direct overlap between the ten nearest
+statement and proof neighbors is low (mean Jaccard index 0.028), consistent
+with the earlier finding that statements and proofs share useful local
+structure without inducing the same global geometry.  Figure~\ref{fig:spaces}
+shows these two views together, allowing direct visual comparison of how the
+same projects occupy statement and proof space without changing the
+quantitative analysis.
+
+\begin{figure}[p]
+  \centering
+  \includegraphics[width=\textwidth]{../../experiments/frontier-formalizations/figures/frontier_spaces_dual.pdf}
+  \caption{Statement (a) and proof (b) embeddings projected into separate 2D
+  PCA bases fit only on the corresponding LeanDojo reference (gray).  Color
+  identifies the source project and stars mark headline declarations.  Clouds
+  displaced from the gray reference are visually peripheral; compact colored
+  regions indicate project-specific local structure.  The display is
+  subsampled, and reported statistics use all 1,024-dimensional vectors.}
+  \label{fig:spaces}
+\end{figure}
+
+\paragraph{Interpretation and limits.}
+Major formalizations generally lie near the edge of the older LeanDojo corpus,
+yet remain built from locally recognizable semantic and procedural material.
+They are therefore useful out-of-distribution retrieval tests rather than
+wholly unrelated corpora.  The statement result is primary: frontier proofs
+were extracted statically, while LeanDojo records tactic traces.  Project
+comparisons also confound toolchain, domain, authorship, and AI use; embeddings
+measure textual semantics, the reference samples only 10,000 declarations, and
+the random baseline ignores source context.  Confirmation requires native
+elaboration, dependency cones, and matched controls.
+
+\paragraph{Reproducibility.}
+The experiment freezes repository commits, sampling seed, preprocessing,
+embedding configuration, and a hard AWS spending cap.  Inputs, embeddings,
+nearest-neighbor arrays, code, and machine-readable results are retained under
+\texttt{experiments/frontier-formalizations/}.  Successful inference calls,
+including an abandoned larger pilot, cost an estimated \$0.60--\$0.96.
+
+\end{document}
