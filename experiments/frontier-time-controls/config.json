@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "experiment_id": "frontier-time-controls",
+  "sample_seed": 0,
+  "control_sample_per_snapshot": 3000,
+  "neighbor_k": 10,
+  "reference_commit": "3c307701fa7e9acbdc0680d7f3b9c9fed9081740",
+  "reference_date": "2024-02-23T10:47:10Z",
+  "mathlib_repository": "data/mathlib4-history",
+  "projects": {
+    "ten-proofs": "81a5d257c8e410db227a6665ed08f64fea08e997",
+    "navier-stokes-euler": "85e3a25e006c35636f0e53b0e9296caca2685bc0",
+    "flt": "db584cd6d46c92f209a44c0f1c829460d327499d",
+    "pfr": "c32e1ec0d1eb5237ba344eee50162f45d5b0fc76",
+    "pnt": "905b95818eb32af7874a58b427f50c1711a5e96c",
+    "formalized-logic": "5ed2965256430c3649e86755f9576b54eca72435",
+    "schoenflies": "905b95818eb32af7874a58b427f50c1711a5e96c",
+    "sphere-eversion": "2631d1cc8c2ace6c6a900425d6e5d2b5963966e9"
+  },
+  "view_template": "Lean 4 theorem statement:\n{statement}",
+  "embedding": {
+    "provider": "Amazon Bedrock",
+    "transport": "AWS CLI",
+    "region": "us-east-1",
+    "model_id": "global.cohere.embed-v4:0",
+    "input_type": "clustering",
+    "embedding_type": "float",
+    "output_dimension": 1024,
+    "batch_size": 96,
+    "max_tokens": 128000,
+    "truncate": "NONE",
+    "max_attempts": 10,
+    "estimated_price_usd_per_million_text_tokens": 0.12,
+    "pricing_checked_date": "2026-08-03",
+    "hard_cost_cap_usd": 15.0,
+    "cost_guard_characters_per_token": 2.5
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "experiment_id": "frontier-time-controls",
+  "reference_commit": "3c307701fa7e9acbdc0680d7f3b9c9fed9081740",
+  "reference_date": "2024-02-23T10:47:10Z",
+  "old_statement_hashes": 156976,
+  "declarations": 21000,
+  "snapshots": {
+    "2631d1cc8c2ace6c6a900425d6e5d2b5963966e9": {
+      "commit_date": "2026-09-10T15:54:04+00:00",
+      "lean_files": 8516,
+      "declarations_extracted": 187123,
+      "verbatim_in_2024_corpus": 56982,
+      "eligible_changed_or_new": 130141,
+      "retained": 3000
+    },
+    "5ed2965256430c3649e86755f9576b54eca72435": {
+      "commit_date": "2026-09-15T00:29:41+00:00",
+      "lean_files": 8529,
+      "declarations_extracted": 187383,
+      "verbatim_in_2024_corpus": 56863,
+      "eligible_changed_or_new": 130520,
+      "retained": 3000
+    },
+    "81a5d257c8e410db227a6665ed08f64fea08e997": {
+      "commit_date": "2026-07-13T15:46:04+00:00",
+      "lean_files": 8264,
+      "declarations_extracted": 184109,
+      "verbatim_in_2024_corpus": 58828,
+      "eligible_changed_or_new": 125281,
+      "retained": 3000
+    },
+    "85e3a25e006c35636f0e53b0e9296caca2685bc0": {
+      "commit_date": "2026-08-21T15:44:32+00:00",
+      "lean_files": 8370,
+      "declarations_extracted": 185722,
+      "verbatim_in_2024_corpus": 57744,
+      "eligible_changed_or_new": 127978,
+      "retained": 3000
+    },
+    "905b95818eb32af7874a58b427f50c1711a5e96c": {
+      "commit_date": "2026-07-28T18:36:13+02:00",
+      "lean_files": 8264,
+      "declarations_extracted": 184109,
+      "verbatim_in_2024_corpus": 58828,
+      "eligible_changed_or_new": 125281,
+      "retained": 3000
+    },
+    "c32e1ec0d1eb5237ba344eee50162f45d5b0fc76": {
+      "commit_date": "2026-09-15T20:19:27+00:00",
+      "lean_files": 8533,
+      "declarations_extracted": 187550,
+      "verbatim_in_2024_corpus": 56799,
+      "eligible_changed_or_new": 130751,
+      "retained": 3000
+    },
+    "db584cd6d46c92f209a44c0f1c829460d327499d": {
+      "commit_date": "2026-08-10T09:12:31+00:00",
+      "lean_files": 8311,
+      "declarations_extracted": 184930,
+      "verbatim_in_2024_corpus": 57934,
+      "eligible_changed_or_new": 126996,
+      "retained": 3000
+    }
+  },
+  "project_snapshot_counts": {
+    "81a5d257c8e410db227a6665ed08f64fea08e997": 1,
+    "85e3a25e006c35636f0e53b0e9296caca2685bc0": 1,
+    "db584cd6d46c92f209a44c0f1c829460d327499d": 1,
+    "c32e1ec0d1eb5237ba344eee50162f45d5b0fc76": 1,
+    "905b95818eb32af7874a58b427f50c1711a5e96c": 2,
+    "5ed2965256430c3649e86755f9576b54eca72435": 1,
+    "2631d1cc8c2ace6c6a900425d6e5d2b5963966e9": 1
+  },
+  "total_characters": 3233638,
+  "conservative_token_estimate": 1293455.2,
+  "projected_cost_usd": 0.155214624,
+  "hard_cost_cap_usd": 15.0,
+  "within_cap": true
+}

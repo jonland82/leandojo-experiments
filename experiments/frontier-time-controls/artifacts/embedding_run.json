@@ -1,0 +1,13 @@
+{
+  "experiment_id": "frontier-time-controls",
+  "model_id": "global.cohere.embed-v4:0",
+  "projected_cost_usd": 0.155214624,
+  "hard_cost_cap_usd": 15.0,
+  "inputs": 21000,
+  "new_calls": 219,
+  "shape": [
+    21000,
+    1024
+  ],
+  "elapsed_seconds": 183.67974330000004
+}

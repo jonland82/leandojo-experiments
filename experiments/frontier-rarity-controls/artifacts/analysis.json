@@ -1,0 +1,343 @@
+{
+  "experiment_id": "frontier-rarity-controls",
+  "reference_n": 10000,
+  "frontier_n": 18852,
+  "models": {
+    "statement": [
+      {
+        "model": "raw",
+        "formula": "statement_density ~ frontier",
+        "frontier_coefficient": -0.09452941197079723,
+        "standard_error": 0.0006351312914461564,
+        "ci95_lower": -0.09577424642748611,
+        "ci95_upper": -0.09328457751410835,
+        "p_value": 0.0,
+        "r_squared": 0.38779819385002967,
+        "n": 28852
+      },
+      {
+        "model": "length",
+        "formula": "statement_density ~ frontier + z_log_statement_characters + I(z_log_statement_characters ** 2) + z_log_proof_characters + I(z_log_proof_characters ** 2)",
+        "frontier_coefficient": -0.07682071331293361,
+        "standard_error": 0.0005655003324587264,
+        "ci95_lower": -0.07792907359779815,
+        "ci95_upper": -0.07571235302806907,
+        "p_value": 0.0,
+        "r_squared": 0.5992599662809674,
+        "n": 28852
+      },
+      {
+        "model": "domain",
+        "formula": "statement_density ~ frontier + C(statement_cluster)",
+        "frontier_coefficient": -0.08959963800332649,
+        "standard_error": 0.0006130236657883356,
+        "ci95_lower": -0.09080114230994234,
+        "ci95_upper": -0.08839813369671064,
+        "p_value": 0.0,
+        "r_squared": 0.4598412829454458,
+        "n": 28852
+      },
+      {
+        "model": "length_and_domain",
+        "formula": "statement_density ~ frontier + z_log_statement_characters + I(z_log_statement_characters ** 2) + z_log_proof_characters + I(z_log_proof_characters ** 2) + C(statement_cluster)",
+        "frontier_coefficient": -0.07369436974017518,
+        "standard_error": 0.000552395898967796,
+        "ci95_lower": -0.0747770458073597,
+        "ci95_upper": -0.07261169367299067,
+        "p_value": 0.0,
+        "r_squared": 0.6285193457355291,
+        "n": 28852
+      }
+    ],
+    "proof": [
+      {
+        "model": "raw",
+        "formula": "proof_density ~ frontier",
+        "frontier_coefficient": -0.09410268048419168,
+        "standard_error": 0.0009819652969903598,
+        "ci95_lower": -0.09602729710036097,
+        "ci95_upper": -0.0921780638680224,
+        "p_value": 0.0,
+        "r_squared": 0.2064950847834064,
+        "n": 28852
+      },
+      {
+        "model": "length",
+        "formula": "proof_density ~ frontier + z_log_statement_characters + I(z_log_statement_characters ** 2) + z_log_proof_characters + I(z_log_proof_characters ** 2)",
+        "frontier_coefficient": -0.06517111657494334,
+        "standard_error": 0.0006996909787301847,
+        "ci95_lower": -0.06654248569356208,
+        "ci95_upper": -0.06379974745632461,
+        "p_value": 0.0,
+        "r_squared": 0.6717987114822632,
+        "n": 28852
+      },
+      {
+        "model": "domain",
+        "formula": "proof_density ~ frontier + C(statement_cluster)",
+        "frontier_coefficient": -0.0870108954446748,
+        "standard_error": 0.0009834974650795149,
+        "ci95_lower": -0.08893851505511709,
+        "ci95_upper": -0.08508327583423252,
+        "p_value": 0.0,
+        "r_squared": 0.29779360992286596,
+        "n": 28852
+      },
+      {
+        "model": "length_and_domain",
+        "formula": "proof_density ~ frontier + z_log_statement_characters + I(z_log_statement_characters ** 2) + z_log_proof_characters + I(z_log_proof_characters ** 2) + C(statement_cluster)",
+        "frontier_coefficient": -0.06274161783650536,
+        "standard_error": 0.0007041578658341689,
+        "ci95_lower": -0.06412174189297093,
+        "ci95_upper": -0.06136149378003981,
+        "p_value": 0.0,
+        "r_squared": 0.6847253713285555,
+        "n": 28852
+      }
+    ]
+  },
+  "matching": {
+    "n": 18852,
+    "unique_reference_matches": 6079,
+    "reference_reuse_fraction": 0.677540844472735,
+    "match_distance": {
+      "median": 0.08984090836242326,
+      "q95": 0.882875806701582,
+      "maximum": 11.424698045169674
+    },
+    "sample_weighted": {
+      "statement": {
+        "mean": -0.07700185136268428,
+        "lower": -0.07788577736287475,
+        "upper": -0.07611792536249382,
+        "n": 18852
+      },
+      "proof": {
+        "mean": -0.07632759797100097,
+        "lower": -0.07729870295785853,
+        "upper": -0.07535649298414342,
+        "n": 18852
+      }
+    },
+    "project_balanced": {
+      "statement": {
+        "mean": -0.0745219840771622,
+        "lower": -0.09051317356018634,
+        "upper": -0.05853079459413807,
+        "n": 9
+      },
+      "proof": {
+        "mean": -0.07436126304997338,
+        "lower": -0.09467063793297431,
+        "upper": -0.054051888166972456,
+        "n": 9
+      }
+    },
+    "headlines": {
+      "statement": {
+        "mean": -0.09396880865097046,
+        "lower": -0.11170959591819679,
+        "upper": -0.07622802138374413,
+        "n": 36
+      },
+      "proof": {
+        "mean": -0.10616578492853376,
+        "lower": -0.12230269723975071,
+        "upper": -0.09002887261731682,
+        "n": 36
+      }
+    },
+    "caliper_sensitivity": {
+      "0.25": {
+        "n": 15292,
+        "coverage_fraction": 0.8111606195629111,
+        "projects": 9,
+        "sample_weighted": {
+          "statement": {
+            "mean": -0.07450196669070845,
+            "lower": -0.07549221833375741,
+            "upper": -0.07351171504765949,
+            "n": 15292
+          },
+          "proof": {
+            "mean": -0.07325901043740923,
+            "lower": -0.07433917633949261,
+            "upper": -0.07217884453532586,
+            "n": 15292
+          }
+        },
+        "project_balanced": {
+          "statement": {
+            "mean": -0.07233617910080486,
+            "lower": -0.08882462789298902,
+            "upper": -0.05584773030862071,
+            "n": 9
+          },
+          "proof": {
+            "mean": -0.07169738494687611,
+            "lower": -0.09135432205369709,
+            "upper": -0.052040447840055126,
+            "n": 9
+          }
+        }
+      },
+      "0.5": {
+        "n": 17116,
+        "coverage_fraction": 0.9079142796520263,
+        "projects": 9,
+        "sample_weighted": {
+          "statement": {
+            "mean": -0.07500744334174585,
+            "lower": -0.07593729930373731,
+            "upper": -0.07407758737975438,
+            "n": 17116
+          },
+          "proof": {
+            "mean": -0.07403072986606404,
+            "lower": -0.07504892127786307,
+            "upper": -0.07301253845426502,
+            "n": 17116
+          }
+        },
+        "project_balanced": {
+          "statement": {
+            "mean": -0.07283905645211537,
+            "lower": -0.08877339614032423,
+            "upper": -0.05690471676390652,
+            "n": 9
+          },
+          "proof": {
+            "mean": -0.07235314200321834,
+            "lower": -0.0923583920533583,
+            "upper": -0.05234789195307838,
+            "n": 9
+          }
+        }
+      },
+      "1.0": {
+        "n": 18055,
+        "coverage_fraction": 0.9577233184807978,
+        "projects": 9,
+        "sample_weighted": {
+          "statement": {
+            "mean": -0.07558194923288636,
+            "lower": -0.07648412438967805,
+            "upper": -0.07467977407609466,
+            "n": 18055
+          },
+          "proof": {
+            "mean": -0.0749846879331995,
+            "lower": -0.07597570704849373,
+            "upper": -0.07399366881790527,
+            "n": 18055
+          }
+        },
+        "project_balanced": {
+          "statement": {
+            "mean": -0.07329143459598224,
+            "lower": -0.08915277526613986,
+            "upper": -0.05743009392582461,
+            "n": 9
+          },
+          "proof": {
+            "mean": -0.07308013778593805,
+            "lower": -0.09327865484956765,
+            "upper": -0.05288162072230845,
+            "n": 9
+          }
+        }
+      }
+    }
+  },
+  "project_matching": [
+    {
+      "project": "flt",
+      "n": 2003,
+      "headline_n": 3,
+      "median_match_distance": 0.10414673579966782,
+      "statement_difference": -0.06950313597917557,
+      "proof_difference": -0.05989454686641693
+    },
+    {
+      "project": "formalized-logic",
+      "n": 2505,
+      "headline_n": 5,
+      "median_match_distance": 0.05840447852233033,
+      "statement_difference": -0.06244644522666931,
+      "proof_difference": -0.04596627503633499
+    },
+    {
+      "project": "lean-liquid",
+      "n": 2502,
+      "headline_n": 2,
+      "median_match_distance": 0.08172291717874702,
+      "statement_difference": -0.04736113175749779,
+      "proof_difference": -0.038170091807842255
+    },
+    {
+      "project": "navier-stokes-euler",
+      "n": 2507,
+      "headline_n": 7,
+      "median_match_distance": 0.11109526986842297,
+      "statement_difference": -0.09827237576246262,
+      "proof_difference": -0.09980795532464981
+    },
+    {
+      "project": "pfr",
+      "n": 910,
+      "headline_n": 2,
+      "median_match_distance": 0.08803316302726347,
+      "statement_difference": -0.06890025734901428,
+      "proof_difference": -0.06647425144910812
+    },
+    {
+      "project": "pnt",
+      "n": 2503,
+      "headline_n": 3,
+      "median_match_distance": 0.08529017651478132,
+      "statement_difference": -0.1120983436703682,
+      "proof_difference": -0.10213603079319
+    },
+    {
+      "project": "schoenflies",
+      "n": 2501,
+      "headline_n": 1,
+      "median_match_distance": 0.08619496968418021,
+      "statement_difference": -0.0783967524766922,
+      "proof_difference": -0.11492700129747391
+    },
+    {
+      "project": "sphere-eversion",
+      "n": 909,
+      "headline_n": 1,
+      "median_match_distance": 0.07873152954790491,
+      "statement_difference": -0.05248001217842102,
+      "proof_difference": -0.06354805082082748
+    },
+    {
+      "project": "ten-proofs",
+      "n": 2512,
+      "headline_n": 12,
+      "median_match_distance": 0.1768808869037882,
+      "statement_difference": -0.08123940229415894,
+      "proof_difference": -0.07832716405391693
+    }
+  ],
+  "attenuation_fraction": {
+    "statement": 0.22040803805125297,
+    "proof": 0.3332642862703009
+  },
+  "scope": {
+    "primary_view": "statement",
+    "controlled": [
+      "statement character count",
+      "proof character count",
+      "statement cluster"
+    ],
+    "not_identified": [
+      "project age/toolchain",
+      "intrinsic mathematical complexity",
+      "causal novelty"
+    ]
+  }
+}

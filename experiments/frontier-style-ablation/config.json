@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "experiment_id": "frontier-style-ablation",
+  "neighbor_k": 10,
+  "variants": ["header_normalized", "alpha_normalized"],
+  "view_template": "Lean 4 theorem statement:\n{statement}",
+  "embedding": {
+    "provider": "Amazon Bedrock",
+    "transport": "AWS CLI",
+    "region": "us-east-1",
+    "model_id": "global.cohere.embed-v4:0",
+    "input_type": "clustering",
+    "embedding_type": "float",
+    "output_dimension": 1024,
+    "batch_size": 96,
+    "max_tokens": 128000,
+    "truncate": "NONE",
+    "max_attempts": 10,
+    "workers": 4,
+    "estimated_price_usd_per_million_text_tokens": 0.12,
+    "pricing_checked_date": "2026-08-03",
+    "hard_cost_cap_usd": 15.0,
+    "cost_guard_characters_per_token": 2.5
+  }
+}

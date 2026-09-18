@@ -1,0 +1,14 @@
+{
+  "experiment_id": "frontier-time-controls",
+  "billing_source": "successful-response character guard; AWS billing was not queried",
+  "projected_cost_usd_for_final_corpus": 0.155214624,
+  "successful_response_characters_including_superseded_runs": 7057379,
+  "conservative_cost_usd_including_superseded_runs": 0.338754192,
+  "hard_cost_cap_usd": 15.0,
+  "inputs": 21000,
+  "successful_batches_including_superseded_runs": 489,
+  "transient_throttled_attempts": 342,
+  "final_batches": 219,
+  "missing_batches": 0,
+  "note": "Includes the original corpus, a 51-batch interrupted regional refresh, and the final corrected global-profile corpus. Throttled attempts returned no model output."
+}

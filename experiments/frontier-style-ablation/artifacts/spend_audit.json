@@ -1,0 +1,13 @@
+{
+  "experiment_id": "frontier-style-ablation",
+  "billing_source": "successful-response character guard; AWS billing was not queried",
+  "model_id_final": "global.cohere.embed-v4:0",
+  "projected_cost_usd_for_final_two_view_corpus": 0.686597904,
+  "successful_response_characters_including_superseded_runs": 22277172,
+  "conservative_cost_usd_including_superseded_runs": 1.069304256,
+  "hard_cost_cap_usd": 15.0,
+  "successful_batches_including_superseded_runs": 1786,
+  "transient_throttled_attempts": 472,
+  "final_batches_per_view": 520,
+  "note": "Includes a preserved partial regional run, the complete global run, and the targeted post-parser-fix refresh. Throttled attempts returned no model output."
+}

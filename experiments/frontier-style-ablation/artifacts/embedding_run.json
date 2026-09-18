@@ -1,0 +1,25 @@
+{
+  "experiment_id": "frontier-style-ablation",
+  "model_id": "global.cohere.embed-v4:0",
+  "projected_cost_usd": 0.686597904,
+  "hard_cost_cap_usd": 15.0,
+  "views": {
+    "header_normalized": {
+      "inputs": 49852,
+      "new_calls": 240,
+      "shape": [
+        49852,
+        1024
+      ]
+    },
+    "alpha_normalized": {
+      "inputs": 49852,
+      "new_calls": 240,
+      "shape": [
+        49852,
+        1024
+      ]
+    }
+  },
+  "elapsed_seconds": 405.0964180000001
+}

@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "experiment_id": "frontier-rarity-controls",
+  "random_seed": 0,
+  "neighbor_k": 10,
+  "matching": {
+    "exact_on": "statement_cluster",
+    "continuous_covariates": [
+      "log_statement_characters",
+      "log_proof_characters"
+    ],
+    "with_replacement": true
+  },
+  "regression": {
+    "covariance": "HC3",
+    "models": ["raw", "length", "domain", "length_and_domain"]
+  }
+}

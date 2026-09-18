@@ -1,0 +1,208 @@
+{
+  "experiment_id": "frontier-time-controls",
+  "design": "exact pinned Mathlib snapshot; exact statement cluster; nearest log statement length",
+  "primary_project_balanced": {
+    "mean": -0.05998548632487655,
+    "lower": -0.07911024013215516,
+    "upper": -0.040860732517597934,
+    "n": 8
+  },
+  "old_project_balanced_same_eight_projects": {
+    "mean": -0.08195040700957179,
+    "lower": -0.09965847056144722,
+    "upper": -0.06424234345769636,
+    "n": 8
+  },
+  "attenuation_from_time_matching": 0.26802698712807793,
+  "caliper_sensitivity": {
+    "0.25": {
+      "project_balanced": {
+        "mean": -0.05607221066020429,
+        "lower": -0.07393409353228915,
+        "upper": -0.03821032778811943,
+        "n": 8
+      },
+      "declarations": 14831,
+      "coverage_fraction": 0.9154040991635226
+    },
+    "0.5": {
+      "project_balanced": {
+        "mean": -0.056918750051409006,
+        "lower": -0.07488589259201973,
+        "upper": -0.03895160751079828,
+        "n": 8
+      },
+      "declarations": 15293,
+      "coverage_fraction": 0.9423498433702509
+    },
+    "1.0": {
+      "project_balanced": {
+        "mean": -0.0580671657808125,
+        "lower": -0.07638348753476215,
+        "upper": -0.03975084402686286,
+        "n": 8
+      },
+      "declarations": 15734,
+      "coverage_fraction": 0.9662935730364515
+    }
+  },
+  "projects": [
+    {
+      "project": "ten-proofs",
+      "revision": "81a5d257c8e410db227a6665ed08f64fea08e997",
+      "n": 2512,
+      "control_n": 3000,
+      "frontier_density": 0.6436941623687744,
+      "matched_control_density": 0.7111278772354126,
+      "time_matched_difference": -0.06743373721837997,
+      "old_matched_difference": -0.08238904178142548,
+      "median_match_distance": 0.034291078215404044,
+      "q95_match_distance": 1.6009524833041353,
+      "unique_control_matches": 670
+    },
+    {
+      "project": "navier-stokes-euler",
+      "revision": "85e3a25e006c35636f0e53b0e9296caca2685bc0",
+      "n": 2507,
+      "control_n": 3000,
+      "frontier_density": 0.6431767344474792,
+      "matched_control_density": 0.7311903238296509,
+      "time_matched_difference": -0.08801357448101044,
+      "old_matched_difference": -0.0984531044960022,
+      "median_match_distance": 0.014888218878813784,
+      "q95_match_distance": 1.0886829390911081,
+      "unique_control_matches": 813
+    },
+    {
+      "project": "flt",
+      "revision": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "n": 2003,
+      "control_n": 3000,
+      "frontier_density": 0.6726157069206238,
+      "matched_control_density": 0.7171168923377991,
+      "time_matched_difference": -0.0445011742413044,
+      "old_matched_difference": -0.0698133185505867,
+      "median_match_distance": 0.011229335038955955,
+      "q95_match_distance": 1.8181656970149371,
+      "unique_control_matches": 882
+    },
+    {
+      "project": "pfr",
+      "revision": "c32e1ec0d1eb5237ba344eee50162f45d5b0fc76",
+      "n": 910,
+      "control_n": 3000,
+      "frontier_density": 0.6795249581336975,
+      "matched_control_density": 0.7303756475448608,
+      "time_matched_difference": -0.05085065960884094,
+      "old_matched_difference": -0.0731695294380188,
+      "median_match_distance": 0.01127376278781413,
+      "q95_match_distance": 0.25119887790091544,
+      "unique_control_matches": 330
+    },
+    {
+      "project": "pnt",
+      "revision": "905b95818eb32af7874a58b427f50c1711a5e96c",
+      "n": 2503,
+      "control_n": 3000,
+      "frontier_density": 0.6435163617134094,
+      "matched_control_density": 0.7389043569564819,
+      "time_matched_difference": -0.0953880250453949,
+      "old_matched_difference": -0.12327446788549423,
+      "median_match_distance": 0.0,
+      "q95_match_distance": 0.24761464638353625,
+      "unique_control_matches": 591
+    },
+    {
+      "project": "formalized-logic",
+      "revision": "5ed2965256430c3649e86755f9576b54eca72435",
+      "n": 2505,
+      "control_n": 3000,
+      "frontier_density": 0.7122194170951843,
+      "matched_control_density": 0.7514705061912537,
+      "time_matched_difference": -0.03925107419490814,
+      "old_matched_difference": -0.06534983962774277,
+      "median_match_distance": 0.0,
+      "q95_match_distance": 0.05913823839005945,
+      "unique_control_matches": 844
+    },
+    {
+      "project": "schoenflies",
+      "revision": "905b95818eb32af7874a58b427f50c1711a5e96c",
+      "n": 2501,
+      "control_n": 3000,
+      "frontier_density": 0.6683515906333923,
+      "matched_control_density": 0.731224775314331,
+      "time_matched_difference": -0.0628732293844223,
+      "old_matched_difference": -0.08649566024541855,
+      "median_match_distance": 0.0,
+      "q95_match_distance": 0.26778585675636934,
+      "unique_control_matches": 950
+    },
+    {
+      "project": "sphere-eversion",
+      "revision": "2631d1cc8c2ace6c6a900425d6e5d2b5963966e9",
+      "n": 909,
+      "control_n": 3000,
+      "frontier_density": 0.7027680277824402,
+      "matched_control_density": 0.734340488910675,
+      "time_matched_difference": -0.03157241642475128,
+      "old_matched_difference": -0.056658294051885605,
+      "median_match_distance": 0.0,
+      "q95_match_distance": 0.08101730303582892,
+      "unique_control_matches": 560
+    }
+  ],
+  "snapshots": [
+    {
+      "revision": "2631d1cc8c2ace6c6a900425d6e5d2b5963966e9",
+      "n": 3000,
+      "mean_density": 0.7362078428268433,
+      "median_density": 0.7370087504386902
+    },
+    {
+      "revision": "5ed2965256430c3649e86755f9576b54eca72435",
+      "n": 3000,
+      "mean_density": 0.7371073961257935,
+      "median_density": 0.7375386953353882
+    },
+    {
+      "revision": "81a5d257c8e410db227a6665ed08f64fea08e997",
+      "n": 3000,
+      "mean_density": 0.7370373010635376,
+      "median_density": 0.737600564956665
+    },
+    {
+      "revision": "85e3a25e006c35636f0e53b0e9296caca2685bc0",
+      "n": 3000,
+      "mean_density": 0.7366958260536194,
+      "median_density": 0.7373106479644775
+    },
+    {
+      "revision": "905b95818eb32af7874a58b427f50c1711a5e96c",
+      "n": 3000,
+      "mean_density": 0.7373232245445251,
+      "median_density": 0.7374215722084045
+    },
+    {
+      "revision": "c32e1ec0d1eb5237ba344eee50162f45d5b0fc76",
+      "n": 3000,
+      "mean_density": 0.7381951212882996,
+      "median_density": 0.7380815744400024
+    },
+    {
+      "revision": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "n": 3000,
+      "mean_density": 0.7362340688705444,
+      "median_density": 0.738152027130127
+    }
+  ],
+  "excluded": {
+    "lean-liquid": "Lean 3 legacy project; approximately date-matched but not toolchain-matched"
+  },
+  "limitations": [
+    "observational matching does not identify mathematical novelty causally",
+    "project authorship and local formalization conventions remain unmatched",
+    "changed-or-new is defined by absence of a verbatim statement in the 2024 corpus",
+    "final controls use the global Embed v4 profile while frozen reference/frontier embeddings use the regional base endpoint"
+  ]
+}

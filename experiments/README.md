@@ -15,6 +15,10 @@ its theorem statement, and can that shared structure improve proof generation?
 | [`retrieval-guided-proof-generation-100/`](retrieval-guided-proof-generation-100/) | 100 held-out targets | Paired retrieval-guided generation pilot with Lean verification | Complete |
 | [`theorem-network-measures/`](theorem-network-measures/) | 10,000 theorem–proof pairs | Per-theorem dependency, connectedness, and complexity measures | Complete |
 | [`proof-prefix-trajectories/`](proof-prefix-trajectories/) | 300 long proofs, 3,506 trajectories | Within-proof semantic-diversification mechanism test | Complete |
+| [`frontier-formalizations/`](frontier-formalizations/) | 18,852 declarations from 9 projects | Locate major recent formalizations in the frozen LeanDojo space | Complete |
+| [`frontier-rarity-controls/`](frontier-rarity-controls/) | 18,852 frontier + 10,000 reference declarations | Test whether length and coarse domain explain frontier isolation | Complete |
+| [`frontier-time-controls/`](frontier-time-controls/) | 18,852 frontier + 21,000 exact-snapshot controls | Test whether recency and toolchain drift explain frontier isolation | Complete |
+| [`frontier-style-ablation/`](frontier-style-ablation/) | 49,852 statements across 3 cohorts | Test whether headers and bound-variable names explain residual isolation | Complete |
 
 The first two profiles are defined in the root [`pipeline.py`](../pipeline.py)
 and use random seed 0 throughout:

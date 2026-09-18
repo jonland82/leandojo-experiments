@@ -51,14 +51,15 @@ def headline_suffixes(project: dict, repo: Path) -> set[str]:
     return names
 
 
-def split_declaration(block: str) -> tuple[str, str] | None:
-    marker = block.find(":=")
+def split_declaration(block: str, search_start: int = 0) -> tuple[str, str] | None:
+    """Split after the declaration header, not inside an attribute option."""
+    marker = block.find(":=", search_start)
     width = 2
     if marker < 0:
-        match = re.search(r"(?m)^\s*by\s*$", block)
+        match = re.search(r"(?m)^\s*by\s*$", block[search_start:])
         if not match:
             return None
-        marker, width = match.start(), len(match.group(0))
+        marker, width = search_start + match.start(), len(match.group(0))
     statement = block[:marker].strip()
     proof = block[marker + width :].strip()
     if not statement or not proof:
@@ -77,8 +78,8 @@ def extract_file(
     for match in TARGET_RE.finditer(text):
         position = bisect_right(boundary_starts, match.start())
         end = boundary_starts[position] if position < len(boundary_starts) else len(text)
-        block = text[match.start() : end].strip()
-        parts = split_declaration(block)
+        block = text[match.start() : end]
+        parts = split_declaration(block, match.end() - match.start())
         if parts is None:
             continue
         statement, proof = parts

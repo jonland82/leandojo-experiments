@@ -1,0 +1,32 @@
+{
+  "experiment_id": "frontier-style-ablation",
+  "declarations": 49852,
+  "cohorts": {
+    "reference": 10000,
+    "control": 21000,
+    "frontier": 18852
+  },
+  "views": {
+    "header_normalized": {
+      "declarations": 49852,
+      "changed": 49845,
+      "changed_fraction": 0.9998595843697344,
+      "total_statement_characters": 5750553,
+      "median_statement_characters": 81,
+      "bound_identifiers_replaced": null
+    },
+    "alpha_normalized": {
+      "declarations": 49852,
+      "changed": 49846,
+      "changed_fraction": 0.9998796437454867,
+      "total_statement_characters": 5961266,
+      "median_statement_characters": 85,
+      "bound_identifiers_replaced": 162317
+    }
+  },
+  "total_characters": 14304123,
+  "conservative_token_estimate": 5721649.2,
+  "projected_cost_usd": 0.686597904,
+  "hard_cost_cap_usd": 15.0,
+  "within_cap": true
+}
