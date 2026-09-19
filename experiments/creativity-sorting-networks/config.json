@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "experiment_id": "creativity-sorting-networks",
+  "n": 4,
+  "maximum_length": 12,
+  "baseline": "four-input insertion sorting network",
+  "baseline_comparators": [[0, 1], [1, 2], [0, 1], [2, 3], [1, 2], [0, 1]],
+  "prior": "uniform over the six comparators conditional on exact sequence length"
+}
+

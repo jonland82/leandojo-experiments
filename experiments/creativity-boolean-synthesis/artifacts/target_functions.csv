@@ -1,0 +1,5 @@
+truth_table,minimum_gates,minimum_formula_count,all_formula_count_at_minimum,minimum_probability,boundary_surprisal_bits,canonical_baseline_nand_gates,compression_gain,triad_score,witness,target
+128,6,288,288684,0.000997630627260257,9.969206622964235,9,3,29.907619868892702,"NAND(NAND(x0, NAND(x0, x0)), NAND(x0, NAND(x0, NAND(x1, x2))))",and3
+232,6,432,288684,0.0014964459408903852,9.384244122243079,199,193,1811.159115592914,"NAND(NAND(x0, x1), NAND(x2, NAND(NAND(x0, x0), NAND(x1, x1))))",majority3
+150,14,373248,38375290837080,9.72625853402915e-09,26.615467913571017,239,225,5988.480280553479,"NAND(NAND(x0, NAND(NAND(x1, x2), NAND(NAND(x0, x1), NAND(x0, x2)))), NAND(NAND(x0, x0), NAND(NAND(x1, NAND(x1, x2)), NAND(x2, NAND(x1, x1)))))",parity3
+216,4,24,3402,0.007054673721340388,7.147204924942229,207,203,1450.8825997632725,"NAND(NAND(x0, x1), NAND(x2, NAND(x0, x0)))",mux

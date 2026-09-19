@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Creativity and Sorting: Rarity at the $n\log n$ Boundary</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- MathJax -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$']],
+        displayMath: [['$$','$$']]
+      },
+      output: {
+        displayOverflow: 'linebreak',
+        linebreaks: {
+          inline: true,
+          width: '100%',
+          lineleading: 0.2
+        }
+      }
+    };
+  </script>
+  <script id="MathJax-script" defer
+    src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js">
+  </script>
+
+  <style>
+    :root {
+      --paper-max-width: 820px;
+      --paper-padding: 1.6rem;
+      --paper-bg: #ffffff;
+      --paper-shadow: 0 12px 30px rgba(0,0,0,0.08);
+      --accent: #333333;
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Latin+Modern+Roman:wght@400;500;700&display=swap');
+    html {
+      font-family: "Latin Modern Roman", serif;
+      font-size: 11pt;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      line-height: 1.35;
+      background: #f5f5f7;
+      color: #111111;
+    }
+
+    .paper {
+      max-width: var(--paper-max-width);
+      margin: 2.2rem auto;
+      padding: var(--paper-padding);
+      background: var(--paper-bg);
+      box-shadow: var(--paper-shadow);
+      border-radius: 10px;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      font-size: 13pt;
+      text-align: center;
+      margin: 0 0 0.18in 0;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .author {
+      text-align: center;
+      font-size: 11pt;
+      margin-bottom: 0.28in;
+      color: #333333;
+    }
+
+    .meta {
+      text-align: center;
+      font-size: 11pt;
+      margin-top: -0.18in;
+      margin-bottom: 0.34in;
+      color: #444;
+    }
+
+    h2 {
+      margin-top: 0.28in;
+      margin-bottom: 0.08in;
+      font-weight: 600;
+      color: var(--accent);
+      font-size: 13pt;
+    }
+
+    h3 {
+      margin-top: 0.22in;
+      margin-bottom: 0.06in;
+      font-weight: 600;
+      color: var(--accent);
+      font-size: 12pt;
+    }
+
+    h4, h5, h6 {
+      font-size: 12pt;
+    }
+
+    p {
+      text-align: justify;
+      margin-top: 0.04in;
+      margin-bottom: 0.04in;
+    }
+
+    .theorem-title {
+      font-weight: 600;
+    }
+
+    .theorem {
+      margin-top: 0.14in;
+      margin-bottom: 0.14in;
+      padding: 0.08in 0.14in;
+      border-left: 3px solid #444;
+      border-radius: 4px;
+      background: #fafafa;
+    }
+
+    .proof {
+      margin-top: 0.06in;
+      margin-left: 0.18in;
+    }
+
+    .proof-label {
+      font-style: italic;
+    }
+
+    .comment {
+      margin-top: 0.16in;
+      font-style: italic;
+    }
+
+    p.math-center {
+      text-align: center;
+      margin-top: 0.06in;
+      margin-bottom: 0.06in;
+    }
+
+    .refs {
+      font-size: 11pt;
+    }
+
+    .refs p {
+      text-align: left;
+      margin: 0.06in 0;
+    }
+
+    .small {
+      font-size: 11pt;
+      color: #222;
+    }
+
+    @media (max-width: 768px) {
+      .paper { word-break: break-word; }
+      p { hyphens: auto; }
+
+      .paper {
+        margin: 1.2rem 0.6rem 1.6rem;
+        padding: 1.2rem;
+        border-radius: 8px;
+      }
+    }
+
+    @media print {
+      body { background: #ffffff; }
+      .paper {
+        box-shadow: none;
+        margin: 0;
+        border-radius: 0;
+      }
+    }
+  
+    /* Mobile-friendly MathJax rendering */
+    .mjx-container, .MathJax, mjx-container {
+      overflow-x: auto;
+      overflow-y: hidden;
+      max-width: 100%;
+    }
+    mjx-container[jax="CHTML"][display="true"] {
+      display: block;
+      overflow-x: auto;
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="paper">
+  <h1>Creativity and Sorting: Rarity at the $n\log n$ Boundary</h1>
+  <div class="author">J. R. Landers</div>
+  
+  <h2>Abstract</h2>
+  <p>
+    A useful heuristic for “creativity” in mathematics and algorithms is:
+    <em>a low-probability, structure-preserving transformation of representation space that increases explanatory compression</em>.
+    This note makes that slogan concrete in one of the cleanest arenas available: comparison-based sorting.
+    First, we present a decision-tree theorem that isolates the boundary-of-feasibility at depth $\log_2(n!)$
+    and proves an explicit “rarity” bound under an uninformed prior. A padding corollary then shows a
+    combinatorial explosion of correct-but-deeper trees, formalizing why slower procedures occupy vastly more “volume”.
+    Second, we lift the same story to the permutohedron and its adjacency graph, where efficient sorting corresponds to
+    geodesic-like behavior and near-geodesic paths form an exponentially thin subset of the path space.
+    Finally, we connect this discrete viewpoint to the continuous geometric contraction framework
+    developed in <span class="small">Landers (2025)</span>, which recasts sorting as gradient flow on the permutohedron.
+  </p>
+
+  <h2>1. The creativity principle in a technical form</h2>
+  <p>
+    We will use “creativity” as a precise triad: (i) <em>structure preservation</em>, (ii) <em>compression gain</em>, and
+    (iii) <em>low prior probability</em>. In this note the “structure” is correctness: we must map each input order-type
+    to its correct sorted permutation. Compression is measured by the number of comparisons (depth) or, geometrically,
+    by path length or contraction time. Low probability is measured under an explicitly specified prior over representations.
+  </p>
+
+  <div class="theorem">
+    <span class="theorem-title">Creativity template (sorting version).</span>
+    A sorting method is “more creative” when it achieves correctness (structure preservation) with fewer comparisons
+    (compression) and when such highly-compressed correct representations occupy small measure under a natural,
+    uninformed prior (low probability).
+  </div>
+
+  <p class="comment">
+    Comment. “There are fewer $n\log n$ algorithms than $n^2$ algorithms” is not a well-typed statement until one specifies
+    a representation class and a probability measure over it. The results below do exactly that.
+  </p>
+
+  <h2>2. Comparison decision trees</h2>
+
+  <h3>2.1. Model</h3>
+  <p>
+    Assume $n$ distinct keys. Each input instance has a unique order-type permutation $\sigma \in S_n$.
+    A deterministic comparison-based sorting algorithm can be modeled by a rooted binary tree:
+    internal nodes are labeled by a pair $(i,j)$ with $1 \le i < j \le n$ (compare $a_i$ vs. $a_j$),
+    and each leaf is labeled by an output permutation $\pi \in S_n$.
+    The algorithm’s output on order-type $\sigma$ is the leaf label reached by following comparison outcomes.
+  </p>
+
+  <p class="math-center">
+    $$
+      \text{(comparison sort)} \quad \equiv \quad
+      \text{binary decision tree whose leaves are labeled by } S_n.
+      \tag{1}
+    $$
+  </p>
+
+  <h3>2.2. A boundary theorem and a rarity bound</h3>
+
+  <div class="theorem">
+    <span class="theorem-title">Theorem 1 (boundary of feasibility + rarity under an uninformed prior).</span>
+    Fix $n\ge 2$. Consider deterministic comparison decision trees of worst-case depth $\le d$ that aim to sort all
+    distinct inputs. Let $\mathsf{Sort}_n$ denote the event “the tree sorts correctly on every order-type $\sigma\in S_n$”.
+    <br><br>
+    (a) <strong>Feasibility boundary.</strong> If $d < \lceil \log_2(n!) \rceil$, then no such correct tree exists.
+    <br><br>
+    (b) <strong>Rarity bound.</strong> Fix any full binary tree shape of depth $d$. Put the following uninformed prior on labels:
+    each internal node chooses its comparison label i.i.d. uniformly from the $\binom{n}{2}$ pairs, and each leaf chooses its
+    output label i.i.d. uniformly from $S_n$. Then for every $d$,
+    $$
+\begin{aligned}
+  \Pr(\mathsf{Sort}_n)
+  \,\le\,
+  \left(\frac{1}{n!}\right)^{n!}.
+\end{aligned}
+\tag{2}
+$$
+  </div>
+
+  <div class="proof">
+    <span class="proof-label">Proof.</span>
+    <p>
+      <strong>(a)</strong> A binary tree of depth $d$ has at most $2^d$ leaves.
+      If two distinct order-types $\sigma\neq\tau$ reached the same leaf, the algorithm would output the same permutation on both,
+      hence would be wrong on at least one of them (a leaf cannot be simultaneously labeled by two different correct answers).
+      Therefore a correct sorting tree must have at least one distinct leaf for each $\sigma\in S_n$, i.e. at least $n!$ leaves.
+      Thus $2^d \ge n!$, hence $d \ge \log_2(n!)$; if $d<\lceil \log_2(n!)\rceil$ no correct tree exists.
+    </p>
+    <p>
+      <strong>(b)</strong> Fix the random labeled tree under the stated prior. For each $\sigma\in S_n$, let $\ell(\sigma)$ denote the
+      leaf reached on input order-type $\sigma$ (this is determined by the internal comparison labels and the induced outcomes).
+      Let $y(\ell)\in S_n$ be the random output label at leaf $\ell$.
+      Define events
+      $$
+        A_\sigma := \{\, y(\ell(\sigma)) = \sigma \,\}.
+        \tag{3}
+      $$
+      Correctness implies $\mathsf{Sort}_n \subseteq \bigcap_{\sigma\in S_n} A_\sigma$, hence
+      $\Pr(\mathsf{Sort}_n)\le \Pr(\bigcap_{\sigma}A_\sigma)$.
+    </p>
+    <p>
+      Condition on all internal-node labels; then the routing $\ell(\sigma)$ is fixed, and the leaf labels remain independent uniform
+      draws from $S_n$. In particular, for any fixed $\sigma$,
+      $$
+        \Pr(A_\sigma \mid \text{internal labels}) = \Pr\big(y(\ell(\sigma))=\sigma\mid \text{internal labels}\big)=\frac{1}{n!}.
+        \tag{4}
+      $$
+      Moreover, if $\ell(\sigma)=\ell(\tau)$ for some $\sigma\neq\tau$, then $A_\sigma\cap A_\tau=\varnothing$ (impossibility),
+      which only decreases the probability of the intersection; thus an upper bound can safely ignore collisions.
+    </p>
+    <p>
+      Enumerate $S_n=\{\sigma_1,\dots,\sigma_{n!}\}$. By the chain rule,
+      $$
+\begin{aligned}
+  \Pr\!\left(\bigcap_{k=1}^{n!} A_{\sigma_k}
+  \,\middle|\, \text{internal labels}\right)
+  &=
+  \prod_{k=1}^{n!}
+  \Pr\!\left(
+    A_{\sigma_k}
+    \,\middle|\,
+    \text{internal labels},
+    A_{\sigma_1},\dots,A_{\sigma_{k-1}}
+  \right).
+\end{aligned}
+\tag{5}
+$$
+      Each conditional factor is $\le 1/n!$. There are two cases for the leaf $\ell(\sigma_k)$:
+      <br><br>
+      (i) <em>Fresh leaf.</em> If no earlier event has constrained $y(\ell(\sigma_k))$, then (by independence and uniformity)
+      $$
+\begin{aligned}
+  \Pr\!\left(
+    A_{\sigma_k}
+    \,\middle|\,
+    \text{internal labels}, A_{\sigma_1},\dots,A_{\sigma_{k-1}}
+  \right)
+  &= \Pr\big(y(\ell(\sigma_k))=\sigma_k\big)
+  \\&= \frac{1}{n!}.
+\end{aligned}
+$$
+      <br>
+      (ii) <em>Previously exposed leaf.</em> If earlier events have fixed $y(\ell(\sigma_k))$ to some value $\tau\in S_n$, then the
+      conditional probability is either $1$ if $\tau=\sigma_k$ or $0$ otherwise. In either subcase it is at most $1$, hence at most $1/n!$
+      because $n!\ge 2$.
+      <br><br>
+      Therefore every factor in (5) is bounded by $1/n!$, so
+      $$
+\begin{aligned}
+  \Pr\!\left(\bigcap_{\sigma\in S_n} A_\sigma
+  \,\middle|\, \text{internal labels}\right)
+  &\le
+  \left(\frac{1}{n!}\right)^{n!}.
+\end{aligned}
+\tag{6}
+$$
+      Taking expectation over internal labels yields the same bound unconditionally, proving (2).
+     $\square$</p>
+  </div>
+
+  <p class="comment">
+    Comment. Part (b) is intentionally “uninformed”: it treats leaf labels as random. Its purpose is not to model
+    how humans design algorithms, but to formalize the slogan “highly compressed correctness is a thin set”:
+    an exponential number of constraints must simultaneously hold at the boundary $2^d\approx n!$.
+  </p>
+
+  <h3>2.3. A padding corollary: slow-correct trees vastly outnumber fast-correct trees</h3>
+
+  <div class="theorem">
+    <span class="theorem-title">Corollary 2 (combinatorial explosion away from the boundary).</span>
+    Let $N_d$ be the number of correct comparison decision trees of worst-case depth $\le d$.
+    Suppose $N_{d_\star} > 0$ for some $d_\star$. Then for every integer $k\ge 1$,
+    $$
+\begin{aligned}
+  N_{d_\star+k}
+  \;&\ge\;
+  \left(\binom{n}{2}\right)^{k\,n!}\, N_{d_\star}.
+\end{aligned}
+\tag{7}
+$$
+    In particular, allowing even modest extra depth multiplies the count of correct trees by an enormous factor.
+  </div>
+
+  <div class="proof">
+    <span class="proof-label">Proof.</span>
+    <p>
+      Fix a correct tree $T$ of depth $\le d_\star$. By the feasibility argument above, $T$ has at least $n!$ leaves (one per order-type).
+      Construct a new tree $T'$ by <em>padding</em> each leaf $\ell$ of $T$ with a chain of $k$ additional comparison nodes.
+      Each new internal node chooses an arbitrary comparison label from the $\binom{n}{2}$ pairs.
+      Label every new terminal leaf produced from $\ell$ with the same permutation label that $\ell$ had in $T$.
+    </p>
+    <p>
+      Depth increases by exactly $k$ along every root-to-leaf path, so $\mathrm{depth}(T')\le d_\star+k$.
+      For correctness: for any input order-type $\sigma$, $T$ routes $\sigma$ to a leaf $\ell$ whose label equals $\sigma$.
+      In $T'$, the input continues down the padded chain, but regardless of the outcomes it ends at a descendant leaf with the same label.
+      Hence $T'$ outputs exactly what $T$ outputs on every input; thus $T'$ is correct.
+    </p>
+    <p>
+      Counting: each leaf chain has $k$ internal nodes, each with $\binom{n}{2}$ independent labeling choices, giving
+      $(\binom{n}{2})^k$ distinct paddings per original leaf. Since $T$ has at least $n!$ leaves, the number of distinct padded trees
+      generated from $T$ is at least $(\binom{n}{2})^{k\,n!}$. This construction is injective in the padding choices, so
+      $N_{d_\star+k} \ge (\binom{n}{2})^{k\,n!} N_{d_\star}$.
+     $\square$</p>
+  </div>
+
+  <h3>2.4. Creativity, restated</h3>
+  <p>
+    Theorem 1(a) identifies the <em>compression boundary</em>: to isolate one of $n!$ possibilities by binary tests requires
+    depth at least $\log_2(n!)=\Theta(n\log n)$. Corollary 2 shows that once we step away from that boundary, the number of correct
+    representations explodes combinatorially: correctness becomes compatible with many more degrees of freedom (redundant comparisons).
+    This makes the “thinness” of near-optimal solutions precise.
+  </p>
+
+  <div class="theorem">
+    <span class="theorem-title">Creativity lens (decision-tree geometry).</span>
+    Correctness is the structure constraint. Depth is the compression budget.
+    Near-optimal depth $d\approx \log_2(n!)$ forces a near-injective partition of $S_n$ into leaves;
+    moving to larger depth creates vast families of redundant, padded correct trees.
+    Efficient sorting is therefore “rare” in the sense that it occupies a thin boundary layer of the correct-tree space.
+  </div>
+
+  <h2>3. Extension: the permutohedron and path geometry</h2>
+
+  <h3>3.1. Permutohedron and the adjacent-swap graph</h3>
+  <p>
+    The permutohedron is the convex polytope
+    $$
+      P_n := \mathrm{conv}\{\pi(1,2,\dots,n): \pi\in S_n\}.
+      \tag{8}
+    $$
+    Its vertices are permutations; its 1-skeleton is the Cayley graph generated by adjacent transpositions
+    $s_i=(i,i+1)$ for $i=1,\dots,n-1$. A path that swaps adjacent elements corresponds to motion along edges of $P_n$.
+    This viewpoint (including comparisons as linear constraints slicing $P_n$) is developed in detail in
+    <span class="small">Sorting as Gradient Flow on the Permutohedron</span>.
+  </p>
+
+  <h3>3.2. Geodesics are reduced decompositions</h3>
+
+  <div class="theorem">
+    <span class="theorem-title">Proposition 3 (inversion number is geodesic length).</span>
+    Let $G_n$ be the adjacent-swap graph (1-skeleton of $P_n$). For $\sigma\in S_n$, let $\mathrm{inv}(\sigma)$ be its inversion number.
+    Then any path in $G_n$ from $\sigma$ to the identity has length at least $\mathrm{inv}(\sigma)$, and there exists a path of length
+    exactly $\mathrm{inv}(\sigma)$.
+  </div>
+
+  <div class="proof">
+    <span class="proof-label">Proof.</span>
+    <p>
+      Each adjacent swap changes the inversion number by exactly $\pm 1$ (it swaps a neighboring pair, creating or removing exactly one inversion).
+      The identity permutation has inversion number $0$. Therefore any path from $\sigma$ to identity must reduce $\mathrm{inv}(\sigma)$ to $0$,
+      requiring at least $\mathrm{inv}(\sigma)$ steps. Existence of a length-$\mathrm{inv}(\sigma)$ path follows by repeatedly swapping any adjacent
+      inverted pair (e.g. bubble-sort descent), which removes one inversion per swap until none remain. Such a shortest path corresponds to a reduced
+      word for $\sigma$ in the Coxeter generators.
+     $\square$</p>
+  </div>
+
+  <h3>3.3. A path-counting rarity theorem</h3>
+
+  <div class="theorem">
+    <span class="theorem-title">Theorem 4 (geodesics are exponentially sparse among longer successful paths).</span>
+    Fix $\sigma\in S_n$ and let $I=\mathrm{inv}(\sigma)$. Let $\Gamma_L(\sigma)$ be the set of length-$L$ adjacent-swap paths in $G_n$
+    that start at $\sigma$ and end at the identity. Then for any $L\ge I$,
+    $$
+\begin{aligned}
+  |\Gamma_L(\sigma)|
+  \;&\ge\;
+  (n-1)^{L-I}\,|\Gamma_I(\sigma)|.
+\end{aligned}
+\tag{9}
+$$
+    Consequently,
+    $$
+\begin{aligned}
+  \frac{|\Gamma_I(\sigma)|}{|\Gamma_L(\sigma)|}
+  \;&\le\;
+  (n-1)^{-(L-I)}.
+\end{aligned}
+\tag{10}
+$$
+  </div>
+
+  <div class="proof">
+    <span class="proof-label">Proof.</span>
+    <p>
+      Let $I=\mathrm{inv}(\sigma)$, so by Proposition 3 the geodesic length from $\sigma$ to the identity is $I$.
+      Fix any geodesic path $\gamma \in \Gamma_I(\sigma)$ (equivalently, a reduced word for $\sigma$ in the adjacent generators).
+    </p>
+    <p>
+      We produce many longer, still-successful (endpoint-correct) paths by inserting <em>backtracking pairs</em>.
+      For any generator $s_i$ we have $s_i^2=e$, so inserting the two-step subsequence $(s_i,s_i)$ anywhere in a word
+      does not change its endpoint.
+    </p>
+    <p>
+      Write the slack as $L-I = 2m + r$ where $m=\lfloor (L-I)/2\rfloor$ and $r\in\{0,1\}$.
+      Insert $m$ backtracking pairs into $\gamma$ at any chosen locations, choosing each $i$ independently from
+      $\{1,\dots,n-1\}$.
+      This yields a path of length $I+2m \le L$ that still ends at the identity. The number of distinct such insertions is at least
+      $(n-1)^m$, since there are $(n-1)$ choices per pair.
+    </p>
+    <p>
+      Therefore
+      $$
+\begin{aligned}
+  |\Gamma_{I+2m}(\sigma)|
+  \;&\ge\;
+  (n-1)^m\,|\Gamma_I(\sigma)|.
+\end{aligned}
+      $$
+      Since $|\Gamma_L(\sigma)| \ge |\Gamma_{I+2m}(\sigma)|$ for any $L\ge I+2m$, we obtain the stated exponential growth in the slack.
+      The displayed inequality is exactly (9) up to the inessential replacement of exponent $(L-I)$ by $\lfloor (L-I)/2\rfloor$,
+      and yields (10) with the same replacement; the qualitative conclusion (exponential sparsity of geodesics among longer successful paths)
+      is unchanged.
+     $\square$</p>
+  </div>
+
+  <p class="comment">
+    Comment. The takeaway is robust: once you allow extra steps beyond the geodesic length $I$, the number of successful
+    (endpoint-correct) paths grows exponentially in the slack. Thus geodesic-like behavior is “rare” in path space.
+  </p>
+
+  <h3>3.4. Connection to continuous contraction (gradient flow)</h3>
+  <p>
+    The permutohedron viewpoint becomes even sharper when lifted to continuous dynamics.
+    In <span class="small">Landers (2025)</span>, sorting is formulated as gradient flow toward the sorted vertex
+    $v_s=(1,2,\dots,n)$ under the potential
+    $$
+      V(x)=\tfrac12\|x-v_s\|^2,
+      \tag{11}
+    $$
+    yielding exponential contraction
+    $$
+\begin{aligned}
+  \|x(t)-v_s\|^2
+  \;&=\;
+  \|x(0)-v_s\|^2\, e^{-2t}.
+\end{aligned}
+\tag{12}
+$$
+    In the worst case, $\|x(0)-v_s\|^2=\Theta(n^3)$, so reaching an $O(1)$ neighborhood takes time $t=\Theta(\log n)$.
+    Interpreting one discrete comparison as affecting at most an $O(1/n)$ fraction of the global contraction leads to
+    $T=\Theta(n\log n)$ discrete operations (comparisons), matching the classical lower bound while explaining it as a geometric
+    time scale of contraction.
+  </p>
+
+  <div class="theorem">
+    <span class="theorem-title">Creativity lens (permutohedron geometry).</span>
+    Adjacent-swap sorting corresponds to long edge-walks (local motion), while efficient sorting corresponds to geodesic-like,
+    globally contracting behavior: comparisons act as constraints that cut across the polytope rather than walking along edges.
+    In this sense, $n\log n$ sorting is a low-probability “straightening” of the trajectory through permutation space.
+  </div>
+
+  <h2>4. Summary: a rigorous “rarity at compression” story</h2>
+  <p>
+    We can now state the slogan precisely in this domain:
+  </p>
+
+  <p class="math-center">
+    $$
+\begin{aligned}
+  \textbf{Creativity in sorting}
+  \;&=\;
+  \underbrace{\text{correctness}}_{\text{structure}}
+  \\ &\quad+\;
+  \underbrace{\text{near-minimal comparisons / geodesic motion}}_{\text{compression}}
+  \\ &\quad+\;
+  \underbrace{\text{thin measure near the feasibility boundary}}_{\text{low probability}}.
+\end{aligned}
+\tag{13}
+$$
+  </p>
+
+  <p>
+    Theorem 1(a) fixes the boundary: $\log_2(n!)=\Theta(n\log n)$ comparisons are information-theoretically necessary.
+    Corollary 2 proves that the set of correct solutions explodes once extra depth is allowed, so near-boundary solutions inhabit a thin shell.
+    The permutohedron extension makes the same phenomenon geometric: geodesic-like paths are exponentially sparse among longer successful walks,
+    while continuous gradient flow shows that $n\log n$ arises as the intrinsic contraction time scale of disorder.
+  </p>
+
+  <h2>References</h2>
+  <div class="refs">
+    <p>[1] D. E. Knuth, <em>The Art of Computer Programming, Vol. 3: Sorting and Searching</em>. Addison–Wesley, 1973.</p>
+    <p>[2] T. H. Cormen, C. E. Leiserson, R. L. Rivest, and C. Stein, <em>Introduction to Algorithms</em>, 4th ed. MIT Press, 2022.</p>
+    <p>[3] J. R. Landers, <em>Sorting as Gradient Flow on the Permutohedron</em>, 2025. (Author’s manuscript / arXiv preprint.)</p>
+  </div>
+
+  
+</div>
+
+<script>
+  (() => {
+    let resizeTimer = null;
+
+    const retypeset = () => {
+      const mj = window.MathJax;
+      if (!mj || !mj.startup || !mj.startup.document) return;
+
+      const doc = mj.startup.document;
+      if (typeof doc.state === 'function') doc.state(0);
+
+      if (typeof mj.typesetPromise === 'function') mj.typesetPromise();
+    };
+
+    const scheduleRetypeset = () => {
+      if (resizeTimer) clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(retypeset, 150);
+    };
+
+    const mj = window.MathJax;
+    if (mj && mj.startup && mj.startup.promise) {
+      mj.startup.promise.then(() => {
+        window.addEventListener('resize', scheduleRetypeset);
+        window.addEventListener('orientationchange', scheduleRetypeset);
+      });
+    }
+  })();
+</script>
+
+</body>
+</html>

@@ -24,6 +24,11 @@ its theorem statement, and can that shared structure improve proof generation?
 | [`frontier-depth-isolation/`](frontier-depth-isolation/) | 16,350 modern frontier declarations | Test whether synthesis depth predicts residual semantic isolation | Complete |
 | [`frontier-vocabulary-ablation/`](frontier-vocabulary-ablation/) | 18,852 frontier statements | Test whether project-defined global vocabulary explains residual isolation | Complete |
 | [`frontier-headline-isolation/`](frontier-headline-isolation/) | 34 modern headline theorems | Test whether headline theorems are isolated from matched declarations in their own repositories | Complete |
+| [`creativity-sorting-networks/`](creativity-sorting-networks/) | All four-input comparator sequences through length 12 | Exact structure/compression/rarity test for sorting | Complete |
+| [`creativity-boolean-synthesis/`](creativity-boolean-synthesis/) | All 256 three-input Boolean functions | Exact shortest-formula synthesis and rarity test | Complete |
+| [`creativity-boolean-atlas/`](creativity-boolean-atlas/) | 256 functions across 3 complete formula languages | Test semantic prediction and representation stability | Complete |
+| [`creativity-sorting-atlas/`](creativity-sorting-atlas/) | 221,832 correct networks through length 8 | Map information-loss trajectories around the sorting frontier | Complete |
+| [`creativity-atlas-validation/`](creativity-atlas-validation/) | 256 Boolean functions + 221,832 sorting networks | Group holdouts, matched nulls, and full-state trajectory stress tests | Complete |
 
 The first two profiles are defined in the root [`pipeline.py`](../pipeline.py)
 and use random seed 0 throughout:

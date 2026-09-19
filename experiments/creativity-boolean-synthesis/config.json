@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "experiment_id": "creativity-boolean-synthesis",
+  "variables": 3,
+  "maximum_nand_gates": 14,
+  "language": "ordered binary NAND formulas with leaves x0, x1, x2",
+  "prior": "uniform over formulas conditional on exact NAND-gate count",
+  "baseline": "smaller balanced no-sharing NAND compilation of canonical DNF(f) and NOT-DNF(not f)",
+  "targets": ["and3", "majority3", "parity3", "mux"]
+}

@@ -1,0 +1,61 @@
+{
+  "experiment_id": "creativity-sorting-networks",
+  "inputs_verified": 24,
+  "comparators": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      0,
+      3
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      2,
+      3
+    ]
+  ],
+  "minimum_length": 5,
+  "minimum_correct_sequences": 12,
+  "minimum_correct_probability": 0.0015432098765432098,
+  "minimum_correct_surprisal_bits": 9.339850002884624,
+  "minimum_witness": [
+    [
+      0,
+      1
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      1,
+      2
+    ]
+  ],
+  "brute_force_minimum_count_verified": true,
+  "baseline_length": 6,
+  "baseline_verified": true,
+  "maximum_length": 12,
+  "interpretation": "The conjunction of correctness and one-comparison compression occurs only at the exact five-comparator boundary; appending arbitrary comparators preserves correctness but destroys compression."
+}

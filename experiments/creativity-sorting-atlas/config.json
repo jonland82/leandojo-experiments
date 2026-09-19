@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "experiment_id": "creativity-sorting-atlas",
+  "n": 4,
+  "minimum_length": 5,
+  "maximum_length": 8,
+  "prior": "uniform over the six unordered comparators conditional on exact length",
+  "insertion_network": [[0, 1], [1, 2], [0, 1], [2, 3], [1, 2], [0, 1]],
+  "bubble_network": [[0, 1], [1, 2], [2, 3], [0, 1], [1, 2], [0, 1]]
+}

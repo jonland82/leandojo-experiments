@@ -1,0 +1,79 @@
+{
+  "experiment_id": "creativity-boolean-atlas",
+  "functions": 256,
+  "languages": [
+    "NAND",
+    "NOR",
+    "AND_OR_NOT"
+  ],
+  "semantic_invariant_classes": 36,
+  "distinct_projected_positions": 22,
+  "syntax_count_invariants_verified": true,
+  "semantic_knn_prediction": {
+    "NAND": {
+      "semantic_knn_r2": 0.8309064249287604,
+      "semantic_knn_rmse": 1.0470439438763606,
+      "mean_baseline_rmse": 2.5462518409418973
+    },
+    "NOR": {
+      "semantic_knn_r2": 0.833463977547639,
+      "semantic_knn_rmse": 1.039095466141154,
+      "mean_baseline_rmse": 2.5462518409418973
+    },
+    "AND_OR_NOT": {
+      "semantic_knn_r2": 0.9199731685502887,
+      "semantic_knn_rmse": 0.5602278372161068,
+      "mean_baseline_rmse": 1.9803724397193574
+    }
+  },
+  "cross_language_rank_stability": {
+    "minimum_gates": {
+      "NAND__NOR": {
+        "rho": 0.5477034467839892,
+        "pvalue": 1.9309795509750846e-21
+      },
+      "NAND__AND_OR_NOT": {
+        "rho": 0.8053030040753284,
+        "pvalue": 1.3265080236260476e-59
+      },
+      "NOR__AND_OR_NOT": {
+        "rho": 0.8053030040753284,
+        "pvalue": 1.3265080236260476e-59
+      }
+    },
+    "boundary_surprisal_bits": {
+      "NAND__NOR": {
+        "rho": 0.37646473173977013,
+        "pvalue": 4.832327189346987e-10
+      },
+      "NAND__AND_OR_NOT": {
+        "rho": 0.7385731794581417,
+        "pvalue": 2.1740810754261218e-45
+      },
+      "NOR__AND_OR_NOT": {
+        "rho": 0.7385731794581417,
+        "pvalue": 2.1740810754261218e-45
+      }
+    },
+    "compression_gain": {
+      "NAND__NOR": {
+        "rho": 0.2644717966593919,
+        "pvalue": 1.807552028919944e-05
+      },
+      "NAND__AND_OR_NOT": {
+        "rho": 0.6121852039423471,
+        "pvalue": 1.0148896126805143e-27
+      },
+      "NOR__AND_OR_NOT": {
+        "rho": 0.6012187283595154,
+        "pvalue": 1.498523957354743e-26
+      }
+    }
+  },
+  "targets": {
+    "and3": 128,
+    "majority": 232,
+    "parity": 150,
+    "mux": 216
+  }
+}

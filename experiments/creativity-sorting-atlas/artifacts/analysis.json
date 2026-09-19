@@ -1,0 +1,60 @@
+{
+  "experiment_id": "creativity-sorting-atlas",
+  "inputs": 24,
+  "comparators": 6,
+  "correct_sequence_counts": {
+    "5": 12,
+    "6": 900,
+    "7": 16800,
+    "8": 204120
+  },
+  "unique_semantic_profiles": {
+    "5": 1,
+    "6": 27,
+    "7": 147,
+    "8": 497
+  },
+  "length_vs_entropy_area": {
+    "spearman_rho": -0.16371968357276614,
+    "pvalue": 0.0
+  },
+  "padded_fraction_by_length": {
+    "5": 0.0,
+    "6": 0.08,
+    "7": 0.32142857142857145,
+    "8": 0.49382716049382713
+  },
+  "named_networks": {
+    "insertion_network": {
+      "length": 6,
+      "entropy_profile": [
+        4.584962500721,
+        3.584962500721,
+        2.918295834054,
+        2.0,
+        1.5,
+        0.811278124459,
+        -0.0
+      ],
+      "area_under_entropy_curve": 0.4759278959979908,
+      "trajectory_pc1": 2.4985117745814107,
+      "trajectory_pc2": 2.9588475813276793
+    },
+    "bubble_network": {
+      "length": 6,
+      "entropy_profile": [
+        4.584962500721,
+        3.584962500721,
+        2.918295834054,
+        2.418295834054,
+        1.5,
+        0.811278124459,
+        -0.0
+      ],
+      "area_under_entropy_curve": 0.4930339178842743,
+      "trajectory_pc1": 3.2111977448480102,
+      "trajectory_pc2": 3.172597141290935
+    }
+  },
+  "correct_count_invariant_verified": true
+}

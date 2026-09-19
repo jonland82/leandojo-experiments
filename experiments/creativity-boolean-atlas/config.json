@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "experiment_id": "creativity-boolean-atlas",
+  "variables": 3,
+  "maximum_gates": 14,
+  "languages": ["NAND", "NOR", "AND_OR_NOT"],
+  "prior": "uniform over ordered formulas conditional on language and exact gate count",
+  "seed": 0
+}

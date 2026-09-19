@@ -1,0 +1,278 @@
+\documentclass[10pt]{article}
+\usepackage[margin=0.82in]{geometry}
+\usepackage{amsmath,amssymb,booktabs,graphicx,microtype,float,placeins}
+\usepackage[font=small,skip=3pt]{caption}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt plus 1pt minus 1pt}
+\setlength{\textfloatsep}{7pt plus 2pt minus 2pt}
+\setlength{\intextsep}{7pt plus 2pt minus 2pt}
+\title{\vspace{-1.7em}\textbf{Rarity, Compression, and Meaning in Finite Program Spaces}\vspace{-0.5em}}
+\author{J. R. Landers\\[-1pt]\small Exact atlases of Boolean formulas and sorting networks}
+\date{\vspace{-1.4em}}
+
+\begin{document}
+\maketitle
+\vspace{-1.5em}
+
+\begin{abstract}
+We test an operational creativity triad---correctness, compression, and low
+prior probability---in two finite spaces that permit exact enumeration.  All
+256 three-input Boolean functions are synthesized in NAND, NOR, and
+AND/OR/NOT formula languages.  Syntax-free semantic descriptors initially
+predict minimum formula size with leave-one-function-out $R^2=0.831$--$0.920$.
+The result survives stricter validation: after holding out all functions with
+the same invariant descriptor vector, $R^2=0.613$--$0.656$, beyond 1,000 null
+permutations matched on bias, algebraic degree, and symmetry ($p<0.001$ in all
+languages).  Meaning therefore constrains synthesis difficulty.  It does not
+determine a representation-free score: NAND--NOR rank correlations are 0.548
+for minimum size, 0.376 for boundary surprisal, and 0.264 for canonical
+compression gain.  Exhaustive enumeration of 221,832 correct four-input
+sorting networks gives a complementary resolution test.  The 12 shortest
+networks share one entropy curve but follow 12 distinct full output-distribution
+trajectories.  At lengths six through eight, entropy distinguishes 27, 147,
+and 497 trajectories, whereas the full representation distinguishes 756,
+4,356, and 15,036.  Semantic structure is predictive, but apparent rigidity,
+rarity, and compression depend on the language, prior, and observational
+resolution.
+\end{abstract}
+
+\paragraph{Question and operational formalism.}
+The motivating proposal assigns a candidate program $e$ a conjunctive score
+\[
+ \mathcal K(e)=
+ \underbrace{\mathcal S(e)}_{\text{structure or function preserved}}
+ \underbrace{\mathcal G(e)}_{\text{compression gain}}
+ \underbrace{\mathcal R(e)}_{\text{low prior probability}}.
+ \tag{1}
+\]
+The product notation is logical rather than psychometric: no factor is meant
+to substitute for another.  The finite experiments make each dependency
+explicit.  For a language $\mathcal L$, let $E_{\ell}^{\mathcal L}$ be the
+ordered formulas or programs of exact length $\ell$, and let
+$n_{\ell}^{\mathcal L}(f)$ count those computing semantic function $f$.  Define
+\[
+ L_{\mathcal L}^*(f)=\min\{\ell:n_{\ell}^{\mathcal L}(f)>0\},\qquad
+ R_{\mathcal L}(f)=-\log_2
+ \frac{n_{L_{\mathcal L}^*(f)}^{\mathcal L}(f)}
+ {|E_{L_{\mathcal L}^*(f)}^{\mathcal L}|},
+ \tag{2}
+\]
+and $G_{\mathcal L}(f)=L_{0,\mathcal L}(f)-L_{\mathcal L}^*(f)$ relative to a
+frozen canonical compiler $L_0$.  Correctness is exhaustive over the complete
+finite input domain.  Minimality and rarity are exact under the declared
+grammar and the uniform prior conditional on length.
+
+\paragraph{Boolean universe and semantic map.}
+The Boolean universe contains every function
+$f:\{0,1\}^3\rightarrow\{0,1\}$.  Semantic dynamic programming counts ordered
+formulas by exact truth-table semantics through 14 gates; all 256 functions
+are reached in each language.  Counts for single-binary-gate NAND and NOR are
+checked against $\operatorname{Catalan}(\ell)3^{\ell+1}$, and the mixed grammar
+is checked against its independent unary/binary recurrence.
+
+The syntax-free descriptor $\psi(f)$ contains signed output bias, sorted
+variable influences, Walsh--Fourier energy at degrees zero through three,
+algebraic degree, and the size of the input-permutation stabilizer.  It is
+invariant to renaming the three inputs.  There are 36 exact descriptor vectors;
+their two-dimensional principal-component projection occupies 22 visible
+positions.  Figure~\ref{fig:boolean-atlas} holds the coordinates fixed and
+changes only the overlaid exact minimum size.
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=0.96\textwidth]{../../experiments/creativity-boolean-atlas/figures/boolean_semantic_atlas.pdf}
+  \caption{A common semantic map colored by exact minimum formula size in
+  three languages.  Point area records projected multiplicity.  Parity is
+  difficult in all three languages, but the color changes elsewhere show that
+  semantic location does not uniquely determine syntactic cost.  The map is
+  descriptive; all tests use the full invariant descriptor vector.}
+  \label{fig:boolean-atlas}
+\end{figure}
+\FloatBarrier
+
+\paragraph{Representation stability.}
+If complexity were intrinsic to the truth-table function, rankings would be
+stable under reasonable complete bases.  Table~\ref{tab:stability} shows a
+mixed result.  Minimum-size ranks are strongly, though imperfectly, aligned
+between NAND or NOR and the mixed basis.  NAND and NOR agree much less when
+the same function is held fixed.  Boundary surprisal is less stable, and
+canonical compression gain is least stable.  The polarity of the primitive
+operation and the compiler baseline materially change the numerical claim.
+
+\begin{table}[!htbp]
+\centering
+\small
+\begin{tabular}{lrrr}
+\toprule
+Language pair & Minimum size & Boundary surprisal & Compression gain \\
+\midrule
+NAND / NOR & 0.548 & 0.376 & 0.264 \\
+NAND / AND--OR--NOT & 0.805 & 0.739 & 0.612 \\
+NOR / AND--OR--NOT & 0.805 & 0.739 & 0.601 \\
+\bottomrule
+\end{tabular}
+\caption{Spearman rank correlations across all 256 functions.  Persistence is
+evidence for a semantic component; disagreement quantifies dependence on the
+chosen representation and prior.}
+\label{tab:stability}
+\end{table}
+
+\paragraph{Stress test 1: group-held-out prediction.}
+The optimistic leave-one-function-out estimate can leak semantic twins: an
+input-permuted copy of the test function may remain in training.  We therefore
+use seven-nearest-neighbor prediction under three increasingly strict
+protocols.  The first removes only the target function; the second removes its
+entire orbit under $S_3$ input permutations (80 orbits); the third removes its
+entire exact $\psi$-descriptor class (36 classes).  Features are standardized
+once without using synthesis targets.  Predictions are pooled over the 256
+held-out functions.
+
+\begin{table}[!htbp]
+\centering
+\small
+\begin{tabular}{lrrrr}
+\toprule
+Language & Function held out & Orbit held out & Descriptor held out & Strict RMSE \\
+\midrule
+NAND & 0.831 & 0.726 & 0.613 & 1.583 \\
+NOR & 0.833 & 0.729 & 0.643 & 1.522 \\
+AND--OR--NOT & 0.920 & 0.859 & 0.656 & 1.161 \\
+\bottomrule
+\end{tabular}
+\caption{Held-out $R^2$ for minimum gate count; ``Strict RMSE'' corresponds to
+descriptor-class holdout.  Eliminating semantic twins lowers the estimate
+substantially but leaves a majority of variance predictable.}
+\label{tab:prediction}
+\end{table}
+
+\paragraph{Stress test 2: matched nulls.}
+High prediction could merely restate elementary facts such as output balance,
+algebraic degree, or symmetry.  Within each exact stratum of signed bias,
+degree, and stabilizer size, we permute minimum formula sizes and rerun the
+strict descriptor-class protocol 1,000 times.  The null mean and central 95\%
+interval are $-0.064$ $[-0.271,0.118]$ for NAND, $-0.068$
+$[-0.269,0.106]$ for NOR, and $0.014$ $[-0.149,0.155]$ for AND/OR/NOT.  No null
+replicate reaches its observed $R^2$, giving the finite-simulation bound
+$p=1/1001<0.001$ in each language.  Figure~\ref{fig:boolean-validation}
+displays both the attenuation under stricter holdouts and the null separation.
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=0.94\textwidth]{../../experiments/creativity-atlas-validation/figures/boolean_validation.pdf}
+  \caption{Boolean validation.  Left: prediction weakens when whole semantic
+  groups are excluded but remains positive.  Right: vertical lines are the
+  observed strict $R^2$ values; histograms are null distributions preserving
+  bias, degree, and symmetry.  The surviving signal must come from finer
+  influence/Fourier structure or correlated semantic organization.}
+  \label{fig:boolean-validation}
+\end{figure}
+\FloatBarrier
+
+\paragraph{Sorting universe.}
+A four-input comparator network is a word over the six unordered wire pairs.
+All 24 input permutations are evaluated.  No network of length at most four
+sorts; exactly 12 of $6^5=7{,}776$ length-five words sort, giving 9.340 bits of
+boundary surprisal.  The correct counts at lengths six, seven, and eight are
+900, 16,800, and 204,120.  Correctness therefore becomes more common away from
+the compression boundary.  Moreover, 8.0\%, 32.1\%, and 49.4\% of correct
+networks at those lengths reach the sorted state early and append redundant
+comparators.
+
+For prefix $e_{1:t}$, let $Y_t$ be its output on a uniformly sampled input
+permutation and let
+\[
+ p_t(y)=\Pr(Y_t=y),\qquad H_t=-\sum_y p_t(y)\log_2p_t(y).
+ \tag{3}
+\]
+The first atlas represented a trajectory only by $(H_0,\ldots,H_L)$.  This
+coarse statistic yielded one profile for all 12 optimal networks, suggesting a
+rigid boundary.
+
+\paragraph{Stress test 3: full permutation-state geometry.}
+Entropy forgets which output permutations remain.  The refined representation
+retains the complete 24-coordinate vector $p_t$ at every prefix.  A single
+global wire permutation $\pi\in S_4$ acts on all $p_t$; a trajectory is
+canonicalized by the lexicographically least member of this 24-element orbit:
+\[
+ [P(e)]=\min_{\pi\in S_4}
+ \bigl(\pi p_0,\pi p_1,\ldots,\pi p_L\bigr).
+ \tag{4}
+\]
+The quotient produces no additional mergers among correct paths because the
+fixed ascending target anchors the wire order.  Table~\ref{tab:sorting} gives
+the resulting resolution comparison.  The original rigidity claim does not
+survive: the 12 optima have the same entropy curve but 12 distinct full paths.
+Nevertheless the boundary remains small in absolute terms, and full-path
+diversity grows rapidly with redundant length.
+
+\begin{table}[!htbp]
+\centering
+\small
+\begin{tabular}{rrrrr}
+\toprule
+Length & Correct words & Entropy paths & Full paths / wires & Raw full paths \\
+\midrule
+5 & 12 & 1 & 12 & 12 \\
+6 & 900 & 27 & 756 & 756 \\
+7 & 16,800 & 147 & 4,356 & 4,356 \\
+8 & 204,120 & 497 & 15,036 & 15,036 \\
+\bottomrule
+\end{tabular}
+\caption{Exact sorting-network trajectory counts.  Several comparator words
+can induce the same semantic path.  Entropy collapses many paths further and
+therefore overstates semantic rigidity.}
+\label{tab:sorting}
+\end{table}
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=0.94\textwidth]{../../experiments/creativity-atlas-validation/figures/sorting_validation.pdf}
+  \caption{Sorting validation.  Left: trajectory diversity under coarse
+  entropy, full output distributions modulo global wire relabeling, and raw
+  full distributions.  Right: a descriptive PCA of resampled canonical full
+  trajectories; color records program length and point area records
+  multiplicity.  The separated length bands partly reflect normalization to a
+  common time grid, so inference uses exact counts rather than the projection.}
+  \label{fig:sorting-validation}
+\end{figure}
+\FloatBarrier
+
+\paragraph{What the experiments establish.}
+Three conclusions survive the stress tests.  First, semantic structure has
+substantial predictive content for exact synthesis difficulty beyond trivial
+symmetry classes.  Second, the values assigned to rarity and compression are
+not properties of a function alone; they are conditional on a language,
+compiler baseline, and prior.  Third, a compressed boundary can be both rare
+and constrained while still containing distinctions hidden by a coarse
+semantic statistic.  ``One trajectory'' was a statement about entropy, not
+about computation in full permutation space.
+
+These conclusions support a qualified version of (1).  The triad is useful
+only with subscripts: $\mathcal G_{\mathcal L,L_0}$ and
+$\mathcal R_{\mathcal L,P}$.  A credible semantic claim should additionally be
+stable across a declared family of representations and observational scales.
+The experiments do not measure human originality, discovery effort, aesthetic
+value, or a universal Kolmogorov complexity.  They verify finite operational
+proxies and show exactly where those proxies fail to be intrinsic.
+
+\paragraph{Implication for formal proofs.}
+For Lean, the result argues against interpreting isolation in one embedding as
+mathematical profundity.  A stronger test would represent both theorem
+statement and proof journey at several semantic resolutions, remove entire
+equivalence neighborhoods rather than individual declarations, and require a
+signal to survive vocabulary ablation, repository matching, and alternative
+formal encodings.  The controlled universes demonstrate that such a semantic
+signal can exist; they also demonstrate that its numerical strength will be
+overstated unless representation dependence and resolution are tested
+directly.
+
+\paragraph{Reproducibility.}
+All enumeration, invariants, group assignments, null draws (seed 0), tables,
+and figures are generated by the checked-in scripts.  The Boolean synthesis
+covers all 256 functions; sorting counts are independently checked against the
+exact totals above.  The validation requires no cloud services or stochastic
+model API.  The archived source essay and machine-readable CSV/JSON artifacts
+are retained alongside the experiments.
+
+\end{document}

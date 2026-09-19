@@ -56,6 +56,12 @@ proofs. The full reports retain uncertainty estimates, controls, and caveats.
   a short map of nine landmark formalization projects against the frozen
   LeanDojo statement and proof spaces.
 
+- [**Rarity, Compression, and Meaning in Finite Program Spaces**](notes/semantic-creativity-atlases/note.pdf) —
+  exact Boolean-synthesis and sorting-network atlases, with symmetry-held-out
+  prediction, matched nulls, and semantic-resolution controls. A corrected
+  [HTML version](notes/creativity-sorting-permutohedron/creativity_constrained_rarity_v3.html)
+  preserves the original creativity note separately for provenance.
+
 ## Mathematical sketch
 
 For a proof $t$ with tactic-head sequence $(h_1,\ldots,h_L)$, the style view
@@ -124,8 +130,8 @@ $$
 
 | Path | Contents |
 |---|---|
-| [`experiments/`](experiments/) | Frozen designs, scripts, inputs, outputs, and results for five completed experiments |
-| [`notes/`](notes/) | Six compact LaTeX/PDF research notes and their figure-generation code |
+| [`experiments/`](experiments/) | Frozen designs, scripts, inputs, outputs, and results for the completed experiments |
+| [`notes/`](notes/) | Compact research notes, figures, and supporting source material |
 | [`app/`](app/) | Dependency-free interactive 3-D viewer for the original 1,940-proof analysis |
 | [`pipeline.py`](pipeline.py) | Shared style/domain topic pipeline for the 1,940- and 10,000-proof profiles |
 | [`scripts/`](scripts/) | Cross-view analysis and small artifact/reporting utilities |
@@ -167,6 +173,11 @@ frozen configuration:
 - [`semantic-embeddings-10000`](experiments/semantic-embeddings-10000/)
 - [`semantic-neighborhood-transfer-10000`](experiments/semantic-neighborhood-transfer-10000/)
 - [`retrieval-guided-proof-generation-100`](experiments/retrieval-guided-proof-generation-100/)
+- [`creativity-sorting-networks`](experiments/creativity-sorting-networks/)
+- [`creativity-boolean-synthesis`](experiments/creativity-boolean-synthesis/)
+- [`creativity-boolean-atlas`](experiments/creativity-boolean-atlas/)
+- [`creativity-sorting-atlas`](experiments/creativity-sorting-atlas/)
+- [`creativity-atlas-validation`](experiments/creativity-atlas-validation/)
 
 ## Explore without installing anything
 
@@ -193,9 +204,10 @@ for the small amount of typeset mathematics.
 
 ## Project status
 
-All documented experiments and six notes are complete. The natural next
-step is a larger paired comparison of semantic retrieval, BM25, and no
-retrieval; that run has not been performed in this repository.
+All documented experiments are complete. The controlled creativity tests add
+exact finite checks of correctness, compression, and prior-relative rarity for
+sorting networks and Boolean synthesis. Their joint interpretation is recorded
+in [`notes/controlled-creativity-tests`](notes/controlled-creativity-tests/).
 
 ## License
 

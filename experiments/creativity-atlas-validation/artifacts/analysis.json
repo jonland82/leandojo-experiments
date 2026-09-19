@@ -1,0 +1,124 @@
+{
+  "experiment_id": "creativity-atlas-validation",
+  "boolean": {
+    "functions": 256,
+    "input_permutation_orbits": 80,
+    "invariant_descriptor_classes": 36,
+    "languages": {
+      "NAND": {
+        "leave_one_function_out": {
+          "r2": 0.8312384149321725,
+          "rmse": 1.0460155815946413,
+          "fold_mean_rmse": 2.556237142278924
+        },
+        "leave_one_orbit_out": {
+          "r2": 0.7264402371884136,
+          "rmse": 1.3317645958560058,
+          "fold_mean_rmse": 2.5799122540595807
+        },
+        "leave_one_descriptor_class_out": {
+          "r2": 0.6133914930635607,
+          "rmse": 1.5832046582157087,
+          "fold_mean_rmse": 2.6171885553999283
+        },
+        "stratified_null": {
+          "repetitions": 1000,
+          "mean_r2": -0.06397094472673838,
+          "q025_r2": -0.2713409629554486,
+          "q975_r2": 0.11751462446704831,
+          "upper_tail_pvalue": 0.000999000999000999
+        }
+      },
+      "NOR": {
+        "leave_one_function_out": {
+          "r2": 0.8330090282837039,
+          "rmse": 1.0405138178333053,
+          "fold_mean_rmse": 2.556237142278924
+        },
+        "leave_one_orbit_out": {
+          "r2": 0.7291207490678151,
+          "rmse": 1.3252237970414271,
+          "fold_mean_rmse": 2.5799122540595807
+        },
+        "leave_one_descriptor_class_out": {
+          "r2": 0.6425451337335657,
+          "rmse": 1.5223410660652137,
+          "fold_mean_rmse": 2.6171885553999283
+        },
+        "stratified_null": {
+          "repetitions": 1000,
+          "mean_r2": -0.06825011143182982,
+          "q025_r2": -0.2688307496518717,
+          "q975_r2": 0.10573359031818783,
+          "upper_tail_pvalue": 0.000999000999000999
+        }
+      },
+      "AND_OR_NOT": {
+        "leave_one_function_out": {
+          "r2": 0.9199731685502887,
+          "rmse": 0.5602278372161068,
+          "fold_mean_rmse": 1.9881386061496296
+        },
+        "leave_one_orbit_out": {
+          "r2": 0.8585860639076348,
+          "rmse": 0.744719934345956,
+          "fold_mean_rmse": 2.0065089921719177
+        },
+        "leave_one_descriptor_class_out": {
+          "r2": 0.656333848280348,
+          "rmse": 1.160954645442926,
+          "fold_mean_rmse": 2.033576716964443
+        },
+        "stratified_null": {
+          "repetitions": 1000,
+          "mean_r2": 0.013753496219204839,
+          "q025_r2": -0.14852172940889494,
+          "q975_r2": 0.1550786649321084,
+          "upper_tail_pvalue": 0.000999000999000999
+        }
+      }
+    }
+  },
+  "sorting": {
+    "inputs": 24,
+    "reachable_semantic_states": 261,
+    "correct_sequence_counts": {
+      "5": 12,
+      "6": 900,
+      "7": 16800,
+      "8": 204120
+    },
+    "summary": [
+      {
+        "length": 5,
+        "correct_sequences": 12,
+        "raw_full_state_trajectories": 12,
+        "wire_quotient_full_trajectories": 12,
+        "entropy_trajectories": 1
+      },
+      {
+        "length": 6,
+        "correct_sequences": 900,
+        "raw_full_state_trajectories": 756,
+        "wire_quotient_full_trajectories": 756,
+        "entropy_trajectories": 27
+      },
+      {
+        "length": 7,
+        "correct_sequences": 16800,
+        "raw_full_state_trajectories": 4356,
+        "wire_quotient_full_trajectories": 4356,
+        "entropy_trajectories": 147
+      },
+      {
+        "length": 8,
+        "correct_sequences": 204120,
+        "raw_full_state_trajectories": 15036,
+        "wire_quotient_full_trajectories": 15036,
+        "entropy_trajectories": 497
+      }
+    ],
+    "wire_group_size": 24,
+    "correct_count_invariant_verified": true
+  }
+}

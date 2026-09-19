@@ -1,0 +1,87 @@
+{
+  "experiment_id": "creativity-boolean-synthesis",
+  "functions_synthesized": 256,
+  "maximum_nand_gates": 14,
+  "ordered_formula_count_invariant_verified": true,
+  "largest_minimum_gate_count": 14,
+  "minimum_gate_histogram": {
+    "0": 3,
+    "1": 6,
+    "2": 10,
+    "3": 19,
+    "4": 24,
+    "5": 49,
+    "6": 41,
+    "7": 32,
+    "8": 25,
+    "9": 25,
+    "10": 11,
+    "11": 5,
+    "12": 3,
+    "13": 2,
+    "14": 1
+  },
+  "spearman_minimum_size_vs_surprisal": {
+    "rho": 0.9476566322618193,
+    "pvalue": 6.106008753321476e-128
+  },
+  "spearman_compression_gain_vs_surprisal": {
+    "rho": -0.03728589116628829,
+    "pvalue": 0.552604896482134
+  },
+  "targets": [
+    {
+      "truth_table": 128,
+      "minimum_gates": 6,
+      "minimum_formula_count": 288,
+      "all_formula_count_at_minimum": 288684,
+      "minimum_probability": 0.000997630627260257,
+      "boundary_surprisal_bits": 9.969206622964235,
+      "canonical_baseline_nand_gates": 9,
+      "compression_gain": 3,
+      "triad_score": 29.907619868892702,
+      "witness": "NAND(NAND(x0, NAND(x0, x0)), NAND(x0, NAND(x0, NAND(x1, x2))))",
+      "target": "and3"
+    },
+    {
+      "truth_table": 232,
+      "minimum_gates": 6,
+      "minimum_formula_count": 432,
+      "all_formula_count_at_minimum": 288684,
+      "minimum_probability": 0.0014964459408903852,
+      "boundary_surprisal_bits": 9.384244122243079,
+      "canonical_baseline_nand_gates": 199,
+      "compression_gain": 193,
+      "triad_score": 1811.159115592914,
+      "witness": "NAND(NAND(x0, x1), NAND(x2, NAND(NAND(x0, x0), NAND(x1, x1))))",
+      "target": "majority3"
+    },
+    {
+      "truth_table": 150,
+      "minimum_gates": 14,
+      "minimum_formula_count": 373248,
+      "all_formula_count_at_minimum": 38375290837080,
+      "minimum_probability": 9.72625853402915e-09,
+      "boundary_surprisal_bits": 26.615467913571017,
+      "canonical_baseline_nand_gates": 239,
+      "compression_gain": 225,
+      "triad_score": 5988.480280553479,
+      "witness": "NAND(NAND(x0, NAND(NAND(x1, x2), NAND(NAND(x0, x1), NAND(x0, x2)))), NAND(NAND(x0, x0), NAND(NAND(x1, NAND(x1, x2)), NAND(x2, NAND(x1, x1)))))",
+      "target": "parity3"
+    },
+    {
+      "truth_table": 216,
+      "minimum_gates": 4,
+      "minimum_formula_count": 24,
+      "all_formula_count_at_minimum": 3402,
+      "minimum_probability": 0.007054673721340388,
+      "boundary_surprisal_bits": 7.147204924942229,
+      "canonical_baseline_nand_gates": 207,
+      "compression_gain": 203,
+      "triad_score": 1450.8825997632725,
+      "witness": "NAND(NAND(x0, x1), NAND(x2, NAND(x0, x0)))",
+      "target": "mux"
+    }
+  ],
+  "interpretation": "Exact synthesis verifies correctness and minimality, while semantic counts supply exact boundary rarity under the declared NAND-formula prior."
+}

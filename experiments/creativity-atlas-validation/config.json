@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "experiment_id": "creativity-atlas-validation",
+  "boolean_neighbors": 7,
+  "null_repetitions": 1000,
+  "seed": 0,
+  "sorting_n": 4,
+  "sorting_minimum_length": 5,
+  "sorting_maximum_length": 8
+}
