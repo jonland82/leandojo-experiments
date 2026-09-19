@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "experiment_id": "semantic-boolean-complexity-4bit",
+  "variables": 4,
+  "languages": ["NAND", "NOR", "AND_OR_NOT"],
+  "neighbors": 7,
+  "null_repetitions": 1000,
+  "seed": 0
+}

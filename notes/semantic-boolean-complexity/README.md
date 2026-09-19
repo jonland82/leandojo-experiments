@@ -1,9 +1,11 @@
 # Semantic Structure Predicts Exact Boolean Formula Complexity
 
 This directory contains the standalone paper on predicting exact minimum
-Boolean-formula size from syntax-free semantic descriptors.  The analysis uses
-complete input-orbit and descriptor-class holdouts plus stratified permutation
-nulls in NAND, NOR, and AND/OR/NOT languages.
+Boolean-formula size from syntax-free semantic descriptors. The main analysis
+covers all 65,536 four-input functions, with a tie-aware reanalysis of the
+complete three-input universe. It uses complete input-orbit and
+descriptor-class holdouts, ablations, scaling and neighbor robustness checks,
+and stratified permutation nulls in NAND, NOR, and AND/OR/NOT languages.
 
 - [Read the mobile-friendly HTML edition](index.html)
 - [Open the four-page PDF](note.pdf)

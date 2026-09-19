@@ -29,6 +29,7 @@ its theorem statement, and can that shared structure improve proof generation?
 | [`creativity-boolean-atlas/`](creativity-boolean-atlas/) | 256 functions across 3 complete formula languages | Test semantic prediction and representation stability | Complete |
 | [`creativity-sorting-atlas/`](creativity-sorting-atlas/) | 221,832 correct networks through length 8 | Map information-loss trajectories around the sorting frontier | Complete |
 | [`creativity-atlas-validation/`](creativity-atlas-validation/) | 256 Boolean functions + 221,832 sorting networks | Group holdouts, matched nulls, and full-state trajectory stress tests | Complete |
+| [`semantic-boolean-complexity-4bit/`](semantic-boolean-complexity-4bit/) | All 65,536 four-input functions across 3 formula languages | Exact synthesis, strict semantic prediction, ablations, and robustness | Complete |
 
 The first two profiles are defined in the root [`pipeline.py`](../pipeline.py)
 and use random seed 0 throughout:

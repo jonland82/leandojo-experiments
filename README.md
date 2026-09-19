@@ -66,9 +66,10 @@ proofs. The full reports retain uncertainty estimates, controls, and caveats.
 - **Semantic Structure Predicts Exact Boolean Formula Complexity** —
   [PDF](notes/semantic-boolean-complexity/note.pdf) ·
   [mobile-friendly HTML](notes/semantic-boolean-complexity/index.html) — a
-  related exact-synthesis exploration: syntax-free semantic descriptors
-  predict minimum formula size under orbit and descriptor-class holdouts, with
-  matched permutation nulls in three gate languages.
+  related exact-synthesis exploration over all 65,536 four-input Boolean
+  functions: syntax-free semantic descriptors explain 77.7%--84.3% of exact
+  minimum-size variance under strict descriptor holdout, with ablations,
+  robustness checks, and matched permutation nulls in three gate languages.
 
 ## Mathematical sketch
 
@@ -186,6 +187,7 @@ frozen configuration:
 - [`creativity-boolean-atlas`](experiments/creativity-boolean-atlas/)
 - [`creativity-sorting-atlas`](experiments/creativity-sorting-atlas/)
 - [`creativity-atlas-validation`](experiments/creativity-atlas-validation/)
+- [`semantic-boolean-complexity-4bit`](experiments/semantic-boolean-complexity-4bit/)
 
 ## Explore without installing anything
 
