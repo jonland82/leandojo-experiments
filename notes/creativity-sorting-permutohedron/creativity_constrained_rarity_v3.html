@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Creativity as Constrained Rarity: Exact Experiments in Finite Program Spaces</title>
+  <title>Creativity as Constrained Rarity</title>
   <script>
     window.MathJax = {
       tex: {inlineMath: [['\\(', '\\)']], displayMath: [['$$', '$$']]},
@@ -12,201 +12,282 @@
   </script>
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <style>
-    :root { --ink:#1e2933; --muted:#5d6871; --line:#d7dde2; --paper:#fffefb;
-      --wash:#f3f6f7; --accent:#176b87; }
-    * { box-sizing: border-box; }
-    body { margin:0; background:#edf1f2; color:var(--ink); font-family:Georgia,"Times New Roman",serif;
-      font-size:18px; line-height:1.58; }
-    article { width:min(940px,calc(100% - 32px)); margin:32px auto; padding:62px 76px 72px;
-      background:var(--paper); border:1px solid var(--line); box-shadow:0 10px 34px rgba(28,42,52,.08); }
-    h1,h2,h3 { line-height:1.18; color:#14212a; }
+    :root {
+      --ink:#25292c; --navy:#40566a; --slate:#87939c; --line:#d9dddf;
+      --paper:#fff; --wash:#f5f6f5;
+    }
+    * { box-sizing:border-box; }
+    body { margin:0; background:#eef0f1; color:var(--ink); font-family:Georgia,"Times New Roman",serif;
+      font-size:18px; line-height:1.56; }
+    article { width:min(980px,calc(100% - 32px)); margin:32px auto; padding:62px 78px 72px;
+      background:var(--paper); border:1px solid var(--line); box-shadow:0 10px 34px rgba(37,41,44,.08); }
+    h1,h2,h3 { line-height:1.18; color:var(--ink); }
     h1 { margin:0; font-size:2.25rem; letter-spacing:-.025em; }
-    h2 { margin-top:2.2em; padding-bottom:.3em; border-bottom:1px solid var(--line); }
-    h3 { margin-top:1.6em; }
-    p { margin:.8em 0; } a { color:var(--accent); }
-    .subtitle { margin:.5em 0 0; color:var(--muted); font-size:1.08rem; }
-    .author { margin:1.1em 0 2.1em; font-size:.98rem; }
-    .abstract,.result { margin:1.4em 0; padding:1em 1.15em; border-left:4px solid var(--accent);
-      background:var(--wash); }
+    h2 { margin-top:2.25em; padding-bottom:.3em; border-bottom:1px solid var(--line); }
+    h3 { margin-top:1.65em; }
+    p { margin:.8em 0; }
+    a { color:var(--navy); }
+    .subtitle { margin:.45em 0 0; color:var(--slate); font-size:1.08rem; }
+    .author { margin:1em 0 2em; font-size:.98rem; }
+    .abstract,.result,.theorem { margin:1.35em 0; padding:1em 1.15em; background:var(--wash); }
+    .abstract,.result { border-left:4px solid var(--navy); }
+    .theorem { border:1px solid var(--line); }
     .label { display:block; margin-bottom:.3em; font-family:Arial,sans-serif; font-size:.76rem;
-      font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--accent); }
+      font-weight:700; letter-spacing:.07em; text-transform:uppercase; color:var(--navy); }
+    .proof { color:#4f5960; }
     table { width:100%; margin:1.2em 0; border-collapse:collapse; font-size:.91rem; }
-    th,td { padding:.48em .55em; border-bottom:1px solid var(--line); text-align:right; }
+    th,td { padding:.46em .55em; border-bottom:1px solid var(--line); text-align:right; }
     th:first-child,td:first-child { text-align:left; }
-    th { border-top:2px solid #87939b; border-bottom:1px solid #87939b; }
-    figure { margin:1.7em 0; } figure img { display:block; width:100%; height:auto; border:1px solid var(--line); }
-    figcaption { margin-top:.65em; color:var(--muted); font-size:.88rem; line-height:1.42; }
+    th { border-top:2px solid var(--slate); border-bottom:1px solid var(--slate); }
+    figure { margin:1.8em 0 2em; }
+    figure img { display:block; width:100%; height:auto; border:1px solid var(--line); }
+    figcaption { margin-top:.65em; color:#59636a; font-size:.88rem; line-height:1.42; }
     code,pre { font-family:Consolas,"SFMono-Regular",monospace; font-size:.86em; }
-    pre { overflow-x:auto; padding:1em; background:#f2f4f5; border:1px solid var(--line); }
-    .compact li { margin:.28em 0; }
-    footer { margin-top:3em; padding-top:1em; border-top:1px solid var(--line); color:var(--muted); font-size:.83rem; }
-    @media (max-width:720px) { body{font-size:16px} article{width:100%;margin:0;padding:32px 20px 48px;border:0}
-      h1{font-size:1.8rem} table{font-size:.76rem} th,td{padding:.4em .3em} }
+    pre { overflow-x:auto; padding:1em; background:var(--wash); border:1px solid var(--line); }
+    .compact li { margin:.3em 0; }
+    footer { margin-top:3em; padding-top:1em; border-top:1px solid var(--line); color:#59636a; font-size:.83rem; }
+    @media (max-width:720px) {
+      body { font-size:16px; } article { width:100%; margin:0; padding:32px 20px 48px; border:0; }
+      h1 { font-size:1.8rem; } table { font-size:.76rem; } th,td { padding:.4em .3em; }
+    }
   </style>
 </head>
 <body>
 <article>
   <header>
     <h1>Creativity as Constrained Rarity</h1>
-    <p class="subtitle">Exact experiments in finite program spaces</p>
-    <p class="author">J. R. Landers · 2026</p>
+    <p class="subtitle">Semantics, Compression, and Representation in Finite Program Spaces</p>
+    <p class="author">J. R. Landers &middot; 2026</p>
   </header>
 
   <section class="abstract">
     <span class="label">Abstract</span>
-    <p>A useful operational picture of creativity combines successful structure preservation,
-      compression, and low probability. This note tests that picture in two spaces that can be
-      enumerated exactly: all three-input Boolean functions in three formula languages and all
-      correct four-input comparator networks through length eight. Semantic properties predict
-      synthesis difficulty even after stringent group holdouts and matched null tests. However,
-      rarity, compression, and apparent geometric rigidity change with the representation
-      language, prior, and resolution. The evidence supports constrained rarity as a diagnostic
-      framework, not a representation-independent creativity score.</p>
+    <p>This note develops a representation-conditional theory of constrained rarity and tests it
+      in two finite program spaces. A semantic fiber collects all programs of a fixed size that
+      compute the same function; compression locates the first nonempty fiber, while rarity
+      measures its mass under an explicit prior. General results formalize semantic padding,
+      prior dependence, and the loss of distinctions under semantic coarsening. Exact Boolean
+      synthesis and exhaustive sorting-network enumeration show that semantic structure is real,
+      but numerical rarity, compression, and geometric rigidity remain conditional on language,
+      prior, baseline, and resolution.</p>
   </section>
 
   <section>
-    <h2>1. A representation-conditional formalism</h2>
-    <p>Let \(E_{\mathcal L}\) be the programs expressible in language \(\mathcal L\), let
-      \(F\) be a semantic task space, and let</p>
-    $$\operatorname{eval}_{\mathcal L}:E_{\mathcal L}\rightarrow F$$
-    <p>map each representation to what it computes. For target \(f\in F\), its exact-length semantic fiber is</p>
-    $$A_{\mathcal L,\ell}(f)=\{e\in E_{\mathcal L}:|e|=\ell,
-      \operatorname{eval}_{\mathcal L}(e)=f\}.\tag{1}$$
-    <p>The minimum representation length and boundary surprisal are</p>
-    $$L_{\mathcal L}^{*}(f)=\min\{\ell:A_{\mathcal L,\ell}(f)\neq\varnothing\},\qquad
-      R_{\mathcal L}(f)=-\log_2\frac{|A_{\mathcal L,L^*}(f)|}{|E_{\mathcal L,L^*}|}.\tag{2}$$
-    <p>Relative to an explicit baseline compiler of length \(L_{0,\mathcal L}(f)\), define</p>
-    $$G_{\mathcal L}(f)=L_{0,\mathcal L}(f)-L_{\mathcal L}^{*}(f).\tag{3}$$
-    <p>Correctness, compression, and rarity are best retained as a profile rather than collapsed prematurely into one number:</p>
-    $$\mathcal C_{\mathcal L}(f)=\bigl(S(f),G_{\mathcal L}(f),R_{\mathcal L}(f),\psi(f)\bigr).\tag{4}$$
-    <p>Here \(\psi(f)\) records semantic structure. The subscripts are essential: changing the
-      language, prior, baseline, or semantic statistic can change the result.</p>
-    <div class="result"><span class="label">Shared empirical question</span>
-      Do compressed correct solutions occupy thin semantic fibers, and which features of that
-      thinness survive reasonable changes of representation and observational resolution?</div>
+    <h2>1. Finite semantic fibers</h2>
+    <p>Let \(E_{\mathcal L}=\bigsqcup_{\ell\ge0}E_{\mathcal L,\ell}\) be a finite graded
+      representation language and let</p>
+    $$\operatorname{eval}_{\mathcal L}:E_{\mathcal L}\to F$$
+    <p>map syntax to a semantic task or function. For \(f\in F\), define</p>
+    $$A_{\mathcal L,\ell}(f)=\{e\in E_{\mathcal L,\ell}:\operatorname{eval}_{\mathcal L}(e)=f\},
+      \qquad L^*_{\mathcal L}(f)=\min\{\ell:A_{\mathcal L,\ell}(f)\ne\varnothing\}.\tag{1}$$
+    <p><strong>Definition 1 (fiber, boundary, and surprisal).</strong> Under the uniform prior
+      conditional on exact size, boundary probability and surprisal are</p>
+    $$q_{\mathcal L}(f)=\frac{|A_{\mathcal L,L^*}(f)|}{|E_{\mathcal L,L^*}|},
+      \qquad R_{\mathcal L}(f)=-\log_2q_{\mathcal L}(f).\tag{2}$$
+    <p>For a frozen compiler or reference construction of length \(L_{0,\mathcal L}(f)\), let
+      \(G_{\mathcal L}(f)=L_{0,\mathcal L}(f)-L^*_{\mathcal L}(f)\). The operational object is a
+      vector, not a universal scalar:</p>
+    $$\mathcal C_{\mathcal L}(f)=\bigl(S(f),G_{\mathcal L}(f),R_{\mathcal L}(f),\psi(f)\bigr).\tag{3}$$
+
+    <div class="theorem"><span class="label">Theorem 2 &mdash; Injective semantic padding</span>
+      Suppose \(m\) injective maps \(T_j:E_{\mathcal L,\ell}\to E_{\mathcal L,\ell+\delta}\)
+      have pairwise disjoint images and preserve evaluation. Then
+      $$|A_{\mathcal L,\ell+\delta}(f)|\ge m|A_{\mathcal L,\ell}(f)|.$$
+      If the construction iterates, the lower bound after \(k\) steps is \(m^k|A_{\mathcal L,\ell}(f)|\).
+      <p class="proof"><em>Proof.</em> Each map injects the old fiber into the new one; disjointness
+        makes the \(m\) images additive. Iteration gives the second claim.</p></div>
+    <p>Appending any of six comparators gives \(m=6,\delta=1\) for a sorted network. In ordered
+      AND/OR/NOT formulas, the six contexts \(e\land(x_i\lor\neg x_i)\) and
+      \(e\lor(x_i\land\neg x_i)\) give \(m=6,\delta=3\). Redundant correct syntax therefore
+      proliferates in both languages without implying identical grammars.</p>
+
+    <div class="theorem"><span class="label">Theorem 3 &mdash; Prior relativity</span>
+      For finite \(E,F\) and a surjective evaluation map, every strictly positive probability mass
+      function \(q\) on \(F\) is induced by some prior on \(E\).
+      <p class="proof"><em>Proof.</em> Choose any conditional distribution \(w_f\) on each nonempty
+        fiber and set \(P(e)=q(f)w_f(e)\) when \(e\) evaluates to \(f\). Summing inside each fiber
+        returns \(q(f)\).</p></div>
+    <p>Thus semantic rarity is not invariant until the representation language and prior are fixed.</p>
+
+    <div class="theorem"><span class="label">Proposition 4 &mdash; Coarsening cannot reveal distinctions</span>
+      If \(\phi:X\to Y\) is a fine semantic representation and \(c:Y\to Z\) is a coarsening, then
+      the partition induced by \(c\circ\phi\) is no finer than that induced by \(\phi\), and
+      $$|(c\circ\phi)(X)|\le|\phi(X)|.$$
+      <p class="proof"><em>Proof.</em> Equality under \(\phi\) implies equality after applying \(c\).
+        Every fine equivalence class therefore lies inside a coarse class.</p></div>
   </section>
 
   <section>
-    <h2>2. Two exactly enumerable laboratories</h2>
-    <table><thead><tr><th></th><th>Boolean formulas</th><th>Sorting networks</th></tr></thead><tbody>
-      <tr><td>Semantic tasks</td><td>256 truth tables</td><td>one sorting function</td></tr>
-      <tr><td>Representations</td><td>NAND, NOR, AND/OR/NOT</td><td>six comparators</td></tr>
-      <tr><td>Correctness domain</td><td>all 8 inputs</td><td>all 24 input orders</td></tr>
-      <tr><td>Exact search</td><td>semantic dynamic programming</td><td>all words through length 8</td></tr>
-      <tr><td>Semantic geometry</td><td>truth-table/Fourier invariants</td><td>prefix output distributions</td></tr>
-    </tbody></table>
-    <p>These universes separate two questions. Boolean synthesis asks why different semantic
-      functions have different minimum complexity. Sorting fixes the target function and asks how
-      its many correct implementations populate representation space.</p>
-  </section>
+    <h2>2. Sorting: bounds, paths, and exact networks</h2>
+    <h3>Comparison trees</h3>
+    <p><strong>Theorem 5 (comparison boundary and random-label thinness).</strong></p>
+    <p>For \(n\) distinct keys, a correct binary comparison tree must distinguish all \(n!\) order
+      types. Hence it has at least \(n!\) reached leaves and worst-case depth</p>
+    $$d\ge\lceil\log_2(n!)\rceil.\tag{4}$$
+    <p>If a fixed tree shape and its internal comparison labels are given, but each reached leaf is
+      independently labeled by a uniform random permutation, the chance that every order type
+      receives its required output is at most \((1/n!)^{n!}\). This is a statement about the declared
+      random-label prior, not about human algorithm design.</p>
 
-  <section>
-    <h2>3. Boolean functions: meaning predicts difficulty</h2>
-    <p>Every three-input Boolean function was synthesized exactly in three complete languages.
-      The semantic descriptor \(\psi(f)\) contains signed output bias, sorted variable influences,
-      Walsh–Fourier energy by degree, algebraic degree, and input-permutation symmetry. It contains
-      no formula syntax.</p>
-    <p>A seven-nearest-neighbor predictor initially explained \(83\%\)–\(92\%\) of minimum-size
-      variance. That estimate was optimistic because a permuted or descriptor-identical copy of a
-      held-out function could remain in training. Two stricter tests remove those twins.</p>
-    <table><thead><tr><th>Language</th><th>Function held out \(R^2\)</th><th>Orbit held out \(R^2\)</th>
-      <th>Descriptor class held out \(R^2\)</th></tr></thead><tbody>
-      <tr><td>NAND</td><td>0.831</td><td>0.726</td><td>0.613</td></tr>
-      <tr><td>NOR</td><td>0.833</td><td>0.729</td><td>0.643</td></tr>
-      <tr><td>AND/OR/NOT</td><td>0.920</td><td>0.859</td><td>0.656</td></tr>
-    </tbody></table>
-    <p>In 1,000 null repetitions, minimum sizes were shuffled within exact strata of output bias,
-      algebraic degree, and symmetry. No null replicate reached the strict observed result in any
-      language, giving the finite-simulation bound \(p=1/1001&lt;0.001\).</p>
+    <h3>Adjacent-swap paths</h3>
+    <p><strong>Theorem 6 (geodesic length, parity, and redundant paths).</strong></p>
+    <p>In the Cayley graph of \(S_n\) generated by adjacent swaps, the distance from a permutation
+      \(\sigma\) to the identity is its inversion count \(I=\operatorname{inv}(\sigma)\). An exact path
+      can have length only \(L\ge I\) with \(L-I\) even. If \(\Gamma_L(\sigma)\) is the set of such paths,</p>
+    $$|\Gamma_{I+2m}(\sigma)|\ge(n-1)^m|\Gamma_I(\sigma)|.\tag{5}$$
+    <p>The bound follows by appending \(m\) canceling pairs \((s_i,s_i)\) to each geodesic. It gives
+      a second exact mechanism by which semantic slack creates representational multiplicity.</p>
+
+    <h3>Four-input comparator networks</h3>
+    <p>A comparator network is a word over the six unordered wire pairs. Every word is tested on all
+      24 inputs. No word through length four sorts; exactly 12 of the \(6^5=7{,}776\) length-five
+      words sort, so</p>
+    $$q_5(\mathrm{sort})=0.00154321,\qquad R_5=9.340\ \text{bits}.\tag{6}$$
+    <p>Correct counts rise to 900, 16,800, and 204,120 at lengths six, seven, and eight. The padding
+      theorem guarantees only 72, 432, and 2,592 descendants of optimal prefixes, showing that
+      most longer correct networks arise by genuinely different routes.</p>
     <figure>
-      <img src="../../experiments/creativity-atlas-validation/figures/boolean_validation.png"
-        alt="Boolean prediction under increasingly strict holdouts and matched null distributions">
-      <figcaption><strong>Figure 1.</strong> Semantic prediction weakens under honest group holdouts but
-        remains well separated from matched null distributions. Meaning constrains synthesis
-        difficulty beyond output balance, degree, and symmetry alone.</figcaption>
+      <img src="../../experiments/creativity-sorting-networks/figures/sorting_creativity.png"
+        alt="Exact sorting-network boundary probability and growth of correct networks">
+      <figcaption><strong>Figure 1.</strong> Correctness is rare at the five-comparator boundary (left),
+        while correct representations proliferate much faster than the guaranteed padded family
+        (right). The prior is uniform over the six comparators conditional on exact length.</figcaption>
     </figure>
-    <h3>Representation stability</h3>
-    <p>The semantic signal is real but not sufficient to define an intrinsic score. Spearman rank
-      correlations across languages are:</p>
+  </section>
+
+  <section>
+    <h2>3. Boolean formulas: exact semantic synthesis</h2>
+    <p>A formula is an ordered rooted tree with leaves \(x_0,x_1,x_2\), and size is its number of
+      gates. Let \(C_\ell(t)\) count size-\(\ell\) formulas with truth table \(t\). For a gate set
+      \(\mathcal O_r\) of arity \(r\), exact root decomposition gives</p>
+    <p><strong>Theorem 7 (exact root-decomposition recurrence).</strong></p>
+    $$C_0(t)=|\{i:\operatorname{eval}(x_i)=t\}|,$$
+    $$C_\ell(t)=\sum_{r\ge1}\sum_{o\in\mathcal O_r}
+      \sum_{\ell_1+\cdots+\ell_r=\ell-1}
+      \sum_{o(t_1,\ldots,t_r)=t}\prod_{j=1}^r C_{\ell_j}(t_j).\tag{7}$$
+    <p>Every non-leaf formula has a unique root, ordered child tuple, and size split, so the recurrence
+      counts every formula exactly once. For NAND or NOR, summing over truth tables recovers
+      \( |E_\ell|=\operatorname{Catalan}(\ell)3^{\ell+1}\), an independent count check.</p>
+    <div class="theorem"><span class="label">Proposition 8 &mdash; Input-renaming invariance</span>
+      If the grammar treats every variable symmetrically, leaf relabeling by an input permutation is
+      a size-preserving bijection between the fibers of \(f\) and \(f\circ\pi\). Minimum size,
+      exact fiber count, and boundary surprisal are therefore constant on input-permutation orbits.
+      <p class="proof"><em>Proof.</em> Replace each leaf \(x_i\) by \(x_{\pi(i)}\); the inverse is
+        relabeling by \(\pi^{-1}\).</p></div>
+    <p>All 256 functions are synthesized. In NAND, three-bit parity is uniquely hardest at 14 gates.
+      Exactly 373,248 of 38,375,290,837,080 size-14 formulas compute it, for 26.615 bits of boundary
+      surprisal. Across all functions, minimum NAND size and surprisal have Spearman
+      \(\rho=0.948\), while canonical-compiler compression gain and surprisal have
+      \(\rho=-0.037\).</p>
+    <figure>
+      <img src="../../experiments/creativity-boolean-synthesis/figures/boolean_synthesis_creativity.png"
+        alt="Exact NAND synthesis and boundary surprisal for all three-input Boolean functions">
+      <figcaption><strong>Figure 2.</strong> All 256 functions are reached by size 14 (left). Boundary
+        surprisal rises with minimum size but retains meaningful within-size variation (right);
+        labeled functions are fixed before analysis.</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <h2>4. Semantic prediction and representation stability</h2>
+    <p>The syntax-free descriptor \(\psi(f)\) contains signed output bias, sorted variable influences,
+      Walsh&ndash;Fourier energy at degrees zero through three, algebraic degree, and the size of the
+      input-permutation stabilizer. These features define 36 exact descriptor classes. The same
+      semantic coordinates are used for NAND, NOR, and AND/OR/NOT.</p>
+    <figure>
+      <img src="../../experiments/creativity-boolean-atlas/figures/boolean_semantic_atlas.png"
+        alt="A common semantic atlas colored by exact minimum size in three formula languages">
+      <figcaption><strong>Figure 3.</strong> A common syntax-free semantic map colored by exact minimum
+        size. Persistent color structure reflects semantic constraint; language-dependent changes
+        expose representation dependence. Point area records projected multiplicity.</figcaption>
+    </figure>
+
+    <h3>Cross-language stability</h3>
     <table><thead><tr><th>Language pair</th><th>Minimum size</th><th>Boundary surprisal</th><th>Compression gain</th></tr></thead><tbody>
       <tr><td>NAND / NOR</td><td>0.548</td><td>0.376</td><td>0.264</td></tr>
-      <tr><td>NAND / AND–OR–NOT</td><td>0.805</td><td>0.739</td><td>0.612</td></tr>
-      <tr><td>NOR / AND–OR–NOT</td><td>0.805</td><td>0.739</td><td>0.601</td></tr>
+      <tr><td>NAND / AND&ndash;OR&ndash;NOT</td><td>0.805</td><td>0.739</td><td>0.612</td></tr>
+      <tr><td>NOR / AND&ndash;OR&ndash;NOT</td><td>0.805</td><td>0.739</td><td>0.601</td></tr>
     </tbody></table>
-    <p>Complexity retains substantial cross-language structure. Exact rarity and compression are
-      more sensitive to the grammar, polarity of primitive gates, and chosen baseline compiler.</p>
-  </section>
+    <p>Minimum complexity has a substantial semantic component, but rarity and compiler-relative
+      compression are more sensitive to primitive language choices.</p>
 
-  <section>
-    <h2>4. Sorting networks: a thin boundary, viewed at two resolutions</h2>
-    <p>A four-input comparator network is a word over the six unordered wire pairs. No word of
-      length at most four sorts all inputs. Exactly 12 of the \(6^5=7{,}776\) length-five words work, so</p>
-    $$P(\mathrm{sort}\mid L=5)=0.00154321,\qquad R=9.340\ \text{bits}.\tag{5}$$
-    <p>Correct representations become more common with length: there are 900, 16,800, and 204,120
-      correct words at lengths six, seven, and eight. Among those, 8.0%, 32.1%, and 49.4% have
-      already reached the sorted state before the final comparison. This is the clean shared
-      phenomenon: slack creates room for redundant correct representations.</p>
-    <h3>Why semantic resolution matters</h3>
-    <p>For a uniformly sampled input order, let \(p_t(y)\) be the distribution of output
-      permutations after prefix \(t\). A coarse trajectory keeps only entropy</p>
-    $$H_t=-\sum_y p_t(y)\log_2p_t(y).\tag{6}$$
-    <p>All 12 optimal networks have the same entropy curve. That does <em>not</em> mean they follow
-      the same semantic path. Retaining the full 24-coordinate distribution \(p_t\), and
-      canonicalizing a single global relabeling of the four wires, resolves 12 distinct optimal trajectories.</p>
-    <table><thead><tr><th>Length</th><th>Correct words</th><th>Entropy paths</th><th>Full paths modulo wires</th></tr></thead><tbody>
-      <tr><td>5</td><td>12</td><td>1</td><td>12</td></tr>
-      <tr><td>6</td><td>900</td><td>27</td><td>756</td></tr>
-      <tr><td>7</td><td>16,800</td><td>147</td><td>4,356</td></tr>
-      <tr><td>8</td><td>204,120</td><td>497</td><td>15,036</td></tr>
+    <h3>Group-held-out prediction and matched nulls</h3>
+    <table><thead><tr><th>Language</th><th>Function held out</th><th>Orbit held out</th><th>Descriptor held out</th><th>Strict RMSE</th></tr></thead><tbody>
+      <tr><td>NAND</td><td>0.831</td><td>0.726</td><td>0.613</td><td>1.583</td></tr>
+      <tr><td>NOR</td><td>0.833</td><td>0.729</td><td>0.643</td><td>1.522</td></tr>
+      <tr><td>AND/OR/NOT</td><td>0.920</td><td>0.859</td><td>0.656</td><td>1.161</td></tr>
     </tbody></table>
+    <p>A seven-nearest-neighbor predictor is tested by holding out individual functions, complete
+      input-permutation orbits, and complete invariant-descriptor classes. The last protocol removes
+      all feature-identical twins. In 1,000 matched permutations within strata of signed bias,
+      algebraic degree, and stabilizer size, no null replicate reaches the corresponding observed
+      strict \(R^2\), giving \(p=1/1001&lt;0.001\) in every language.</p>
     <figure>
-      <img src="../../experiments/creativity-atlas-validation/figures/sorting_validation.png"
-        alt="Sorting trajectory counts at entropy and full output-distribution resolution">
-      <figcaption><strong>Figure 2.</strong> Entropy compresses many distinct computational paths into the
-        same profile. The compression boundary remains rare, but its apparent one-path rigidity
-        was an artifact of a coarse semantic statistic.</figcaption>
+      <img src="../../experiments/creativity-atlas-validation/figures/boolean_validation.png"
+        alt="Semantic prediction under group holdouts and matched null distributions">
+      <figcaption><strong>Figure 4.</strong> Prediction attenuates under stricter semantic holdouts
+        (left) but remains far beyond matched null distributions (right). Vertical lines show the
+        observed descriptor-class results.</figcaption>
     </figure>
   </section>
 
   <section>
-    <h2>5. What survives both experiments</h2>
-    <ol class="compact">
-      <li><strong>Correctness creates semantic fibers.</strong> Some are empty below a feasibility boundary.</li>
-      <li><strong>Compressed correct representations can be rare.</strong> The sorting boundary provides an exact example.</li>
-      <li><strong>Redundancy expands representational volume.</strong> Longer correct programs proliferate in both grammars.</li>
-      <li><strong>Meaning constrains complexity.</strong> Boolean semantic features predict held-out minimum size.</li>
-      <li><strong>The numbers are conditional.</strong> Rarity and compression depend on language, prior, and baseline.</li>
-      <li><strong>Geometry depends on resolution.</strong> A coarse invariant may conceal distinct semantic paths.</li>
-    </ol>
+    <h2>5. Sorting trajectories at two semantic resolutions</h2>
+    <p>For comparator prefix \(e_{1:t}\), let \(Y_t\) be its output on a uniformly sampled input
+      permutation and define</p>
+    $$p_t(y)=\Pr(Y_t=y),\qquad H_t=-\sum_y p_t(y)\log_2p_t(y).\tag{8}$$
+    <p>The entropy path \((H_0,\ldots,H_L)\) is a coarsening of the full distribution path
+      \((p_0,\ldots,p_L)\). A single global wire permutation acts on all 24 coordinates at every
+      step; each full path is represented by the lexicographically least member of its orbit.</p>
+    <table><thead><tr><th>Length</th><th>Correct words</th><th>Entropy paths</th><th>Full paths / wires</th><th>Raw full paths</th></tr></thead><tbody>
+      <tr><td>5</td><td>12</td><td>1</td><td>12</td><td>12</td></tr>
+      <tr><td>6</td><td>900</td><td>27</td><td>756</td><td>756</td></tr>
+      <tr><td>7</td><td>16,800</td><td>147</td><td>4,356</td><td>4,356</td></tr>
+      <tr><td>8</td><td>204,120</td><td>497</td><td>15,036</td><td>15,036</td></tr>
+    </tbody></table>
+    <p>All 12 optimal networks share one entropy curve but have 12 distinct full paths. Equality
+      after coarsening cannot be read backward as equality of computation.</p>
+    <figure>
+      <img src="../../experiments/creativity-atlas-validation/figures/sorting_validation.png"
+        alt="Sorting trajectories at entropy and full-distribution resolutions">
+      <figcaption><strong>Figure 5.</strong> Entropy merges orders of magnitude more paths than the
+        full output distribution (left). The descriptive PCA of canonical full trajectories
+        (right) shows within-length variation; inference uses exact counts, not projected positions.</figcaption>
+    </figure>
   </section>
 
   <section>
     <h2>6. Interpretation</h2>
-    <p>The experiments support neither pure subjectivism nor a universal creativity coordinate.
-      Semantic organization places real constraints on which tasks are difficult and which compact
-      solutions exist. Yet a numerical statement such as “this solution is rare” is incomplete
-      without specifying the representation language and prior.</p>
+    <ol class="compact">
+      <li>Correct programs form semantic fibers; compression identifies the first nonempty fiber.</li>
+      <li>Semantic padding creates large redundant families, but exact growth depends on grammar.</li>
+      <li>Semantic structure predicts synthesis difficulty beyond renaming twins and matched null properties.</li>
+      <li>Rarity and baseline-relative compression require an explicit language and prior.</li>
+      <li>Apparent geometric rigidity can be created by a coarse semantic statistic.</li>
+    </ol>
     <div class="result"><span class="label">Defensible conclusion</span>
-      Creativity is not rarity alone. In these finite laboratories it is best treated as successful
-      compression inside a semantically constrained space, evaluated relative to an explicit
-      language, baseline, prior, and observational scale.</div>
-    <p>This does not establish human originality, aesthetic value, or representation-independent
-      Kolmogorov complexity. It does provide a falsifiable framework: a proposed semantic pattern
-      should survive group-held-out tests, matched nulls, alternative languages, and finer
-      observational resolutions before it is treated as intrinsic.</p>
+      Constrained rarity is successful compression inside a semantically constrained space,
+      evaluated relative to \((\mathcal L,P,L_0,\psi)\). It is neither pure subjectivism nor a
+      representation-independent creativity coordinate.</div>
+    <p>The framework does not establish human originality, aesthetic value, discovery effort, or
+      universal Kolmogorov complexity. For formal mathematics, isolation in one Lean embedding is
+      not evidence of profundity. A stronger analysis should compare theorem statements and proof
+      journeys at several semantic resolutions, remove complete equivalence neighborhoods, and
+      demand stability under vocabulary ablation, repository matching, and alternative encodings.</p>
   </section>
 
   <section>
     <h2>7. Reproducibility</h2>
-    <p>The complete experiments run locally without paid services:</p>
+    <p>All five experiments and the document build run locally without cloud services or model APIs:</p>
     <pre>python experiments/creativity-sorting-networks/scripts/analyze.py
 python experiments/creativity-boolean-synthesis/scripts/analyze.py
 python experiments/creativity-boolean-atlas/scripts/analyze.py
 python experiments/creativity-sorting-atlas/scripts/analyze.py
 python experiments/creativity-atlas-validation/scripts/analyze.py</pre>
-    <p>Detailed methods and machine-readable results are in the experiment directories. A compact
-      paper version is available as <a href="../semantic-creativity-atlases/note.pdf">Rarity,
-      Compression, and Meaning in Finite Program Spaces</a>.</p>
+    <p>Scripts, frozen configurations, artifacts, and figures are checked in. Counts are verified by
+      independent recurrences or brute-force enumeration, and null draws use seed 0. The matching
+      paper is available as <a href="../semantic-creativity-atlases/note.pdf"><em>Creativity as
+      Constrained Rarity</em></a>.</p>
   </section>
 
   <footer>All numerical claims are generated from the checked-in exact-enumeration artifacts.</footer>

@@ -272,8 +272,14 @@ def main() -> None:
               "targets": {name: int(table) for name, table in targets.items()}}
     (artifacts / "analysis.json").write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
 
-    fig, axes = plt.subplots(1, 3, figsize=(12.0, 4.1), sharex=True, sharey=True)
+    fig, axes = plt.subplots(1, 3, figsize=(11.0, 4.05), sharex=True, sharey=True)
     maximum_size = atlas["minimum_gates"].max()
+    label_offsets = {
+        "and3": (-5, 10),
+        "majority": (8, 8),
+        "parity": (-36, -13),
+        "mux": (8, -13),
+    }
     for axis, language in zip(axes, CONFIG["languages"]):
         subset = atlas[atlas["language"] == language]
         classes = subset.groupby(["semantic_pc1", "semantic_pc2"], as_index=False).agg(
@@ -287,13 +293,20 @@ def main() -> None:
         axis.set_xlabel("semantic PC1")
         for name, table in targets.items():
             row = subset[subset["truth_table"] == table].iloc[0]
-            axis.annotate(name, (row.semantic_pc1, row.semantic_pc2), xytext=(3, 3),
-                          textcoords="offset points", fontsize=7)
+            axis.annotate(name, (row.semantic_pc1, row.semantic_pc2),
+                          xytext=label_offsets[name], textcoords="offset points",
+                          fontsize=10, color=CHARCOAL,
+                          bbox={"boxstyle": "round,pad=0.16", "facecolor": "white",
+                                "edgecolor": "none", "alpha": 0.88},
+                          arrowprops={"arrowstyle": "-", "color": CHARCOAL,
+                                      "linewidth": 0.5, "alpha": 0.65})
+        axis.set_xlim(-5.5, 5.5)
+        axis.set_ylim(-2.5, 6.1)
     axes[0].set_ylabel("semantic PC2")
     colorbar = fig.colorbar(scatter, ax=axes, fraction=0.025, pad=0.02)
     colorbar.set_label("exact minimum gates")
     fig.suptitle("One semantic map, three formula languages", fontsize=13)
-    fig.subplots_adjust(left=0.07, right=0.91, bottom=0.14, top=0.84, wspace=0.08)
+    fig.subplots_adjust(left=0.07, right=0.91, bottom=0.14, top=0.84, wspace=0.10)
     fig.savefig(figures / "boolean_semantic_atlas.png", dpi=220)
     fig.savefig(figures / "boolean_semantic_atlas.pdf")
     plt.close(fig)

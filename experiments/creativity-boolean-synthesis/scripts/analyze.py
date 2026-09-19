@@ -172,14 +172,26 @@ def main() -> None:
     axes[0].set_title("All 256 functions synthesized", loc="left")
     axes[1].scatter(table["minimum_gates"], table["boundary_surprisal_bits"],
                     s=15, alpha=0.48, color=SLATE)
+    label_offsets = {
+        "and3": (8, 10),
+        "majority3": (8, -13),
+        "mux": (8, 7),
+        "parity3": (-38, 8),
+    }
     for row in targets_table.itertuples():
         axes[1].scatter(row.minimum_gates, row.boundary_surprisal_bits, s=42,
                         color=NAVY, edgecolor=CHARCOAL, linewidth=0.35)
         axes[1].annotate(row.target, (row.minimum_gates, row.boundary_surprisal_bits),
-                         xytext=(4, 4), textcoords="offset points", fontsize=8)
+                         xytext=label_offsets[row.target], textcoords="offset points",
+                         fontsize=8.5, color=CHARCOAL,
+                         bbox={"boxstyle": "round,pad=0.16", "facecolor": "white",
+                               "edgecolor": "none", "alpha": 0.88},
+                         arrowprops={"arrowstyle": "-", "color": CHARCOAL,
+                                     "linewidth": 0.5, "alpha": 0.65})
     axes[1].set_xlabel("exact minimum NAND gates")
     axes[1].set_ylabel("boundary surprisal (bits)")
     axes[1].set_title("Minimal semantics can also be rare", loc="left")
+    axes[1].set_xlim(-0.6, 15.2)
     fig.tight_layout()
     figures = EXPERIMENT / "figures"
     figures.mkdir(parents=True, exist_ok=True)
