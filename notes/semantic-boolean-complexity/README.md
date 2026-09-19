@@ -5,6 +5,9 @@ Boolean-formula size from syntax-free semantic descriptors.  The analysis uses
 complete input-orbit and descriptor-class holdouts plus stratified permutation
 nulls in NAND, NOR, and AND/OR/NOT languages.
 
+- [Read the mobile-friendly HTML edition](index.html)
+- [Open the four-page PDF](note.pdf)
+
 Build from this directory with:
 
 ```powershell

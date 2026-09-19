@@ -63,10 +63,12 @@ proofs. The full reports retain uncertainty estimates, controls, and caveats.
   [HTML version](notes/creativity-sorting-permutohedron/creativity_constrained_rarity_v3.html)
   presents the shared theory in a web-readable form.
 
-- [**Semantic Structure Predicts Exact Boolean Formula Complexity**](notes/semantic-boolean-complexity/note.pdf) —
-  a focused exact-synthesis result: syntax-free semantic descriptors predict
-  minimum formula size under orbit and descriptor-class holdouts, with matched
-  permutation nulls in three gate languages.
+- **Semantic Structure Predicts Exact Boolean Formula Complexity** —
+  [PDF](notes/semantic-boolean-complexity/note.pdf) ·
+  [mobile-friendly HTML](notes/semantic-boolean-complexity/index.html) — a
+  related exact-synthesis exploration: syntax-free semantic descriptors
+  predict minimum formula size under orbit and descriptor-class holdouts, with
+  matched permutation nulls in three gate languages.
 
 ## Mathematical sketch
 

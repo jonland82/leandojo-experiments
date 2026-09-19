@@ -514,6 +514,23 @@
     .note-card span { color: var(--muted); font-size: 1rem; }
     .note-card em { margin-top: auto; padding-top: 18px; color: var(--quiet); font-size: 1rem; font-style: normal; }
 
+    .side-exploration {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 30px;
+      margin-top: 22px;
+      padding: 29px 30px;
+      border: 1px solid var(--line-strong);
+      border-radius: 17px;
+      background: linear-gradient(135deg, rgba(17, 22, 47, 0.9), rgba(12, 16, 37, 0.76));
+      box-shadow: inset 0 1px rgba(255, 255, 255, 0.03);
+    }
+    .side-exploration small { color: var(--cyan); font-family: "SFMono-Regular", Consolas, monospace; font-size: 1rem; letter-spacing: 0.1em; text-transform: uppercase; }
+    .side-exploration h3 { margin: 8px 0 7px; font-size: 1.22rem; }
+    .side-exploration p { max-width: 680px; margin: 0; color: var(--muted); }
+    .side-links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 10px; }
+
     .site-footer { padding-block: 35px 46px; border-top: 1px solid rgba(167, 139, 250, 0.1); }
     .footer-row { display: flex; align-items: center; justify-content: space-between; gap: 28px; color: var(--quiet); font-size: 1rem; }
     .footer-row p { margin: 0; }
@@ -532,6 +549,8 @@
       .arc-grid { grid-template-columns: 1fr; }
       .arc-card { min-height: 240px; }
       .feature { grid-template-columns: 1fr; gap: 34px; }
+      .side-exploration { grid-template-columns: 1fr; }
+      .side-links { justify-content: flex-start; }
     }
 
     @media (max-width: 640px) {
@@ -762,6 +781,17 @@
           <a class="note-card reveal" href="notes/proof-geometry-literature-note/note.pdf"><small>Note 04 · PDF</small><strong>Proof geometry in context</strong><span>A synthesis with adjacent research traditions.</span><em>Open report →</em></a>
           <a class="note-card reveal" href="notes/infrastructure-isolation-note/note.pdf"><small>Note 05 · PDF</small><strong>The Infrastructure–Isolation Principle</strong><span>Reliance, semantic neighborhoods, and proof complexity.</span><em>Open report →</em></a>
         </div>
+        <aside class="side-exploration reveal" aria-labelledby="boolean-paper-title">
+          <div>
+            <small>Related side exploration</small>
+            <h3 id="boolean-paper-title">Semantic Structure Predicts Exact Boolean Formula Complexity</h3>
+            <p>Across all 256 three-input functions, syntax-free semantic descriptors predict exact minimum formula size under strict holdouts and matched nulls in three gate languages.</p>
+          </div>
+          <div class="side-links" aria-label="Boolean formula complexity paper formats">
+            <a class="button button--primary" href="notes/semantic-boolean-complexity/index.html">Read HTML</a>
+            <a class="button" href="notes/semantic-boolean-complexity/note.pdf">Open PDF</a>
+          </div>
+        </aside>
       </div>
     </section>
   </main>

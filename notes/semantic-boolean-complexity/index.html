@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f3ef">
+  <meta name="description" content="A complete three-input study showing that syntax-free semantic descriptors predict exact Boolean formula complexity.">
+  <meta property="og:title" content="Semantic Structure Predicts Exact Boolean Formula Complexity">
+  <meta property="og:description" content="Exact synthesis, semantic holdouts, and matched permutation tests across NAND, NOR, and AND/OR/NOT.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="../../experiments/creativity-boolean-atlas/figures/boolean_semantic_atlas.png">
+  <title>Semantic Structure Predicts Exact Boolean Formula Complexity</title>
+  <script>
+    document.documentElement.classList.add("math-loading");
+    window.MathJax = {
+      tex: {
+        inlineMath: [["\\(", "\\)"]],
+        displayMath: [["\\[", "\\]"]],
+        tags: "ams"
+      },
+      chtml: { scale: 0.97 },
+      options: { enableMenu: false },
+      startup: {
+        ready: function () {
+          MathJax.startup.defaultReady();
+          MathJax.startup.promise.then(function () {
+            document.documentElement.classList.remove("math-loading");
+          });
+        }
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-mml-chtml.js"></script>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #fbfaf7;
+      --ground: #e9e9e5;
+      --ink: #202427;
+      --navy: #40566a;
+      --navy-dark: #293c4d;
+      --slate: #87939c;
+      --line: #cbd0d2;
+      --soft: #f0f1ef;
+      --white: #fff;
+      --measure: 820px;
+    }
+
+    * { box-sizing: border-box; }
+    html { max-width: 100%; overflow-x: hidden; scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 300px;
+      max-width: 100%;
+      overflow-x: hidden;
+      color: var(--ink);
+      background: var(--ground);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 17px;
+      line-height: 1.62;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--navy-dark); text-decoration-thickness: 1px; text-underline-offset: 0.15em; }
+    a:hover, a:focus-visible { color: #101b24; }
+    img { display: block; max-width: 100%; }
+    .skip-link {
+      position: fixed; top: 12px; left: 12px; z-index: 50;
+      padding: 8px 12px; color: var(--white); background: var(--navy-dark);
+      transform: translateY(-180%);
+    }
+    .skip-link:focus { transform: none; }
+    .side-anchor {
+      position: fixed; top: 50%; z-index: 20;
+      display: flex; align-items: center; gap: 8px;
+      padding: 10px 13px; color: var(--white); background: var(--navy-dark);
+      border: 1px solid rgba(255,255,255,.24); border-radius: 3px;
+      box-shadow: 0 8px 24px rgba(23,32,39,.18);
+      font: 700 12px/1.1 Arial, sans-serif; letter-spacing: .09em;
+      text-decoration: none; text-transform: uppercase;
+    }
+    .side-anchor--left { left: 0; transform: translateY(-50%); border-left: 0; }
+    .side-anchor--right { right: 0; transform: translateY(-50%); border-right: 0; }
+    .side-anchor:hover, .side-anchor:focus-visible { color: var(--white); background: #172a39; }
+    .mobile-anchors { display: none; }
+    .paper {
+      width: min(calc(100% - 48px), 980px);
+      margin: 34px auto;
+      padding: 72px clamp(36px, 8vw, 86px) 78px;
+      background: var(--paper);
+      border: 1px solid #d5d5d1;
+      box-shadow: 0 12px 42px rgba(40,47,51,.12);
+    }
+    .masthead { max-width: var(--measure); margin: 0 auto 40px; text-align: center; }
+    .kicker {
+      margin-bottom: 16px; color: var(--navy); font: 700 12px/1.2 Arial, sans-serif;
+      letter-spacing: .14em; text-transform: uppercase;
+    }
+    h1 {
+      max-width: 760px; margin: 0 auto 13px;
+      color: #161a1d; font-size: clamp(2.15rem, 6vw, 3.5rem);
+      font-weight: 700; letter-spacing: -.032em; line-height: 1.03;
+    }
+    .author { margin: 0; color: #52595e; font-size: 1.05rem; }
+    .paper-actions {
+      display: flex; justify-content: center; flex-wrap: wrap; gap: 10px;
+      margin-top: 22px;
+    }
+    .paper-actions a {
+      padding: 8px 13px; border: 1px solid var(--line); border-radius: 2px;
+      font: 700 12px/1.2 Arial, sans-serif; letter-spacing: .04em; text-decoration: none;
+    }
+    .paper-actions a:first-child { color: var(--white); background: var(--navy-dark); border-color: var(--navy-dark); }
+    .abstract {
+      max-width: var(--measure); margin: 0 auto 42px; padding: 22px 25px;
+      background: var(--soft); border-top: 2px solid var(--navy); border-bottom: 1px solid var(--line);
+      font-size: .98rem;
+    }
+    .abstract h2 {
+      margin: 0 0 8px; font: 700 12px/1.2 Arial, sans-serif;
+      letter-spacing: .12em; text-transform: uppercase;
+    }
+    .abstract p { margin: 0; }
+    article { width: 100%; min-width: 0; max-width: var(--measure); margin: 0 auto; }
+    section { scroll-margin-top: 24px; }
+    h2 {
+      margin: 45px 0 14px; padding-bottom: 6px; color: #18232c;
+      border-bottom: 1px solid var(--line); font-size: 1.58rem; line-height: 1.22;
+    }
+    h3 { margin: 26px 0 8px; color: var(--navy-dark); font-size: 1.08rem; }
+    p { margin: 0 0 13px; }
+    ol.protocol { padding-left: 1.55em; }
+    .definition, .theorem, .proposition {
+      margin: 22px 0; padding: 15px 18px; border-left: 3px solid var(--navy); background: #f3f4f2;
+    }
+    .proof { margin: -10px 0 22px; padding: 0 18px; color: #444b50; font-size: .96rem; }
+    .proof strong { color: var(--ink); font-style: italic; }
+    .equation { max-width: 100%; overflow-x: auto; overflow-y: hidden; margin: 15px 0; padding: 5px 0 8px; }
+    .table-scroll { max-width: 100%; margin: 22px 0 8px; overflow-x: auto; border-top: 2px solid var(--navy-dark); }
+    table { width: 100%; min-width: 650px; border-collapse: collapse; font-family: Arial, sans-serif; font-size: 13px; }
+    th, td { padding: 10px 9px; border-bottom: 1px solid var(--line); text-align: right; white-space: nowrap; }
+    th:first-child, td:first-child { text-align: left; }
+    th { color: var(--navy-dark); background: var(--soft); font-size: 11px; letter-spacing: .025em; }
+    figure { margin: 31px 0 38px; }
+    figure img { width: 100%; border: 1px solid #d8dbdc; background: white; }
+    figcaption, .table-caption {
+      margin-top: 9px; color: #4d555a; font-family: Arial, sans-serif; font-size: 13px; line-height: 1.45;
+    }
+    .table-caption { margin-bottom: 26px; }
+    .takeaway {
+      margin: 30px 0; padding: 20px 22px; color: #f7f8f8; background: var(--navy-dark);
+      border-radius: 2px; font-size: 1.04rem;
+    }
+    .takeaway strong { font-family: Arial, sans-serif; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
+    .references { padding-left: 1.4em; font-size: .89rem; }
+    .references li { margin-bottom: 9px; padding-left: 5px; }
+    .footer-note {
+      margin-top: 46px; padding-top: 18px; border-top: 1px solid var(--line);
+      color: #687177; font: 12px/1.5 Arial, sans-serif; text-align: center;
+    }
+    .math-loading .tex-fallback { visibility: hidden; }
+
+    @media (max-width: 1180px) {
+      .side-anchor { display: none; }
+      .mobile-anchors {
+        position: sticky; top: 0; left: 0; right: 0; z-index: 30;
+        display: flex; justify-content: space-between; gap: 12px;
+        padding: 10px 16px; background: rgba(41,60,77,.96); box-shadow: 0 3px 16px rgba(23,32,39,.18);
+      }
+      .mobile-anchors a {
+        color: var(--white); font: 700 11px/1.2 Arial, sans-serif;
+        letter-spacing: .07em; text-decoration: none; text-transform: uppercase;
+      }
+    }
+    @media (max-width: 680px) {
+      body { font-size: 16px; line-height: 1.58; }
+      .paper { width: 100%; max-width: 100%; margin: 0; padding: 46px 19px 58px; overflow: hidden; border: 0; box-shadow: none; }
+      h1 { max-width: 100%; overflow-wrap: anywhere; font-size: clamp(2rem, 10vw, 2.65rem); }
+      .abstract { padding: 18px 17px; }
+      h2 { margin-top: 38px; font-size: 1.4rem; }
+      .definition, .theorem, .proposition { padding: 13px 14px; }
+      .proof { padding: 0 14px; }
+      figure { margin-inline: -8px; }
+      figcaption { padding-inline: 8px; }
+      mjx-container[display="true"] { font-size: 92% !important; }
+    }
+    @media print {
+      body { background: white; font-size: 10pt; }
+      .side-anchor, .mobile-anchors, .paper-actions, .skip-link { display: none !important; }
+      .paper { width: auto; margin: 0; padding: 0; border: 0; box-shadow: none; }
+      a { color: inherit; text-decoration: none; }
+      figure, .table-scroll, .definition, .theorem, .proposition { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#paper">Skip to paper</a>
+  <a class="side-anchor side-anchor--left" href="../../index.html" aria-label="Return to project index">&#8592; Project</a>
+  <a class="side-anchor side-anchor--right" href="note.pdf" aria-label="Open the PDF version">PDF &#8599;</a>
+  <nav class="mobile-anchors" aria-label="Paper links">
+    <a href="../../index.html">&#8592; Project</a>
+    <a href="note.pdf">PDF &#8599;</a>
+  </nav>
+
+  <main class="paper" id="paper">
+    <header class="masthead">
+      <div class="kicker">Exact synthesis &middot; Boolean functions</div>
+      <h1>Semantic Structure Predicts Exact Boolean Formula Complexity</h1>
+      <p class="author">J. R. Landers</p>
+      <div class="paper-actions" aria-label="Document formats">
+        <a href="note.pdf">Read the four-page PDF</a>
+        <a href="https://github.com/jonland82/leandojo-experiments/tree/master/notes/semantic-boolean-complexity">Source and data</a>
+      </div>
+    </header>
+
+    <aside class="abstract" aria-labelledby="abstract-heading">
+      <h2 id="abstract-heading">Abstract</h2>
+      <p>We ask how much exact Boolean formula complexity is predictable from function semantics rather than formula syntax. All 256 three-input Boolean functions are synthesized exactly in NAND, NOR, and AND/OR/NOT formula languages. A seven-nearest-neighbor model uses only truth-table invariants: signed bias, sorted influences, Walsh&ndash;Fourier energy by degree, algebraic degree, and input-permutation stabilizer size. Prediction is evaluated after removing complete input-renaming orbits and, more stringently, complete fibers of the semantic descriptor. Under descriptor-fiber holdout, the model explains 61.3%, 64.3%, and 65.6% of minimum-size variance in the three languages. In 1,000 permutations preserving signed bias, degree, and stabilizer size, no null replicate reaches the corresponding observed result (\(p=1/1001&lt;0.001\) in each language). Semantics therefore contains substantial out-of-class information about exact representation cost, although incomplete cross-language rank stability shows that complexity is not intrinsic to the function alone.</p>
+    </aside>
+
+    <article>
+      <section id="setup">
+        <h2>1. Problem and formal setup</h2>
+        <p>Let \(\mathcal B_3=\{f:\{0,1\}^3\to\{0,1\}\}\), so \(|\mathcal B_3|=2^8=256\). A formula language \(\mathcal L\) consists of the variables \(x_0,x_1,x_2\) and a fixed gate basis. Formulas are ordered rooted trees, and size \(|e|\) is the number of gates. This basis-relative notion descends from classical switching synthesis <a href="#ref-1">[1]</a> and remains central in modern exact-synthesis systems <a href="#ref-6">[6]</a>, <a href="#ref-7">[7]</a>.</p>
+
+        <div class="definition">
+          <strong>Definition 1 (Exact formula complexity).</strong> For evaluation map \(\operatorname{eval}_{\mathcal L}:E_{\mathcal L}\to\mathcal B_3\), define
+          <div class="equation">\[
+            A_{\mathcal L,\ell}(f)=\{e:|e|=\ell,\ \operatorname{eval}_{\mathcal L}(e)=f\},
+            \qquad K_{\mathcal L}(f)=\min\{\ell:A_{\mathcal L,\ell}(f)\ne\varnothing\}. \tag{1}
+          \]</div>
+        </div>
+
+        <p>The three languages are NAND, NOR, and ordered AND/OR/NOT. They are all functionally complete, but assign different costs to the same truth table.</p>
+        <p>For \(f\in\mathcal B_3\), the semantic descriptor \(\psi(f)\in\mathbb R^{10}\) contains signed output bias; the three variable influences sorted into nondecreasing order; Walsh&ndash;Fourier energy at degrees 0, 1, 2, 3; algebraic degree; and the cardinality of the stabilizer of \(f\) under input permutations. It is computed from the truth table and contains no formula or gate data. Influence and Fourier summaries are standard semantic coordinates in Boolean function analysis and have long-standing connections to circuit structure and learnability <a href="#ref-2">[2]</a>, <a href="#ref-3">[3]</a>. Most directly, O&rsquo;Donnell and Servedio relate influence and average sensitivity to decision-tree size and use that structure for efficient learning <a href="#ref-4">[4]</a>.</p>
+        <p>Let \(G=S_3\) act on functions by input renaming. Both the response and the descriptor respect this symmetry.</p>
+
+        <div class="proposition">
+          <strong>Proposition 1 (Input-renaming invariance).</strong> For every \(\pi\in S_3\), language \(\mathcal L\), and function \(f\),
+          <div class="equation">\[
+            K_{\mathcal L}(f\circ\pi)=K_{\mathcal L}(f),
+            \qquad \psi(f\circ\pi)=\psi(f). \tag{2}
+          \]</div>
+        </div>
+        <p class="proof"><strong>Proof.</strong> Replacing each leaf \(x_i\) by \(x_{\pi(i)}\) is a size-preserving bijection between formulas for \(f\) and formulas for \(f\circ\pi\); its inverse uses \(\pi^{-1}\). Bias, sorted influences, Fourier energy by degree, algebraic degree, and stabilizer cardinality are unchanged by coordinate permutation.</p>
+        <p>Thus ordinary leave-one-function-out evaluation leaks exact semantic twins: another member of the same orbit can remain in training. The experiments remove this leakage explicitly.</p>
+      </section>
+
+      <section id="synthesis">
+        <h2>2. Exact synthesis</h2>
+        <p>Let \(C_{\mathcal L,\ell}(t)\) be the number of ordered formulas of size \(\ell\) with truth table \(t\). If \(\mathcal O_r\) is the set of \(r\)-ary gates, exact root decomposition gives the following dynamic program.</p>
+        <div class="theorem">
+          <strong>Theorem 1 (Semantic root recurrence).</strong> Writing \(v_i=\operatorname{eval}(x_i)\),
+          <div class="equation">\[
+            C_{\mathcal L,0}(t)=|\{i:v_i=t\}|, \tag{3}
+          \]</div>
+          and, for \(\ell\ge1\),
+          <div class="equation">\[
+            C_{\mathcal L,\ell}(t)=
+            \sum_{r\ge1}\sum_{o\in\mathcal O_r}
+            \sum_{\ell_1+\cdots+\ell_r=\ell-1}
+            \sum_{o(t_1,\ldots,t_r)=t}
+            \prod_{j=1}^r C_{\mathcal L,\ell_j}(t_j). \tag{4}
+          \]</div>
+          Consequently, the first \(\ell\) with \(C_{\mathcal L,\ell}(t)&gt;0\) is the exact minimum \(K_{\mathcal L}(t)\).
+        </div>
+        <p class="proof"><strong>Proof.</strong> Every non-leaf formula has a unique root gate, ordered tuple of root subformulas, and ordered composition of their gate counts summing to \(\ell-1\). Conversely, every term on the right constructs exactly one formula of size \(\ell\) and truth table \(t\). The constructions are inverse.</p>
+        <p>For NAND and NOR, summing (4) over truth tables independently recovers</p>
+        <div class="equation">\[
+          |E_{\mathcal L,\ell}|=\operatorname{Catalan}(\ell)3^{\ell+1}. \tag{5}
+        \]</div>
+        <p>For AND/OR/NOT, with \(T_0=3\), the independent syntax recurrence is</p>
+        <div class="equation">\[
+          T_\ell=T_{\ell-1}+2\sum_{i=0}^{\ell-1}T_iT_{\ell-1-i}. \tag{6}
+        \]</div>
+        <p>Both identities are checked at every enumerated size. All 256 functions are reached in all three languages; the largest NAND and NOR minimum is 14 gates. Where contemporary exact synthesis generally uses SAT encodings and constrained DAG families <a href="#ref-6">[6]</a>, <a href="#ref-7">[7]</a>, the small complete universe here permits a transparent truth-table dynamic program and exact counts for every target.</p>
+      </section>
+
+      <section id="protocol">
+        <h2>3. Prediction and falsification protocol</h2>
+        <p>The descriptor coordinates are standardized, and the predictor is deliberately simple. For a held-out function \(f\), let \(N_7(f)\) be its seven nearest training functions in Euclidean descriptor distance, and set</p>
+        <div class="equation">\[
+          \widehat K_{\mathcal L}(f)=\frac1{7}\sum_{g\in N_7(f)}K_{\mathcal L}(g). \tag{7}
+        \]</div>
+        <p>The same choice \(k=7\) is fixed across all languages and protocols.</p>
+        <p>Three nested protocols are used:</p>
+        <ol class="protocol">
+          <li><em>function holdout:</em> remove only \(f\);</li>
+          <li><em>orbit holdout:</em> remove the complete \(S_3\) orbit of \(f\);</li>
+          <li><em>descriptor holdout:</em> remove every \(g\) with \(\psi(g)=\psi(f)\).</li>
+        </ol>
+        <p>The 256 functions form 80 input-permutation orbits and 36 exact descriptor classes. The last protocol tests interpolation to a genuinely unseen semantic profile, not recognition of an invariant twin.</p>
+        <div class="proposition">
+          <strong>Proposition 2 (No descriptor leakage).</strong> Under descriptor holdout, no test function and training function have equal \(\psi\). Since \(\psi\) is input-renaming invariant, this also excludes every input-renamed copy of each test function.
+        </div>
+        <p class="proof"><strong>Proof.</strong> The first statement is the definition of holding out the complete fiber \(\psi^{-1}(\psi(f))\). Equation (2) places the full \(S_3\) orbit inside that fiber, giving the second statement.</p>
+        <p>Performance is summarized globally by</p>
+        <div class="equation">\[
+          R^2=1-\frac{\sum_f(K_{\mathcal L}(f)-\widehat K_{\mathcal L}(f))^2}
+          {\sum_f(K_{\mathcal L}(f)-\overline K_{\mathcal L})^2}. \tag{8}
+        \]</div>
+        <p>The matched null preserves three conspicuous correlates of complexity. Let \(z(f)\) be signed bias, algebraic degree, and stabilizer size. Within each exact \(z\)-stratum, the \(K_{\mathcal L}\) labels are permuted, the fixed descriptor-holdout prediction plan is reevaluated, and its \(R^2\) is recorded. This tests conditional exchangeability</p>
+        <div class="equation">\[
+          H_0:\quad K_{\mathcal L}\ \perp\!\!\!\perp\ \psi\mid z. \tag{9}
+        \]</div>
+        <p>With \(B=1000\) permutations, the one-sided randomization value is</p>
+        <div class="equation">\[
+          p=\frac{1+\#\{b:R_b^2\ge R_{\mathrm{obs}}^2\}}{B+1}. \tag{10}
+        \]</div>
+        <p>The plus-one correction treats the observed arrangement as part of the finite Monte Carlo null and prevents spuriously reporting a zero \(p\)-value <a href="#ref-8">[8]</a>.</p>
+      </section>
+
+      <section id="results">
+        <h2>4. Results</h2>
+        <p>The stricter the held-out equivalence class, the lower the estimate, as expected. The main result is the descriptor-class column of Table 1: even when no training function shares the test descriptor, semantics explains between 61% and 66% of exact minimum-size variance.</p>
+        <div class="table-scroll" role="region" aria-label="Prediction results" tabindex="0">
+          <table>
+            <thead>
+              <tr><th>Language</th><th>Function \(R^2\)</th><th>Orbit \(R^2\)</th><th>Descriptor \(R^2\)</th><th>Strict RMSE</th><th>Null 95% interval</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>NAND</td><td>0.831</td><td>0.726</td><td>0.613</td><td>1.583</td><td>[-0.271, 0.118]</td></tr>
+              <tr><td>NOR</td><td>0.833</td><td>0.729</td><td>0.643</td><td>1.522</td><td>[-0.269, 0.106]</td></tr>
+              <tr><td>AND/OR/NOT</td><td>0.920</td><td>0.859</td><td>0.656</td><td>1.161</td><td>[-0.149, 0.155]</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="table-caption"><strong>Table 1.</strong> Prediction of exact minimum gate count. The null interval is the central 95% of 1,000 \(z\)-stratified permutations under descriptor holdout. No null replicate reaches its observed descriptor-held-out \(R^2\), so \(p=1/1001&lt;0.001\) for every language.</p>
+
+        <figure id="validation-figure">
+          <img src="../../experiments/creativity-atlas-validation/figures/boolean_validation.png" alt="Three panels compare prediction under function, orbit, and descriptor holdouts, followed by matched permutation null distributions for each formula language." width="1800" height="720">
+          <figcaption><strong>Figure 1.</strong> Leakage and null controls. Predictive power attenuates as complete semantic neighborhoods are removed (left), but every strict result remains far beyond its matched permutation distribution (right). Vertical lines mark the observed descriptor-held-out values.</figcaption>
+        </figure>
+
+        <p>The effect replicates across three cost models, but the costs are not identical. Spearman correlations of \(K_{\mathcal L}(f)\) are 0.548 for NAND versus NOR and 0.805 for each comparison with AND/OR/NOT. Thus the descriptor captures a shared semantic component without making formula complexity representation-independent.</p>
+        <p>Figure 2 uses a two-dimensional projection only for display; all prediction and grouping use the full ten-coordinate descriptor. Persistent color structure across panels visualizes the shared component, while color changes show language-dependent residual cost.</p>
+
+        <figure id="atlas-figure">
+          <img src="../../experiments/creativity-boolean-atlas/figures/boolean_semantic_atlas.png" alt="The same two-dimensional semantic map of Boolean functions is shown for NAND, NOR, and AND/OR/NOT, with point shade indicating exact minimum gates." width="1800" height="720">
+          <figcaption><strong>Figure 2.</strong> One syntax-free semantic map colored by exact minimum formula size in three languages. Point area records multiplicity after projection. Labeled functions were fixed before analysis.</figcaption>
+        </figure>
+      </section>
+
+      <section id="interpretation">
+        <h2>5. Interpretation and limitations</h2>
+        <div class="takeaway"><strong>Takeaway.</strong> Meaning strongly correlates with and predicts representation cost, but does not completely dictate it: roughly one third of the variance remains unexplained under the strictest protocol.</div>
+        <p>The experiment establishes a narrow claim: elementary, syntax-free properties of a Boolean function contain substantial information about its exact minimal representation cost beyond input renaming, exact descriptor duplication, and the matched effects of bias, algebraic degree, and symmetry. It does not show that &ldquo;meaning determines difficulty.&rdquo; Approximately one third of variance remains under the strict protocol, and cross-language rankings are imperfect. This is complementary to analytic and lower-bound programs that derive complexity consequences from Fourier concentration or other function measures <a href="#ref-2">[2]</a>, <a href="#ref-5">[5]</a>: the present claim is finite, predictive, and exact, not an asymptotic formula lower bound.</p>
+        <p>The principal limitations are scale and feature design. There are only three inputs, related classical gate bases, 256 functions, and a hand-designed descriptor. Standard \(R^2\) is descriptive over this complete finite universe; the permutation test, not an asymptotic sampling model, supplies the stated inferential calibration. A stronger follow-up would enumerate selected four-input families, compare substantially different computational models, and preregister descriptor ablations. The present result is valuable because its targets are globally exact and its principal leakage modes are explicitly removed.</p>
+        <p><strong>Reproducibility.</strong> Exact synthesis, invariant checks, prediction folds, and all 1,000 null draws (seed 0) are generated by the checked-in Boolean-atlas and validation scripts. The experiment uses no model APIs or cloud services.</p>
+      </section>
+
+      <section id="references">
+        <h2>References</h2>
+        <ol class="references">
+          <li id="ref-1">C. E. Shannon, &ldquo;The synthesis of two-terminal switching circuits,&rdquo; <em>Bell System Technical Journal</em>, 28:59&ndash;98, 1949.</li>
+          <li id="ref-2">N. Linial, Y. Mansour, and N. Nisan, &ldquo;Constant depth circuits, Fourier transform, and learnability,&rdquo; <em>Journal of the ACM</em>, 40(3):607&ndash;620, 1993.</li>
+          <li id="ref-3">R. O&rsquo;Donnell, <em>Analysis of Boolean Functions</em>. Cambridge University Press, 2014; revised arXiv edition, 2021.</li>
+          <li id="ref-4">R. O&rsquo;Donnell and R. A. Servedio, &ldquo;Learning monotone decision trees in polynomial time,&rdquo; <em>SIAM Journal on Computing</em>, 37(3):827&ndash;844, 2007.</li>
+          <li id="ref-5">A. Tal, &ldquo;Formula lower bounds via the quantum method,&rdquo; in <em>Proceedings of the 49th ACM STOC</em>, pp. 1256&ndash;1268, 2017.</li>
+          <li id="ref-6">W. Haaswijk, M. Soeken, A. Mishchenko, and G. De Micheli, &ldquo;SAT-based exact synthesis: Encodings, topology families, and parallelism,&rdquo; <em>IEEE TCAD</em>, 39(4):871&ndash;884, 2020.</li>
+          <li id="ref-7">H. Pan and Z. Chu, &ldquo;Exact synthesis based on semi-tensor product circuit solver,&rdquo; in <em>Proceedings of DATE</em>, 2023.</li>
+          <li id="ref-8">B. Phipson and G. K. Smyth, &ldquo;Permutation \(p\)-values should never be zero,&rdquo; <em>Statistical Applications in Genetics and Molecular Biology</em>, 9:39, 2010.</li>
+        </ol>
+      </section>
+    </article>
+
+    <footer class="footer-note">
+      Semantic Structure Predicts Exact Boolean Formula Complexity &middot; HTML edition<br>
+      <a href="../../index.html">LeanDojo Proof Geometry Experiments</a> &middot; <a href="note.pdf">PDF edition</a>
+    </footer>
+  </main>
+</body>
+</html>
