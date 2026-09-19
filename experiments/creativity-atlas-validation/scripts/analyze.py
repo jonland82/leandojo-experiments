@@ -11,9 +11,22 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+from matplotlib.colors import LinearSegmentedColormap
 from sklearn.decomposition import PCA
 from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.preprocessing import StandardScaler
+
+
+NAVY = "#40566A"
+SLATE = "#87939C"
+LIGHT_GRAY = "#D9DDDF"
+CHARCOAL = "#25292C"
+MUTED_CMAP = LinearSegmentedColormap.from_list(
+    "muted_navy", ["#F7F7F4", LIGHT_GRAY, SLATE, NAVY, CHARCOAL])
+plt.rcParams.update({"figure.facecolor": "white", "axes.facecolor": "white",
+                     "axes.edgecolor": CHARCOAL, "axes.labelcolor": CHARCOAL,
+                     "text.color": CHARCOAL, "xtick.color": CHARCOAL,
+                     "ytick.color": CHARCOAL, "savefig.facecolor": "white"})
 
 
 EXPERIMENT = Path(__file__).resolve().parents[1]
@@ -284,16 +297,16 @@ def main() -> None:
                  "leave_one_descriptor_class_out"]
     x = np.arange(3)
     width = 0.24
+    colors = {"NAND": NAVY, "NOR": SLATE, "AND_OR_NOT": CHARCOAL}
     for offset, language in enumerate(("NAND", "NOR", "AND_OR_NOT")):
         values = [boolean["languages"][language][protocol]["r2"] for protocol in protocols]
         axes[0].bar(x + (offset - 1) * width, values, width=width,
-                    label=language.replace("_", "/"))
-    axes[0].axhline(0, color="black", linewidth=0.7)
+                    label=language.replace("_", "/"), color=colors[language])
+    axes[0].axhline(0, color=CHARCOAL, linewidth=0.7)
     axes[0].set_xticks(x, ["function", "input orbit", "descriptor class"])
     axes[0].set_ylabel("held-out $R^2$")
     axes[0].set_title("Prediction under stricter holdouts", loc="left")
     axes[0].legend(frameon=False, fontsize=8)
-    colors = {"NAND": "#1d6996", "NOR": "#edb120", "AND_OR_NOT": "#d95f02"}
     for language, group in nulls.groupby("language"):
         axes[1].hist(group["null_r2"], bins=35, density=True, alpha=0.38,
                      color=colors[language], label=language.replace("_", "/"))
@@ -309,11 +322,14 @@ def main() -> None:
     plt.close(fig)
 
     fig, axes = plt.subplots(1, 2, figsize=(10.0, 4.1))
+    line_colors = {"entropy_trajectories": NAVY,
+                   "wire_quotient_full_trajectories": SLATE,
+                   "raw_full_state_trajectories": CHARCOAL}
     for column, label, marker in (("entropy_trajectories", "entropy only", "o"),
                                    ("wire_quotient_full_trajectories", "full distribution / wires", "s"),
                                    ("raw_full_state_trajectories", "raw full distribution", "^")):
         axes[0].plot(sorting_summary["length"], sorting_summary[column], marker=marker,
-                     label=label)
+                     label=label, color=line_colors[column])
     axes[0].set_yscale("log")
     axes[0].set_xticks(range(5, 9))
     axes[0].set_xlabel("network length")
@@ -321,7 +337,7 @@ def main() -> None:
     axes[0].set_title("Resolution changes the story", loc="left")
     axes[0].legend(frameon=False, fontsize=8)
     scatter = axes[1].scatter(trajectories["full_state_pc1"], trajectories["full_state_pc2"],
-                              c=trajectories["length"], cmap="viridis",
+                              c=trajectories["length"], cmap=MUTED_CMAP,
                               s=10 + 8 * np.log10(trajectories["multiplicity"]), alpha=0.68,
                               edgecolors="none", rasterized=True)
     axes[1].set_xlabel("full-state PC1")

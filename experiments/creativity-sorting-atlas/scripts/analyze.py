@@ -11,9 +11,22 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+from matplotlib.colors import LinearSegmentedColormap
 from scipy import stats
 from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler
+
+
+NAVY = "#40566A"
+SLATE = "#87939C"
+LIGHT_GRAY = "#D9DDDF"
+CHARCOAL = "#25292C"
+MUTED_CMAP = LinearSegmentedColormap.from_list(
+    "muted_navy", ["#F7F7F4", LIGHT_GRAY, SLATE, NAVY, CHARCOAL])
+plt.rcParams.update({"figure.facecolor": "white", "axes.facecolor": "white",
+                     "axes.edgecolor": CHARCOAL, "axes.labelcolor": CHARCOAL,
+                     "text.color": CHARCOAL, "xtick.color": CHARCOAL,
+                     "ytick.color": CHARCOAL, "savefig.facecolor": "white"})
 
 
 EXPERIMENT = Path(__file__).resolve().parents[1]
@@ -184,11 +197,11 @@ def main() -> None:
     fig, axes = plt.subplots(1, 2, figsize=(10.0, 4.3))
     sizes = 12 + 10 * np.log10(table["multiplicity"])
     scatter = axes[0].scatter(table["trajectory_pc1"], table["trajectory_pc2"],
-                              c=table["length"], s=sizes, cmap="viridis",
+                              c=table["length"], s=sizes, cmap=MUTED_CMAP,
                               alpha=0.72, edgecolors="white", linewidths=0.25)
     for name, values in named.items():
         axes[0].scatter(values["trajectory_pc1"], values["trajectory_pc2"],
-                        marker="*", s=130, color="#d95f02", edgecolor="black", linewidth=0.5)
+                        marker="*", s=130, color=CHARCOAL, edgecolor="black", linewidth=0.5)
         axes[0].annotate(name.replace("_network", ""),
                          (values["trajectory_pc1"], values["trajectory_pc2"]),
                          xytext=(5, 5), textcoords="offset points", fontsize=8)
@@ -201,11 +214,11 @@ def main() -> None:
     for length, group in table.groupby("length"):
         weights = group["multiplicity"].to_numpy()
         axes[1].scatter(length, np.average(group["area_under_entropy_curve"], weights=weights),
-                        s=55, color=plt.cm.viridis((length - 5) / 3), zorder=3)
+                        s=55, color=MUTED_CMAP((length - 5) / 3), zorder=3)
     for row in summary.itertuples():
         axes[1].scatter(row.length + (-0.08 if row.padded else 0.08), row.weighted_mean_area,
                         marker="x" if row.padded else "o", s=42,
-                        color="#d95f02" if row.padded else "#1d6996")
+                        color=CHARCOAL if row.padded else NAVY)
     axes[1].set_xticks(range(5, 9))
     axes[1].set_xlabel("network length")
     axes[1].set_ylabel("mean normalized entropy area")

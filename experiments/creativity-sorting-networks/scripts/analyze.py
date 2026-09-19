@@ -13,6 +13,15 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 
+NAVY = "#40566A"
+SLATE = "#87939C"
+CHARCOAL = "#25292C"
+plt.rcParams.update({"figure.facecolor": "white", "axes.facecolor": "white",
+                     "axes.edgecolor": CHARCOAL, "axes.labelcolor": CHARCOAL,
+                     "text.color": CHARCOAL, "xtick.color": CHARCOAL,
+                     "ytick.color": CHARCOAL, "savefig.facecolor": "white"})
+
+
 EXPERIMENT = Path(__file__).resolve().parents[1]
 CONFIG = json.loads((EXPERIMENT / "config.json").read_text(encoding="utf-8"))
 
@@ -113,16 +122,16 @@ def main() -> None:
     (artifacts / "analysis.json").write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
 
     fig, axes = plt.subplots(1, 2, figsize=(9.0, 4.0))
-    axes[0].plot(finite["length"], finite["correct_probability"], marker="o", color="#1d6996")
+    axes[0].plot(finite["length"], finite["correct_probability"], marker="o", color=NAVY)
     axes[0].set_yscale("log")
     axes[0].set_xlabel("comparator sequence length")
     axes[0].set_ylabel("exact probability of sorting all inputs")
     axes[0].set_title("Correctness is rare at the boundary", loc="left")
-    axes[0].axvline(minimum_length, color="black", linewidth=0.8, linestyle="--")
+    axes[0].axvline(minimum_length, color=CHARCOAL, linewidth=0.8, linestyle="--")
     axes[1].plot(finite["length"], finite["correct_sequences"], marker="o",
-                 label="all correct sequences", color="#1d6996")
+                 label="all correct sequences", color=NAVY)
     axes[1].plot(finite["length"], finite["padded_optimum_lower_bound"], marker="s",
-                 label="padded optimal prefixes", color="#edae49")
+                 label="padded optimal prefixes", color=SLATE)
     axes[1].set_yscale("log")
     axes[1].set_xlabel("comparator sequence length")
     axes[1].set_ylabel("exact count")

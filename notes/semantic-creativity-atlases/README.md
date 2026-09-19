@@ -1,7 +1,10 @@
-# Rarity, Compression, and Meaning in Finite Program Spaces
+# Creativity as Constrained Rarity
 
-This directory contains the compact paper synthesizing the exact Boolean and
-sorting experiments and their three validation tests.
+This directory contains the standalone paper developing the finite semantic-
+fiber formalism, proving its representation and resolution results, and testing
+it in exact Boolean-formula and sorting-network spaces.  It includes the three
+semantic validation tests and all experimental interpretation needed to read it
+independently of the rest of the repository.
 
 Build from this directory with:
 

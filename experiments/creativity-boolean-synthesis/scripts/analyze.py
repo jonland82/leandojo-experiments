@@ -12,6 +12,15 @@ import pandas as pd
 from scipy import stats
 
 
+NAVY = "#40566A"
+SLATE = "#87939C"
+CHARCOAL = "#25292C"
+plt.rcParams.update({"figure.facecolor": "white", "axes.facecolor": "white",
+                     "axes.edgecolor": CHARCOAL, "axes.labelcolor": CHARCOAL,
+                     "text.color": CHARCOAL, "xtick.color": CHARCOAL,
+                     "ytick.color": CHARCOAL, "savefig.facecolor": "white"})
+
+
 EXPERIMENT = Path(__file__).resolve().parents[1]
 CONFIG = json.loads((EXPERIMENT / "config.json").read_text(encoding="utf-8"))
 MASK = (1 << (1 << CONFIG["variables"])) - 1
@@ -157,14 +166,15 @@ def main() -> None:
 
     fig, axes = plt.subplots(1, 2, figsize=(9.0, 4.0))
     histogram = table["minimum_gates"].value_counts().sort_index()
-    axes[0].bar(histogram.index, histogram.values, color="#1d6996")
+    axes[0].bar(histogram.index, histogram.values, color=NAVY)
     axes[0].set_xlabel("exact minimum NAND gates")
     axes[0].set_ylabel("number of Boolean functions")
     axes[0].set_title("All 256 functions synthesized", loc="left")
     axes[1].scatter(table["minimum_gates"], table["boundary_surprisal_bits"],
-                    s=15, alpha=0.5, color="#777777")
+                    s=15, alpha=0.48, color=SLATE)
     for row in targets_table.itertuples():
-        axes[1].scatter(row.minimum_gates, row.boundary_surprisal_bits, s=42, color="#d95f02")
+        axes[1].scatter(row.minimum_gates, row.boundary_surprisal_bits, s=42,
+                        color=NAVY, edgecolor=CHARCOAL, linewidth=0.35)
         axes[1].annotate(row.target, (row.minimum_gates, row.boundary_surprisal_bits),
                          xytext=(4, 4), textcoords="offset points", fontsize=8)
     axes[1].set_xlabel("exact minimum NAND gates")

@@ -56,9 +56,10 @@ proofs. The full reports retain uncertainty estimates, controls, and caveats.
   a short map of nine landmark formalization projects against the frozen
   LeanDojo statement and proof spaces.
 
-- [**Rarity, Compression, and Meaning in Finite Program Spaces**](notes/semantic-creativity-atlases/note.pdf) —
-  exact Boolean-synthesis and sorting-network atlases, with symmetry-held-out
-  prediction, matched nulls, and semantic-resolution controls. A unified
+- [**Creativity as Constrained Rarity**](notes/semantic-creativity-atlases/note.pdf) —
+  a standalone formal treatment with proofs, exact Boolean-synthesis and
+  sorting-network atlases, symmetry-held-out prediction, matched nulls, and
+  semantic-resolution controls. A unified
   [HTML version](notes/creativity-sorting-permutohedron/creativity_constrained_rarity_v3.html)
   presents the shared theory in a web-readable form.
 

@@ -10,10 +10,23 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+from matplotlib.colors import LinearSegmentedColormap
 from scipy import stats
 from sklearn.decomposition import PCA
 from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.preprocessing import StandardScaler
+
+
+NAVY = "#40566A"
+SLATE = "#87939C"
+LIGHT_GRAY = "#D9DDDF"
+CHARCOAL = "#25292C"
+MUTED_CMAP = LinearSegmentedColormap.from_list(
+    "muted_navy", ["#F7F7F4", LIGHT_GRAY, SLATE, NAVY, CHARCOAL])
+plt.rcParams.update({"figure.facecolor": "white", "axes.facecolor": "white",
+                     "axes.edgecolor": CHARCOAL, "axes.labelcolor": CHARCOAL,
+                     "text.color": CHARCOAL, "xtick.color": CHARCOAL,
+                     "ytick.color": CHARCOAL, "savefig.facecolor": "white"})
 
 
 EXPERIMENT = Path(__file__).resolve().parents[1]
@@ -266,7 +279,7 @@ def main() -> None:
         classes = subset.groupby(["semantic_pc1", "semantic_pc2"], as_index=False).agg(
             minimum_gates=("minimum_gates", "mean"), class_size=("truth_table", "size"))
         scatter = axis.scatter(classes["semantic_pc1"], classes["semantic_pc2"],
-                               c=classes["minimum_gates"], cmap="viridis",
+                               c=classes["minimum_gates"], cmap=MUTED_CMAP,
                                vmin=0, vmax=maximum_size,
                                s=18 + 8 * np.sqrt(classes["class_size"]),
                                alpha=0.85, edgecolors="white", linewidths=0.3)
