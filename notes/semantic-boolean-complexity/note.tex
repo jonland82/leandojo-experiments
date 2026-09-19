@@ -1,0 +1,277 @@
+\documentclass[10pt]{article}
+\usepackage[margin=0.82in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,graphicx,microtype,placeins}
+\usepackage[font=small,skip=3pt]{caption}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt plus 1pt minus 1pt}
+\setlength{\textfloatsep}{7pt plus 2pt minus 2pt}
+\setlength{\intextsep}{7pt plus 2pt minus 2pt}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\title{\vspace{-1.7em}\textbf{Semantic Structure Predicts Exact Boolean Formula Complexity}}
+\author{J. R. Landers}
+\date{\vspace{-1.4em}}
+
+\begin{document}
+\maketitle
+\vspace{-1.6em}
+
+\begin{abstract}
+We ask how much exact Boolean formula complexity is predictable from function
+semantics rather than formula syntax.  All 256 three-input Boolean functions
+are synthesized exactly in NAND, NOR, and AND/OR/NOT formula languages.  A
+seven-nearest-neighbor model uses only truth-table invariants: signed bias,
+sorted influences, Walsh--Fourier energy by degree, algebraic degree, and
+input-permutation stabilizer size.  Prediction is evaluated after removing
+complete input-renaming orbits and, more stringently, complete fibers of the
+semantic descriptor.  Under descriptor-fiber holdout, the model explains
+$61.3\%$, $64.3\%$, and $65.6\%$ of minimum-size variance in the three
+languages.  In 1,000 permutations preserving signed bias, degree, and
+stabilizer size, no null replicate reaches the corresponding observed result
+($p=1/1001<0.001$ in each language).  Semantics therefore contains substantial
+out-of-class information about exact representation cost, although incomplete
+cross-language rank stability shows that complexity is not intrinsic to the
+function alone.
+\end{abstract}
+
+\section{Problem and formal setup}
+
+Let $\mathcal B_3=\{f:\{0,1\}^3\to\{0,1\}\}$, so
+$|\mathcal B_3|=2^8=256$.  A formula language $\mathcal L$ consists of the
+variables $x_0,x_1,x_2$ and a fixed gate basis.  Formulas are ordered rooted
+trees, and size $|e|$ is the number of gates.
+
+\begin{definition}[Exact formula complexity]
+For evaluation map $\operatorname{eval}_{\mathcal L}:E_{\mathcal L}\to
+\mathcal B_3$, define
+\[
+ A_{\mathcal L,\ell}(f)
+ =\{e:|e|=\ell,\ \operatorname{eval}_{\mathcal L}(e)=f\},
+ \qquad
+ K_{\mathcal L}(f)=\min\{\ell:A_{\mathcal L,\ell}(f)\ne\varnothing\}.
+ \tag{1}
+\]
+\end{definition}
+
+The three languages are NAND, NOR, and ordered AND/OR/NOT.  They are all
+functionally complete, but assign different costs to the same truth table.
+
+For $f\in\mathcal B_3$, the semantic descriptor $\psi(f)\in\mathbb R^{10}$
+contains signed output bias; the three variable influences sorted into
+nondecreasing order; Walsh--Fourier energy at degrees $0,1,2,3$; algebraic
+degree; and the cardinality of the stabilizer of $f$ under input permutations.
+It is computed from the truth table and contains no formula or gate data.
+
+Let $G=S_3$ act on functions by input renaming.  Both the response and the
+descriptor respect this symmetry.
+
+\begin{proposition}[Input-renaming invariance]
+For every $\pi\in S_3$, language $\mathcal L$, and function $f$,
+\[
+ K_{\mathcal L}(f\circ\pi)=K_{\mathcal L}(f),
+ \qquad \psi(f\circ\pi)=\psi(f).
+ \tag{2}
+\]
+\end{proposition}
+
+\begin{proof}
+Replacing each leaf $x_i$ by $x_{\pi(i)}$ is a size-preserving bijection
+between formulas for $f$ and formulas for $f\circ\pi$; its inverse uses
+$\pi^{-1}$.  Bias, sorted influences, Fourier energy by degree, algebraic
+degree, and stabilizer cardinality are unchanged by coordinate permutation.
+\end{proof}
+
+Thus ordinary leave-one-function-out evaluation leaks exact semantic twins:
+another member of the same orbit can remain in training.  The experiments
+remove this leakage explicitly.
+
+\section{Exact synthesis}
+
+Let $C_{\mathcal L,\ell}(t)$ be the number of ordered formulas of size $\ell$
+with truth table $t$.  If $\mathcal O_r$ is the set of $r$-ary gates, exact
+root decomposition gives the following dynamic program.
+
+\begin{theorem}[Semantic root recurrence]
+Writing $v_i=\operatorname{eval}(x_i)$,
+\[
+ C_{\mathcal L,0}(t)=|\{i:v_i=t\}|,
+ \tag{3}
+\]
+and, for $\ell\ge1$,
+\[
+ C_{\mathcal L,\ell}(t)=
+ \sum_{r\ge1}\sum_{o\in\mathcal O_r}
+ \sum_{\ell_1+\cdots+\ell_r=\ell-1}
+ \sum_{o(t_1,\ldots,t_r)=t}
+ \prod_{j=1}^r C_{\mathcal L,\ell_j}(t_j).
+ \tag{4}
+\]
+Consequently, the first $\ell$ with $C_{\mathcal L,\ell}(t)>0$ is the exact
+minimum $K_{\mathcal L}(t)$.
+\end{theorem}
+
+\begin{proof}
+Every non-leaf formula has a unique root gate, ordered tuple of root
+subformulas, and ordered composition of their gate counts summing to
+$\ell-1$.  Conversely, every term on the right constructs exactly one formula
+of size $\ell$ and truth table $t$.  The constructions are inverse.
+\end{proof}
+
+For NAND and NOR, summing (4) over truth tables independently recovers
+\[
+ |E_{\mathcal L,\ell}|=\operatorname{Catalan}(\ell)3^{\ell+1}.
+ \tag{5}
+\]
+For AND/OR/NOT, with $T_0=3$, the independent syntax recurrence is
+\[
+ T_\ell=T_{\ell-1}+2\sum_{i=0}^{\ell-1}T_iT_{\ell-1-i}.
+ \tag{6}
+\]
+Both identities are checked at every enumerated size.  All 256 functions are
+reached in all three languages; the largest NAND and NOR minimum is 14 gates.
+
+\section{Prediction and falsification protocol}
+
+The descriptor coordinates are standardized, and the predictor is deliberately
+simple.  For a held-out function $f$, let $N_7(f)$ be its seven nearest
+training functions in Euclidean descriptor distance, and set
+\[
+ \widehat K_{\mathcal L}(f)
+ =\frac1{7}\sum_{g\in N_7(f)}K_{\mathcal L}(g).
+ \tag{7}
+\]
+The same choice $k=7$ is fixed across all languages and protocols.
+
+Three nested protocols are used:
+\begin{enumerate}
+  \setlength{\itemsep}{0pt}
+  \setlength{\parskip}{0pt}
+  \item \emph{function holdout}: remove only $f$;
+  \item \emph{orbit holdout}: remove the complete $S_3$ orbit of $f$;
+  \item \emph{descriptor holdout}: remove every $g$ with $\psi(g)=\psi(f)$.
+\end{enumerate}
+The 256 functions form 80 input-permutation orbits and 36 exact descriptor
+classes.  The last protocol tests interpolation to a genuinely unseen semantic
+profile, not recognition of an invariant twin.
+
+\begin{proposition}[No descriptor leakage]
+Under descriptor holdout, no test function and training function have equal
+$\psi$.  Since $\psi$ is input-renaming invariant, this also excludes every
+input-renamed copy of each test function.
+\end{proposition}
+
+\begin{proof}
+The first statement is the definition of holding out the complete fiber
+$\psi^{-1}(\psi(f))$.  Equation (2) places the full $S_3$ orbit inside that
+fiber, giving the second statement.
+\end{proof}
+
+Performance is summarized globally by
+\[
+ R^2=1-\frac{\sum_f(K_{\mathcal L}(f)-\widehat K_{\mathcal L}(f))^2}
+ {\sum_f(K_{\mathcal L}(f)-\overline K_{\mathcal L})^2}.
+ \tag{8}
+\]
+
+The matched null preserves three conspicuous correlates of complexity.  Let
+$z(f)$ be signed bias, algebraic degree, and stabilizer size.  Within each exact
+$z$-stratum, the $K_{\mathcal L}$ labels are permuted, the fixed descriptor
+holdout prediction plan is reevaluated, and its $R^2$ is recorded.  This tests
+conditional exchangeability
+\[
+ H_0:\quad K_{\mathcal L}\ \perp\!\!\!\perp\ \psi\mid z.
+ \tag{9}
+\]
+With $B=1000$ permutations, the one-sided randomization value is
+\[
+ p=\frac{1+\#\{b:R_b^2\ge R_{\mathrm{obs}}^2\}}{B+1}.
+ \tag{10}
+\]
+
+\section{Results}
+
+The stricter the held-out equivalence class, the lower the estimate, as
+expected.  The main result is the descriptor-class column of Table~\ref{tab:prediction}:
+even when no training function shares the test descriptor, semantics explains
+between $61\%$ and $66\%$ of exact minimum-size variance.
+
+\begin{table}[!htbp]
+\centering
+\small
+\begin{tabular}{lrrrrr}
+\toprule
+Language & Function $R^2$ & Orbit $R^2$ & Descriptor $R^2$ & Strict RMSE & Null 95\% interval \\
+\midrule
+NAND       & 0.831 & 0.726 & 0.613 & 1.583 & $[-0.271,\ 0.118]$ \\
+NOR        & 0.833 & 0.729 & 0.643 & 1.522 & $[-0.269,\ 0.106]$ \\
+AND/OR/NOT & 0.920 & 0.859 & 0.656 & 1.161 & $[-0.149,\ 0.155]$ \\
+\bottomrule
+\end{tabular}
+\caption{Prediction of exact minimum gate count.  The null interval is the
+central 95\% of 1,000 $z$-stratified permutations under descriptor holdout.
+No null replicate reaches its observed descriptor-held-out $R^2$, so
+$p=1/1001<0.001$ for every language.}
+\label{tab:prediction}
+\end{table}
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=0.98\textwidth]{../../experiments/creativity-atlas-validation/figures/boolean_validation.pdf}
+  \caption{Leakage and null controls.  Predictive power attenuates as complete
+  semantic neighborhoods are removed (left), but every strict result remains
+  far beyond its matched permutation distribution (right).  Vertical lines
+  mark the observed descriptor-held-out values.}
+  \label{fig:validation}
+\end{figure}
+\FloatBarrier
+
+The effect replicates across three cost models, but the costs are not identical.
+Spearman correlations of $K_{\mathcal L}(f)$ are $0.548$ for NAND versus NOR
+and $0.805$ for each comparison with AND/OR/NOT.  Thus the descriptor captures
+a shared semantic component without making formula complexity
+representation-independent.
+
+Figure~\ref{fig:atlas} uses a two-dimensional projection only for display; all
+prediction and grouping use the full ten-coordinate descriptor.  Persistent
+color structure across panels visualizes the shared component, while color
+changes show language-dependent residual cost.
+
+\clearpage
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=0.98\textwidth]{../../experiments/creativity-boolean-atlas/figures/boolean_semantic_atlas.pdf}
+  \caption{One syntax-free semantic map colored by exact minimum formula size
+  in three languages.  Point area records multiplicity after projection.
+  Labeled functions were fixed before analysis.}
+  \label{fig:atlas}
+\end{figure}
+\FloatBarrier
+
+\section{Interpretation and limitations}
+
+The experiment establishes a narrow claim: elementary, syntax-free properties
+of a Boolean function contain substantial information about its exact minimal
+representation cost beyond input renaming, exact descriptor duplication, and
+the matched effects of bias, algebraic degree, and symmetry.  It does not show
+that ``meaning determines difficulty.''  Approximately one third of variance
+remains under the strict protocol, and cross-language rankings are imperfect.
+
+The principal limitations are scale and feature design.  There are only three
+inputs, related classical gate bases, 256 functions, and a hand-designed
+descriptor.  Standard $R^2$ is descriptive over this complete finite universe;
+the permutation test, not an asymptotic sampling model, supplies the stated
+inferential calibration.  A stronger follow-up would enumerate selected
+four-input families, compare substantially different computational models,
+and preregister descriptor ablations.  The present result is valuable because
+its targets are globally exact and its principal leakage modes are explicitly
+removed.
+
+\paragraph{Reproducibility.}
+Exact synthesis, invariant checks, prediction folds, and all 1,000 null draws
+(seed 0) are generated by the checked-in Boolean-atlas and validation scripts.
+The experiment uses no model APIs or cloud services.
+
+\end{document}
