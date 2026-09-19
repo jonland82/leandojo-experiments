@@ -11,12 +11,10 @@ Local archival copy of J. R. Landers, *Creativity and Sorting: Rarity at the
 The HTML is preserved unchanged so the controlled experiments can cite a
 stable repository-local source.
 
-## Corrected revision
+## Unified experimental note
 
 [`creativity_constrained_rarity_v3.html`](creativity_constrained_rarity_v3.html)
 replaces the sorting-specific argument with one representation-conditional
 formalism shared by the exact sorting-network and Boolean-synthesis
-experiments. It records the validated results, removes the invalid
-adjacent-swap theorem and unsupported gradient-flow inference, and states the
-limits of rarity and compression explicitly. The original file above remains
-unchanged for provenance.
+experiments. It records the validated results and states the limits of rarity,
+compression, and semantic resolution explicitly.

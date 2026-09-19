@@ -13,7 +13,7 @@
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <style>
     :root { --ink:#1e2933; --muted:#5d6871; --line:#d7dde2; --paper:#fffefb;
-      --wash:#f3f6f7; --accent:#176b87; --warm:#a54b19; }
+      --wash:#f3f6f7; --accent:#176b87; }
     * { box-sizing: border-box; }
     body { margin:0; background:#edf1f2; color:var(--ink); font-family:Georgia,"Times New Roman",serif;
       font-size:18px; line-height:1.58; }
@@ -26,12 +26,10 @@
     p { margin:.8em 0; } a { color:var(--accent); }
     .subtitle { margin:.5em 0 0; color:var(--muted); font-size:1.08rem; }
     .author { margin:1.1em 0 2.1em; font-size:.98rem; }
-    .abstract,.result,.warning { margin:1.4em 0; padding:1em 1.15em; border-left:4px solid var(--accent);
+    .abstract,.result { margin:1.4em 0; padding:1em 1.15em; border-left:4px solid var(--accent);
       background:var(--wash); }
-    .warning { border-left-color:var(--warm); }
     .label { display:block; margin-bottom:.3em; font-family:Arial,sans-serif; font-size:.76rem;
       font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--accent); }
-    .warning .label { color:var(--warm); }
     table { width:100%; margin:1.2em 0; border-collapse:collapse; font-size:.91rem; }
     th,td { padding:.48em .55em; border-bottom:1px solid var(--line); text-align:right; }
     th:first-child,td:first-child { text-align:left; }
@@ -51,7 +49,7 @@
   <header>
     <h1>Creativity as Constrained Rarity</h1>
     <p class="subtitle">Exact experiments in finite program spaces</p>
-    <p class="author">J. R. Landers · corrected experimental revision, 2026</p>
+    <p class="author">J. R. Landers · 2026</p>
   </header>
 
   <section class="abstract">
@@ -180,14 +178,6 @@
       <li><strong>The numbers are conditional.</strong> Rarity and compression depend on language, prior, and baseline.</li>
       <li><strong>Geometry depends on resolution.</strong> A coarse invariant may conceal distinct semantic paths.</li>
     </ol>
-    <div class="warning"><span class="label">Correction to the archived sorting note</span>
-      The earlier note's adjacent-swap path theorem was false as stated: the Cayley graph is
-      bipartite, so an exact path from a permutation of inversion length \(I\) to the identity can
-      exist only when \(L-I\) is even. Appending \(m\) backtracking pairs supports only the corrected lower bound
-      $$|\Gamma_{I+2m}(\sigma)|\ge (n-1)^m|\Gamma_I(\sigma)|,$$
-      not an exponent of \(L-I\), and it gives no odd-length comparison. That specialized theorem,
-      the continuous gradient-flow argument, and the claim of intrinsic trajectory straightening
-      are therefore not used here.</div>
   </section>
 
   <section>
@@ -219,8 +209,7 @@ python experiments/creativity-atlas-validation/scripts/analyze.py</pre>
       Compression, and Meaning in Finite Program Spaces</a>.</p>
   </section>
 
-  <footer>This corrected revision preserves the original HTML separately as a historical source. It does
-    not silently alter the archived document or its checksum.</footer>
+  <footer>All numerical claims are generated from the checked-in exact-enumeration artifacts.</footer>
 </article>
 </body>
 </html>
