@@ -141,7 +141,7 @@
     th:first-child, td:first-child { text-align: left; }
     th { color: var(--navy-dark); background: var(--soft); font-size: 11px; letter-spacing: .025em; }
     figure { margin: 31px 0 38px; }
-    figure img { width: 100%; border: 1px solid #d8dbdc; background: white; }
+    figure img { width: 100%; height: auto; border: 1px solid #d8dbdc; background: white; }
     figcaption, .table-caption {
       margin-top: 9px; color: #4d555a; font-family: Arial, sans-serif; font-size: 13px; line-height: 1.45;
     }
@@ -327,7 +327,7 @@
         <p class="table-caption"><strong>Table 1.</strong> Prediction of exact minimum gate count. The null interval is the central 95% of 1,000 \(z\)-stratified permutations under descriptor holdout. No null replicate reaches its observed descriptor-held-out \(R^2\), so \(p=1/1001&lt;0.001\) for every language.</p>
 
         <figure id="validation-figure">
-          <img src="../../experiments/creativity-atlas-validation/figures/boolean_validation.png" alt="Three panels compare prediction under function, orbit, and descriptor holdouts, followed by matched permutation null distributions for each formula language." width="1800" height="720">
+          <img src="../../experiments/creativity-atlas-validation/figures/boolean_validation.svg" alt="Three panels compare prediction under function, orbit, and descriptor holdouts, followed by matched permutation null distributions for each formula language.">
           <figcaption><strong>Figure 1.</strong> Leakage and null controls. Predictive power attenuates as complete semantic neighborhoods are removed (left), but every strict result remains far beyond its matched permutation distribution (right). Vertical lines mark the observed descriptor-held-out values.</figcaption>
         </figure>
 
@@ -335,7 +335,7 @@
         <p>Figure 2 uses a two-dimensional projection only for display; all prediction and grouping use the full ten-coordinate descriptor. Persistent color structure across panels visualizes the shared component, while color changes show language-dependent residual cost.</p>
 
         <figure id="atlas-figure">
-          <img src="../../experiments/creativity-boolean-atlas/figures/boolean_semantic_atlas.png" alt="The same two-dimensional semantic map of Boolean functions is shown for NAND, NOR, and AND/OR/NOT, with point shade indicating exact minimum gates." width="1800" height="720">
+          <img src="../../experiments/creativity-boolean-atlas/figures/boolean_semantic_atlas.svg" alt="The same two-dimensional semantic map of Boolean functions is shown for NAND, NOR, and AND/OR/NOT, with point shade indicating exact minimum gates.">
           <figcaption><strong>Figure 2.</strong> One syntax-free semantic map colored by exact minimum formula size in three languages. Point area records multiplicity after projection. Labeled functions were fixed before analysis.</figcaption>
         </figure>
       </section>

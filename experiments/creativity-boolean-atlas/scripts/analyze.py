@@ -309,6 +309,7 @@ def main() -> None:
     fig.subplots_adjust(left=0.07, right=0.91, bottom=0.14, top=0.84, wspace=0.10)
     fig.savefig(figures / "boolean_semantic_atlas.png", dpi=220)
     fig.savefig(figures / "boolean_semantic_atlas.pdf")
+    fig.savefig(figures / "boolean_semantic_atlas.svg")
     plt.close(fig)
 
     min_stability = stability["minimum_gates"]

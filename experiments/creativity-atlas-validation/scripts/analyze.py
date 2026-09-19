@@ -319,6 +319,7 @@ def main() -> None:
     fig.tight_layout()
     fig.savefig(figures / "boolean_validation.png", dpi=220, bbox_inches="tight")
     fig.savefig(figures / "boolean_validation.pdf", bbox_inches="tight")
+    fig.savefig(figures / "boolean_validation.svg", bbox_inches="tight")
     plt.close(fig)
 
     fig, axes = plt.subplots(1, 2, figsize=(10.0, 4.1))
