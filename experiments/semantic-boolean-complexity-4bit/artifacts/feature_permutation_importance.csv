@@ -1,0 +1,199 @@
+index,feature,status,family,language,importance_mean,importance_std
+0,algebraic_degree,used,ANF,AND_OR_NOT,5.680350497236642e-05,5.488561571067611e-05
+1,algebraic_degree,used,ANF,NAND,-6.856250421907461e-05,9.641685148607247e-05
+2,algebraic_degree,used,ANF,NOR,-5.088493587188658e-05,0.00010970982526992419
+3,and_factorable_partitions,new,factorability,AND_OR_NOT,1.1133423713727276e-06,3.351473802722852e-06
+4,and_factorable_partitions,new,factorability,NAND,1.8258263169954047e-05,3.515464928356056e-05
+5,and_factorable_partitions,new,factorability,NOR,5.330756259092351e-05,0.00012841562886039485
+6,anf_terms_degree_0,new,ANF support,AND_OR_NOT,0.025157205465839362,0.0023869084778107468
+7,anf_terms_degree_0,new,ANF support,NAND,0.007538919584365683,0.0014430166483123045
+8,anf_terms_degree_0,new,ANF support,NOR,0.0034935214910059103,0.0015056074443086918
+9,anf_terms_degree_1,new,ANF support,AND_OR_NOT,0.005960876914972571,0.0015487264176992264
+10,anf_terms_degree_1,new,ANF support,NAND,0.09757046801502556,0.008529929575073831
+11,anf_terms_degree_1,new,ANF support,NOR,0.037481331095846684,0.004539911673845093
+12,anf_terms_degree_2,new,ANF support,AND_OR_NOT,0.002132620014859049,0.000495665656469875
+13,anf_terms_degree_2,new,ANF support,NAND,0.020125885644338228,0.002422759456488529
+14,anf_terms_degree_2,new,ANF support,NOR,0.010207452893591682,0.0014402795811649884
+15,anf_terms_degree_3,new,ANF support,AND_OR_NOT,0.0011192559728411405,0.0003996262871370117
+16,anf_terms_degree_3,new,ANF support,NAND,0.0005101922109493784,0.0004303467385046903
+17,anf_terms_degree_3,new,ANF support,NOR,0.0012428771977837983,0.0006345618631562709
+18,anf_terms_degree_4,new,ANF support,AND_OR_NOT,0.0,0.0
+19,anf_terms_degree_4,new,ANF support,NAND,0.0,0.0
+20,anf_terms_degree_4,new,ANF support,NOR,0.0,0.0
+21,bias,used,output balance,AND_OR_NOT,-5.208362510716879e-06,5.660833497500705e-05
+22,bias,used,output balance,NAND,0.0002001313885217876,0.00015053152269912343
+23,bias,used,output balance,NOR,0.00014143439864809925,0.000178029530289986
+24,canalizing_variable_count,new,restrictions,AND_OR_NOT,-2.7532552731024397e-07,5.576660005403064e-07
+25,canalizing_variable_count,new,restrictions,NAND,0.0,0.0
+26,canalizing_variable_count,new,restrictions,NOR,0.0,0.0
+27,cofactor_orbit_diversity,new,restrictions,AND_OR_NOT,0.004977010744267321,0.0015087561560675014
+28,cofactor_orbit_diversity,new,restrictions,NAND,0.0005535091536148007,0.0003000438197452863
+29,cofactor_orbit_diversity,new,restrictions,NOR,0.0003004293274282116,0.0003218943668849933
+30,constant_faces_codimension_1,new,restrictions,AND_OR_NOT,2.5293466892617464e-07,7.884676396104724e-07
+31,constant_faces_codimension_1,new,restrictions,NAND,-1.0857522699775358e-06,3.7661200064300947e-06
+32,constant_faces_codimension_1,new,restrictions,NOR,9.241265286896727e-08,3.339709718049836e-07
+33,constant_faces_codimension_2,new,restrictions,AND_OR_NOT,0.0005365283355560607,0.00014723450728359197
+34,constant_faces_codimension_2,new,restrictions,NAND,4.987606221353025e-05,0.0001201624395740435
+35,constant_faces_codimension_2,new,restrictions,NOR,0.00018273691051689522,0.00011640010034133062
+36,constant_faces_codimension_3,new,restrictions,AND_OR_NOT,0.00011725454962583647,6.133697780364157e-05
+37,constant_faces_codimension_3,new,restrictions,NAND,8.79078147241641e-05,0.00012863245289471665
+38,constant_faces_codimension_3,new,restrictions,NOR,2.2465106794367084e-05,0.00010444299520719302
+39,decision_tree_depth,new,decision trees,AND_OR_NOT,0.00018059538029750188,0.00015764528291137766
+40,decision_tree_depth,new,decision trees,NAND,5.952563731435878e-05,8.088031738251359e-05
+41,decision_tree_depth,new,decision trees,NOR,-1.2201819259233249e-05,7.409626945748506e-05
+42,decision_tree_leaf_count,new,decision trees,AND_OR_NOT,0.3829746679057774,0.040867364906665114
+43,decision_tree_leaf_count,new,decision trees,NAND,0.1924225267718096,0.011101917475403076
+44,decision_tree_leaf_count,new,decision trees,NOR,0.27385464158729367,0.02155294585967037
+45,fourier_energy_degree_0,used,Fourier magnitude,AND_OR_NOT,0.00028095279085348925,0.00012994274424160587
+46,fourier_energy_degree_0,used,Fourier magnitude,NAND,6.914359682439475e-05,7.869290074806645e-05
+47,fourier_energy_degree_0,used,Fourier magnitude,NOR,0.00010809892858914538,0.00012860353990421997
+48,fourier_energy_degree_1,used,Fourier magnitude,AND_OR_NOT,0.0007035089587673737,0.00028248853101302105
+49,fourier_energy_degree_1,used,Fourier magnitude,NAND,0.0005519537273260655,0.0002368543528253842
+50,fourier_energy_degree_1,used,Fourier magnitude,NOR,0.000703319415379347,0.0003896382546232208
+51,fourier_energy_degree_2,used,Fourier magnitude,AND_OR_NOT,0.023405757308083832,0.002523538968934279
+52,fourier_energy_degree_2,used,Fourier magnitude,NAND,0.004639522023841122,0.0012622158012064013
+53,fourier_energy_degree_2,used,Fourier magnitude,NOR,0.006215924316105412,0.0022353673824250567
+54,fourier_energy_degree_3,used,Fourier magnitude,AND_OR_NOT,0.00490730248134093,0.0016945482336793265
+55,fourier_energy_degree_3,used,Fourier magnitude,NAND,0.0030434651214762075,0.0013186978580072683
+56,fourier_energy_degree_3,used,Fourier magnitude,NOR,0.0040216824356373495,0.0011746107488660783
+57,fourier_energy_degree_4,used,Fourier magnitude,AND_OR_NOT,0.003073956050237886,0.0009170970052550554
+58,fourier_energy_degree_4,used,Fourier magnitude,NAND,0.0006055343698662813,0.00029551837077971654
+59,fourier_energy_degree_4,used,Fourier magnitude,NOR,0.0045892929027193385,0.0010713898148179903
+60,fourier_entropy,new,Fourier shape,AND_OR_NOT,7.994642718719969e-05,6.674151844957749e-05
+61,fourier_entropy,new,Fourier shape,NAND,5.066246877050429e-05,6.18218500262721e-05
+62,fourier_entropy,new,Fourier shape,NOR,0.00012644902836755345,0.00013127105387996188
+63,fourier_l1_degree_0,new,Fourier shape,AND_OR_NOT,0.0,0.0
+64,fourier_l1_degree_0,new,Fourier shape,NAND,0.0,0.0
+65,fourier_l1_degree_0,new,Fourier shape,NOR,0.0,0.0
+66,fourier_l1_degree_1,new,Fourier shape,AND_OR_NOT,0.00036067698350612245,0.00015396185304428838
+67,fourier_l1_degree_1,new,Fourier shape,NAND,0.0005169297982327986,0.00027914390781924147
+68,fourier_l1_degree_1,new,Fourier shape,NOR,-3.3599321564092846e-05,0.00022603238165599013
+69,fourier_l1_degree_2,new,Fourier shape,AND_OR_NOT,0.0009064653341242096,0.00039798952157574946
+70,fourier_l1_degree_2,new,Fourier shape,NAND,1.4649035630998064e-05,7.715965397212909e-05
+71,fourier_l1_degree_2,new,Fourier shape,NOR,8.287633343837807e-05,0.0001861419486990837
+72,fourier_l1_degree_3,new,Fourier shape,AND_OR_NOT,0.0007716166076394721,0.0004677751212895511
+73,fourier_l1_degree_3,new,Fourier shape,NAND,0.0011842705886129733,0.0006502416077104978
+74,fourier_l1_degree_3,new,Fourier shape,NOR,0.0010428686206796684,0.00043710402445090854
+75,fourier_l1_degree_4,new,Fourier shape,AND_OR_NOT,0.0,0.0
+76,fourier_l1_degree_4,new,Fourier shape,NAND,0.0,0.0
+77,fourier_l1_degree_4,new,Fourier shape,NOR,0.0,0.0
+78,fourier_negative_degree_0,new,Fourier phase,AND_OR_NOT,2.3743331845904603e-07,4.7612512688536655e-06
+79,fourier_negative_degree_0,new,Fourier phase,NAND,7.124902560814994e-06,1.5682683529831765e-05
+80,fourier_negative_degree_0,new,Fourier phase,NOR,3.912009215634171e-06,2.6595348086122038e-05
+81,fourier_negative_degree_1,new,Fourier phase,AND_OR_NOT,0.007591533336515297,0.0013076159917355876
+82,fourier_negative_degree_1,new,Fourier phase,NAND,0.008963575257996579,0.001214822326821554
+83,fourier_negative_degree_1,new,Fourier phase,NOR,0.015858186729775382,0.0023850702553991107
+84,fourier_negative_degree_2,new,Fourier phase,AND_OR_NOT,0.021581934022521346,0.0036536434101076586
+85,fourier_negative_degree_2,new,Fourier phase,NAND,0.0015654601569161624,0.0006511547263214723
+86,fourier_negative_degree_2,new,Fourier phase,NOR,0.012222238976929372,0.0019487512450114786
+87,fourier_negative_degree_3,new,Fourier phase,AND_OR_NOT,0.006476629163289016,0.0010831603014994611
+88,fourier_negative_degree_3,new,Fourier phase,NAND,0.00938279919886143,0.0018921636900713767
+89,fourier_negative_degree_3,new,Fourier phase,NOR,0.035012351277633004,0.0032901804674285323
+90,fourier_negative_degree_4,new,Fourier phase,AND_OR_NOT,0.016808943769605147,0.0026336142692842093
+91,fourier_negative_degree_4,new,Fourier phase,NAND,0.009030220720859882,0.0018988261788717268
+92,fourier_negative_degree_4,new,Fourier phase,NOR,0.023280852101546037,0.003640873184737907
+93,fourier_zero_degree_0,new,Fourier shape,AND_OR_NOT,-2.079981566927014e-07,1.4109465148840787e-05
+94,fourier_zero_degree_0,new,Fourier shape,NAND,-6.550498309831898e-07,1.268436951808428e-05
+95,fourier_zero_degree_0,new,Fourier shape,NOR,-8.183789449139889e-06,2.553974002722376e-05
+96,fourier_zero_degree_1,new,Fourier shape,AND_OR_NOT,0.0003588578473005755,0.00023214431067717487
+97,fourier_zero_degree_1,new,Fourier shape,NAND,0.0001785455961404475,0.00021105024185875878
+98,fourier_zero_degree_1,new,Fourier shape,NOR,4.406492556015551e-05,0.0003360152322219438
+99,fourier_zero_degree_2,new,Fourier shape,AND_OR_NOT,0.0015470805526138249,0.0004976930632638517
+100,fourier_zero_degree_2,new,Fourier shape,NAND,3.813032985086895e-05,0.0002159873042919141
+101,fourier_zero_degree_2,new,Fourier shape,NOR,-8.759880124775687e-06,7.829037103259965e-05
+102,fourier_zero_degree_3,new,Fourier shape,AND_OR_NOT,0.00015414119581239337,0.00012888866949481748
+103,fourier_zero_degree_3,new,Fourier shape,NAND,0.00020662301435020182,0.00020967005848173854
+104,fourier_zero_degree_3,new,Fourier shape,NOR,0.0016008561657194858,0.0005886607220482338
+105,fourier_zero_degree_4,new,Fourier shape,AND_OR_NOT,-7.444765664912922e-06,6.845994455888917e-05
+106,fourier_zero_degree_4,new,Fourier shape,NAND,1.4312912915120934e-05,2.1909886761677993e-05
+107,fourier_zero_degree_4,new,Fourier shape,NOR,1.8683055628829214e-05,4.785274892929913e-05
+108,influence_0,used,influence,AND_OR_NOT,0.0014689002213350566,0.0004903001411731492
+109,influence_0,used,influence,NAND,0.00044237021051099225,0.0003714232751380247
+110,influence_0,used,influence,NOR,0.001308343208614507,0.0005664493322870821
+111,influence_1,used,influence,AND_OR_NOT,0.0003011309107604998,0.00022648015830298253
+112,influence_1,used,influence,NAND,0.00012338335818888602,0.000185772254722593
+113,influence_1,used,influence,NOR,7.929828068414524e-05,0.00019898273183224186
+114,influence_2,used,influence,AND_OR_NOT,0.0005634858990870101,0.0002327524105131818
+115,influence_2,used,influence,NAND,0.0001068941844188459,0.0001976528644499184
+116,influence_2,used,influence,NOR,0.0002842581988407117,0.00021410916357097898
+117,influence_3,used,influence,AND_OR_NOT,0.0010092716511936161,0.0003431531435478849
+118,influence_3,used,influence,NAND,-2.3240301246654772e-05,0.0003342156352417611
+119,influence_3,used,influence,NOR,3.601121243987371e-05,9.637855130994025e-05
+120,input_symmetries,used,symmetry,AND_OR_NOT,0.01571262415369451,0.0023490900461032773
+121,input_symmetries,used,symmetry,NAND,0.0012316487458287728,0.0006716575118734839
+122,input_symmetries,used,symmetry,NOR,0.0033651904479864657,0.001109038536500404
+123,khrapchenko_product,new,local sensitivity,AND_OR_NOT,0.05170109540217517,0.009894672867136176
+124,khrapchenko_product,new,local sensitivity,NAND,0.04463224148840252,0.007249839059568029
+125,khrapchenko_product,new,local sensitivity,NOR,0.0682413996772461,0.008435589331449835
+126,maximum_absolute_walsh,new,Fourier shape,AND_OR_NOT,0.00016088277872045031,9.671675095085048e-05
+127,maximum_absolute_walsh,new,Fourier shape,NAND,6.656478368948781e-05,0.00012004267363182037
+128,maximum_absolute_walsh,new,Fourier shape,NOR,4.200115628938128e-05,0.00012969059091552315
+129,maximum_certificate_size,new,certificates,AND_OR_NOT,1.4261929911169036e-05,1.6600029311663594e-05
+130,maximum_certificate_size,new,certificates,NAND,1.2137810251389158e-05,2.7344925375064324e-05
+131,maximum_certificate_size,new,certificates,NOR,3.0334276072130353e-07,9.407868356673026e-07
+132,maximum_local_sensitivity,new,local sensitivity,AND_OR_NOT,0.0026446713464615664,0.0008505548309066899
+133,maximum_local_sensitivity,new,local sensitivity,NAND,0.008359811521221255,0.0010148288497066312
+134,maximum_local_sensitivity,new,local sensitivity,NOR,0.007013648020296514,0.0019854093856365366
+135,mean_certificate_size,new,certificates,AND_OR_NOT,0.2787205790668833,0.050809872536647815
+136,mean_certificate_size,new,certificates,NAND,0.002936879136229856,0.0008618924643299627
+137,mean_certificate_size,new,certificates,NOR,0.008827328379987662,0.002196537789949574
+138,mean_certificate_size_output_0,new,certificates,AND_OR_NOT,0.0005461150381513319,0.00043130856781058114
+139,mean_certificate_size_output_0,new,certificates,NAND,0.0009341746202332468,0.0004433264034453925
+140,mean_certificate_size_output_0,new,certificates,NOR,0.07068493608147944,0.019214359249123774
+141,mean_certificate_size_output_1,new,certificates,AND_OR_NOT,0.0010454430747369292,0.00048159391154725185
+142,mean_certificate_size_output_1,new,certificates,NAND,0.07858627015064215,0.012077922671474766
+143,mean_certificate_size_output_1,new,certificates,NOR,0.0018781710603804568,0.000894996036532008
+144,one_conditional_sensitivity,new,local sensitivity,AND_OR_NOT,6.218419971018018e-05,0.0001497211505924406
+145,one_conditional_sensitivity,new,local sensitivity,NAND,0.0009710019717818735,0.000567721058956624
+146,one_conditional_sensitivity,new,local sensitivity,NOR,0.0003323500775759741,0.00017501802485180628
+147,one_region_components,new,cube topology,AND_OR_NOT,6.050112818291042e-05,0.00016574858411203187
+148,one_region_components,new,cube topology,NAND,0.003955458556762712,0.0012119023283877423
+149,one_region_components,new,cube topology,NOR,0.00029559839149777,0.0002344836607487381
+150,or_factorable_partitions,new,factorability,AND_OR_NOT,3.760202373757904e-05,4.806893409586255e-05
+151,or_factorable_partitions,new,factorability,NAND,0.0001173460934779047,0.00013958981273353075
+152,or_factorable_partitions,new,factorability,NOR,1.8980691960823748e-05,3.288924874097586e-05
+153,order_2_derivative_max,new,higher derivatives,AND_OR_NOT,0.00011892054252582996,9.061432623140579e-05
+154,order_2_derivative_max,new,higher derivatives,NAND,0.00025012473970510707,0.00021274935361563946
+155,order_2_derivative_max,new,higher derivatives,NOR,7.363545785562254e-05,0.00013711375628630478
+156,order_2_derivative_std,new,higher derivatives,AND_OR_NOT,0.006395146076376401,0.0016135754242252276
+157,order_2_derivative_std,new,higher derivatives,NAND,0.001925622180977568,0.0008208458273381732
+158,order_2_derivative_std,new,higher derivatives,NOR,0.0017403054181828054,0.0006742671992856472
+159,order_3_derivative_max,new,higher derivatives,AND_OR_NOT,0.0001366158630125791,0.00010232284931976992
+160,order_3_derivative_max,new,higher derivatives,NAND,0.00021199545129133024,0.0002813379655706499
+161,order_3_derivative_max,new,higher derivatives,NOR,0.0001262484528844504,0.000188778067310154
+162,order_3_derivative_std,new,higher derivatives,AND_OR_NOT,0.001519978471273367,0.000544548215618497
+163,order_3_derivative_std,new,higher derivatives,NAND,0.0001311514362045213,0.00021594607470848173
+164,order_3_derivative_std,new,higher derivatives,NOR,0.0005414277891305774,0.0003005483862466211
+165,prime_0_count,new,prime cubes,AND_OR_NOT,0.0003277615929502403,0.00026617373677151655
+166,prime_0_count,new,prime cubes,NAND,0.0006170609816583711,0.00036719398234274906
+167,prime_0_count,new,prime cubes,NOR,0.002765521034443527,0.0007786602044431133
+168,prime_0_mean_literals,new,prime cubes,AND_OR_NOT,0.0003090962202282305,0.00021317575716226522
+169,prime_0_mean_literals,new,prime cubes,NAND,0.0003375889107079089,0.00018497354932497375
+170,prime_0_mean_literals,new,prime cubes,NOR,0.07179098318642048,0.01846443175013785
+171,prime_0_minimum_literals,new,prime cubes,AND_OR_NOT,0.0,0.0
+172,prime_0_minimum_literals,new,prime cubes,NAND,0.0,0.0
+173,prime_0_minimum_literals,new,prime cubes,NOR,0.0,0.0
+174,prime_1_count,new,prime cubes,AND_OR_NOT,8.397288775138234e-05,0.0001276186979907475
+175,prime_1_count,new,prime cubes,NAND,0.0016278531024437298,0.000754052557408048
+176,prime_1_count,new,prime cubes,NOR,0.0011612933666152792,0.0005206076668885038
+177,prime_1_mean_literals,new,prime cubes,AND_OR_NOT,0.0012514557300724732,0.00040128619296994156
+178,prime_1_mean_literals,new,prime cubes,NAND,0.06354197195540895,0.009763389353643062
+179,prime_1_mean_literals,new,prime cubes,NOR,0.0007882774941469578,0.0004784644588417623
+180,prime_1_minimum_literals,new,prime cubes,AND_OR_NOT,0.0,0.0
+181,prime_1_minimum_literals,new,prime cubes,NAND,0.0,0.0
+182,prime_1_minimum_literals,new,prime cubes,NOR,0.0,0.0
+183,sensitivity_variance,new,local sensitivity,AND_OR_NOT,0.004080104169717019,0.00200950236600128
+184,sensitivity_variance,new,local sensitivity,NAND,0.002549511305039889,0.0008917067272287555
+185,sensitivity_variance,new,local sensitivity,NOR,0.002857475779596988,0.0010412573024544119
+186,total_monochromatic_components,new,cube topology,AND_OR_NOT,0.004792710590932653,0.0013294602688863622
+187,total_monochromatic_components,new,cube topology,NAND,0.009228290675426748,0.0021389754285790217
+188,total_monochromatic_components,new,cube topology,NOR,0.011266832388193732,0.0037726037465046726
+189,xor_factorable_partitions,new,factorability,AND_OR_NOT,0.00013677836134152465,0.00012482378132886425
+190,xor_factorable_partitions,new,factorability,NAND,-7.215978043126348e-06,1.1310428869905945e-05
+191,xor_factorable_partitions,new,factorability,NOR,2.0792052927245953e-05,6.487736366410813e-05
+192,zero_conditional_sensitivity,new,local sensitivity,AND_OR_NOT,0.0001480045926602669,0.00012652575401949834
+193,zero_conditional_sensitivity,new,local sensitivity,NAND,0.00017456429263439655,0.0002581456408627259
+194,zero_conditional_sensitivity,new,local sensitivity,NOR,0.00043523298002142997,0.00042788687300970916
+195,zero_region_components,new,cube topology,AND_OR_NOT,7.987451242567333e-05,8.018069588549943e-05
+196,zero_region_components,new,cube topology,NAND,9.720791562478903e-05,0.00011847570852063122
+197,zero_region_components,new,cube topology,NOR,0.002595865110362275,0.001419893183495066

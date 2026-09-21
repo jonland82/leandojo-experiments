@@ -1,0 +1,25 @@
+{
+  "features": 66,
+  "used": 12,
+  "new": 54,
+  "strictly_validated_additions": [
+    "anf_terms_degree_1",
+    "anf_terms_degree_2",
+    "fourier_negative_degree_3",
+    "fourier_negative_degree_1",
+    "anf_terms_degree_0",
+    "fourier_negative_degree_2"
+  ],
+  "top_overall": [
+    "decision_tree_leaf_count",
+    "khrapchenko_product",
+    "mean_certificate_size",
+    "constant_faces_codimension_3",
+    "mean_certificate_size_output_1",
+    "mean_certificate_size_output_0",
+    "zero_conditional_sensitivity",
+    "one_conditional_sensitivity",
+    "total_monochromatic_components",
+    "prime_1_mean_literals"
+  ]
+}

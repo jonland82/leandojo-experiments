@@ -1,0 +1,10 @@
+{
+  "nonzero_linear_parities": 15,
+  "exact_descriptor_cross_orbit_pairs": 8058023,
+  "parity_related_exact_descriptor_cross_orbit_pairs": 17024,
+  "largest_parity_related_gate_difference": {
+    "NAND": 8,
+    "NOR": 8,
+    "AND_OR_NOT": 2
+  }
+}

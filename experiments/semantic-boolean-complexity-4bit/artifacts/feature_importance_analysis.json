@@ -1,0 +1,34 @@
+{
+  "descriptor_classes": 3958,
+  "folds": 5,
+  "permutation_repeats": 8,
+  "top_individual_features": [
+    "decision_tree_leaf_count",
+    "mean_certificate_size",
+    "khrapchenko_product",
+    "anf_terms_degree_1",
+    "mean_certificate_size_output_1",
+    "prime_0_mean_literals",
+    "mean_certificate_size_output_0",
+    "prime_1_mean_literals",
+    "fourier_negative_degree_3",
+    "fourier_negative_degree_4"
+  ],
+  "top_feature_families": [
+    "decision trees",
+    "certificates",
+    "local sensitivity",
+    "ANF support",
+    "prime cubes",
+    "Fourier phase",
+    "Fourier magnitude",
+    "cube topology",
+    "symmetry",
+    "higher derivatives"
+  ],
+  "mean_r2": {
+    "AND_OR_NOT": 0.9731790479626279,
+    "NAND": 0.9569890640881304,
+    "NOR": 0.9466584698609004
+  }
+}

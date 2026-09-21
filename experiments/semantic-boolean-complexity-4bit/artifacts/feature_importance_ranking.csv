@@ -1,0 +1,67 @@
+feature,status,family,importance_mean
+decision_tree_leaf_count,new,decision trees,0.2830839454216269
+mean_certificate_size,new,certificates,0.09682826219436695
+khrapchenko_product,new,local sensitivity,0.05485824552260793
+anf_terms_degree_1,new,ANF support,0.04700422534194828
+mean_certificate_size_output_1,new,certificates,0.027169961428586516
+prime_0_mean_literals,new,prime cubes,0.024145889439118873
+mean_certificate_size_output_0,new,certificates,0.02405507524662134
+prime_1_mean_literals,new,prime cubes,0.021860568393209462
+fourier_negative_degree_3,new,Fourier phase,0.016957259879927817
+fourier_negative_degree_4,new,Fourier phase,0.01637333886400369
+anf_terms_degree_0,new,ANF support,0.012063215513736986
+fourier_negative_degree_2,new,Fourier phase,0.011789877718788961
+fourier_energy_degree_2,used,Fourier magnitude,0.011420401216010123
+anf_terms_degree_2,new,ANF support,0.010821986184262986
+fourier_negative_degree_1,new,Fourier phase,0.010804431774762419
+total_monochromatic_components,new,cube topology,0.008429277884851044
+input_symmetries,used,symmetry,0.006769821115836583
+maximum_local_sensitivity,new,local sensitivity,0.006006043629326445
+fourier_energy_degree_3,used,Fourier magnitude,0.003990816679484829
+order_2_derivative_std,new,higher derivatives,0.0033536912251789248
+sensitivity_variance,new,local sensitivity,0.003162363751451299
+fourier_energy_degree_4,used,Fourier magnitude,0.0027562611076078353
+cofactor_orbit_diversity,new,restrictions,0.001943649741770111
+one_region_components,new,cube topology,0.001437186025481131
+prime_0_count,new,prime cubes,0.0012367812030173793
+influence_0,used,influence,0.0010732045468201852
+fourier_l1_degree_3,new,Fourier shape,0.0009995852723107045
+prime_1_count,new,prime cubes,0.0009577064522701305
+anf_terms_degree_3,new,ANF support,0.0009574417938581058
+zero_region_components,new,cube topology,0.0009243158461375792
+order_3_derivative_std,new,higher derivatives,0.0007308525655361553
+fourier_zero_degree_3,new,Fourier shape,0.0006538734586273603
+fourier_energy_degree_1,used,Fourier magnitude,0.0006529273671575953
+fourier_zero_degree_2,new,Fourier shape,0.0005254836674466394
+one_conditional_sensitivity,new,local sensitivity,0.0004551787496893426
+influence_3,used,influence,0.00034068085412894503
+fourier_l1_degree_2,new,Fourier shape,0.00033466356773119524
+influence_2,used,influence,0.00031821276078218926
+fourier_l1_degree_1,new,Fourier shape,0.0002813358200582761
+constant_faces_codimension_2,new,restrictions,0.0002563804360954954
+zero_conditional_sensitivity,new,local sensitivity,0.0002526006217720311
+fourier_zero_degree_1,new,Fourier shape,0.0001938227896670595
+influence_1,used,influence,0.00016793751654451035
+order_3_derivative_max,new,higher derivatives,0.00015828658906278658
+fourier_energy_degree_0,used,Fourier magnitude,0.0001527317720890098
+order_2_derivative_max,new,higher derivatives,0.00014756024669551984
+bias,used,output balance,0.00011211914155305665
+maximum_absolute_walsh,new,Fourier shape,8.98162395664398e-05
+fourier_entropy,new,Fourier shape,8.568597477508581e-05
+decision_tree_depth,new,decision trees,7.597306611754247e-05
+constant_faces_codimension_3,new,restrictions,7.587582371478922e-05
+or_factorable_partitions,new,factorability,5.797626972543583e-05
+xor_factorable_partitions,new,factorability,5.011814540854809e-05
+and_factorable_partitions,new,factorability,2.4226389377416762e-05
+maximum_certificate_size,new,certificates,8.901027641093167e-06
+fourier_zero_degree_4,new,Fourier shape,8.517067626345741e-06
+fourier_negative_degree_0,new,Fourier phase,3.75811503163607e-06
+fourier_l1_degree_0,new,Fourier shape,0.0
+prime_1_minimum_literals,new,prime cubes,0.0
+anf_terms_degree_4,new,ANF support,0.0
+prime_0_minimum_literals,new,prime cubes,0.0
+fourier_l1_degree_4,new,Fourier shape,0.0
+canalizing_variable_count,new,restrictions,-9.177517577008133e-08
+constant_faces_codimension_1,new,restrictions,-2.4680164939413127e-07
+fourier_zero_degree_0,new,Fourier shape,-3.015612478938593e-06
+algebraic_degree,used,ANF,-2.0881311706198263e-05

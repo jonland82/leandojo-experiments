@@ -1,0 +1,32 @@
+{
+  "functions": 65536,
+  "input_permutation_orbits": 3984,
+  "current_descriptor_classes": 675,
+  "candidate_families": {
+    "fourier_signed_shape": 16,
+    "fourier_absolute_shape": 16,
+    "fourier_l1_by_degree": 5,
+    "fourier_sign_profile": 15,
+    "anf_degree_profile": 5,
+    "local_sensitivity_profile": 10,
+    "constant_restriction_profile": 6,
+    "certificate_profile": 10
+  },
+  "augmented_descriptor_classes": {
+    "current_descriptor": 675,
+    "fourier_signed_shape": 3702,
+    "fourier_absolute_shape": 689,
+    "fourier_l1_by_degree": 689,
+    "fourier_sign_profile": 3552,
+    "anf_degree_profile": 3794,
+    "local_sensitivity_profile": 770,
+    "constant_restriction_profile": 758,
+    "certificate_profile": 771,
+    "all_candidates": 3958
+  },
+  "largest_within_descriptor_spread": {
+    "NAND": 8,
+    "NOR": 8,
+    "AND_OR_NOT": 5
+  }
+}

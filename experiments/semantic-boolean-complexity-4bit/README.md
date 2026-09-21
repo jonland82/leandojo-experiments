@@ -14,6 +14,42 @@ Run from the repository root:
 python experiments/semantic-boolean-complexity-4bit/scripts/run.py
 ```
 
+To reproduce the descriptor-collision and missing-signal analysis after the
+main experiment:
+
+```powershell
+python experiments/semantic-boolean-complexity-4bit/scripts/analyze_gap.py
+```
+
+Its concise report is written to `GAP_ANALYSIS.md`.
+
+To run the controlled affine/parity intervention that follows from the gap
+analysis:
+
+```powershell
+python experiments/semantic-boolean-complexity-4bit/scripts/analyze_parity_intervention.py
+```
+
+Its report is written to `PARITY_INTERVENTION.md`.
+
+To build the complete original-versus-new feature table, association ranking,
+strict validation, and sorted charts:
+
+```powershell
+python experiments/semantic-boolean-complexity-4bit/scripts/analyze_feature_associations.py
+```
+
+Its report is written to `FEATURE_ASSOCIATIONS.md`.
+
+To measure conditional individual and joint-family importance in a nonlinear
+regressor under descriptor-class holdout:
+
+```powershell
+python experiments/semantic-boolean-complexity-4bit/scripts/analyze_feature_importance.py
+```
+
+Its report is written to `FEATURE_IMPORTANCE.md`.
+
 Outputs are written to `artifacts/` and summarized in `RESULTS.md`.
 
 The synthesis is exact by induction on gate cost. In a minimum formula, every
