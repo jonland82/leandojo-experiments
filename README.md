@@ -70,6 +70,9 @@ proofs. The full reports retain uncertainty estimates, controls, and caveats.
   functions: syntax-free semantic descriptors explain 77.7%--84.3% of exact
   minimum-size variance under strict descriptor holdout, with ablations,
   robustness checks, and matched permutation nulls in three gate languages.
+  The active research project has moved to the private
+  `jonland82/semantic-boolean-complexity` repository; the rendered paper is
+  retained here as an archive.
 
 ## Mathematical sketch
 
@@ -187,7 +190,6 @@ frozen configuration:
 - [`creativity-boolean-atlas`](experiments/creativity-boolean-atlas/)
 - [`creativity-sorting-atlas`](experiments/creativity-sorting-atlas/)
 - [`creativity-atlas-validation`](experiments/creativity-atlas-validation/)
-- [`semantic-boolean-complexity-4bit`](experiments/semantic-boolean-complexity-4bit/)
 
 ## Explore without installing anything
 

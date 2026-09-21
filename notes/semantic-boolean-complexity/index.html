@@ -8,7 +8,7 @@
   <meta property="og:title" content="Semantic Structure Predicts Exact Boolean Formula Complexity">
   <meta property="og:description" content="Exact synthesis, semantic holdouts, and matched permutation tests across NAND, NOR, and AND/OR/NOT.">
   <meta property="og:type" content="article">
-  <meta property="og:image" content="../../experiments/semantic-boolean-complexity-4bit/figures/four_bit_validation.png">
+  <meta property="og:image" content="figures/four_bit_validation.png">
   <title>Semantic Structure Predicts Exact Boolean Formula Complexity</title>
   <script>
     document.documentElement.classList.add("math-loading");
@@ -213,7 +213,7 @@
       <p class="author">J. R. Landers</p>
       <div class="paper-actions" aria-label="Document formats">
         <a href="note.pdf">Read the four-page PDF</a>
-        <a href="https://github.com/jonland82/leandojo-experiments/tree/master/notes/semantic-boolean-complexity">Source and data</a>
+        <a href="https://github.com/jonland82/semantic-boolean-complexity">Source and data</a>
       </div>
     </header>
 
@@ -323,7 +323,7 @@
         <p class="table-caption"><strong>Table 2.</strong> Four-input prediction. No matched permutation reaches an observed strict result, so \(p=1/1001&lt;0.001\) in every language.</p>
 
         <figure id="validation-figure">
-          <img src="../../experiments/semantic-boolean-complexity-4bit/figures/four_bit_validation.svg" alt="Held-out prediction declines from function to orbit to descriptor-class holdout, while observed strict results remain far above matched null distributions.">
+          <img src="figures/four_bit_validation.svg" alt="Held-out prediction declines from function to orbit to descriptor-class holdout, while observed strict results remain far above matched null distributions.">
           <figcaption><strong>Figure 1.</strong> Leakage and null controls. Prediction attenuates under stricter holdouts (left), yet strict observations remain far above bias/degree/symmetry-matched permutation distributions (right).</figcaption>
         </figure>
 
@@ -344,7 +344,7 @@
         <p class="table-caption"><strong>Table 3.</strong> Four-input descriptor ablations under strict holdout. Influence and Fourier coordinates are independently predictive; bias, degree, and symmetry alone are not.</p>
 
         <figure id="robustness-figure">
-          <img src="../../experiments/semantic-boolean-complexity-4bit/figures/four_bit_robustness.svg" alt="Ablation, neighbor-threshold, and coordinate-scaling robustness plots for the strict four-input prediction.">
+          <img src="figures/four_bit_robustness.svg" alt="Ablation, neighbor-threshold, and coordinate-scaling robustness plots for the strict four-input prediction.">
           <figcaption><strong>Figure 2.</strong> Feature and protocol robustness. Across \(k\in\{3,5,7,11,15\}\), strict \(R^2\) stays between 0.773 and 0.778 for NAND/NOR and between 0.841 and 0.845 for AND/OR/NOT. Alternative scaling keeps it between 0.806 and 0.815 for NAND/NOR and between 0.836 and 0.844 for AND/OR/NOT.</figcaption>
         </figure>
 
