@@ -1,0 +1,59 @@
+{
+  "functions": 65536,
+  "compact_profile_classes": 3952,
+  "folds": 5,
+  "constants": [
+    {
+      "language": "NAND",
+      "lower_scale": 1.0,
+      "upper_anchor": 6.0,
+      "upper_slope": 2.25,
+      "minimum_lower_slack": 0.0,
+      "minimum_upper_slack": 0.0,
+      "median_band_width": 18.6,
+      "position_q10": 0.36633663366336633,
+      "position_median": 0.48,
+      "position_q90": 0.5945945945945946,
+      "lower_contacts": 4,
+      "upper_contacts": 2
+    },
+    {
+      "language": "NOR",
+      "lower_scale": 1.0,
+      "upper_anchor": 6.0,
+      "upper_slope": 2.25,
+      "minimum_lower_slack": 0.0,
+      "minimum_upper_slack": 0.0,
+      "median_band_width": 18.6,
+      "position_q10": 0.36633663366336633,
+      "position_median": 0.48,
+      "position_q90": 0.5945945945945946,
+      "lower_contacts": 4,
+      "upper_contacts": 2
+    },
+    {
+      "language": "AND_OR_NOT",
+      "lower_scale": 1.0,
+      "upper_anchor": 3.0,
+      "upper_slope": 1.4444444444444444,
+      "minimum_lower_slack": 0.0,
+      "minimum_upper_slack": 0.0,
+      "median_band_width": 9.412698412698411,
+      "position_q10": 0.5658093797276853,
+      "position_median": 0.7307973664959766,
+      "position_q90": 0.8659793814432991,
+      "lower_contacts": 4,
+      "upper_contacts": 30
+    }
+  ],
+  "compact_model_gate_count_r2": {
+    "AND_OR_NOT": 0.9502343473961135,
+    "NAND": 0.9458371839522132,
+    "NOR": 0.9297200068413016
+  },
+  "compact_model_position_r2": {
+    "AND_OR_NOT": 0.7255324381613694,
+    "NAND": 0.796026194523172,
+    "NOR": 0.7376573119589909
+  }
+}

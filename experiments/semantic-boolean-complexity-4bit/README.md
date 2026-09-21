@@ -50,6 +50,15 @@ python experiments/semantic-boolean-complexity-4bit/scripts/analyze_feature_impo
 
 Its report is written to `FEATURE_IMPORTANCE.md`.
 
+To compute the tight four-input Khrapchenko/decision-tree sandwich and model
+the exact complexity's normalized position inside it:
+
+```powershell
+python experiments/semantic-boolean-complexity-4bit/scripts/analyze_complexity_sandwich.py
+```
+
+Its report is written to `COMPLEXITY_SANDWICH.md`.
+
 Outputs are written to `artifacts/` and summarized in `RESULTS.md`.
 
 The synthesis is exact by induction on gate cost. In a minimum formula, every
